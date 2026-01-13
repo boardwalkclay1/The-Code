@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Code | Discipline-Based Coding Academy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="styles/matrix.css" />
+</head>
+<body>
+  <!-- Loading screen -->
+  <div id="loading-screen">
+    <div class="matrix-overlay"></div>
+    <div class="loading-center">
+      <h1 class="logo">THE CODE</h1>
+      <p class="subtitle">Loading your discipline protocol...</p>
+      <div class="loading-bar">
+        <div class="loading-fill"></div>
+      </div>
+      <p class="loading-percent" id="loading-percent">0%</p>
+    </div>
+  </div>
+
+  <!-- Main app container -->
+  <div id="app" class="hidden">
+    <header class="top-bar">
+      <div class="brand">
+        <span class="brand-logo">⌘</span>
+        <span class="brand-name">THE CODE</span>
+      </div>
+      <nav class="nav">
+        <button class="nav-btn" data-target="home">Home</button>
+        <button class="nav-btn" data-target="lessons">Lessons</button>
+        <button class="nav-btn" data-target="diagrams">Folder Diagrams</button>
+        <button class="nav-btn" data-target="about">About</button>
+      </nav>
+    </header>
+
+    <main id="view-root">
+      <!-- Home View -->
+      <section id="view-home" class="view active">
+        <h2>Welcome to The Code</h2>
+        <p>You’ll learn how to structure real web projects with discipline: HTML, CSS, JavaScript, and clean folders.</p>
+        <button id="start-path-btn" class="primary-btn">Start Learning Path</button>
+      </section>
+
+      <!-- Lessons View -->
+      <section id="view-lessons" class="view">
+        <h2>Lesson Path: From Zero to Structured</h2>
+        <div class="lesson-list">
+          <button class="lesson-card" data-lesson="1">
+            <h3>Lesson 1: What is a Web Project?</h3>
+            <p>Understand browser, files, and the core pieces: HTML, CSS, JS.</p>
+          </button>
+          <button class="lesson-card" data-lesson="2">
+            <h3>Lesson 2: Setting Up Your First Folder</h3>
+            <p>Create index.html, styles, and scripts the disciplined way.</p>
+          </button>
+          <button class="lesson-card" data-lesson="3">
+            <h3>Lesson 3: Linking HTML, CSS, and JS</h3>
+            <p>Make the files talk to each other correctly.</p>
+          </button>
+        </div>
+
+        <div id="lesson-detail" class="lesson-detail">
+          <!-- JS injects lesson content here -->
+          <p>Select a lesson card to view details.</p>
+        </div>
+      </section>
+
+      <!-- Diagrams View -->
+      <section id="view-diagrams" class="view">
+        <h2>Project Folder Diagrams</h2>
+        <p>These diagrams show how your files should be organized.</p>
+
+        <div class="diagram-container">
+          <h3>Stage 1: Basic Project</h3>
+          <div class="diagram">
+            <div class="node root">the-code-project/</div>
+            <div class="node-level">
+              <div class="node">index.html</div>
+              <div class="node-branch">
+                <div class="node">styles/</div>
+                <div class="node-children">
+                  <div class="node child">style.css</div>
+                  <div class="node child muted">(later) layout.css</div>
+                </div>
+              </div>
+              <div class="node-branch">
+                <div class="node">scripts/</div>
+                <div class="node-children">
+                  <div class="node child">app.js</div>
+                  <div class="node child muted">(later) utils.js</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- About View -->
+      <section id="view-about" class="view">
+        <h2>About The Code</h2>
+        <p>The Code teaches you to think like a disciplined developer: structure first, features second.</p>
+        <p>Every lesson builds on the last, just like a serious training program.</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="scripts/app.js"></script>
+</body>
+</html>
