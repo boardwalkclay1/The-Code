@@ -312,3 +312,40 @@ p {
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+.sim-box {
+  background: #050816;
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(0,255,140,0.3);
+  max-width: 400px;
+  margin: 20px auto;
+  text-align: left;
+}
+
+.sim-box input,
+.sim-box select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: #0a1220;
+  color: white;
+}
+
+.sim-box button {
+  width: 100%;
+  padding: 12px;
+  background: #00ff7f;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #02150a;
+}
+
+.sim-result {
+  margin-top: 15px;
+  font-size: 16px;
+}
