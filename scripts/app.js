@@ -58,19 +58,142 @@ document.addEventListener("DOMContentLoaded", () => {
   const lessonDetail = document.getElementById("lesson-detail");
   const lessonCards = document.querySelectorAll(".lesson-card");
 
-  const lessonContent = {
-    1: {
-      title: "Lesson 1: What is a Web Project?",
-      body: `
-        <p><strong>Goal:</strong> Understand how the browser reads your files and why HTML, CSS, and JS each have a job.</p>
-        <ul>
-          <li><strong>HTML:</strong> The structure — what exists on the page.</li>
-          <li><strong>CSS:</strong> The style — how the page looks.</li>
-          <li><strong>JS:</strong> The behavior — how the page reacts.</li>
-        </ul>
-        <p>You’ll never randomly drop files again. From now on, everything has a deliberate place.</p>
-      `
-    },
+  const lessonContent = // Track lesson completion
+let lessonProgress = JSON.parse(localStorage.getItem("codeLessonProgress")) || {
+  1: false,
+  2: false,
+  3: false
+};
+
+// Full lesson data
+const fullLessons = {
+  1: {
+    title: "Lesson 1: What is a Web Project?",
+    content: `
+      <p>A web project is made of three core files:</p>
+      <ul>
+        <li><strong>HTML</strong> — structure</li>
+        <li><strong>CSS</strong> — style</li>
+        <li><strong>JS</strong> — behavior</li>
+      </ul>
+      <p>Browsers read HTML first, then load CSS and JS. This is why structure matters.</p>
+    `,
+    quiz: {
+      question: "Which file controls the structure of a webpage?",
+      options: [
+        { text: "HTML", correct: true },
+        { text: "CSS", correct: false },
+        { text: "JavaScript", correct: false }
+      ]
+    }
+  },
+  2: {
+    title: "Lesson 2: Setting Up Your First Folder",
+    content: `
+      <p>Your first disciplined project structure:</p>
+      <pre><code>my-first-project/
+  index.html
+  styles/
+    style.css
+  scripts/
+    app.js</code></pre>
+      <p>This structure keeps your project clean and scalable.</p>
+    `,
+    quiz: {
+      question: "Where should style.css be placed?",
+      options: [
+        { text: "In the root folder", correct: false },
+        { text: "Inside a folder named styles/", correct: true },
+        { text: "Inside scripts/", correct: false }
+      ]
+    }
+  },
+  3: {
+    title: "Lesson 3: Linking HTML, CSS, and JS",
+    content: `
+      <p>To connect your files:</p>
+      <ul>
+        <li>Link CSS in the &lt;head&gt;</li>
+        <li>Load JS at the bottom of &lt;body&gt;</li>
+      </ul>
+      <p>This ensures your page loads correctly and efficiently.</p>
+    `,
+    quiz: {
+      question: "Where should app.js be linked?",
+      options: [
+        { text: "Inside &lt;head&gt;", correct: false },
+        { text: "At the bottom of &lt;body&gt;", correct: true },
+        { text: "It doesn't need to be linked", correct: false }
+      ]
+    }
+  }
+};
+
+// Open lesson modal
+function openLesson(id) {
+  if (id > 1 && !lessonProgress[id - 1]) {
+    alert("Complete the previous lesson first.");
+    return;
+  }
+
+  const modal = document.getElementById("lesson-modal");
+  const body = document.getElementById("lesson-modal-body");
+  const lesson = fullLessons[id];
+
+  body.innerHTML = `
+    <h2>${lesson.title}</h2>
+    ${lesson.content}
+    <div class="quiz-question">${lesson.quiz.question}</div>
+    ${lesson.quiz.options
+      .map(
+        (opt, i) =>
+          `<div class="quiz-option" data-correct="${opt.correct}">${opt.text}</div>`
+      )
+      .join("")}
+    <button class="complete-lesson-btn hidden" id="complete-lesson-btn">Mark Lesson Complete</button>
+  `;
+
+  modal.classList.remove("hidden");
+
+  // Quiz logic
+  const options = document.querySelectorAll(".quiz-option");
+  const completeBtn = document.getElementById("complete-lesson-btn");
+
+  options.forEach(opt => {
+    opt.addEventListener("click", () => {
+      const correct = opt.dataset.correct === "true";
+
+      options.forEach(o => (o.style.pointerEvents = "none"));
+
+      if (correct) {
+        opt.classList.add("correct");
+        completeBtn.classList.remove("hidden");
+      } else {
+        opt.classList.add("wrong");
+      }
+    });
+  });
+
+  // Completion logic
+  completeBtn.addEventListener("click", () => {
+    lessonProgress[id] = true;
+    localStorage.setItem("codeLessonProgress", JSON.stringify(lessonProgress));
+    modal.classList.add("hidden");
+  });
+}
+
+// Close modal
+document.getElementById("close-lesson-modal").addEventListener("click", () => {
+  document.getElementById("lesson-modal").classList.add("hidden");
+});
+
+// Lesson card click
+lessonCards.forEach(card => {
+  card.addEventListener("click", () => {
+    openLesson(Number(card.dataset.lesson));
+  });
+});
+
     2: {
       title: "Lesson 2: Setting Up Your First Folder",
       body: `
