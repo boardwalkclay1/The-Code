@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Code — Test Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    /* ===== BASIC RESET ===== */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #02040a;
+      color: white;
+    }
+
+    .hidden { display: none; }
+
+    /* ===== MATRIX LOADING SCREEN ===== */
+    #loading-screen {
+      position: fixed;
+      inset: 0;
+      background: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      overflow: hidden;
+    }
+
+    #loading-screen::before {
+      content: "0101011001010011010010110100101100100101";
+      position: absolute;
+      inset: 0;
+      font-family: monospace;
+      font-size: 14px;
+      line-height: 16px;
+      color: rgba(0,255,140,0.25);
+      animation: matrix-scroll 6s linear infinite;
+      white-space: pre-wrap;
+    }
+
+    @keyframes matrix-scroll {
+      0% { transform: translateY(-20%); }
+      100% { transform: translateY(20%); }
+    }
+
+    .loading-center {
+      text-align: center;
+      z-index: 2;
+    }
+
+    .loading-center h1 {
+      color: #00ff7f;
+      font-size: 40px;
+      letter-spacing: 0.2em;
+      text-shadow: 0 0 15px #00ff7f;
+      margin-bottom: 10px;
+    }
+
+    .loading-bar {
+      width: 260px;
+      height: 6px;
+      background: rgba(0,255,140,0.15);
+      border-radius: 999px;
+      margin: 0 auto;
+      overflow: hidden;
+      border: 1px solid rgba(0,255,140,0.5);
+    }
+
+    .loading-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(to right, #00ff7f, #8bfdc7);
+      box-shadow: 0 0 15px #00ff7f;
+      transition: width 0.3s linear;
+    }
+
+    .loading-percent {
+      margin-top: 8px;
+      font-size: 12px;
+      color: #9efad1;
+      letter-spacing: 0.15em;
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    #app {
+      padding: 40px;
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #00ff7f;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #02150a;
+      box-shadow: 0 0 10px rgba(0,255,140,0.5);
+    }
+
+    /* ===== MODAL ===== */
+    #lesson-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    .lesson-modal-content {
+      width: 90%;
+      max-width: 600px;
+      background: #050816;
+      border-radius: 20px;
+      padding: 24px;
+      border: 1px solid rgba(0,255,140,0.3);
+      box-shadow: 0 0 40px rgba(0,255,140,0.4);
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: transparent;
+      border: none;
+      color: #00ff7f;
+      font-size: 22px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- MATRIX LOADING SCREEN -->
+  <div id="loading-screen">
+    <div class="loading-center">
+      <h1>THE CODE</h1>
+      <div class="loading-bar">
+        <div class="loading-fill"></div>
+      </div>
+      <div class="loading-percent" id="loading-percent">0%</div>
+    </div>
+  </div>
+
+  <!-- MAIN APP -->
+  <div id="app" class="hidden">
+    <h2>Welcome to The Code</h2>
+    <p>This is your new test page with the Matrix loader and working modal.</p>
+    <button id="openModalBtn">Open Modal</button>
+  </div>
+
+  <!-- MODAL -->
+  <div id="lesson-modal" class="hidden">
+    <div class="lesson-modal-content">
+      <button id="close-lesson-modal" class="close-btn">✕</button>
+      <h2>Modal Working!</h2>
+      <p>This modal now opens and closes correctly.</p>
+    </div>
+  </div>
+
+<script>
+/* ============================
+   MATRIX LOADING SCREEN
+============================ */
+const loadingScreen = document.getElementById("loading-screen");
+const app = document.getElementById("app");
+const loadingFill = document.querySelector(".loading-fill");
+const loadingPercent = document.getElementById("loading-percent");
+
+let progress = 0;
+const interval = setInterval(() => {
+  progress += Math.floor(Math.random() * 15) + 5;
+  if (progress > 100) progress = 100;
+
+  loadingFill.style.width = progress + "%";
+  loadingPercent.textContent = progress + "%";
+
+  if (progress >= 100) {
+    clearInterval(interval);
+    setTimeout(() => {
+      loadingScreen.style.opacity = "0";
+      loadingScreen.style.transition = "opacity 0.6s ease-out";
+      setTimeout(() => {
+        loadingScreen.style.display = "none";
+        app.classList.remove("hidden");
+      }, 600);
+    }, 400);
+  }
+}, 300);
+
+
+/* ============================
+   MODAL SYSTEM
+============================ */
+const modal = document.getElementById("lesson-modal");
+const openModalBtn = document.getElementById("openModalBtn");
+const closeModalBtn = document.getElementById("close-lesson-modal");
+
+openModalBtn.addEventListener("click", () => {
+  modal.classList.remove("hidden");
+});
+
+closeModalBtn.addEventListener("click", () => {
+  modal.classList.add("hidden");
+});
+</script>
+
+</body>
+</html>
