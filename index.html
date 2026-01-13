@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    /* ===== BASIC RESET ===== */
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -14,7 +13,10 @@
       color: white;
     }
 
-    .hidden { display: none; }
+    /* Hidden utility */
+    .hidden {
+      display: none !important;
+    }
 
     /* ===== MATRIX LOADING SCREEN ===== */
     #loading-screen {
@@ -115,10 +117,14 @@
       position: fixed;
       inset: 0;
       background: rgba(0,0,0,0.75);
-      display: flex;
+      display: none; /* default hidden */
       align-items: center;
       justify-content: center;
       z-index: 999;
+    }
+
+    #lesson-modal.show {
+      display: flex !important;
     }
 
     .lesson-modal-content {
@@ -202,7 +208,7 @@
   </div>
 
   <!-- MODAL -->
-  <div id="lesson-modal" class="hidden">
+  <div id="lesson-modal">
     <div class="lesson-modal-content">
       <button id="close-lesson-modal" class="close-btn">✕</button>
       <div id="lesson-modal-body"></div>
@@ -255,21 +261,20 @@ let lessonProgress = JSON.parse(localStorage.getItem("codeLessonProgress")) || {
 
 const lessons = {
   1: {
-    title: "Lesson 1: What is a Web Project?",
+    title: "Lesson 1: What Makes a File HTML, CSS, or JS?",
     content: `
-      <p>A web project is made of three core files:</p>
-      <ul>
-        <li><strong>HTML</strong> — structure</li>
-        <li><strong>CSS</strong> — style</li>
-        <li><strong>JS</strong> — behavior</li>
-      </ul>
+      <p>Files are not magical. They are plain text with specific endings.</p>
+      <p><strong>HTML = .html</strong></p>
+      <p><strong>CSS = .css</strong></p>
+      <p><strong>JavaScript = .js</strong></p>
+      <p>The extension is what tells the browser what the file is.</p>
     `,
     quiz: {
-      question: "Which file controls structure?",
+      question: "What makes a file HTML?",
       options: [
-        { text: "HTML", correct: true },
-        { text: "CSS", correct: false },
-        { text: "JavaScript", correct: false }
+        { text: "The .html extension", correct: true },
+        { text: "The program you write it in", correct: false },
+        { text: "The color of the code", correct: false }
       ]
     }
   },
@@ -283,13 +288,14 @@ const lessons = {
     style.css
   scripts/
     app.js</code></pre>
+      <p>Saving files in the correct folder is discipline.</p>
     `,
     quiz: {
       question: "Where does style.css go?",
       options: [
-        { text: "Root folder", correct: false },
         { text: "styles/", correct: true },
-        { text: "scripts/", correct: false }
+        { text: "scripts/", correct: false },
+        { text: "root folder", correct: false }
       ]
     }
   },
@@ -297,13 +303,16 @@ const lessons = {
   3: {
     title: "Lesson 3: Linking Files",
     content: `
-      <p>Link CSS in &lt;head&gt; and JS at bottom of &lt;body&gt;.</p>
+      <p>CSS goes in &lt;head&gt;:</p>
+      <pre><code>&lt;link rel="stylesheet" href="styles/style.css"&gt;</code></pre>
+      <p>JS goes at bottom of &lt;body&gt;:</p>
+      <pre><code>&lt;script src="scripts/app.js"&gt;&lt;/script&gt;</code></pre>
     `,
     quiz: {
       question: "Where should app.js be linked?",
       options: [
-        { text: "Inside &lt;head&gt;", correct: false },
-        { text: "Bottom of &lt;body&gt;", correct: true },
+        { text: "Bottom of <body>", correct: true },
+        { text: "Inside <head>", correct: false },
         { text: "It doesn't need linking", correct: false }
       ]
     }
@@ -328,7 +337,7 @@ function openLesson(id) {
     <button class="complete-lesson-btn hidden" id="complete-lesson-btn">Mark Complete</button>
   `;
 
-  lessonModal.classList.remove("hidden");
+  lessonModal.classList.add("show");
 
   const options = document.querySelectorAll(".quiz-option");
   const completeBtn = document.getElementById("complete-lesson-btn");
@@ -351,7 +360,7 @@ function openLesson(id) {
   completeBtn.addEventListener("click", () => {
     lessonProgress[id] = true;
     localStorage.setItem("codeLessonProgress", JSON.stringify(lessonProgress));
-    lessonModal.classList.add("hidden");
+    lessonModal.classList.remove("show");
   });
 }
 
@@ -362,7 +371,7 @@ lessonCards.forEach(card => {
 });
 
 document.getElementById("close-lesson-modal").addEventListener("click", () => {
-  lessonModal.classList.add("hidden");
+  lessonModal.classList.remove("show");
 });
 </script>
 
