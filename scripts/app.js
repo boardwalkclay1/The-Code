@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let progress = 0;
   const interval = setInterval(() => {
-    progress += Math.floor(Math.random() * 15) + 5;
+    progress += Math.floor(Math.random() * 12) + 8;
     if (progress > 100) progress = 100;
 
     loadingFill.style.width = progress + "%";
@@ -19,15 +19,16 @@ document.addEventListener("DOMContentLoaded", () => {
     if (progress >= 100) {
       clearInterval(interval);
       setTimeout(() => {
-        loadingScreen.style.opacity = "0";
         loadingScreen.style.transition = "opacity 0.6s ease-out";
+        loadingScreen.style.opacity = "0";
+
         setTimeout(() => {
-          loadingScreen.style.display = "none";
+          loadingScreen.remove();
           app.classList.remove("hidden");
         }, 600);
-      }, 400);
+      }, 300);
     }
-  }, 300);
+  }, 260);
 
 
 
@@ -39,13 +40,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function setActiveView(targetId) {
     views.forEach(v => v.classList.remove("active"));
-    document.getElementById(`view-${targetId}`).classList.add("active");
+    const target = document.getElementById(`view-${targetId}`);
+    if (target) target.classList.add("active");
 
-    navButtons.forEach(btn => btn.classList.remove("active"));
     navButtons.forEach(btn => {
-      if (btn.dataset.target === targetId) {
-        btn.classList.add("active");
-      }
+      btn.classList.toggle("active", btn.dataset.target === targetId);
     });
   }
 
@@ -55,9 +54,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  document.getElementById("start-path-btn").addEventListener("click", () => {
-    setActiveView("lessons");
-  });
+  const startPathBtn = document.getElementById("start-path-btn");
+  if (startPathBtn) {
+    startPathBtn.addEventListener("click", () => setActiveView("lessons"));
+  }
 
 
 
@@ -67,8 +67,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const lessonCards = document.querySelectorAll(".lesson-card");
   const lessonModal = document.getElementById("lesson-modal");
   const lessonModalBody = document.getElementById("lesson-modal-body");
+  const closeLessonModal = document.getElementById("close-lesson-modal");
 
-  // Save progress in localStorage
   let lessonProgress = JSON.parse(localStorage.getItem("codeLessonProgress")) || {
     1: false,
     2: false,
@@ -140,11 +140,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-
-
-  /* ============================
-     OPEN LESSON MODAL
-  ============================ */
   function openLesson(id) {
     if (id > 1 && !lessonProgress[id - 1]) {
       alert("Complete the previous lesson first.");
@@ -165,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     lessonModal.classList.remove("hidden");
 
-    const options = document.querySelectorAll(".quiz-option");
+    const options = lessonModalBody.querySelectorAll(".quiz-option");
     const completeBtn = document.getElementById("complete-lesson-btn");
 
     options.forEach(opt => {
@@ -187,12 +182,14 @@ document.addEventListener("DOMContentLoaded", () => {
       lessonProgress[id] = true;
       localStorage.setItem("codeLessonProgress", JSON.stringify(lessonProgress));
       lessonModal.classList.add("hidden");
-    });
+    }, { once: true });
   }
 
-  document.getElementById("close-lesson-modal").addEventListener("click", () => {
-    lessonModal.classList.add("hidden");
-  });
+  if (closeLessonModal) {
+    closeLessonModal.addEventListener("click", () => {
+      lessonModal.classList.add("hidden");
+    });
+  }
 
   lessonCards.forEach(card => {
     card.addEventListener("click", () => {
@@ -226,17 +223,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const answerOut = document.getElementById("answerOut");
   const answerIn = document.getElementById("answerIn");
 
-  startCameraBtn.addEventListener("click", async () => {
-    try {
-      localStream = await navigator.mediaDevices.getUserMedia({
-        video: true,
-        audio: true
-      });
-      localVideo.srcObject = localStream;
-    } catch (err) {
-      alert("Camera/mic access failed.");
-    }
-  });
+  if (startCameraBtn) {
+    startCameraBtn.addEventListener("click", async () => {
+      try {
+        localStream = await navigator.mediaDevices.getUserMedia({
+          video: true,
+          audio: true
+        });
+        localVideo.srcObject = localStream;
+      } catch (err) {
+        alert("Camera/mic access failed.");
+      }
+    });
+  }
 
   function createPeerConnection() {
     peerConnection = new RTCPeerConnection(iceServers);
@@ -252,41 +251,57 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  createOfferBtn.addEventListener("click", async () => {
-    if (!localStream) return alert("Start camera first.");
+  if (createOfferBtn) {
+    createOfferBtn.addEventListener("click", async () => {
+      if (!localStream) return alert("Start camera first.");
 
-    createPeerConnection();
+      createPeerConnection();
 
-    const offer = await peerConnection.createOffer();
-    await peerConnection.setLocalDescription(offer);
+      const offer = await peerConnection.createOffer();
+      await peerConnection.setLocalDescription(offer);
 
-    offerOut.value = JSON.stringify(offer);
-  });
+      offerOut.value = JSON.stringify(offer);
+    });
+  }
 
-  setOfferBtn.addEventListener("click", async () => {
-    const offer = JSON.parse(offerIn.value);
+  if (setOfferBtn) {
+    setOfferBtn.addEventListener("click", async () => {
+      try {
+        const offer = JSON.parse(offerIn.value);
 
-    createPeerConnection();
-    await peerConnection.setRemoteDescription(offer);
+        createPeerConnection();
+        await peerConnection.setRemoteDescription(offer);
 
-    alert("Offer set. Now create answer.");
-  });
+        alert("Offer set. Now create answer.");
+      } catch {
+        alert("Invalid offer JSON.");
+      }
+    });
+  }
 
-  createAnswerBtn.addEventListener("click", async () => {
-    if (!peerConnection) return alert("Set offer first.");
-    if (!localStream) return alert("Start camera first.");
+  if (createAnswerBtn) {
+    createAnswerBtn.addEventListener("click", async () => {
+      if (!peerConnection) return alert("Set offer first.");
+      if (!localStream) return alert("Start camera first.");
 
-    const answer = await peerConnection.createAnswer();
-    await peerConnection.setLocalDescription(answer);
+      const answer = await peerConnection.createAnswer();
+      await peerConnection.setLocalDescription(answer);
 
-    answerOut.value = JSON.stringify(answer);
-  });
+      answerOut.value = JSON.stringify(answer);
+    });
+  }
 
-  setAnswerBtn.addEventListener("click", async () => {
-    const answer = JSON.parse(answerIn.value);
-    await peerConnection.setRemoteDescription(answer);
+  if (setAnswerBtn) {
+    setAnswerBtn.addEventListener("click", async () => {
+      try {
+        const answer = JSON.parse(answerIn.value);
+        await peerConnection.setRemoteDescription(answer);
 
-    alert("Connected.");
-  });
+        alert("Connected.");
+      } catch {
+        alert("Invalid answer JSON.");
+      }
+    });
+  }
 
 });
