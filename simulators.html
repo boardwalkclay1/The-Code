@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Code — Simulators</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #02040a;
+      color: white;
+      display: flex;
+    }
+
+    /* ===== MATRIX SIDEBAR ===== */
+    #sidebar {
+      width: 260px;
+      background: #03050f;
+      border-right: 1px solid rgba(0,255,140,0.2);
+      padding: 20px;
+      height: 100vh;
+      position: fixed;
+      overflow-y: auto;
+      box-shadow: 0 0 20px rgba(0,255,140,0.2);
+    }
+
+    #sidebar h1 {
+      font-size: 26px;
+      color: #00ff7f;
+      text-shadow: 0 0 10px #00ff7f;
+      margin-bottom: 20px;
+      letter-spacing: 0.1em;
+    }
+
+    .side-link {
+      display: block;
+      padding: 12px 10px;
+      margin-bottom: 10px;
+      background: #050816;
+      border-radius: 10px;
+      border: 1px solid rgba(0,255,140,0.2);
+      cursor: pointer;
+      transition: 0.2s;
+      text-decoration: none;
+      color: white;
+    }
+
+    .side-link:hover {
+      background: rgba(0,255,140,0.15);
+      transform: translateX(4px);
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    #main {
+      margin-left: 260px;
+      padding: 40px;
+      max-width: 900px;
+    }
+
+    h2 {
+      color: #00ff7f;
+      text-shadow: 0 0 10px #00ff7f;
+    }
+
+    .section {
+      background: #050816;
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(0,255,140,0.2);
+      margin-bottom: 30px;
+      box-shadow: 0 0 20px rgba(0,255,140,0.2);
+    }
+
+    .big-button {
+      display: inline-block;
+      padding: 14px 24px;
+      background: #00ff7f;
+      color: #02150a;
+      font-weight: bold;
+      border-radius: 10px;
+      text-decoration: none;
+      margin: 10px 10px 0 0;
+      box-shadow: 0 0 15px rgba(0,255,140,0.4);
+      transition: 0.2s;
+      cursor: pointer;
+    }
+
+    .big-button:hover {
+      transform: scale(1.05);
+    }
+
+    /* ===== SIMULATOR AREA ===== */
+    #simulator-area {
+      margin-top: 30px;
+    }
+
+    .sim-box {
+      background: #050816;
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(0,255,140,0.3);
+      max-width: 400px;
+      margin: 20px auto;
+      text-align: left;
+    }
+
+    .sim-box input,
+    .sim-box select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      margin-bottom: 16px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: #0a1220;
+      color: white;
+    }
+
+    .sim-box button {
+      width: 100%;
+      padding: 12px;
+      background: #00ff7f;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #02150a;
+    }
+
+    .sim-result {
+      margin-top: 15px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+  <div id="sidebar">
+    <h1>THE CODE</h1>
+
+    <a class="side-link" href="index.html">Home</a>
+    <a class="side-link" href="lessons.html">Lessons</a>
+    <a class="side-link" href="simulators.html">Simulators</a>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div id="main">
+
+    <div class="section">
+      <h2>Simulators</h2>
+      <p>
+        These simulators teach you the most important discipline in coding:
+        <strong>saving your files correctly.</strong>
+      </p>
+      <p>
+        Before you write a single line of code, you must understand how to save:
+      </p>
+      <ul>
+        <li><strong>index.html</strong> — your webpage</li>
+        <li><strong>style.css</strong> — your design</li>
+        <li><strong>app.js</strong> — your logic</li>
+      </ul>
+      <p>
+        These simulators walk you through the exact steps, show you common mistakes,
+        and tell you instantly if you got it right.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Choose a Simulator</h2>
+
+      <button class="big-button" id="openHTMLSim">HTML Save Simulator</button>
+      <button class="big-button" id="openCSSSim">CSS Save Simulator</button>
+      <button class="big-button" id="openJSSim">JS Save Simulator</button>
+
+      <div id="simulator-area"></div>
+    </div>
+
+  </div>
+
+  <!-- MODULE IMPORTS -->
+  <script type="module">
+    import { startHTMLSaveSimulator } from "./simulators/save-html.js";
+    import { startCSSSaveSimulator } from "./simulators/save-css.js";
+    import { startJSSaveSimulator } from "./simulators/save-js.js";
+
+    const area = document.getElementById("simulator-area");
+
+    document.getElementById("openHTMLSim").addEventListener("click", () => {
+      startHTMLSaveSimulator(area);
+    });
+
+    document.getElementById("openCSSSim").addEventListener("click", () => {
+      startCSSSaveSimulator(area);
+    });
+
+    document.getElementById("openJSSim").addEventListener("click", () => {
+      startJSSaveSimulator(area);
+    });
+  </script>
+
+</body>
+</html>
