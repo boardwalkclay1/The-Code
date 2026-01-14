@@ -18,8 +18,6 @@ export function initChatroomUI({ profile, webrtc }) {
   nameInput.value = profile.name || "";
   if (profile.avatarDataUrl) {
     avatarPreview.src = profile.avatarDataUrl;
-  } else {
-    avatarPreview.style.background = "#0a1220";
   }
 
   // Avatar upload
@@ -39,7 +37,7 @@ export function initChatroomUI({ profile, webrtc }) {
     profile.name = nameInput.value.trim() || "Guest";
     import("./profile-store.js").then(mod => {
       mod.saveProfile(profile);
-      profileStatus.textContent = "Profile saved to this device.";
+      profileStatus.textContent = "Profile saved.";
     });
   });
 
@@ -47,17 +45,16 @@ export function initChatroomUI({ profile, webrtc }) {
   joinRoomBtn.addEventListener("click", async () => {
     const roomName = roomInput.value.trim();
     if (!roomName) {
-      roomStatus.textContent = "Enter a room name first.";
+      roomStatus.textContent = "Enter a room name.";
       return;
     }
-    roomStatus.textContent = "Joining room (UI only, signaling TBD)...";
+    roomStatus.textContent = "Joining room (UI only)...";
 
     await webrtc.startLocalMedia(stream => {
       addVideoTile(videoGrid, stream, profile.name || "You", "local");
     });
 
-    // Placeholder: later you’ll call webrtc.joinRoom(roomName, profile)
-    // and plug in your signaling server.
+    // Later: webrtc.joinRoom(roomName)
   });
 
   // Chat (local echo for now)
@@ -67,7 +64,6 @@ export function initChatroomUI({ profile, webrtc }) {
     addChatLine(chatMessages, profile.name || "You", text);
     chatInput.value = "";
     chatMessages.scrollTop = chatMessages.scrollHeight;
-    // Later: send over data channel
   });
 }
 
