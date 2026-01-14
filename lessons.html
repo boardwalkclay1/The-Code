@@ -5,144 +5,41 @@
   <title>The Code — Lessons</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #02040a;
-      color: white;
-      display: flex;
-    }
-
-    /* ===== SIDEBAR ===== */
-    #sidebar {
-      width: 260px;
-      background: #03050f;
-      border-right: 1px solid rgba(0,255,140,0.2);
-      padding: 20px;
-      height: 100vh;
-      position: fixed;
-      overflow-y: auto;
-      box-shadow: 0 0 20px rgba(0,255,140,0.2);
-    }
-
-    #sidebar h1 {
-      font-size: 26px;
-      color: #00ff7f;
-      text-shadow: 0 0 10px #00ff7f;
-      margin-bottom: 20px;
-      letter-spacing: 0.1em;
-    }
-
-    .side-link {
-      display: block;
-      padding: 12px 10px;
-      margin-bottom: 10px;
-      background: #050816;
-      border-radius: 10px;
-      border: 1px solid rgba(0,255,140,0.2);
-      cursor: pointer;
-      transition: 0.2s;
-      text-decoration: none;
-      color: white;
-    }
-
-    .side-link:hover {
-      background: rgba(0,255,140,0.15);
-      transform: translateX(4px);
-    }
-
-    /* ===== MAIN CONTENT ===== */
-    #main {
-      margin-left: 260px;
-      padding: 40px;
-      max-width: 900px;
-    }
-
-    h2 {
-      color: #00ff7f;
-      text-shadow: 0 0 10px #00ff7f;
-    }
-
-    .section {
-      background: #050816;
-      padding: 20px;
-      border-radius: 16px;
-      border: 1px solid rgba(0,255,140,0.2);
-      margin-bottom: 30px;
-      box-shadow: 0 0 20px rgba(0,255,140,0.2);
-    }
-
-    .lesson-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .lesson-card {
-      background: #050816;
-      padding: 20px;
-      border-radius: 14px;
-      border: 1px solid rgba(0,255,140,0.3);
-      text-decoration: none;
-      color: white;
-      transition: 0.2s;
-      display: block;
-    }
-
-    .lesson-card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 20px rgba(0,255,140,0.4);
-    }
-
-    .big-button {
-      display: inline-block;
-      padding: 14px 24px;
-      background: #00ff7f;
-      color: #02150a;
-      font-weight: bold;
-      border-radius: 10px;
-      text-decoration: none;
-      margin-top: 10px;
-      box-shadow: 0 0 15px rgba(0,255,140,0.4);
-      transition: 0.2s;
-    }
-
-    .big-button:hover {
-      transform: scale(1.05);
-    }
-  </style>
+  <!-- GLOBAL MATRIX + THEME -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
+  <!-- GLOBAL MATRIX RAIN -->
+  <div id="matrix-rain"></div>
+
+  <!-- GHOST HAND -->
+  <img id="hacker-hand" src="hand-typing.png" alt="">
+
   <!-- SIDEBAR -->
-  <div id="sidebar">
+  <div id="sidebar" data-lock>
     <h1>THE CODE</h1>
 
     <a class="side-link" href="index.html">Home</a>
-    <a class="side-link" href="lessons.html">Lessons</a>
-    <a class="side-link" href="simulators.html">Simulators</a>
-    <a class="side-link" href="chat.html">Live Room</a>
-    <a class="lesson-card" href="lesson.html?id=1">Lesson 1 — What Makes a File HTML</a>
-    <a class="lesson-card" href="lesson.html?id=2">Lesson 2 — Saving index.html</a>
-    <a class="lesson-card" href="lesson.html?id=3">Lesson 3 — HTML Structure</a>
-    <a class="lesson-card" href="lesson.html?id=4">Lesson 4 — The Head & Body</a>
-    <a class="lesson-card" href="lesson.html?id=5">Lesson 5 — Tags & Elements</a>
 
-    <a class="lesson-card" href="lesson.html?id=6">Lesson 6 — What Makes a File CSS</a>
-    <a class="lesson-card" href="lesson.html?id=7">Lesson 7 — Saving style.css</a>
-    <a class="lesson-card" href="lesson.html?id=8">Lesson 8 — Linking CSS</a>
-    <a class="lesson-card" href="lesson.html?id=9">Lesson 9 — Selectors & Classes</a>
-    <a class="lesson-card" href="lesson.html?id=10">Lesson 10 — Styling Your Page</a>
+    <!-- Core Learning -->
+    <div class="side-section-title">Core Path</div>
+    <a class="side-link" href="lessons.html" data-lock>Lessons</a>
+    <a class="side-link" href="simulators.html" data-lock>Simulators</a>
 
-    <a class="lesson-card" href="lesson.html?id=11">Lesson 11 — What Makes a File JS</a>
-    <a class="lesson-card" href="lesson.html?id=12">Lesson 12 — Saving app.js</a>
-    <a class="lesson-card" href="lesson.html?id=13">Lesson 13 — Linking JavaScript</a>
-    <a class="lesson-card" href="lesson.html?id=14">Lesson 14 — Console & Variables</a>
-    <a class="lesson-card" href="lesson.html?id=15">Lesson 15 — Making Your First App</a>
- </div>
+    <!-- Deep Knowledge -->
+    <div class="side-section-title">Knowledge</div>
+    <a class="side-link" href="code.html" data-lock>Understanding the Code</a>
+    <a class="side-link" href="common-errors.html" data-lock>Common Errors</a>
+    <a class="side-link" href="reading-code.html" data-lock>How to Read Code</a>
+    <a class="side-link" href="roadmap.html" data-lock>Beginner Roadmap</a>
+
+    <!-- Tools -->
+    <div class="side-section-title">Tools</div>
+    <a class="side-link" href="github.html" data-lock>GitHub Guide</a>
+    <a class="side-link" href="chat.html" data-lock>Live Room</a>
+  </div>
 
   <!-- MAIN CONTENT -->
   <div id="main">
@@ -151,22 +48,21 @@
     <div class="section">
       <h2>Welcome to The Lessons</h2>
       <p>
-        Before we dive in, I want you to understand something important:
-        <strong>coding is simple.</strong>  
-        Most people get overwhelmed because they don’t know how to structure the build.
+        Before you start, understand this clearly:  
+        <strong>Coding is simple when the structure is right.</strong>
       </p>
       <p>
-        That’s what The Code teaches you — <strong>structure</strong>.  
-        Once you understand how files, folders, and names work, everything becomes easy.
+        Most beginners struggle not because the code is hard —  
+        but because they don’t know how to organize the build.
       </p>
       <p>
-        You’ll learn how to build websites and apps from scratch, increase your awareness,
-        improve your typing speed, and gain access to a world that was previously
-        inaccessible to you.
+        The Code teaches you the foundation the pros use:
+        <strong>files, folders, naming, linking, and discipline.</strong>
       </p>
       <p>
-        The entire world runs on these builds — every website, every app, every platform.
-        And now you’re learning the same foundation the pros use.
+        Once you understand structure, you can build anything —  
+        websites, apps, dashboards, automations, tools —  
+        all from scratch, in real time.
       </p>
     </div>
 
@@ -184,38 +80,38 @@
         <li>How to avoid beginner mistakes</li>
       </ul>
       <p>
-        After each lesson, you can go to the simulators to practice saving files the right way.
+        After each lesson, reinforce your skills in the simulators.
       </p>
-      <a class="big-button" href="simulators.html">Open Simulators</a>
+      <a class="big-button" href="simulators.html" data-lock>Open Simulators</a>
     </div>
 
     <!-- LESSON LIST -->
     <div class="section">
       <h2>Lessons (15 Total)</h2>
-      <p>Click any lesson to open it. Each one teaches you a core skill.</p>
+      <p>Click any lesson to open it. Each one teaches a core skill.</p>
 
       <div class="lesson-list">
 
         <!-- HTML LESSONS -->
-        <a class="lesson-card" href="lessons/lesson1.html">Lesson 1 — What Makes a File HTML</a>
-        <a class="lesson-card" href="lessons/lesson2.html">Lesson 2 — Saving index.html</a>
-        <a class="lesson-card" href="lessons/lesson3.html">Lesson 3 — HTML Structure</a>
-        <a class="lesson-card" href="lessons/lesson4.html">Lesson 4 — The Head & Body</a>
-        <a class="lesson-card" href="lessons/lesson5.html">Lesson 5 — Tags & Elements</a>
+        <a class="lesson-card" href="lessons/lesson1.html" data-lock>Lesson 1 — What Makes a File HTML</a>
+        <a class="lesson-card" href="lessons/lesson2.html" data-lock>Lesson 2 — Saving index.html</a>
+        <a class="lesson-card" href="lessons/lesson3.html" data-lock>Lesson 3 — HTML Structure</a>
+        <a class="lesson-card" href="lessons/lesson4.html" data-lock>Lesson 4 — The Head & Body</a>
+        <a class="lesson-card" href="lessons/lesson5.html" data-lock>Lesson 5 — Tags & Elements</a>
 
         <!-- CSS LESSONS -->
-        <a class="lesson-card" href="lessons/lesson6.html">Lesson 6 — What Makes a File CSS</a>
-        <a class="lesson-card" href="lessons/lesson7.html">Lesson 7 — Saving style.css</a>
-        <a class="lesson-card" href="lessons/lesson8.html">Lesson 8 — Linking CSS</a>
-        <a class="lesson-card" href="lessons/lesson9.html">Lesson 9 — Selectors & Classes</a>
-        <a class="lesson-card" href="lessons/lesson10.html">Lesson 10 — Styling Your Page</a>
+        <a class="lesson-card" href="lessons/lesson6.html" data-lock>Lesson 6 — What Makes a File CSS</a>
+        <a class="lesson-card" href="lessons/lesson7.html" data-lock>Lesson 7 — Saving style.css</a>
+        <a class="lesson-card" href="lessons/lesson8.html" data-lock>Lesson 8 — Linking CSS</a>
+        <a class="lesson-card" href="lessons/lesson9.html" data-lock>Lesson 9 — Selectors & Classes</a>
+        <a class="lesson-card" href="lessons/lesson10.html" data-lock>Lesson 10 — Styling Your Page</a>
 
         <!-- JS LESSONS -->
-        <a class="lesson-card" href="lessons/lesson11.html">Lesson 11 — What Makes a File JS</a>
-        <a class="lesson-card" href="lessons/lesson12.html">Lesson 12 — Saving app.js</a>
-        <a class="lesson-card" href="lessons/lesson13.html">Lesson 13 — Linking JavaScript</a>
-        <a class="lesson-card" href="lessons/lesson14.html">Lesson 14 — Console & Variables</a>
-        <a class="lesson-card" href="lessons/lesson15.html">Lesson 15 — Making Your First App</a>
+        <a class="lesson-card" href="lessons/lesson11.html" data-lock>Lesson 11 — What Makes a File JS</a>
+        <a class="lesson-card" href="lessons/lesson12.html" data-lock>Lesson 12 — Saving app.js</a>
+        <a class="lesson-card" href="lessons/lesson13.html" data-lock>Lesson 13 — Linking JavaScript</a>
+        <a class="lesson-card" href="lessons/lesson14.html" data-lock>Lesson 14 — Console & Variables</a>
+        <a class="lesson-card" href="lessons/lesson15.html" data-lock>Lesson 15 — Making Your First App</a>
 
       </div>
     </div>
@@ -224,17 +120,24 @@
     <div class="section">
       <h2>Your GitHub Setup</h2>
       <p>
-        After these lessons, we’ll walk you through setting up your own GitHub profile.
-        With GitHub, you can host websites for free, share your work with the world,
-        and start building a real portfolio.
+        After these lessons, you’ll set up your GitHub profile —  
+        your public identity as a developer.
       </p>
       <p>
-        By the time you finish this path, you’ll be coding, deploying, and building apps
-        with confidence.
+        With GitHub, you can host websites for free, share your work,  
+        and build a portfolio that grows with you.
+      </p>
+      <p>
+        By the end of this path, you’ll be coding, deploying,  
+        and building apps with confidence.
       </p>
     </div>
 
   </div>
+
+  <!-- GLOBAL APP JS -->
+  <script src="app.js"></script>
+  <script src="matrix.js"></script>
 
 </body>
 </html>
