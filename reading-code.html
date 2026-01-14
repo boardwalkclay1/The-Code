@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Code — How to Read Code</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #02040a;
+      color: white;
+      display: flex;
+    }
+
+    #sidebar {
+      width: 260px;
+      background: #03050f;
+      border-right: 1px solid rgba(0,255,140,0.2);
+      padding: 20px;
+      height: 100vh;
+      position: fixed;
+      overflow-y: auto;
+      box-shadow: 0 0 20px rgba(0,255,140,0.2);
+    }
+
+    #sidebar h1 {
+      font-size: 26px;
+      color: #00ff7f;
+      text-shadow: 0 0 10px #00ff7f;
+      margin-bottom: 20px;
+      letter-spacing: 0.1em;
+    }
+
+    .side-link {
+      display: block;
+      padding: 12px 10px;
+      margin-bottom: 10px;
+      background: #050816;
+      border-radius: 10px;
+      border: 1px solid rgba(0,255,140,0.2);
+      cursor: pointer;
+      transition: 0.2s;
+      text-decoration: none;
+      color: white;
+    }
+
+    .side-link:hover {
+      background: rgba(0,255,140,0.15);
+      transform: translateX(4px);
+    }
+
+    #main {
+      margin-left: 260px;
+      padding: 40px;
+      max-width: 900px;
+    }
+
+    h2 {
+      color: #00ff7f;
+      text-shadow: 0 0 10px #00ff7f;
+    }
+
+    .section {
+      background: #050816;
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(0,255,140,0.2);
+      margin-bottom: 30px;
+      box-shadow: 0 0 20px rgba(0,255,140,0.2);
+    }
+
+    .step {
+      margin-bottom: 14px;
+    }
+
+    .step-title {
+      font-weight: bold;
+      color: #9efad1;
+      margin-bottom: 4px;
+    }
+
+    code {
+      background: #020814;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="sidebar">
+    <h1>THE CODE</h1>
+
+    <a class="side-link" href="index.html">Home</a>
+    <a class="side-link" href="lessons.html">Lessons</a>
+    <a class="side-link" href="simulators.html">Simulators</a>
+    <a class="side-link" href="chat.html">Live Room</a>
+    <a class="side-link" href="github.html">GitHub Guide</a>
+    <a class="side-link" href="code.html">Understanding the Code</a>
+    <a class="side-link" href="common-errors.html">Common Errors & Fixes</a>
+    <a class="side-link" href="reading-code.html">How to Read Code</a>
+    <a class="side-link" href="roadmap.html">Beginner Roadmap</a>
+  </div>
+
+  <div id="main">
+
+    <div class="section">
+      <h2>How to Read Code Like a Pro</h2>
+      <p>
+        Reading code is a superpower.  
+        Once you can read code calmly, you can:
+      </p>
+      <ul>
+        <li>Understand what AI generated for you</li>
+        <li>Fix bugs without guessing</li>
+        <li>Learn from other people’s projects</li>
+        <li>Build faster because you see patterns</li>
+      </ul>
+      <p>
+        You don’t have to understand every line instantly.  
+        You just need a process.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Your Code Reading Process</h2>
+
+      <div class="step">
+        <div class="step-title">1. Start from the top</div>
+        <p>
+          Look at the file name first: <code>index.html</code>, <code>style.css</code>, <code>app.js</code>.  
+          That tells you what role the file plays.
+        </p>
+      </div>
+
+      <div class="step">
+        <div class="step-title">2. Scan the structure, not the details</div>
+        <p>
+          In HTML, look for big sections: header, main, footer.  
+          In CSS, look for main classes like <code>.container</code>, <code>.btn</code>.  
+          In JS, look for functions and event listeners.
+        </p>
+      </div>
+
+      <div class="step">
+        <div class="step-title">3. Follow the flow</div>
+        <p>
+          Ask: “What happens first?”  
+          For JS, look for code that runs on page load, then code that runs on clicks or events.
+        </p>
+      </div>
+
+      <div class="step">
+        <div class="step-title">4. Use the console</div>
+        <p>
+          Add <code>console.log()</code> in key places to see what values are and when things run.  
+          Reading code is easier when you can see what it’s doing.
+        </p>
+      </div>
+
+      <div class="step">
+        <div class="step-title">5. Rename in your head</div>
+        <p>
+          If a variable is called <code>x</code>, think of it as <code>count</code> or <code>userName</code> based on context.  
+          Give things mental names that make sense to you.
+        </p>
+      </div>
+
+      <div class="step">
+        <div class="step-title">6. Look for patterns</div>
+        <p>
+          You’ll start to see the same patterns:  
+          event listeners, loops, conditionals, DOM updates.  
+          Once you recognize them, new code stops feeling scary.
+        </p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Reading AI-Generated Code</h2>
+      <p>
+        When AI writes code for you, don’t just copy and paste blindly.
+      </p>
+      <ul>
+        <li>Skim the structure: what files did it create?</li>
+        <li>Look for key functions and what they’re named</li>
+        <li>Search for words like “error”, “todo”, or “fix”</li>
+        <li>Use <code>console.log()</code> to verify behavior</li>
+      </ul>
+      <p>
+        Your job is not to memorize everything.  
+        Your job is to understand enough to guide the AI and fix what matters.
+      </p>
+    </div>
+
+  </div>
+
+</body>
+</html>
