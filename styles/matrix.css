@@ -15,6 +15,8 @@
   justify-content: center;
   overflow: hidden;
   z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.6s ease-out;
 }
 
 /* Matrix Rain Canvas */
@@ -169,17 +171,28 @@ function drawMatrix() {
 
 setInterval(drawMatrix, 50);
 
-/* Fake loading animation */
+/* Fake loading animation + redirect */
 let percent = 0;
 const fill = document.getElementById("loading-fill");
 const percentText = document.getElementById("loading-percent");
+const screen = document.getElementById("loading-screen");
 
 const loadingInterval = setInterval(() => {
   percent += Math.random() * 8;
+
   if (percent >= 100) {
     percent = 100;
     clearInterval(loadingInterval);
+
+    // Fade out
+    screen.style.opacity = "0";
+
+    // Redirect after fade
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 700);
   }
+
   fill.style.width = percent + "%";
   percentText.textContent = Math.floor(percent) + "%";
 }, 200);
