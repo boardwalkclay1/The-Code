@@ -1,0 +1,17 @@
+<input type="email" id="userEmail" placeholder="Enter your email">
+<button id="continueBtn">Continue</button>
+
+<div id="paymentSection" style="display:none;">
+  <!-- PayPal button -->
+  <script 
+    src="https://www.paypal.com/sdk/js?client-id=BAATF49HKoRbCK65m7W0bYTarz8r9_JhusqikTQGTGIQ1l6GPuaiCxXx23jXoC2HdQldxmOIz3FydVHHjg&components=hosted-buttons&enable-funding=venmo&currency=USD">
+  </script>
+
+  <div id="paypal-container-3465GAQ3WBRQ8"></div>
+
+  <script>
+    paypal.HostedButtons({
+      hostedButtonId: "3465GAQ3WBRQ8",
+    }).render("#paypal-container-3465GAQ3WBRQ8")
+  </script>
+</div>
