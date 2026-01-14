@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Code — Lesson</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: black;
+      color: white;
+      overflow: hidden;
+    }
+
+    /* Matrix background */
+    #matrix-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+    }
+
+    /* Layout */
+    #content-wrapper {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      height: 100vh;
+    }
+
+    #sidebar {
+      width: 260px;
+      background: rgba(3,5,15,0.95);
+      border-right: 1px solid rgba(0,255,140,0.2);
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(0,255,140,0.2);
+    }
+
+    #sidebar h1 {
+      font-size: 24px;
+      color: #00ff7f;
+      text-shadow: 0 0 10px #00ff7f;
+      margin-bottom: 20px;
+      letter-spacing: 0.1em;
+    }
+
+    .side-link {
+      display: block;
+      padding: 10px;
+      margin-bottom: 10px;
+      background: #050816;
+      border-radius: 10px;
+      border: 1px solid rgba(0,255,140,0.2);
+      text-decoration: none;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .side-link:hover {
+      background: rgba(0,255,140,0.15);
+      transform: translateX(4px);
+    }
+
+    #main {
+      flex: 1;
+      padding: 30px;
+      overflow-y: auto;
+      background: radial-gradient(circle at top, rgba(0,255,140,0.08), transparent 60%);
+    }
+
+    .lesson-box {
+      background: rgba(5,8,22,0.95);
+      border-radius: 16px;
+      border: 1px solid rgba(0,255,140,0.3);
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(0,255,140,0.3);
+      max-width: 800px;
+      margin: 0 auto 20px auto;
+    }
+
+    h2 {
+      color: #00ff7f;
+      text-shadow: 0 0 10px #00ff7f;
+      margin-top: 0;
+    }
+
+    .quiz-question {
+      margin-top: 15px;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    .quiz-option {
+      background: #050816;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 10px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .quiz-option.correct {
+      border-color: #00ff7f;
+      background: rgba(0,255,140,0.2);
+    }
+
+    .quiz-option.wrong {
+      border-color: #ff4f4f;
+      background: rgba(255,0,0,0.2);
+    }
+
+    .quiz-feedback {
+      margin-top: 6px;
+      font-size: 14px;
+    }
+
+    .nav-row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .nav-btn {
+      padding: 10px 18px;
+      background: #00ff7f;
+      color: #02150a;
+      font-weight: bold;
+      border-radius: 10px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(0,255,140,0.4);
+      transition: 0.2s;
+    }
+
+    .nav-btn:hover {
+      transform: scale(1.05);
+    }
+
+    p {
+      line-height: 1.6em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <canvas id="matrix-canvas"></canvas>
+
+  <div id="content-wrapper">
+    <!-- SIDEBAR -->
+    <div id="sidebar">
+      <h1>THE CODE</h1>
+      <a class="side-link" href="index.html">Home</a>
+      <a class="side-link" href="lessons.html">All Lessons</a>
+      <a class="side-link" href="simulators.html">Simulators</a>
+      <a class="side-link" href="github.html">GitHub Guide</a>
+    </div>
+
+    <!-- MAIN -->
+    <div id="main">
+      <div class="lesson-box">
+        <h2 id="lesson-title">Lesson</h2>
+        <p id="lesson-intro"></p>
+        <p id="lesson-body"></p>
+        <p id="lesson-extra"></p>
+      </div>
+
+      <div class="lesson-box" id="quiz-box">
+        <h3>Quick Check</h3>
+
+        <div id="question1"></div>
+        <div id="question2"></div>
+      </div>
+
+      <div class="lesson-box">
+        <p>
+          After this lesson, you can reinforce what you learned by practicing in the
+          <a href="simulators.html" style="color:#00ff7f;">Simulators</a>.
+        </p>
+        <p>
+          Remember: this is simple. Don’t rush. You’re learning how the whole world’s
+          websites and apps are structured.
+        </p>
+
+        <div class="nav-row">
+          <button class="nav-btn" id="prev-lesson">Previous Lesson</button>
+          <button class="nav-btn" id="next-lesson">Next Lesson</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { LESSONS } from "./js/lesson-data.js";
+
+    // Matrix background
+    const canvas = document.getElementById("matrix-canvas");
+    const ctx = canvas.getContext("2d");
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    const letters = "01";
+    const fontSize = 14;
+    let columns = Math.floor(canvas.width / fontSize);
+    let drops = Array(columns).fill(1);
+
+    function drawMatrix() {
+      ctx.fillStyle = "rgba(0,0,0,0.08)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#00ff7f";
+      ctx.font = fontSize + "px monospace";
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters.charAt(Math.floor(Math.random() * letters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.95) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+      requestAnimationFrame(drawMatrix);
+    }
+    drawMatrix();
+
+    // Lesson logic
+    const params = new URLSearchParams(window.location.search);
+    let currentId = parseInt(params.get("id") || "1", 10);
+    if (!LESSONS[currentId]) currentId = 1;
+
+    const titleEl = document.getElementById("lesson-title");
+    const introEl = document.getElementById("lesson-intro");
+    const bodyEl = document.getElementById("lesson-body");
+    const extraEl = document.getElementById("lesson-extra");
+    const q1Container = document.getElementById("question1");
+    const q2Container = document.getElementById("question2");
+
+    function renderLesson(id) {
+      const L = LESSONS[id];
+      titleEl.textContent = L.title;
+      introEl.textContent = L.intro;
+      bodyEl.textContent = L.body;
+      extraEl.textContent = L.extra;
+
+      renderQuestion(q1Container, L.quiz[0]);
+      renderQuestion(q2Container, L.quiz[1]);
+
+      history.replaceState(null, "", `lesson.html?id=${id}`);
+    }
+
+    function renderQuestion(container, q) {
+      container.innerHTML = "";
+      const qText = document.createElement("div");
+      qText.className = "quiz-question";
+      qText.textContent = q.question;
+      container.appendChild(qText);
+
+      const feedback = document.createElement("div");
+      feedback.className = "quiz-feedback";
+      container.appendChild(feedback);
+
+      q.options.forEach((opt, idx) => {
+        const div = document.createElement("div");
+        div.className = "quiz-option";
+        div.textContent = opt;
+        div.addEventListener("click", () => {
+          const correctIndex = q.correctIndex;
+          if (idx === correctIndex) {
+            div.classList.add("correct");
+            feedback.style.color = "#00ff7f";
+            feedback.textContent = q.correctMessage;
+          } else {
+            div.classList.add("wrong");
+            feedback.style.color = "#ff4f4f";
+            feedback.textContent = q.wrongMessage + ` The correct answer is: "${q.options[correctIndex]}".`;
+          }
+          // lock options
+          Array.from(container.querySelectorAll(".quiz-option")).forEach(o => {
+            o.style.pointerEvents = "none";
+          });
+        });
+        container.appendChild(div);
+      });
+    }
+
+    document.getElementById("prev-lesson").addEventListener("click", () => {
+      const ids = Object.keys(LESSONS).map(Number).sort((a,b)=>a-b);
+      const idx = ids.indexOf(currentId);
+      if (idx > 0) {
+        currentId = ids[idx - 1];
+        renderLesson(currentId);
+      }
+    });
+
+    document.getElementById("next-lesson").addEventListener("click", () => {
+      const ids = Object.keys(LESSONS).map(Number).sort((a,b)=>a-b);
+      const idx = ids.indexOf(currentId);
+      if (idx < ids.length - 1) {
+        currentId = ids[idx + 1];
+        renderLesson(currentId);
+      }
+    });
+
+    renderLesson(currentId);
+  </script>
+
+</body>
+</html>
