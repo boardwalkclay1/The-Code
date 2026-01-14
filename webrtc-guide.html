@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Code — WebRTC Guide</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #02040a;
+      color: white;
+      display: flex;
+    }
+
+    /* ===== SIDEBAR ===== */
+    #sidebar {
+      width: 260px;
+      background: #03050f;
+      border-right: 1px solid rgba(0,255,140,0.2);
+      padding: 20px;
+      height: 100vh;
+      position: fixed;
+      overflow-y: auto;
+      box-shadow: 0 0 20px rgba(0,255,140,0.2);
+    }
+
+    #sidebar h1 {
+      font-size: 26px;
+      color: #00ff7f;
+      text-shadow: 0 0 10px #00ff7f;
+      margin-bottom: 20px;
+      letter-spacing: 0.1em;
+    }
+
+    .side-link {
+      display: block;
+      padding: 12px 10px;
+      margin-bottom: 10px;
+      background: #050816;
+      border-radius: 10px;
+      border: 1px solid rgba(0,255,140,0.2);
+      cursor: pointer;
+      transition: 0.2s;
+      text-decoration: none;
+      color: white;
+    }
+
+    .side-link:hover {
+      background: rgba(0,255,140,0.15);
+      transform: translateX(4px);
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    #main {
+      margin-left: 260px;
+      padding: 40px;
+      max-width: 900px;
+    }
+
+    h2 {
+      color: #00ff7f;
+      text-shadow: 0 0 10px #00ff7f;
+    }
+
+    .section {
+      background: #050816;
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(0,255,140,0.2);
+      margin-bottom: 30px;
+      box-shadow: 0 0 20px rgba(0,255,140,0.2);
+    }
+
+    .big-button {
+      display: inline-block;
+      padding: 14px 24px;
+      background: #00ff7f;
+      color: #02150a;
+      font-weight: bold;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-top: 10px;
+      box-shadow: 0 0 15px rgba(0,255,140,0.4);
+      transition: 0.2s;
+    }
+
+    .big-button:hover {
+      transform: scale(1.05);
+    }
+
+    ul {
+      line-height: 1.7em;
+    }
+
+    .highlight {
+      color: #9efad1;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+  <div id="sidebar">
+    <h1>THE CODE</h1>
+
+    <a class="side-link" href="index.html">Home</a>
+    <a class="side-link" href="lessons.html">Lessons</a>
+    <a class="side-link" href="simulators.html">Simulators</a>
+
+    <a class="side-link" href="code.html">Understanding the Code</a>
+    <a class="side-link" href="common-errors.html">Common Errors</a>
+    <a class="side-link" href="reading-code.html">How to Read Code</a>
+    <a class="side-link" href="roadmap.html">Beginner Roadmap</a>
+
+    <a class="side-link" href="github.html">GitHub Guide</a>
+    <a class="side-link" href="webrtc-guide.html">WebRTC Guide</a>
+    <a class="side-link" href="chat.html">Live Room</a>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div id="main">
+
+    <!-- INTRO -->
+    <div class="section">
+      <h2>WebRTC Guide</h2>
+      <p>
+        WebRTC is the technology that powers real‑time communication on the web.
+        It allows you to connect with other people instantly — camera, microphone,
+        and data — without installing anything.
+      </p>
+      <p>
+        Your Live Room uses WebRTC to create a real‑time, multi‑peer environment
+        where you can collaborate, talk, and build with others.
+      </p>
+      <p>
+        This guide teaches you exactly how it works and how to use it confidently.
+      </p>
+    </div>
+
+    <!-- WHAT IS WEBRTC -->
+    <div class="section">
+      <h2>What Is WebRTC?</h2>
+      <p>
+        <span class="highlight">WebRTC (Web Real‑Time Communication)</span> is a browser technology
+        that lets you:
+      </p>
+      <ul>
+        <li>Share your camera</li>
+        <li>Share your microphone</li>
+        <li>Send and receive data instantly</li>
+        <li>Connect with multiple people at once</li>
+      </ul>
+      <p>
+        It works peer‑to‑peer, meaning your browser connects directly to other browsers.
+      </p>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="section">
+      <h2>How WebRTC Works</h2>
+      <ul>
+        <li><span class="highlight">1. Permissions</span> — You must allow camera and microphone.</li>
+        <li><span class="highlight">2. Secure Connection</span> — WebRTC only works on <strong>HTTPS</strong> or <strong>localhost</strong>.</li>
+        <li><span class="highlight">3. Room Name</span> — Everyone must join the same room name.</li>
+        <li><span class="highlight">4. Signaling</span> — Browsers exchange connection info.</li>
+        <li><span class="highlight">5. Multi‑Peer Mesh</span> — Each peer connects to every other peer.</li>
+      </ul>
+    </div>
+
+    <!-- HOW TO JOIN -->
+    <div class="section">
+      <h2>How to Join the Live Room</h2>
+      <ol>
+        <li>Click “Enter Live Room” from the sidebar.</li>
+        <li>Allow camera and microphone when prompted.</li>
+        <li>Enter a clean room name (no spaces).</li>
+        <li>Click “Join Room”.</li>
+        <li>You will connect automatically to anyone else in the same room.</li>
+      </ol>
+      <a class="big-button" href="chat.html">Enter Live Room</a>
+    </div>
+
+    <!-- TROUBLESHOOTING -->
+    <div class="section">
+      <h2>Troubleshooting</h2>
+      <ul>
+        <li><strong>No camera?</strong> — Refresh and allow permissions.</li>
+        <li><strong>No audio?</strong> — Check mic permissions and input device.</li>
+        <li><strong>Not connecting?</strong> — Make sure you're on HTTPS.</li>
+        <li><strong>Other person not connecting?</strong> — Confirm you’re in the same room name.</li>
+        <li><strong>Lag?</strong> — Close extra tabs or apps using your camera.</li>
+      </ul>
+    </div>
+
+    <!-- PRACTICE -->
+    <div class="section">
+      <h2>Practice With the Simulator</h2>
+      <p>
+        Before joining the real Live Room, you can practice the entire WebRTC join
+        process in the simulator.
+      </p>
+      <a class="big-button" href="simulators.html">Open WebRTC Simulator</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
