@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>The Code — Loading</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<style>
 #loading-screen {
   position: fixed;
   inset: 0;
@@ -9,6 +17,15 @@
   z-index: 9999;
 }
 
+/* Matrix Rain Canvas */
+#matrix-loading {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
 .matrix-overlay {
   position: absolute;
   inset: 0;
@@ -17,6 +34,7 @@
     #000;
   mix-blend-mode: screen;
   pointer-events: none;
+  z-index: 1;
 }
 
 .loading-center {
@@ -82,13 +100,90 @@
   animation: matrix-scroll 6s linear infinite;
   white-space: pre-wrap;
   opacity: 0.66;
+  z-index: 1;
 }
 
 @keyframes matrix-scroll {
-  0% {
-    transform: translateY(-20%);
-  }
-  100% {
-    transform: translateY(20%);
+  0% { transform: translateY(-20%); }
+  100% { transform: translateY(20%); }
+}
+</style>
+</head>
+
+<body>
+
+<div id="loading-screen">
+  <canvas id="matrix-loading"></canvas>
+
+  <div class="matrix-overlay"></div>
+
+  <div class="loading-center">
+    <h1 class="logo">THE CODE</h1>
+    <p class="subtitle">INITIALIZING SYSTEM</p>
+
+    <div class="loading-bar">
+      <div class="loading-fill" id="loading-fill"></div>
+    </div>
+
+    <div class="loading-percent" id="loading-percent">0%</div>
+  </div>
+</div>
+
+<script>
+/* Matrix Rain */
+const canvas = document.getElementById("matrix-loading");
+const ctx = canvas.getContext("2d");
+
+function resizeMatrix() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resizeMatrix();
+window.addEventListener("resize", resizeMatrix);
+
+const letters = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const fontSize = 16;
+let columns = Math.floor(window.innerWidth / fontSize);
+let drops = Array(columns).fill(1);
+
+function drawMatrix() {
+  ctx.fillStyle = "rgba(0, 0, 0, 0.15)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = "#00ff7f";
+  ctx.font = fontSize + "px monospace";
+
+  for (let i = 0; i < drops.length; i++) {
+    const text = letters.charAt(Math.floor(Math.random() * letters.length));
+    const x = i * fontSize;
+    const y = drops[i] * fontSize;
+
+    ctx.fillText(text, x, y);
+
+    if (y > canvas.height && Math.random() > 0.975) {
+      drops[i] = 0;
+    }
+    drops[i]++;
   }
 }
+
+setInterval(drawMatrix, 50);
+
+/* Fake loading animation */
+let percent = 0;
+const fill = document.getElementById("loading-fill");
+const percentText = document.getElementById("loading-percent");
+
+const loadingInterval = setInterval(() => {
+  percent += Math.random() * 8;
+  if (percent >= 100) {
+    percent = 100;
+    clearInterval(loadingInterval);
+  }
+  fill.style.width = percent + "%";
+  percentText.textContent = Math.floor(percent) + "%";
+}, 200);
+</script>
+
+</body>
+</html>
