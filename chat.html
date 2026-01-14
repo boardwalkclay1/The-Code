@@ -250,6 +250,46 @@
     const webrtc = createWebRTCManager();
     initChatroomUI({ profile, webrtc });
   </script>
+<div id="liveRoom">
+
+  <!-- Room Join -->
+  <div class="room-join">
+    <input id="roomIdInput" placeholder="Enter room ID" />
+    <button id="joinRoomBtn">Join Room</button>
+  </div>
+
+  <!-- Local Video -->
+  <div class="video-section">
+    <video id="localVideo" autoplay playsinline muted></video>
+    <div class="local-controls">
+      <button id="toggleMicBtn">Mic</button>
+      <button id="toggleCamBtn">Camera</button>
+      <button id="openTroubleshootBtn">Troubleshoot</button>
+    </div>
+  </div>
+
+  <!-- Remote Videos -->
+  <div id="remoteVideos" class="remote-grid"></div>
+
+  <!-- Connection Status Panel -->
+  <div id="connectionStatus" class="status-panel"></div>
+
+  <!-- Troubleshooting Overlay -->
+  <div id="troubleshootOverlay" class="overlay hidden">
+    <div class="overlay-content">
+      <h2>Troubleshooting</h2>
+      <ul>
+        <li><strong>No video?</strong> Check camera permissions.</li>
+        <li><strong>No audio?</strong> Check mic permissions.</li>
+        <li><strong>Not connecting?</strong> Ensure HTTPS + correct room ID.</li>
+        <li><strong>Other users not visible?</strong> They may not have allowed camera.</li>
+        <li><strong>Lag?</strong> Close extra tabs or apps using camera.</li>
+      </ul>
+      <button id="closeTroubleshootBtn">Close</button>
+    </div>
+  </div>
+
+</div>
 
 </body>
 </html>
