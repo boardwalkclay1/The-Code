@@ -95,44 +95,6 @@
     #simulator-area {
       margin-top: 30px;
     }
-
-    .sim-box {
-      background: #050816;
-      padding: 20px;
-      border-radius: 16px;
-      border: 1px solid rgba(0,255,140,0.3);
-      max-width: 400px;
-      margin: 20px auto;
-      text-align: left;
-    }
-
-    .sim-box input,
-    .sim-box select {
-      width: 100%;
-      padding: 10px;
-      margin-top: 8px;
-      margin-bottom: 16px;
-      border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.2);
-      background: #0a1220;
-      color: white;
-    }
-
-    .sim-box button {
-      width: 100%;
-      padding: 12px;
-      background: #00ff7f;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      font-weight: bold;
-      color: #02150a;
-    }
-
-    .sim-result {
-      margin-top: 15px;
-      font-size: 16px;
-    }
   </style>
 </head>
 
@@ -145,6 +107,12 @@
     <a class="side-link" href="index.html">Home</a>
     <a class="side-link" href="lessons.html">Lessons</a>
     <a class="side-link" href="simulators.html">Simulators</a>
+    <a class="side-link" href="code.html">Understanding the Code</a>
+    <a class="side-link" href="common-errors.html">Common Errors</a>
+    <a class="side-link" href="reading-code.html">How to Read Code</a>
+    <a class="side-link" href="roadmap.html">Roadmap</a>
+    <a class="side-link" href="github.html">GitHub Guide</a>
+    <a class="side-link" href="chat.html">Live Room</a>
   </div>
 
   <!-- MAIN CONTENT -->
@@ -153,29 +121,36 @@
     <div class="section">
       <h2>Simulators</h2>
       <p>
-        These simulators teach you the most important discipline in coding:
-        <strong>saving your files correctly.</strong>
+        These simulators teach you the most important disciplines in coding:
+        <strong>structure, awareness, and correctness.</strong>
       </p>
       <p>
-        Before you write a single line of code, you must understand how to save:
-      </p>
-      <ul>
-        <li><strong>index.html</strong> — your webpage</li>
-        <li><strong>style.css</strong> — your design</li>
-        <li><strong>app.js</strong> — your logic</li>
-      </ul>
-      <p>
-        These simulators walk you through the exact steps, show you common mistakes,
-        and tell you instantly if you got it right.
+        Every simulator walks you through the exact steps, shows you common mistakes,
+        and tells you instantly if you got it right.
       </p>
     </div>
 
     <div class="section">
       <h2>Choose a Simulator</h2>
 
+      <!-- FILE SAVING -->
+      <h3 style="color:#9efad1;">Saving Files</h3>
       <button class="big-button" id="openHTMLSim">HTML Save Simulator</button>
       <button class="big-button" id="openCSSSim">CSS Save Simulator</button>
       <button class="big-button" id="openJSSim">JS Save Simulator</button>
+
+      <!-- NEW SIMULATORS -->
+      <h3 style="color:#9efad1; margin-top:25px;">Project Structure</h3>
+      <button class="big-button" id="openFolderSim">Folder Structure Simulator</button>
+      <button class="big-button" id="openLinkSim">Linking Files Simulator</button>
+
+      <h3 style="color:#9efad1; margin-top:25px;">Debugging & Awareness</h3>
+      <button class="big-button" id="openErrorSim">Common Errors Debugger</button>
+      <button class="big-button" id="openReadSim">Reading Code Simulator</button>
+
+      <h3 style="color:#9efad1; margin-top:25px;">Tools & Deployment</h3>
+      <button class="big-button" id="openGitSim">GitHub Flow Simulator</button>
+      <button class="big-button" id="openWebRTCSim">WebRTC Join Simulator</button>
 
       <div id="simulator-area"></div>
     </div>
@@ -188,19 +163,27 @@
     import { startCSSSaveSimulator } from "./simulators/save-css.js";
     import { startJSSaveSimulator } from "./simulators/save-js.js";
 
+    import { startFolderStructureSimulator } from "./simulators/folder-structure.js";
+    import { startLinkFilesSimulator } from "./simulators/link-files.js";
+    import { startErrorDebugSimulator } from "./simulators/debug-errors.js";
+    import { startReadCodeSimulator } from "./simulators/read-code.js";
+    import { startGitFlowSimulator } from "./simulators/github-flow.js";
+    import { startWebRTCJoinSimulator } from "./simulators/webrtc-join.js";
+
     const area = document.getElementById("simulator-area");
 
-    document.getElementById("openHTMLSim").addEventListener("click", () => {
-      startHTMLSaveSimulator(area);
-    });
+    document.getElementById("openHTMLSim").addEventListener("click", () => startHTMLSaveSimulator(area));
+    document.getElementById("openCSSSim").addEventListener("click", () => startCSSSaveSimulator(area));
+    document.getElementById("openJSSim").addEventListener("click", () => startJSSaveSimulator(area));
 
-    document.getElementById("openCSSSim").addEventListener("click", () => {
-      startCSSSaveSimulator(area);
-    });
+    document.getElementById("openFolderSim").addEventListener("click", () => startFolderStructureSimulator(area));
+    document.getElementById("openLinkSim").addEventListener("click", () => startLinkFilesSimulator(area));
 
-    document.getElementById("openJSSim").addEventListener("click", () => {
-      startJSSaveSimulator(area);
-    });
+    document.getElementById("openErrorSim").addEventListener("click", () => startErrorDebugSimulator(area));
+    document.getElementById("openReadSim").addEventListener("click", () => startReadCodeSimulator(area));
+
+    document.getElementById("openGitSim").addEventListener("click", () => startGitFlowSimulator(area));
+    document.getElementById("openWebRTCSim").addEventListener("click", () => startWebRTCJoinSimulator(area));
   </script>
 
 </body>
