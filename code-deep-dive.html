@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Code — Deep Dive</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body { margin:0; font-family:Arial; background:#02040a; color:white; display:flex; }
+    #sidebar { width:260px; background:#03050f; border-right:1px solid rgba(0,255,140,0.2); padding:20px; height:100vh; position:fixed; overflow-y:auto; }
+    #sidebar h1 { color:#00ff7f; text-shadow:0 0 10px #00ff7f; }
+    .side-link { display:block; padding:10px; margin-bottom:10px; background:#050816; border-radius:10px; border:1px solid rgba(0,255,140,0.2); color:white; text-decoration:none; }
+    .side-link:hover { background:rgba(0,255,140,0.15); transform:translateX(4px); }
+    #main { margin-left:260px; padding:40px; max-width:900px; }
+    .section { background:#050816; padding:20px; border-radius:16px; border:1px solid rgba(0,255,140,0.2); margin-bottom:30px; }
+    h2 { color:#00ff7f; text-shadow:0 0 10px #00ff7f; }
+    .diagram { background:#030712; padding:14px; border-radius:10px; border:1px solid rgba(0,255,140,0.2); margin-bottom:12px; font-family:monospace; white-space:pre; }
+  </style>
+</head>
+<body>
+
+<div id="sidebar">
+  <h1>THE CODE</h1>
+  <a class="side-link" href="index.html">Home</a>
+  <a class="side-link" href="lessons.html">Lessons</a>
+  <a class="side-link" href="simulators.html">Simulators</a>
+  <a class="side-link" href="chat.html">Live Room</a>
+  <a class="side-link" href="github.html">GitHub Guide</a>
+  <a class="side-link" href="code.html">Understanding the Code</a>
+  <a class="side-link" href="code-deep-dive.html">Code Deep Dive</a>
+</div>
+
+<div id="main">
+
+  <div class="section">
+    <h2>The Code — Deep Dive</h2>
+    <p>
+      This page takes you deeper into how code actually works behind the scenes.
+      Not just what HTML, CSS, and JS *are*, but how they interact, how the browser
+      reads them, and how everything fits together.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>How the Browser Reads Your Code</h2>
+    <div class="diagram">
+Browser Loads → index.html  
+  ↳ Sees &lt;link&gt; → Loads CSS  
+  ↳ Sees &lt;script&gt; → Loads JS  
+    </div>
+    <p>
+      The browser reads your HTML from top to bottom.  
+      When it sees a CSS link, it pauses and loads the stylesheet.  
+      When it sees a script tag, it loads your JavaScript.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>The Three-Layer Model</h2>
+    <div class="diagram">
+HTML → Structure  
+CSS → Style  
+JS  → Behavior
+    </div>
+    <p>
+      Every website on Earth follows this pattern.  
+      Once you understand this, you can build anything.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>Why This Matters</h2>
+    <p>
+      When something breaks, you’ll know which layer to check.  
+      When AI writes code for you, you’ll understand what it produced.  
+      When you build something new, you’ll know how to structure it.
+    </p>
+  </div>
+
+</div>
+</body>
+</html>
