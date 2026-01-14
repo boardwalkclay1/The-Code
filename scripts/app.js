@@ -1,6 +1,41 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   /* ============================
+     ACCESS CONTROL SYSTEM
+  ============================ */
+  const ownerEmail = "boardwalkclay1@gmail.com";
+
+  const savedEmail = localStorage.getItem("user_email");
+  const hasAccessFlag = localStorage.getItem("access_granted") === "true";
+
+  // If saved email is yours, auto-unlock
+  if (savedEmail && savedEmail.toLowerCase() === ownerEmail.toLowerCase()) {
+    localStorage.setItem("access_granted", "true");
+  }
+
+  function userHasAccess() {
+    return localStorage.getItem("access_granted") === "true";
+  }
+
+  function updateLockState() {
+    const lockable = document.querySelectorAll("[data-lock]");
+
+    lockable.forEach(el => {
+      if (userHasAccess()) {
+        el.classList.remove("locked");
+        el.removeAttribute("disabled");
+      } else {
+        el.classList.add("locked");
+        el.setAttribute("disabled", "true");
+      }
+    });
+  }
+
+  updateLockState();
+
+
+
+  /* ============================
      MATRIX LOADING SCREEN
   ============================ */
   const loadingScreen = document.getElementById("loading-screen");
@@ -13,18 +48,20 @@ document.addEventListener("DOMContentLoaded", () => {
     progress += Math.floor(Math.random() * 12) + 8;
     if (progress > 100) progress = 100;
 
-    loadingFill.style.width = progress + "%";
-    loadingPercent.textContent = progress + "%";
+    if (loadingFill) loadingFill.style.width = progress + "%";
+    if (loadingPercent) loadingPercent.textContent = progress + "%";
 
     if (progress >= 100) {
       clearInterval(interval);
       setTimeout(() => {
-        loadingScreen.style.transition = "opacity 0.6s ease-out";
-        loadingScreen.style.opacity = "0";
+        if (loadingScreen) {
+          loadingScreen.style.transition = "opacity 0.6s ease-out";
+          loadingScreen.style.opacity = "0";
+        }
 
         setTimeout(() => {
-          loadingScreen.remove();
-          app.classList.remove("hidden");
+          if (loadingScreen) loadingScreen.remove();
+          if (app) app.classList.remove("hidden");
         }, 600);
       }, 300);
     }
@@ -50,13 +87,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   navButtons.forEach(btn => {
     btn.addEventListener("click", () => {
+      if (!userHasAccess() && btn.hasAttribute("data-lock")) return;
       setActiveView(btn.dataset.target);
     });
   });
 
   const startPathBtn = document.getElementById("start-path-btn");
   if (startPathBtn) {
-    startPathBtn.addEventListener("click", () => setActiveView("lessons"));
+    startPathBtn.addEventListener("click", () => {
+      if (!userHasAccess() && startPathBtn.hasAttribute("data-lock")) return;
+      setActiveView("lessons");
+    });
   }
 
 
@@ -141,6 +182,11 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   function openLesson(id) {
+    if (!userHasAccess()) {
+      alert("You must unlock access first.");
+      return;
+    }
+
     if (id > 1 && !lessonProgress[id - 1]) {
       alert("Complete the previous lesson first.");
       return;
@@ -230,7 +276,7 @@ document.addEventListener("DOMContentLoaded", () => {
           video: true,
           audio: true
         });
-        localVideo.srcObject = localStream;
+        if (localVideo) localVideo.srcObject = localStream;
       } catch (err) {
         alert("Camera/mic access failed.");
       }
@@ -247,7 +293,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     peerConnection.addEventListener("track", event => {
-      remoteVideo.srcObject = event.streams[0];
+      if (remoteVideo) remoteVideo.srcObject = event.streams[0];
     });
   }
 
@@ -260,7 +306,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const offer = await peerConnection.createOffer();
       await peerConnection.setLocalDescription(offer);
 
-      offerOut.value = JSON.stringify(offer);
+      if (offerOut) offerOut.value = JSON.stringify(offer);
     });
   }
 
@@ -287,7 +333,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const answer = await peerConnection.createAnswer();
       await peerConnection.setLocalDescription(answer);
 
-      answerOut.value = JSON.stringify(answer);
+      if (answerOut) answerOut.value = JSON.stringify(answer);
     });
   }
 
