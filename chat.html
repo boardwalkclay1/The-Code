@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Code — Live Room</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #02040a;
+      color: white;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Sidebar */
+    #sidebar {
+      width: 260px;
+      background: #03050f;
+      border-right: 1px solid rgba(0,255,140,0.2);
+      padding: 20px;
+      height: 100vh;
+      box-shadow: 0 0 20px rgba(0,255,140,0.2);
+    }
+
+    #sidebar h1 {
+      font-size: 24px;
+      color: #00ff7f;
+      text-shadow: 0 0 10px #00ff7f;
+      margin-bottom: 20px;
+      letter-spacing: 0.1em;
+    }
+
+    .side-link {
+      display: block;
+      padding: 10px;
+      margin-bottom: 10px;
+      background: #050816;
+      border-radius: 10px;
+      border: 1px solid rgba(0,255,140,0.2);
+      text-decoration: none;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .side-link:hover {
+      background: rgba(0,255,140,0.15);
+      transform: translateX(4px);
+    }
+
+    /* Main layout */
+    #main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      height: 100vh;
+    }
+
+    #left-panel {
+      border-right: 1px solid rgba(0,255,140,0.2);
+      padding: 20px;
+      overflow-y: auto;
+      background: #050816;
+    }
+
+    #right-panel {
+      padding: 20px;
+      display: grid;
+      grid-template-rows: 1fr 220px;
+      gap: 10px;
+    }
+
+    .section {
+      background: #050816;
+      border-radius: 16px;
+      border: 1px solid rgba(0,255,140,0.2);
+      padding: 16px;
+      box-shadow: 0 0 20px rgba(0,255,140,0.2);
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      color: #00ff7f;
+      margin-top: 0;
+    }
+
+    input, select, button, textarea {
+      width: 100%;
+      padding: 8px 10px;
+      margin-top: 6px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: #0a1220;
+      color: white;
+      font-family: inherit;
+    }
+
+    button {
+      background: #00ff7f;
+      color: #02150a;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+    }
+
+    button:hover {
+      filter: brightness(1.1);
+    }
+
+    #profile-avatar-preview {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #0a1220;
+      border: 1px solid rgba(0,255,140,0.4);
+      object-fit: cover;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    #video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      background: #02040a;
+      border-radius: 16px;
+      border: 1px solid rgba(0,255,140,0.2);
+      padding: 10px;
+    }
+
+    .video-tile {
+      position: relative;
+      background: #050816;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(0,255,140,0.2);
+    }
+
+    .video-tile video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background: black;
+    }
+
+    .video-label {
+      position: absolute;
+      bottom: 4px;
+      left: 6px;
+      font-size: 12px;
+      background: rgba(0,0,0,0.6);
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    #chat-box {
+      background: #050816;
+      border-radius: 16px;
+      border: 1px solid rgba(0,255,140,0.2);
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+    }
+
+    #chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .chat-line {
+      margin-bottom: 4px;
+    }
+
+    .chat-name {
+      color: #00ff7f;
+      font-weight: bold;
+      margin-right: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="sidebar">
+    <h1>THE CODE</h1>
+    <a class="side-link" href="index.html">Home</a>
+    <a class="side-link" href="lessons.html">Lessons</a>
+    <a class="side-link" href="simulators.html">Simulators</a>
+    <a class="side-link" href="chat.html">Live Room</a>
+  </div>
+
+  <div id="main">
+    <!-- LEFT: Profile + Room -->
+    <div id="left-panel">
+      <div class="section">
+        <h2>Your Profile</h2>
+        <img id="profile-avatar-preview" src="" alt="Avatar" />
+        <input type="file" id="profile-avatar-input" accept="image/*" />
+        <label>Display Name</label>
+        <input id="profile-name" placeholder="Your name" />
+        <button id="save-profile-btn">Save Profile</button>
+        <p id="profile-status"></p>
+      </div>
+
+      <div class="section">
+        <h2>Room</h2>
+        <p>Enter a room name to join. Anyone using the same room name (and the same signaling server later) will connect.</p>
+        <input id="room-name" placeholder="e.g. the-code-lab" />
+        <button id="join-room-btn">Join Room</button>
+        <p id="room-status"></p>
+      </div>
+
+      <div class="section">
+        <h2>How This Helps You</h2>
+        <p>
+          This live room is where you’ll eventually build real collaboration:
+          pair‑programming, live reviews, and group sessions.
+        </p>
+        <p>
+          Don’t get overwhelmed — this page is just the interface.
+          The real magic comes when you plug in a signaling server.
+        </p>
+      </div>
+    </div>
+
+    <!-- RIGHT: Video + Chat -->
+    <div id="right-panel">
+      <div id="video-grid"></div>
+
+      <div id="chat-box">
+        <div id="chat-messages"></div>
+        <textarea id="chat-input" rows="2" placeholder="Type a message..."></textarea>
+        <button id="send-chat-btn">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { loadProfile, saveProfile } from "./js/profile-store.js";
+    import { createWebRTCManager } from "./js/webrtc-engine.js";
+    import { initChatroomUI } from "./js/chatroom.js";
+
+    const profile = loadProfile();
+    const webrtc = createWebRTCManager();
+    initChatroomUI({ profile, webrtc });
+  </script>
+
+</body>
+</html>
