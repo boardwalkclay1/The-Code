@@ -23,6 +23,23 @@ body {
   background: radial-gradient(circle at top, #09111f, #02040a);
   color: var(--text);
   min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* GLOBAL MATRIX BACKGROUND */
+#matrix-bg {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+#app-content {
+  position: relative;
+  z-index: 1;
 }
 
 .hidden {
@@ -236,6 +253,7 @@ p {
 .muted {
   opacity: 0.5;
 }
+
 /* Lesson Modal */
 .lesson-modal {
   position: fixed;
@@ -312,6 +330,7 @@ p {
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+
 .sim-box {
   background: #050816;
   padding: 20px;
