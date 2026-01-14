@@ -1,465 +1,345 @@
 export const LESSONS = {
   1: {
     title: "Lesson 1 — What Makes a File HTML",
-    intro: "HTML files are just text files that end with .html. That’s it.",
-    body: "When you save a file as index.html, you’re telling the browser: “This is a webpage.” The content inside is text, but the name and extension give it meaning.",
-    extra: "Don’t overthink it. A file becomes HTML because you name it something like index.html, about.html, or contact.html.",
+    intro: "HTML is the foundation of every website. It tells the browser what exists on the page.",
+    body: "HTML stands for HyperText Markup Language. It uses tags to structure content such as text, images, buttons, and layouts. When a browser sees a .html file, it knows to render it as a webpage.",
+    extra: "Every website you’ve ever visited starts with an index.html file. This is the entry point of the entire build.",
     quiz: [
       {
-        question: "What makes a file an HTML file?",
-        options: [
-          "The program you used to type it",
-          "The .html at the end of the filename",
-          "The color of the text"
-        ],
-        correctIndex: 1,
-        correctMessage: "Exactly. The extension .html is what matters.",
-        wrongMessage: "Not quite. It’s not about the editor or colors."
+        question: "What does HTML control?",
+        options: ["Structure", "Styling", "Logic"],
+        correctIndex: 0,
+        correctMessage: "Correct. HTML defines the structure of the page.",
+        wrongMessage: "Not quite. HTML is responsible for structure."
       },
       {
-        question: "Which of these is a valid HTML filename?",
-        options: [
-          "index.txt",
-          "index.html.txt",
-          "index.html"
-        ],
+        question: "What file extension does an HTML file use?",
+        options: [".css", ".js", ".html"],
         correctIndex: 2,
-        correctMessage: "Correct. index.html is a proper HTML file.",
-        wrongMessage: "Close, but remember: only one .html at the end."
+        correctMessage: "Exactly. .html is the correct extension.",
+        wrongMessage: "Incorrect. HTML files always end with .html."
       }
     ]
   },
 
   2: {
     title: "Lesson 2 — Saving index.html",
-    intro: "index.html is usually the “home page” of your site.",
-    body: "When a browser or hosting service looks at your project, it often looks for index.html first. That’s why we use that name for the main entry point.",
-    extra: "You’ll practice saving index.html correctly in the HTML simulator after this lesson.",
+    intro: "index.html is the first file the browser looks for when loading a website.",
+    body: "When you create a new project, the first file you save should be index.html. This becomes the homepage of your site and the root of your entire structure.",
+    extra: "Every folder you build in the future will still rely on index.html as the starting point.",
     quiz: [
       {
-        question: "Why is index.html a special filename?",
-        options: [
-          "Browsers often load it first by default",
-          "It makes your site faster",
-          "It changes your internet speed"
-        ],
-        correctIndex: 0,
-        correctMessage: "Right. Many servers look for index.html automatically.",
-        wrongMessage: "Nope. It’s about default loading, not speed."
+        question: "Why is index.html important?",
+        options: ["It stores images", "It is the default homepage", "It runs JavaScript"],
+        correctIndex: 1,
+        correctMessage: "Correct. Browsers automatically load index.html first.",
+        wrongMessage: "Incorrect. index.html is the default homepage."
       },
       {
-        question: "When saving index.html, what should you choose?",
-        options: [
-          "Save as type: Text Document (.txt)",
-          "Save as type: All Files (*.*)",
-          "Save as type: Image File"
-        ],
-        correctIndex: 1,
-        correctMessage: "Correct. All Files lets .html stay as the extension.",
-        wrongMessage: "Remember: choose All Files so .html is respected."
+        question: "Where should index.html be saved?",
+        options: ["Inside scripts/", "Inside styles/", "In the root folder"],
+        correctIndex: 2,
+        correctMessage: "Correct. index.html belongs in the root.",
+        wrongMessage: "Not quite. index.html always goes in the root folder."
       }
     ]
   },
 
   3: {
     title: "Lesson 3 — HTML Structure",
-    intro: "HTML gives structure to your page: head, body, and elements.",
-    body: "A basic HTML file has a doctype, an html tag, a head for meta info, and a body for what you see on the page.",
-    extra: "You don’t need to memorize everything at once—just recognize the pattern.",
+    intro: "HTML uses a simple structure that every webpage follows.",
+    body: "The basic structure includes <!DOCTYPE html>, <html>, <head>, and <body>. The head contains metadata, while the body contains everything the user sees.",
+    extra: "Once you memorize this structure, building pages becomes effortless.",
     quiz: [
       {
-        question: "Which part of HTML holds what you see on the page?",
-        options: [
-          "<head>",
-          "<body>",
-          "<meta>"
-        ],
+        question: "Which tag contains visible content?",
+        options: ["<head>", "<body>", "<meta>"],
         correctIndex: 1,
-        correctMessage: "Yes. The body contains visible content.",
-        wrongMessage: "Think about where text and buttons actually appear."
+        correctMessage: "Correct. Everything visible goes inside <body>.",
+        wrongMessage: "Incorrect. Visible content belongs in <body>."
       },
       {
         question: "What does <!DOCTYPE html> do?",
-        options: [
-          "Tells the browser this is an HTML5 document",
-          "Changes the font",
-          "Saves the file automatically"
-        ],
-        correctIndex: 0,
-        correctMessage: "Exactly. It declares the document type.",
-        wrongMessage: "It’s not about style or saving—it's a declaration."
+        options: ["Starts CSS", "Tells browser to use HTML5", "Runs JavaScript"],
+        correctIndex: 1,
+        correctMessage: "Correct. It activates HTML5 mode.",
+        wrongMessage: "Incorrect. <!DOCTYPE html> tells the browser to use HTML5."
       }
     ]
   },
 
   4: {
     title: "Lesson 4 — The Head & Body",
-    intro: "The head is for information about the page; the body is for the page itself.",
-    body: "In the head, you put the title, meta tags, and links to CSS. In the body, you put headings, paragraphs, buttons, and more.",
-    extra: "Think of head as the brain and body as the visible body of your page.",
+    intro: "The head and body are the two main sections of an HTML document.",
+    body: "The head contains metadata, links to CSS, fonts, and scripts. The body contains all visible elements such as text, images, buttons, and layouts.",
+    extra: "Think of the head as the brain and the body as the physical form.",
     quiz: [
       {
-        question: "Where do you put the <title> tag?",
-        options: [
-          "Inside <head>",
-          "Inside <body>",
-          "Outside <html>"
-        ],
-        correctIndex: 0,
-        correctMessage: "Correct. Titles live in the head.",
-        wrongMessage: "Titles don’t go in the body—they describe the page."
+        question: "Where do you link CSS?",
+        options: ["Inside <body>", "Inside <head>", "At the bottom"],
+        correctIndex: 1,
+        correctMessage: "Correct. CSS belongs in the <head>.",
+        wrongMessage: "Incorrect. CSS is always linked in the <head>."
       },
       {
-        question: "Where do users see most of your content?",
-        options: [
-          "In the head",
-          "In the body",
-          "In the URL bar only"
-        ],
-        correctIndex: 1,
-        correctMessage: "Right. The body holds visible content.",
-        wrongMessage: "Remember: body = what you see."
+        question: "Which section displays content?",
+        options: ["<meta>", "<head>", "<body>"],
+        correctIndex: 2,
+        correctMessage: "Correct. The body displays content.",
+        wrongMessage: "Incorrect. The body is the visible section."
       }
     ]
   },
 
   5: {
     title: "Lesson 5 — Tags & Elements",
-    intro: "HTML is made of tags that wrap content and give it meaning.",
-    body: "Tags like <h1>, <p>, and <button> tell the browser what kind of content something is. Together, they form elements.",
-    extra: "You don’t have to know every tag—just start with a few and build from there.",
+    intro: "Tags are the building blocks of HTML.",
+    body: "Tags wrap content and tell the browser what type of element it is. Examples include <p>, <h1>, <img>, <button>, and <div>.",
+    extra: "Every element has an opening tag, content, and a closing tag — except self‑closing tags like <img>.",
     quiz: [
       {
-        question: "Which tag is best for a main heading?",
-        options: [
-          "<p>",
-          "<h1>",
-          "<div>"
-        ],
+        question: "Which is a self‑closing tag?",
+        options: ["<p>", "<img>", "<button>"],
         correctIndex: 1,
-        correctMessage: "Yes. <h1> is the main heading.",
-        wrongMessage: "Think about “heading 1” — that’s <h1>."
+        correctMessage: "Correct. <img> is self‑closing.",
+        wrongMessage: "Incorrect. <img> is the self‑closing tag."
       },
       {
-        question: "What do tags like <p> and </p> represent?",
-        options: [
-          "A paragraph element",
-          "A picture",
-          "A video"
-        ],
+        question: "Which tag creates a paragraph?",
+        options: ["<p>", "<div>", "<span>"],
         correctIndex: 0,
-        correctMessage: "Correct. <p> wraps paragraphs.",
-        wrongMessage: "They’re not media—they’re text containers."
+        correctMessage: "Correct. <p> is for paragraphs.",
+        wrongMessage: "Incorrect. <p> creates paragraphs."
       }
     ]
   },
 
   6: {
     title: "Lesson 6 — What Makes a File CSS",
-    intro: "CSS files are text files that end with .css.",
-    body: "CSS controls how things look: colors, fonts, spacing, layout. The .css extension tells the browser this file is for styling.",
-    extra: "Again, the name and extension are what define the file type.",
+    intro: "CSS controls the appearance of your website.",
+    body: "CSS stands for Cascading Style Sheets. It changes colors, spacing, layout, fonts, animations, and more.",
+    extra: "HTML is the skeleton. CSS is the style.",
     quiz: [
       {
-        question: "What makes a file a CSS file?",
-        options: [
-          "The .css extension",
-          "The font you use",
-          "The editor theme"
-        ],
-        correctIndex: 0,
-        correctMessage: "Exactly. .css is the key.",
-        wrongMessage: "It’s not about visuals—it’s the extension."
+        question: "What does CSS control?",
+        options: ["Structure", "Styling", "Logic"],
+        correctIndex: 1,
+        correctMessage: "Correct. CSS handles styling.",
+        wrongMessage: "Incorrect. CSS is for styling."
       },
       {
-        question: "Which is a valid CSS filename?",
-        options: [
-          "style.css",
-          "style.html",
-          "style.txt"
-        ],
-        correctIndex: 0,
-        correctMessage: "Correct. style.css is a CSS file.",
-        wrongMessage: "Remember: .css at the end."
+        question: "What file extension does CSS use?",
+        options: [".js", ".css", ".html"],
+        correctIndex: 1,
+        correctMessage: "Correct. CSS files end with .css.",
+        wrongMessage: "Incorrect. CSS files use .css."
       }
     ]
   },
 
   7: {
     title: "Lesson 7 — Saving style.css",
-    intro: "We usually keep style.css in a styles/ folder.",
-    body: "This keeps your project organized: HTML in the root, CSS in styles/, JS in scripts/.",
-    extra: "You’ll practice this in the CSS save simulator.",
+    intro: "style.css is your main stylesheet.",
+    body: "This file controls the look of your entire site. It should be saved inside a folder named styles/ or css/ depending on your structure.",
+    extra: "Keeping CSS in its own folder keeps your project clean.",
     quiz: [
       {
-        question: "Where should style.css usually live?",
-        options: [
-          "In styles/",
-          "In scripts/",
-          "In downloads/"
-        ],
-        correctIndex: 0,
-        correctMessage: "Right. styles/ is for CSS.",
-        wrongMessage: "Think: styles → styling → CSS."
+        question: "Where should style.css be saved?",
+        options: ["Root folder", "styles/ folder", "scripts/ folder"],
+        correctIndex: 1,
+        correctMessage: "Correct. CSS belongs in styles/.",
+        wrongMessage: "Incorrect. style.css goes in styles/."
       },
       {
-        question: "When saving style.css, which type should you choose?",
-        options: [
-          "Text Document (.txt)",
-          "All Files (*.*)",
-          "Image File"
-        ],
-        correctIndex: 1,
-        correctMessage: "Correct. All Files keeps .css intact.",
-        wrongMessage: "Choose All Files so .css is respected."
+        question: "What does CSS stand for?",
+        options: ["Cascading Style Sheets", "Creative Style System", "Code Styling Syntax"],
+        correctIndex: 0,
+        correctMessage: "Correct.",
+        wrongMessage: "Incorrect. CSS means Cascading Style Sheets."
       }
     ]
   },
 
   8: {
     title: "Lesson 8 — Linking CSS",
-    intro: "To use CSS, you link it in your HTML head.",
-    body: "You use a <link> tag with rel=\"stylesheet\" and href=\"styles/style.css\" (or whatever your path is).",
-    extra: "If the link path is wrong, your styles won’t show up.",
+    intro: "To apply CSS, you must link it to your HTML.",
+    body: "You link CSS inside the <head> using <link rel='stylesheet' href='styles/style.css'>.",
+    extra: "If CSS isn’t linked, your page will look plain.",
     quiz: [
       {
-        question: "Where do you usually link CSS?",
-        options: [
-          "Inside <head>",
-          "At the bottom of <body>",
-          "Outside <html>"
-        ],
-        correctIndex: 0,
-        correctMessage: "Yes. CSS links go in the head.",
-        wrongMessage: "Think: head = setup, including styles."
+        question: "Where do you link CSS?",
+        options: ["<body>", "<head>", "<footer>"],
+        correctIndex: 1,
+        correctMessage: "Correct.",
+        wrongMessage: "Incorrect. CSS is linked in the <head>."
       },
       {
-        question: "Which is a correct CSS link?",
-        options: [
-          "<link rel=\"stylesheet\" href=\"styles/style.css\">",
-          "<style src=\"styles/style.css\">",
-          "<script href=\"styles/style.css\"></script>"
-        ],
-        correctIndex: 0,
-        correctMessage: "Correct. That’s the proper link syntax.",
-        wrongMessage: "Look for rel=\"stylesheet\" and href."
+        question: "Which tag links CSS?",
+        options: ["<script>", "<link>", "<style>"],
+        correctIndex: 1,
+        correctMessage: "Correct.",
+        wrongMessage: "Incorrect. <link> is used for CSS."
       }
     ]
   },
 
   9: {
     title: "Lesson 9 — Selectors & Classes",
-    intro: "Selectors target elements; classes let you style groups of elements.",
-    body: "You can give an element class=\"btn\" and then style .btn in your CSS.",
-    extra: "Classes are reusable labels you attach to elements.",
+    intro: "Selectors target elements so you can style them.",
+    body: "Classes are reusable labels you attach to elements. You style them in CSS using .classname.",
+    extra: "Classes keep your styling organized and scalable.",
     quiz: [
       {
-        question: "How do you select a class named btn in CSS?",
-        options: [
-          "btn { }",
-          ".btn { }",
-          "#btn { }"
-        ],
+        question: "How do you select a class in CSS?",
+        options: ["#class", ".class", "class"],
         correctIndex: 1,
-        correctMessage: "Exactly. A dot means class.",
-        wrongMessage: "Remember: .className for classes."
+        correctMessage: "Correct.",
+        wrongMessage: "Incorrect. Classes use a dot: .class"
       },
       {
-        question: "What does class=\"highlight\" do in HTML?",
-        options: [
-          "Gives the element a reusable label",
-          "Changes the font automatically",
-          "Saves the file"
-        ],
+        question: "What are classes used for?",
+        options: ["Styling", "Saving files", "Running JavaScript"],
         correctIndex: 0,
-        correctMessage: "Correct. It labels the element for styling.",
-        wrongMessage: "It doesn’t style by itself—it labels."
+        correctMessage: "Correct.",
+        wrongMessage: "Incorrect. Classes are for styling."
       }
     ]
   },
 
   10: {
     title: "Lesson 10 — Styling Your Page",
-    intro: "CSS lets you control colors, spacing, fonts, and layout.",
-    body: "You can start simple: change background colors, text colors, and font sizes to make your page readable and clean.",
-    extra: "Small, intentional changes are better than random styling.",
+    intro: "CSS lets you control every visual detail.",
+    body: "You can change colors, spacing, fonts, layout, animations, shadows, and more. CSS transforms plain HTML into a real design.",
+    extra: "This is where your creativity comes alive.",
     quiz: [
       {
         question: "Which property changes text color?",
-        options: [
-          "background-color",
-          "color",
-          "font-weight"
-        ],
+        options: ["font-size", "color", "padding"],
         correctIndex: 1,
-        correctMessage: "Yes. color controls text color.",
-        wrongMessage: "Think: color = text color."
+        correctMessage: "Correct.",
+        wrongMessage: "Incorrect. The color property changes text color."
       },
       {
-        question: "Which property adds space outside an element?",
-        options: [
-          "padding",
-          "margin",
-          "border-radius"
-        ],
+        question: "Which property adds space inside an element?",
+        options: ["margin", "padding", "border"],
         correctIndex: 1,
-        correctMessage: "Correct. margin is outside space.",
-        wrongMessage: "Padding is inside; margin is outside."
+        correctMessage: "Correct.",
+        wrongMessage: "Incorrect. Padding adds inner space."
       }
     ]
   },
 
   11: {
     title: "Lesson 11 — What Makes a File JS",
-    intro: "JavaScript files are text files that end with .js.",
-    body: "JS controls behavior: clicks, animations, logic, data. The .js extension tells the browser this file contains JavaScript.",
-    extra: "Again, it’s just text with a specific name and extension.",
+    intro: "JavaScript adds behavior and logic to your site.",
+    body: "JS controls interactivity, animations, data, events, and dynamic content. It turns static pages into real applications.",
+    extra: "HTML = structure. CSS = style. JS = behavior.",
     quiz: [
       {
-        question: "What makes a file a JS file?",
-        options: [
-          "The .js extension",
-          "The font color",
-          "The file size"
-        ],
-        correctIndex: 0,
-        correctMessage: "Exactly. .js is what matters.",
-        wrongMessage: "It’s not about visuals or size."
+        question: "What does JavaScript control?",
+        options: ["Structure", "Styling", "Behavior"],
+        correctIndex: 2,
+        correctMessage: "Correct.",
+        wrongMessage: "Incorrect. JavaScript controls behavior."
       },
       {
-        question: "Which is a valid JS filename?",
-        options: [
-          "app.js",
-          "app.html",
-          "app.css"
-        ],
+        question: "What file extension does JavaScript use?",
+        options: [".js", ".java", ".script"],
         correctIndex: 0,
-        correctMessage: "Correct. app.js is JavaScript.",
-        wrongMessage: "Remember: .js at the end."
+        correctMessage: "Correct.",
+        wrongMessage: "Incorrect. JavaScript files end with .js."
       }
     ]
   },
 
   12: {
     title: "Lesson 12 — Saving app.js",
-    intro: "We usually keep app.js in a scripts/ folder.",
-    body: "This keeps your logic separate from your structure (HTML) and style (CSS).",
-    extra: "You’ll practice this in the JS save simulator.",
+    intro: "app.js is your main JavaScript file.",
+    body: "This file handles your site’s logic. Save it inside a folder named scripts/ or js/.",
+    extra: "Keeping JS separate keeps your project clean.",
     quiz: [
       {
-        question: "Where should app.js usually live?",
-        options: [
-          "In scripts/",
-          "In styles/",
-          "In images/"
-        ],
-        correctIndex: 0,
-        correctMessage: "Right. scripts/ is for JS.",
-        wrongMessage: "Think: scripts → JavaScript."
+        question: "Where should app.js be saved?",
+        options: ["styles/", "scripts/", "root folder"],
+        correctIndex: 1,
+        correctMessage: "Correct.",
+        wrongMessage: "Incorrect. app.js belongs in scripts/."
       },
       {
-        question: "When saving app.js, which type should you choose?",
-        options: [
-          "Text Document (.txt)",
-          "All Files (*.*)",
-          "PDF"
-        ],
+        question: "What does JS stand for?",
+        options: ["Java Syntax", "JavaScript", "Just Script"],
         correctIndex: 1,
-        correctMessage: "Correct. All Files keeps .js intact.",
-        wrongMessage: "Choose All Files so .js is respected."
+        correctMessage: "Correct.",
+        wrongMessage: "Incorrect. JS means JavaScript."
       }
     ]
   },
 
   13: {
     title: "Lesson 13 — Linking JavaScript",
-    intro: "To use JS, you link it in your HTML, usually before </body>.",
-    body: "You use a <script src=\"scripts/app.js\"></script> tag so the browser loads your logic.",
-    extra: "Putting scripts at the bottom helps the page load content first.",
+    intro: "To activate JavaScript, you must link it.",
+    body: "You link JS at the bottom of the <body> using <script src='scripts/app.js'></script>.",
+    extra: "Linking at the bottom ensures the page loads first.",
     quiz: [
       {
-        question: "Where do we usually place script tags?",
-        options: [
-          "At the top of <head>",
-          "At the bottom of <body>",
-          "Outside <html>"
-        ],
-        correctIndex: 1,
-        correctMessage: "Yes. Bottom of body is common.",
-        wrongMessage: "We want the page to load before scripts run."
+        question: "Where should you link JavaScript?",
+        options: ["<head>", "Top of <body>", "Bottom of <body>"],
+        correctIndex: 2,
+        correctMessage: "Correct.",
+        wrongMessage: "Incorrect. JS is linked at the bottom of <body>."
       },
       {
-        question: "Which is a correct JS script tag?",
-        options: [
-          "<script src=\"scripts/app.js\"></script>",
-          "<link src=\"scripts/app.js\">",
-          "<style src=\"scripts/app.js\"></style>"
-        ],
+        question: "Which tag loads JavaScript?",
+        options: ["<script>", "<link>", "<js>"],
         correctIndex: 0,
-        correctMessage: "Correct. That’s the proper script syntax.",
-        wrongMessage: "Look for <script> with src."
+        correctMessage: "Correct.",
+        wrongMessage: "Incorrect. JavaScript uses the <script> tag."
       }
     ]
   },
 
   14: {
     title: "Lesson 14 — Console & Variables",
-    intro: "The console lets you see what your code is doing; variables store values.",
-    body: "You can use console.log() to print messages, and let or const to store data.",
-    extra: "The console is your friend when debugging and learning.",
+    intro: "The console is where you test and debug your code.",
+    body: "Variables store data. You create them using let, const, or var. The console helps you see what your code is doing.",
+    extra: "Learning the console makes debugging simple.",
     quiz: [
       {
-        question: "What does console.log() do?",
-        options: [
-          "Shows a message in the browser console",
-          "Changes the background color",
-          "Saves the file"
-        ],
+        question: "Which keyword creates a variable?",
+        options: ["let", "make", "varname"],
         correctIndex: 0,
-        correctMessage: "Exactly. It logs to the console.",
-        wrongMessage: "It’s for debugging, not styling or saving."
+        correctMessage: "Correct.",
+        wrongMessage: "Incorrect. let is used to create variables."
       },
       {
-        question: "Which keyword can you use to create a variable?",
-        options: [
-          "let",
-          "style",
-          "html"
-        ],
+        question: "Where do you test JavaScript?",
+        options: ["The console", "The head", "The CSS file"],
         correctIndex: 0,
-        correctMessage: "Correct. let creates a variable.",
-        wrongMessage: "Think: let x = 5; that’s a variable."
+        correctMessage: "Correct.",
+        wrongMessage: "Incorrect. You test JS in the console."
       }
     ]
   },
 
   15: {
     title: "Lesson 15 — Making Your First App",
-    intro: "Now you combine HTML, CSS, and JS into a small app.",
-    body: "You might build a simple counter, a button that changes text, or a small interactive card.",
-    extra: "The goal is not complexity—it’s seeing all three files working together.",
+    intro: "Now you combine HTML, CSS, and JS into a real app.",
+    body: "You’ll build a simple interactive project that responds to user input. This is where everything you learned comes together.",
+    extra: "This is your first real build — the beginning of your developer journey.",
     quiz: [
       {
-        question: "Which three files usually work together in a basic web app?",
-        options: [
-          "HTML, CSS, JS",
-          "PDF, DOCX, JPG",
-          "MP3, MP4, ZIP"
-        ],
+        question: "Which languages work together to build an app?",
+        options: ["HTML, CSS, JS", "Python only", "CSS only"],
         correctIndex: 0,
-        correctMessage: "Exactly. Structure, style, behavior.",
-        wrongMessage: "Think: structure, style, logic."
+        correctMessage: "Correct. These three form the foundation.",
+        wrongMessage: "Incorrect. HTML, CSS, and JS work together."
       },
       {
-        question: "After building your first app, what’s a powerful next step?",
-        options: [
-          "Delete it",
-          "Upload it to GitHub and share it",
-          "Never look at it again"
-        ],
-        correctIndex: 1,
-        correctMessage: "Correct. Put it on GitHub and make it real.",
-        wrongMessage: "You want to publish, not hide, your work."
+        question: "What does JavaScript add to your app?",
+        options: ["Structure", "Style", "Interactivity"],
+        correctIndex: 2,
+        correctMessage: "Correct.",
+        wrongMessage: "Incorrect. JavaScript adds interactivity."
       }
     ]
   }
