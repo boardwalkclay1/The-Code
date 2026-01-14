@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>The Code — Lessons Engine</title>
+  <title>The Code — Welcome</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
@@ -11,369 +11,184 @@
       font-family: Arial, sans-serif;
       background: #02040a;
       color: white;
-    }
-
-    /* Hidden utility */
-    .hidden {
-      display: none !important;
-    }
-
-    /* ===== MATRIX LOADING SCREEN ===== */
-    #loading-screen {
-      position: fixed;
-      inset: 0;
-      background: black;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      overflow: hidden;
     }
 
-    #loading-screen::before {
-      content: "0101011001010011010010110100101100100101";
-      position: absolute;
-      inset: 0;
-      font-family: monospace;
-      font-size: 14px;
-      line-height: 16px;
-      color: rgba(0,255,140,0.25);
-      animation: matrix-scroll 6s linear infinite;
-      white-space: pre-wrap;
-    }
-
-    @keyframes matrix-scroll {
-      0% { transform: translateY(-20%); }
-      100% { transform: translateY(20%); }
-    }
-
-    .loading-center {
-      text-align: center;
-      z-index: 2;
-    }
-
-    .loading-center h1 {
-      color: #00ff7f;
-      font-size: 40px;
-      letter-spacing: 0.2em;
-      text-shadow: 0 0 15px #00ff7f;
-      margin-bottom: 10px;
-    }
-
-    .loading-bar {
+    /* ===== MATRIX SIDEBAR ===== */
+    #sidebar {
       width: 260px;
-      height: 6px;
+      background: #03050f;
+      border-right: 1px solid rgba(0,255,140,0.2);
+      padding: 20px;
+      height: 100vh;
+      position: fixed;
+      overflow-y: auto;
+      box-shadow: 0 0 20px rgba(0,255,140,0.2);
+    }
+
+    #sidebar h1 {
+      font-size: 26px;
+      color: #00ff7f;
+      text-shadow: 0 0 10px #00ff7f;
+      margin-bottom: 20px;
+      letter-spacing: 0.1em;
+    }
+
+    .side-link {
+      display: block;
+      padding: 12px 10px;
+      margin-bottom: 10px;
+      background: #050816;
+      border-radius: 10px;
+      border: 1px solid rgba(0,255,140,0.2);
+      cursor: pointer;
+      transition: 0.2s;
+      text-decoration: none;
+      color: white;
+    }
+
+    .side-link:hover {
       background: rgba(0,255,140,0.15);
-      border-radius: 999px;
-      margin: 0 auto;
-      overflow: hidden;
-      border: 1px solid rgba(0,255,140,0.5);
-    }
-
-    .loading-fill {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(to right, #00ff7f, #8bfdc7);
-      box-shadow: 0 0 15px #00ff7f;
-      transition: width 0.3s linear;
-    }
-
-    .loading-percent {
-      margin-top: 8px;
-      font-size: 12px;
-      color: #9efad1;
-      letter-spacing: 0.15em;
+      transform: translateX(4px);
     }
 
     /* ===== MAIN CONTENT ===== */
-    #app {
+    #main {
+      margin-left: 260px;
       padding: 40px;
-      text-align: center;
+      max-width: 900px;
     }
 
-    .lesson-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
+    h2 {
+      color: #00ff7f;
+      text-shadow: 0 0 10px #00ff7f;
     }
 
-    .lesson-card {
+    .section {
+      margin-bottom: 40px;
       background: #050816;
       padding: 20px;
       border-radius: 16px;
-      border: 1px solid rgba(0,255,140,0.3);
-      cursor: pointer;
+      border: 1px solid rgba(0,255,140,0.2);
+      box-shadow: 0 0 20px rgba(0,255,140,0.2);
+    }
+
+    .big-button {
+      display: inline-block;
+      padding: 14px 24px;
+      background: #00ff7f;
+      color: #02150a;
+      font-weight: bold;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-top: 10px;
+      box-shadow: 0 0 15px rgba(0,255,140,0.4);
       transition: 0.2s;
     }
 
-    .lesson-card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 20px rgba(0,255,140,0.4);
+    .big-button:hover {
+      transform: scale(1.05);
     }
 
-    /* ===== MODAL ===== */
-    #lesson-modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.75);
-      display: none; /* default hidden */
-      align-items: center;
-      justify-content: center;
-      z-index: 999;
-    }
-
-    #lesson-modal.show {
-      display: flex !important;
-    }
-
-    .lesson-modal-content {
-      width: 90%;
-      max-width: 700px;
-      background: #050816;
-      border-radius: 20px;
-      padding: 24px;
-      border: 1px solid rgba(0,255,140,0.3);
-      box-shadow: 0 0 40px rgba(0,255,140,0.4);
-      position: relative;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      background: transparent;
-      border: none;
-      color: #00ff7f;
-      font-size: 22px;
-      cursor: pointer;
-    }
-
-    .quiz-option {
-      background: #0a1220;
-      padding: 12px;
-      border-radius: 10px;
-      margin-top: 10px;
-      cursor: pointer;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .quiz-option.correct {
-      border-color: #00ff7f;
-      background: rgba(0,255,140,0.2);
-    }
-
-    .quiz-option.wrong {
-      border-color: #ff4f4f;
-      background: rgba(255,0,0,0.2);
-    }
-
-    .complete-lesson-btn {
-      margin-top: 20px;
-      padding: 12px 20px;
-      background: #00ff7f;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      font-weight: bold;
-      color: #02150a;
-      display: block;
-      width: 100%;
+    ul {
+      line-height: 1.7em;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- MATRIX LOADING SCREEN -->
-  <div id="loading-screen">
-    <div class="loading-center">
-      <h1>THE CODE</h1>
-      <div class="loading-bar">
-        <div class="loading-fill"></div>
-      </div>
-      <div class="loading-percent" id="loading-percent">0%</div>
-    </div>
+  <!-- SIDEBAR -->
+  <div id="sidebar">
+    <h1>THE CODE</h1>
+
+    <a class="side-link" href="lessons.html">Lessons</a>
+    <a class="side-link" href="simulators.html">Simulators</a>
+    <a class="side-link" href="#guides">Guides</a>
+    <a class="side-link" href="#philosophy">Philosophy</a>
+    <a class="side-link" href="#start">Start Here</a>
   </div>
 
-  <!-- MAIN APP -->
-  <div id="app" class="hidden">
-    <h2>Lessons</h2>
+  <!-- MAIN CONTENT -->
+  <div id="main">
 
-    <div class="lesson-grid">
-      <div class="lesson-card" data-lesson="1">Lesson 1</div>
-      <div class="lesson-card" data-lesson="2">Lesson 2</div>
-      <div class="lesson-card" data-lesson="3">Lesson 3</div>
+    <div class="section" id="start">
+      <h2>Welcome to The Code</h2>
+      <p>
+        The Code is a discipline‑first coding academy designed to remove confusion,
+        overwhelm, and guesswork.  
+        You’ll learn how to build websites and apps from the ground up — with clarity,
+        structure, and confidence.
+      </p>
+      <p>
+        Everything starts with one simple truth:
+        <strong>what you name your files determines everything.</strong>
+      </p>
+      <p>
+        HTML, CSS, and JavaScript are not complicated.  
+        They are just <strong>text files</strong> with the right names.
+      </p>
     </div>
-  </div>
 
-  <!-- MODAL -->
-  <div id="lesson-modal">
-    <div class="lesson-modal-content">
-      <button id="close-lesson-modal" class="close-btn">✕</button>
-      <div id="lesson-modal-body"></div>
+    <div class="section">
+      <h2>What You Will Learn</h2>
+      <ul>
+        <li>How to create and save HTML, CSS, and JS files</li>
+        <li>How folder structure controls your entire project</li>
+        <li>How to link your files so your site actually works</li>
+        <li>How to build real websites and apps from scratch</li>
+        <li>How to think like a disciplined developer</li>
+        <li>How to avoid beginner mistakes that break everything</li>
+      </ul>
+      <a class="big-button" href="lessons.html">Start Lessons</a>
     </div>
+
+    <div class="section">
+      <h2>Simulators</h2>
+      <p>
+        Before you write a single line of code, you’ll master the most important skill:
+        <strong>saving files correctly.</strong>
+      </p>
+      <p>
+        These simulators teach you exactly how to save:
+      </p>
+      <ul>
+        <li><strong>index.html</strong> — your webpage</li>
+        <li><strong>style.css</strong> — your design</li>
+        <li><strong>app.js</strong> — your logic</li>
+      </ul>
+      <a class="big-button" href="simulators.html">Open Simulators</a>
+    </div>
+
+    <div class="section" id="guides">
+      <h2>Guides & Support</h2>
+      <p>
+        Every page in The Code includes guidance, tips, and reminders.
+        You’ll never be left guessing what to do next.
+      </p>
+      <p>
+        If something feels confusing, slow down — the solution is always simple.
+      </p>
+    </div>
+
+    <div class="section" id="philosophy">
+      <h2>The Philosophy</h2>
+      <p>
+        Coding is not about memorizing commands.  
+        It’s about <strong>structure, discipline, and clarity.</strong>
+      </p>
+      <p>
+        When you understand how files, folders, and names work,
+        you can build anything — websites, apps, dashboards, tools,
+        whatever you imagine.
+      </p>
+      <p>
+        Don’t get overwhelmed.  
+        Everything here is broken down step by step.
+      </p>
+    </div>
+
   </div>
-
-<script>
-/* ============================
-   MATRIX LOADING SCREEN
-============================ */
-const loadingScreen = document.getElementById("loading-screen");
-const app = document.getElementById("app");
-const loadingFill = document.querySelector(".loading-fill");
-const loadingPercent = document.getElementById("loading-percent");
-
-let progress = 0;
-const interval = setInterval(() => {
-  progress += Math.floor(Math.random() * 15) + 5;
-  if (progress > 100) progress = 100;
-
-  loadingFill.style.width = progress + "%";
-  loadingPercent.textContent = progress + "%";
-
-  if (progress >= 100) {
-    clearInterval(interval);
-    setTimeout(() => {
-      loadingScreen.style.opacity = "0";
-      loadingScreen.style.transition = "opacity 0.6s ease-out";
-      setTimeout(() => {
-        loadingScreen.style.display = "none";
-        app.classList.remove("hidden");
-      }, 600);
-    }, 400);
-  }
-}, 300);
-
-
-/* ============================
-   LESSON ENGINE
-============================ */
-const lessonCards = document.querySelectorAll(".lesson-card");
-const lessonModal = document.getElementById("lesson-modal");
-const lessonModalBody = document.getElementById("lesson-modal-body");
-
-let lessonProgress = JSON.parse(localStorage.getItem("codeLessonProgress")) || {
-  1: false,
-  2: false,
-  3: false
-};
-
-const lessons = {
-  1: {
-    title: "Lesson 1: What Makes a File HTML, CSS, or JS?",
-    content: `
-      <p>Files are not magical. They are plain text with specific endings.</p>
-      <p><strong>HTML = .html</strong></p>
-      <p><strong>CSS = .css</strong></p>
-      <p><strong>JavaScript = .js</strong></p>
-      <p>The extension is what tells the browser what the file is.</p>
-    `,
-    quiz: {
-      question: "What makes a file HTML?",
-      options: [
-        { text: "The .html extension", correct: true },
-        { text: "The program you write it in", correct: false },
-        { text: "The color of the code", correct: false }
-      ]
-    }
-  },
-
-  2: {
-    title: "Lesson 2: Folder Structure",
-    content: `
-      <pre><code>my-project/
-  index.html
-  styles/
-    style.css
-  scripts/
-    app.js</code></pre>
-      <p>Saving files in the correct folder is discipline.</p>
-    `,
-    quiz: {
-      question: "Where does style.css go?",
-      options: [
-        { text: "styles/", correct: true },
-        { text: "scripts/", correct: false },
-        { text: "root folder", correct: false }
-      ]
-    }
-  },
-
-  3: {
-    title: "Lesson 3: Linking Files",
-    content: `
-      <p>CSS goes in &lt;head&gt;:</p>
-      <pre><code>&lt;link rel="stylesheet" href="styles/style.css"&gt;</code></pre>
-      <p>JS goes at bottom of &lt;body&gt;:</p>
-      <pre><code>&lt;script src="scripts/app.js"&gt;&lt;/script&gt;</code></pre>
-    `,
-    quiz: {
-      question: "Where should app.js be linked?",
-      options: [
-        { text: "Bottom of <body>", correct: true },
-        { text: "Inside <head>", correct: false },
-        { text: "It doesn't need linking", correct: false }
-      ]
-    }
-  }
-};
-
-function openLesson(id) {
-  if (id > 1 && !lessonProgress[id - 1]) {
-    alert("Complete the previous lesson first.");
-    return;
-  }
-
-  const L = lessons[id];
-
-  lessonModalBody.innerHTML = `
-    <h2>${L.title}</h2>
-    ${L.content}
-    <h3>${L.quiz.question}</h3>
-    ${L.quiz.options
-      .map(o => `<div class="quiz-option" data-correct="${o.correct}">${o.text}</div>`)
-      .join("")}
-    <button class="complete-lesson-btn hidden" id="complete-lesson-btn">Mark Complete</button>
-  `;
-
-  lessonModal.classList.add("show");
-
-  const options = document.querySelectorAll(".quiz-option");
-  const completeBtn = document.getElementById("complete-lesson-btn");
-
-  options.forEach(opt => {
-    opt.addEventListener("click", () => {
-      const correct = opt.dataset.correct === "true";
-
-      options.forEach(o => (o.style.pointerEvents = "none"));
-
-      if (correct) {
-        opt.classList.add("correct");
-        completeBtn.classList.remove("hidden");
-      } else {
-        opt.classList.add("wrong");
-      }
-    });
-  });
-
-  completeBtn.addEventListener("click", () => {
-    lessonProgress[id] = true;
-    localStorage.setItem("codeLessonProgress", JSON.stringify(lessonProgress));
-    lessonModal.classList.remove("show");
-  });
-}
-
-lessonCards.forEach(card => {
-  card.addEventListener("click", () => {
-    openLesson(Number(card.dataset.lesson));
-  });
-});
-
-document.getElementById("close-lesson-modal").addEventListener("click", () => {
-  lessonModal.classList.remove("show");
-});
-</script>
 
 </body>
 </html>
