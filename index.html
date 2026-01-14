@@ -5,143 +5,105 @@
   <title>The Code — Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #02040a;
-      color: white;
-      display: flex;
-    }
-
-    /* ===== SIDEBAR ===== */
-    #sidebar {
-      width: 260px;
-      background: #03050f;
-      border-right: 1px solid rgba(0,255,140,0.2);
-      padding: 20px;
-      height: 100vh;
-      position: fixed;
-      overflow-y: auto;
-      box-shadow: 0 0 20px rgba(0,255,140,0.2);
-    }
-
-    #sidebar h1 {
-      font-size: 26px;
-      color: #00ff7f;
-      text-shadow: 0 0 10px #00ff7f;
-      margin-bottom: 20px;
-      letter-spacing: 0.1em;
-    }
-
-    .side-link {
-      display: block;
-      padding: 12px 10px;
-      margin-bottom: 10px;
-      background: #050816;
-      border-radius: 10px;
-      border: 1px solid rgba(0,255,140,0.2);
-      cursor: pointer;
-      transition: 0.2s;
-      text-decoration: none;
-      color: white;
-    }
-
-    .side-link:hover {
-      background: rgba(0,255,140,0.15);
-      transform: translateX(4px);
-    }
-
-    /* ===== MAIN CONTENT ===== */
-    #main {
-      margin-left: 260px;
-      padding: 40px;
-      max-width: 900px;
-    }
-
-    h2 {
-      color: #00ff7f;
-      text-shadow: 0 0 10px #00ff7f;
-    }
-
-    .section {
-      background: #050816;
-      padding: 20px;
-      border-radius: 16px;
-      border: 1px solid rgba(0,255,140,0.2);
-      margin-bottom: 30px;
-      box-shadow: 0 0 20px rgba(0,255,140,0.2);
-    }
-
-    .big-button {
-      display: inline-block;
-      padding: 14px 24px;
-      background: #00ff7f;
-      color: #02150a;
-      font-weight: bold;
-      border-radius: 10px;
-      text-decoration: none;
-      margin-top: 10px;
-      box-shadow: 0 0 15px rgba(0,255,140,0.4);
-      transition: 0.2s;
-    }
-
-    .big-button:hover {
-      transform: scale(1.05);
-    }
-
-    ul {
-      line-height: 1.7em;
-    }
-  </style>
+  <!-- MATRIX + GHOST HAND CSS -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
+  <!-- MATRIX RAIN -->
+  <div id="matrix-rain"></div>
+
+  <!-- GHOST HAND -->
+  <img id="hacker-hand" src="hand-typing.png" alt="">
+
   <!-- SIDEBAR -->
-  <div id="sidebar">
+  <div id="sidebar" data-lock>
     <h1>THE CODE</h1>
 
     <a class="side-link" href="index.html">Home</a>
 
     <!-- Core Learning -->
-    <a class="side-link" href="lessons.html">Lessons</a>
-    <a class="side-link" href="simulators.html">Simulators</a>
+    <a class="side-link" href="lessons.html" data-lock>Lessons</a>
+    <a class="side-link" href="simulators.html" data-lock>Simulators</a>
 
     <!-- Deep Knowledge -->
-    <a class="side-link" href="code.html">Understanding the Code</a>
-    <a class="side-link" href="common-errors.html">Common Errors</a>
-    <a class="side-link" href="reading-code.html">How to Read Code</a>
-    <a class="side-link" href="roadmap.html">Beginner Roadmap</a>
+    <a class="side-link" href="code.html" data-lock>Understanding the Code</a>
+    <a class="side-link" href="common-errors.html" data-lock>Common Errors</a>
+    <a class="side-link" href="reading-code.html" data-lock>How to Read Code</a>
+    <a class="side-link" href="roadmap.html" data-lock>Beginner Roadmap</a>
 
     <!-- Tools -->
-    <a class="side-link" href="github.html">GitHub Guide</a>
-    <a class="side-link" href="chat.html">Live Room</a>
+    <a class="side-link" href="github.html" data-lock>GitHub Guide</a>
+    <a class="side-link" href="chat.html" data-lock>Live Room</a>
   </div>
 
   <!-- MAIN CONTENT -->
   <div id="main">
 
-    <!-- INTRO -->
+    <!-- HERO SECTION -->
     <div class="section">
-      <h2>Welcome to The Code</h2>
+      <h2>Coding Is a Superpower</h2>
       <p>
-        The Code is a discipline‑first academy built to remove confusion, overwhelm, and the
-        feeling of “I don’t know where to start.”  
-        Most people struggle with coding not because it’s hard — but because they don’t
-        understand how to structure the build.
+        The world is shifting faster than ever.  
+        Every app you use, every website you visit, every device you touch —  
+        <strong>all of it is built with code.</strong>
       </p>
       <p>
-        That’s what you learn here: <strong>structure</strong>.  
-        Once you understand how files, folders, and names work, everything becomes simple.
+        Learning to code isn’t about becoming a “computer person.”  
+        It’s about gaining the ability to <strong>create anything you can imagine</strong>,
+        in real time, from anywhere in the world.
       </p>
       <p>
-        You’ll learn how to build websites and apps from scratch, increase your awareness,
-        improve your typing speed, and gain access to a world that was previously
-        inaccessible to you.
+        You’re not just learning a skill —  
+        <strong>you’re unlocking a superpower.</strong>
+      </p>
+      <a class="big-button" href="lessons.html" data-lock>Start Your Path</a>
+    </div>
+
+    <!-- WHY NOW IS THE PERFECT TIME -->
+    <div class="section">
+      <h2>Why Now Is the Perfect Time</h2>
+      <p>
+        We’re living in the most opportunity‑rich era in human history.
+        AI, automation, robotics, and global connectivity have created a world where
+        <strong>one person with discipline can reach millions.</strong>
       </p>
       <p>
-        The entire world runs on these builds — and now you’re learning the foundation.
+        Coding is no longer “hard.”  
+        Tools are better. Learning is faster.  
+        You can build websites, apps, dashboards, automations, and tools  
+        <strong>without needing a degree or a team.</strong>
+      </p>
+      <p>
+        If you start now, you’re early — not late.
+      </p>
+    </div>
+
+    <!-- MICROCONTROLLERS & THE REAL WORLD -->
+    <div class="section">
+      <h2>Everything Around You Uses Code</h2>
+      <p>
+        Microcontrollers are tiny computers inside everyday objects.  
+        They run the world quietly in the background.
+      </p>
+
+      <ul>
+        <li>Cars, engines, and electric vehicles</li>
+        <li>Smart home devices (Alexa, Nest, Ring)</li>
+        <li>Medical equipment and hospital machines</li>
+        <li>Airpods, headphones, and wearables</li>
+        <li>Washing machines, fridges, ovens</li>
+        <li>Drones, robots, and factory automation</li>
+        <li>Security systems and cameras</li>
+        <li>Game controllers and consoles</li>
+        <li>Traffic lights and city infrastructure</li>
+      </ul>
+
+      <p>
+        When you learn to code, you learn how the world actually works.  
+        You gain the ability to build, modify, automate, and create systems  
+        that interact with the real world.
       </p>
     </div>
 
@@ -149,12 +111,11 @@
     <div class="section">
       <h2>What You Will Learn</h2>
       <ul>
-        <li>How to save HTML, CSS, and JS files correctly</li>
         <li>How to structure real projects</li>
+        <li>How to save HTML, CSS, and JS files correctly</li>
         <li>How to link your files so your site works</li>
         <li>How to build websites and apps from scratch</li>
         <li>How to use GitHub to host websites for free</li>
-        <li>How to set up your GitHub profile</li>
         <li>How to think like a disciplined developer</li>
         <li>How to avoid beginner mistakes</li>
         <li>How to collaborate live using WebRTC</li>
@@ -164,64 +125,22 @@
       </ul>
     </div>
 
-    <!-- LESSONS -->
+    <!-- YOU CAN BUILD ANYTHING -->
     <div class="section">
-      <h2>Lessons</h2>
+      <h2>You Can Build Anything</h2>
       <p>
-        Start your journey with 15 structured lessons that teach you everything from
-        saving your first file to building your first app.
+        Websites. Apps. Tools. Automations. Dashboards.  
+        Anything you can think of — you can build it.
       </p>
-      <a class="big-button" href="lessons.html">Start Lessons</a>
-    </div>
-
-    <!-- SIMULATORS -->
-    <div class="section">
-      <h2>Simulators</h2>
       <p>
-        After each lesson, reinforce your skills with interactive simulators that teach
-        you how to save HTML, CSS, and JS files correctly.
+        Coding gives you the power to create your own world,  
+        your own systems, your own income, your own opportunities.
       </p>
-      <a class="big-button" href="simulators.html">Open Simulators</a>
-    </div>
-
-    <!-- UNDERSTANDING THE CODE -->
-    <div class="section">
-      <h2>Understanding the Code</h2>
       <p>
-        Learn the full definitions of HTML, CSS, JS, DOM, API, URL, HTTP, IDE, CLI, Repo,
-        Commit, Push, Deploy — and how each one applies in real builds.
+        You’re not learning to code.  
+        <strong>You’re learning to create.</strong>
       </p>
-      <a class="big-button" href="code.html">Open Code Guide</a>
-    </div>
-
-    <!-- COMMON ERRORS -->
-    <div class="section">
-      <h2>Common Errors & Fixes</h2>
-      <p>
-        Every beginner hits the same mistakes.  
-        This page shows you how to fix them instantly and stay calm while doing it.
-      </p>
-      <a class="big-button" href="common-errors.html">View Common Errors</a>
-    </div>
-
-    <!-- HOW TO READ CODE -->
-    <div class="section">
-      <h2>How to Read Code Like a Pro</h2>
-      <p>
-        Reading code is a superpower.  
-        Learn how to scan, understand, and debug any code — including AI‑generated code.
-      </p>
-      <a class="big-button" href="reading-code.html">Learn to Read Code</a>
-    </div>
-
-    <!-- ROADMAP -->
-    <div class="section">
-      <h2>Beginner Roadmap</h2>
-      <p>
-        Follow this step‑by‑step path to go from total beginner to someone who can build,
-        publish, and collaborate on real projects.
-      </p>
-      <a class="big-button" href="roadmap.html">View Roadmap</a>
+      <a class="big-button" href="lessons.html" data-lock>Begin Lessons</a>
     </div>
 
     <!-- LIVE ROOM -->
@@ -232,7 +151,7 @@
         Live Room.  
         Create your profile, turn on your camera, and join a room instantly.
       </p>
-      <a class="big-button" href="chat.html">Enter Live Room</a>
+      <a class="big-button" href="chat.html" data-lock>Enter Live Room</a>
     </div>
 
     <!-- GITHUB -->
@@ -242,10 +161,14 @@
         Learn how to set up your GitHub profile, create repositories, and publish
         websites for free using GitHub Pages.
       </p>
-      <a class="big-button" href="github.html">Learn GitHub</a>
+      <a class="big-button" href="github.html" data-lock>Learn GitHub</a>
     </div>
 
   </div>
+
+  <!-- GLOBAL APP JS -->
+  <script src="app.js"></script>
+  <script src="matrix.js"></script>
 
 </body>
 </html>
