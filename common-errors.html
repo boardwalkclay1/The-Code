@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Code — Common Errors & Fixes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #02040a;
+      color: white;
+      display: flex;
+    }
+
+    #sidebar {
+      width: 260px;
+      background: #03050f;
+      border-right: 1px solid rgba(0,255,140,0.2);
+      padding: 20px;
+      height: 100vh;
+      position: fixed;
+      overflow-y: auto;
+      box-shadow: 0 0 20px rgba(0,255,140,0.2);
+    }
+
+    #sidebar h1 {
+      font-size: 26px;
+      color: #00ff7f;
+      text-shadow: 0 0 10px #00ff7f;
+      margin-bottom: 20px;
+      letter-spacing: 0.1em;
+    }
+
+    .side-link {
+      display: block;
+      padding: 12px 10px;
+      margin-bottom: 10px;
+      background: #050816;
+      border-radius: 10px;
+      border: 1px solid rgba(0,255,140,0.2);
+      cursor: pointer;
+      transition: 0.2s;
+      text-decoration: none;
+      color: white;
+    }
+
+    .side-link:hover {
+      background: rgba(0,255,140,0.15);
+      transform: translateX(4px);
+    }
+
+    #main {
+      margin-left: 260px;
+      padding: 40px;
+      max-width: 900px;
+    }
+
+    h2 {
+      color: #00ff7f;
+      text-shadow: 0 0 10px #00ff7f;
+    }
+
+    .section {
+      background: #050816;
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(0,255,140,0.2);
+      margin-bottom: 30px;
+      box-shadow: 0 0 20px rgba(0,255,140,0.2);
+    }
+
+    .error-box {
+      background: #030712;
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,80,80,0.4);
+      margin-bottom: 14px;
+    }
+
+    .error-title {
+      color: #ff8080;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .fix {
+      color: #9efad1;
+      margin-top: 6px;
+    }
+
+    code {
+      background: #020814;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="sidebar">
+    <h1>THE CODE</h1>
+
+    <a class="side-link" href="index.html">Home</a>
+    <a class="side-link" href="lessons.html">Lessons</a>
+    <a class="side-link" href="simulators.html">Simulators</a>
+    <a class="side-link" href="chat.html">Live Room</a>
+    <a class="side-link" href="github.html">GitHub Guide</a>
+    <a class="side-link" href="code.html">Understanding the Code</a>
+    <a class="side-link" href="common-errors.html">Common Errors & Fixes</a>
+    <a class="side-link" href="reading-code.html">How to Read Code</a>
+    <a class="side-link" href="roadmap.html">Beginner Roadmap</a>
+  </div>
+
+  <div id="main">
+
+    <div class="section">
+      <h2>Common Errors & How to Fix Them</h2>
+      <p>
+        Every developer, beginner or expert, runs into errors.  
+        The difference is: pros know how to spot them quickly and fix them calmly.
+      </p>
+      <p>
+        This page shows you the most common mistakes you’ll make while learning The Code,
+        and how to fix them without panicking.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>HTML Errors</h2>
+
+      <div class="error-box">
+        <div class="error-title">1. Saved as .txt instead of .html</div>
+        <p><strong>Symptom:</strong> Your file opens as plain text, not a webpage.</p>
+        <p class="fix"><strong>Fix:</strong> Save as <code>index.html</code> and choose “All Files (*.*)” instead of “Text Document”.</p>
+      </div>
+
+      <div class="error-box">
+        <div class="error-title">2. Missing closing tags</div>
+        <p><strong>Symptom:</strong> Layout looks broken or text runs together.</p>
+        <p class="fix"><strong>Fix:</strong> Check that tags like <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code> all have matching closing tags.</p>
+      </div>
+
+      <div class="error-box">
+        <div class="error-title">3. Wrong file name</div>
+        <p><strong>Symptom:</strong> Your hosting or browser doesn’t load your main page.</p>
+        <p class="fix"><strong>Fix:</strong> Make sure your main file is named exactly <code>index.html</code> (all lowercase, no spaces).</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>CSS Errors</h2>
+
+      <div class="error-box">
+        <div class="error-title">1. CSS not linked correctly</div>
+        <p><strong>Symptom:</strong> Your page looks unstyled, like plain HTML.</p>
+        <p class="fix">
+          <strong>Fix:</strong> Check your link tag:  
+          <code>&lt;link rel="stylesheet" href="styles/style.css"&gt;</code>  
+          Make sure the path matches your folder structure.
+        </p>
+      </div>
+
+      <div class="error-box">
+        <div class="error-title">2. Using the wrong selector</div>
+        <p><strong>Symptom:</strong> Your styles don’t apply to the element you expect.</p>
+        <p class="fix">
+          <strong>Fix:</strong> If your HTML has <code>class="btn"</code>, your CSS must use <code>.btn { ... }</code>, not <code>btn { ... }</code>.
+        </p>
+      </div>
+
+      <div class="error-box">
+        <div class="error-title">3. Missing semicolons</div>
+        <p><strong>Symptom:</strong> Some CSS rules work, others don’t.</p>
+        <p class="fix"><strong>Fix:</strong> Make sure each property line ends with <code>;</code>.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>JavaScript Errors</h2>
+
+      <div class="error-box">
+        <div class="error-title">1. Script linked in the wrong place</div>
+        <p><strong>Symptom:</strong> JS doesn’t run or says elements are null.</p>
+        <p class="fix">
+          <strong>Fix:</strong> Put your script tag before <code>&lt;/body&gt;</code> so the HTML loads first:  
+          <code>&lt;script src="scripts/app.js"&gt;&lt;/script&gt;</code>
+        </p>
+      </div>
+
+      <div class="error-box">
+        <div class="error-title">2. Typos in variable or function names</div>
+        <p><strong>Symptom:</strong> “undefined” errors or functions not found.</p>
+        <p class="fix"><strong>Fix:</strong> Check spelling carefully. JS is case-sensitive: <code>myFunction</code> is different from <code>myfunction</code>.</p>
+      </div>
+
+      <div class="error-box">
+        <div class="error-title">3. Forgetting console.log()</div>
+        <p><strong>Symptom:</strong> You don’t know what your code is doing.</p>
+        <p class="fix"><strong>Fix:</strong> Use <code>console.log()</code> to print values and follow the flow of your code.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Mindset: Errors Are Normal</h2>
+      <p>
+        Errors are not a sign that you’re bad at coding.  
+        They’re proof that you’re actually coding.
+      </p>
+      <p>
+        The more calmly you can read an error, understand it, and fix it,  
+        the faster you’ll grow as a builder.
+      </p>
+    </div>
+
+  </div>
+
+</body>
+</html>
