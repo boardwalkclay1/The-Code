@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>The Code — Understanding the Code</title>
+  <title>The Code — Full Definitions & Concepts</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
@@ -78,13 +78,20 @@
       padding: 14px;
       border-radius: 10px;
       border: 1px solid rgba(0,255,140,0.2);
-      margin-bottom: 12px;
+      margin-bottom: 16px;
     }
 
     .term {
       color: #00ff7f;
       font-weight: bold;
-      font-size: 16px;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .apply {
+      color: #9efad1;
+      margin-top: 6px;
+      font-size: 14px;
     }
 
     .big-button {
@@ -122,6 +129,9 @@
     <a class="side-link" href="chat.html">Live Room</a>
     <a class="side-link" href="github.html">GitHub Guide</a>
     <a class="side-link" href="code.html">Understanding the Code</a>
+    <a class="side-link" href="common-errors.html">Common Errors</a>
+    <a class="side-link" href="reading-code.html">How to Read Code</a>
+    <a class="side-link" href="roadmap.html">Roadmap</a>
   </div>
 
   <!-- MAIN CONTENT -->
@@ -129,29 +139,14 @@
 
     <!-- INTRO -->
     <div class="section">
-      <h2>Understanding “The Code”</h2>
+      <h2>The Code — Full Definitions & How They Apply</h2>
       <p>
-        Before you build anything — a website, an app, a tool, a dashboard — you need to
-        understand the language behind it.  
-        Not the syntax. Not the memorization.  
-        The <strong>concepts</strong>.
+        This page breaks down the core abbreviations and concepts you’ll see everywhere in coding.
+        Once you understand these, you’ll be able to read code, fix errors, and guide AI with confidence.
       </p>
       <p>
-        The Code is the foundation of everything you will ever build.  
-        And even though AI can write 90% of your code today, you still need to know
-        what you’re looking at so you can:
-      </p>
-      <ul>
-        <li>Spot errors instantly</li>
-        <li>Understand what AI generated for you</li>
-        <li>Fix things manually when needed</li>
-        <li>Build with confidence instead of guessing</li>
-      </ul>
-      <p>
-        We are lucky to be living in the future.  
-        In the past, developers had to write everything by hand.  
-        Today, you can build entire apps in minutes with AI —  
-        but only if you understand the structure behind the scenes.
+        Even though AI can write most of your code today, you still need to understand the structure.
+        That’s how you spot mistakes, understand what’s happening, and build anything you want.
       </p>
       <p>
         This is why people say:  
@@ -159,108 +154,190 @@
       </p>
     </div>
 
-    <!-- DEFINITIONS INDEX -->
+    <!-- DEFINITIONS -->
     <div class="section">
-      <h2>Code Abbreviation Index</h2>
-      <p>
-        These are the core abbreviations and terms you’ll see everywhere in coding.
-        Once you understand these, the entire world of development becomes simple.
-      </p>
+      <h2>Core Abbreviations & Concepts</h2>
 
+      <!-- HTML -->
       <div class="definition-box">
         <div class="term">HTML — HyperText Markup Language</div>
-        <p>The structure of your webpage. The skeleton. The foundation.</p>
+        <p>
+          The structure of every webpage. HTML tells the browser what things *are*: headings, paragraphs, images, buttons.
+        </p>
+        <p class="apply">
+          <strong>How it applies:</strong>  
+          HTML is the skeleton of your site. Without it, nothing exists.  
+          Every project you build starts with <code>index.html</code>.
+        </p>
       </div>
 
+      <!-- CSS -->
       <div class="definition-box">
         <div class="term">CSS — Cascading Style Sheets</div>
-        <p>The design layer. Colors, fonts, spacing, layout, animations.</p>
+        <p>
+          The design layer. CSS controls colors, spacing, fonts, layout, animations, and the entire visual experience.
+        </p>
+        <p class="apply">
+          <strong>How it applies:</strong>  
+          CSS makes your project look professional.  
+          It transforms plain HTML into a real interface.
+        </p>
       </div>
 
+      <!-- JS -->
       <div class="definition-box">
         <div class="term">JS — JavaScript</div>
-        <p>The behavior. Buttons, logic, animations, interactivity.</p>
+        <p>
+          The behavior layer. JavaScript controls interactivity: clicks, animations, logic, data, and dynamic content.
+        </p>
+        <p class="apply">
+          <strong>How it applies:</strong>  
+          JS makes your site *do* things.  
+          Without JS, everything is static.
+        </p>
       </div>
 
+      <!-- DOM -->
       <div class="definition-box">
         <div class="term">DOM — Document Object Model</div>
-        <p>The browser’s internal map of your webpage. JS uses this to change things.</p>
+        <p>
+          The browser’s internal map of your webpage.  
+          JavaScript uses the DOM to find elements and change them.
+        </p>
+        <p class="apply">
+          <strong>How it applies:</strong>  
+          When you click a button and something changes, JS is modifying the DOM.
+        </p>
       </div>
 
+      <!-- API -->
       <div class="definition-box">
         <div class="term">API — Application Programming Interface</div>
-        <p>A way for apps to talk to each other. Weather apps, maps, payments — all APIs.</p>
+        <p>
+          A structured way for apps to talk to each other.  
+          Weather apps, maps, payments, AI — all powered by APIs.
+        </p>
+        <p class="apply">
+          <strong>How it applies:</strong>  
+          APIs let your app pull real data from the internet.  
+          Example: “Get today’s weather” → API request.
+        </p>
       </div>
 
+      <!-- URL -->
       <div class="definition-box">
         <div class="term">URL — Uniform Resource Locator</div>
-        <p>The address of a webpage. Like a street address, but for the internet.</p>
+        <p>
+          The address of a webpage.  
+          Like a street address, but for the internet.
+        </p>
+        <p class="apply">
+          <strong>How it applies:</strong>  
+          Every file you host on GitHub Pages gets its own URL.
+        </p>
       </div>
 
+      <!-- HTTP -->
       <div class="definition-box">
         <div class="term">HTTP / HTTPS</div>
-        <p>The protocol your browser uses to talk to websites. HTTPS is the secure version.</p>
+        <p>
+          The protocol your browser uses to communicate with websites.  
+          HTTPS is the secure, encrypted version.
+        </p>
+        <p class="apply">
+          <strong>How it applies:</strong>  
+          Modern browsers require HTTPS for many features (like camera access).
+        </p>
       </div>
 
+      <!-- IDE -->
       <div class="definition-box">
         <div class="term">IDE — Integrated Development Environment</div>
-        <p>A coding editor with tools built in. VS Code is the most popular.</p>
+        <p>
+          A coding editor with built‑in tools.  
+          VS Code is the most popular IDE in the world.
+        </p>
+        <p class="apply">
+          <strong>How it applies:</strong>  
+          Your IDE is where you write, organize, and manage your entire project.
+        </p>
       </div>
 
+      <!-- CLI -->
       <div class="definition-box">
         <div class="term">CLI — Command Line Interface</div>
-        <p>Typing commands instead of clicking buttons. Faster and more powerful.</p>
+        <p>
+          A text‑based interface for running commands.  
+          Faster and more powerful than clicking menus.
+        </p>
+        <p class="apply">
+          <strong>How it applies:</strong>  
+          You’ll use the CLI to push code to GitHub and run advanced tools.
+        </p>
       </div>
 
+      <!-- REPO -->
       <div class="definition-box">
         <div class="term">Repo — Repository</div>
-        <p>A folder of code stored on GitHub. Your project’s home base.</p>
+        <p>
+          A folder of code stored on GitHub.  
+          It contains your files, history, and project structure.
+        </p>
+        <p class="apply">
+          <strong>How it applies:</strong>  
+          Every project you publish will live inside a repo.
+        </p>
       </div>
 
+      <!-- COMMIT -->
       <div class="definition-box">
         <div class="term">Commit</div>
-        <p>A saved change in your code. Like a checkpoint.</p>
+        <p>
+          A saved change in your code.  
+          Think of it like a checkpoint or snapshot.
+        </p>
+        <p class="apply">
+          <strong>How it applies:</strong>  
+          Commits let you track progress and undo mistakes instantly.
+        </p>
       </div>
 
+      <!-- PUSH -->
       <div class="definition-box">
         <div class="term">Push</div>
-        <p>Sending your code from your computer to GitHub.</p>
+        <p>
+          Sending your code from your computer to GitHub.
+        </p>
+        <p class="apply">
+          <strong>How it applies:</strong>  
+          When you push, your project updates online for the world to see.
+        </p>
       </div>
 
+      <!-- DEPLOY -->
       <div class="definition-box">
         <div class="term">Deploy</div>
-        <p>Publishing your project so the world can use it.</p>
+        <p>
+          Publishing your project so people can use it.
+        </p>
+        <p class="apply">
+          <strong>How it applies:</strong>  
+          GitHub Pages lets you deploy websites for free — instantly.
+        </p>
       </div>
 
-    </div>
-
-    <!-- WHY THIS MATTERS -->
-    <div class="section">
-      <h2>Why Understanding Code Still Matters</h2>
-      <p>
-        Even though AI can write code for you, you still need to understand the basics.
-        Not to memorize — but to recognize.
-      </p>
-      <p>
-        When something breaks, you’ll know where to look.  
-        When AI gives you code, you’ll know what it means.  
-        When you want to build something new, you’ll know how to guide the AI properly.
-      </p>
-      <p>
-        This combination — your understanding + AI’s speed —  
-        is what makes this the greatest time in history to learn coding.
-      </p>
     </div>
 
     <!-- CTA -->
     <div class="section">
-      <h2>Ready to Build?</h2>
+      <h2>Where to Go Next</h2>
       <p>
-        Now that you understand the language of coding, you’re ready to move forward.
+        Now that you understand the core language of coding, you’re ready to move forward.
       </p>
       <a class="big-button" href="lessons.html">Start Lessons</a>
       <a class="big-button" href="simulators.html">Practice Saving Files</a>
       <a class="big-button" href="chat.html">Join the Live Room</a>
+      <a class="big-button" href="github.html">Learn GitHub</a>
     </div>
 
   </div>
