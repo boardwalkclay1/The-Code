@@ -1,16 +1,23 @@
+/* ============================================================
+   DISCIPLINE ACADEMY — CINEMATIC MATRIX EDITION (FULL CSS)
+   Clayvonte x Copilot
+============================================================ */
+
+/* THEME VARIABLES */
 :root {
-  --bg: #02040a;
-  --bg-alt: #050816;
-  --accent: #18ff8f;
-  --accent-soft: rgba(24, 255, 143, 0.2);
-  --text: #f5f7ff;
-  --muted: #7f8ca5;
+  --bg: #000204;
+  --bg-alt: #03070f;
+  --accent: #00ff95;
+  --accent-soft: rgba(0, 255, 149, 0.25);
+  --text: #e9fff5;
+  --muted: #6f8c8a;
   --danger: #ff4b6b;
-  --radius: 14px;
-  --border-glow: 0 0 18px rgba(24, 255, 143, 0.5);
+  --radius: 16px;
+  --border-glow: 0 0 28px rgba(0, 255, 149, 0.7);
   --transition-fast: 0.18s ease-out;
 }
 
+/* RESET */
 *,
 *::before,
 *::after {
@@ -20,39 +27,81 @@
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-  background: radial-gradient(circle at top, #09111f, #02040a);
+  background: radial-gradient(circle at top, #07131f, #000204);
   color: var(--text);
   min-height: 100vh;
-  position: relative;
   overflow-x: hidden;
+  position: relative;
 }
 
-/* GLOBAL MATRIX BACKGROUND */
-#matrix-bg {
+/* ============================================================
+   MATRIX RAIN BACKGROUND
+============================================================ */
+#matrix-rain {
   position: fixed;
   inset: 0;
-  width: 100vw;
-  height: 100vh;
   z-index: 0;
   pointer-events: none;
+  opacity: 0.35;
 }
 
+.matrix-char {
+  position: absolute;
+  color: #00ff95;
+  font-family: monospace;
+  font-size: 18px;
+  animation: fall linear infinite;
+  text-shadow: 0 0 8px #00ff95, 0 0 14px #00ff95;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-120%); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(120%); opacity: 0; }
+}
+
+/* ============================================================
+   GHOST HAND TYPING ANIMATION
+============================================================ */
+#hacker-hand {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 140px;
+  opacity: 0;
+  z-index: 10;
+  filter: drop-shadow(0 0 12px rgba(0,255,149,0.7));
+  animation: handAppear 12s infinite;
+}
+
+@keyframes handAppear {
+  0% { opacity: 0; transform: translateY(20px) scale(0.9); }
+  10% { opacity: 1; transform: translateY(0) scale(1); }
+  40% { opacity: 1; }
+  50% { opacity: 0; transform: translateY(20px) scale(0.9); }
+  100% { opacity: 0; }
+}
+
+/* ============================================================
+   APP LAYOUT
+============================================================ */
 #app-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .hidden {
   display: none;
 }
 
+/* TOP BAR */
 .top-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 14px 24px;
-  background: linear-gradient(to right, #02040a, #050816);
-  border-bottom: 1px solid rgba(24, 255, 143, 0.12);
+  background: linear-gradient(to right, #000204, #03070f);
+  border-bottom: 1px solid rgba(0, 255, 149, 0.18);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.65);
 }
 
@@ -63,39 +112,40 @@ body {
 }
 
 .brand-logo {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  border: 1px solid rgba(24, 255, 143, 0.6);
+  border: 1px solid rgba(0, 255, 149, 0.7);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: 18px;
   color: var(--accent);
   box-shadow: var(--border-glow);
 }
 
 .brand-name {
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  font-size: 15px;
   text-transform: uppercase;
   color: var(--accent);
 }
 
+/* NAVIGATION */
 .nav {
   display: flex;
-  gap: 8px;
+  gap: 10px;
 }
 
 .nav-btn {
-  background: transparent;
+  background: rgba(0,255,149,0.06);
   color: var(--muted);
-  border: 1px solid rgba(127, 140, 165, 0.4);
-  padding: 8px 14px;
+  border: 1px solid rgba(0,255,149,0.25);
+  padding: 8px 16px;
   border-radius: 999px;
   font-size: 13px;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   cursor: pointer;
   transition: var(--transition-fast);
@@ -104,11 +154,14 @@ body {
 .nav-btn:hover,
 .nav-btn.active {
   color: var(--accent);
-  border-color: rgba(24, 255, 143, 0.8);
-  box-shadow: 0 0 12px rgba(24, 255, 143, 0.3);
-  background: rgba(24, 255, 143, 0.06);
+  border-color: rgba(0,255,149,0.9);
+  box-shadow: 0 0 18px rgba(0,255,149,0.4);
+  background: rgba(0,255,149,0.12);
 }
 
+/* ============================================================
+   VIEWS
+============================================================ */
 #view-root {
   padding: 24px;
   max-width: 1100px;
@@ -117,10 +170,10 @@ body {
 
 .view {
   display: none;
-  background: radial-gradient(circle at top left, rgba(24, 255, 143, 0.08), #050816);
+  background: radial-gradient(circle at top left, rgba(0,255,149,0.12), #03070f);
   border-radius: 26px;
-  border: 1px solid rgba(24, 255, 143, 0.18);
-  padding: 24px 26px 26px;
+  border: 1px solid rgba(0,255,149,0.25);
+  padding: 26px;
   box-shadow: 0 18px 60px rgba(0, 0, 0, 0.8);
 }
 
@@ -130,60 +183,70 @@ body {
 
 h2 {
   margin-top: 0;
-  font-size: 24px;
-  letter-spacing: 0.08em;
+  font-size: 26px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent);
 }
 
 p {
   color: var(--muted);
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.6;
 }
 
+/* ============================================================
+   BUTTONS
+============================================================ */
 .primary-btn {
   margin-top: 16px;
-  background: var(--accent);
+  background: linear-gradient(135deg, #00ff95, #00c76a);
   color: #02100a;
   border: none;
-  padding: 10px 18px;
+  padding: 12px 20px;
   border-radius: 999px;
   font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   cursor: pointer;
-  box-shadow: var(--border-glow);
+  box-shadow: var(--border-glow), inset 0 0 12px rgba(0,255,149,0.4);
   transition: var(--transition-fast);
 }
 
 .primary-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 0 22px rgba(24, 255, 143, 0.7);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 0 32px rgba(0,255,149,0.9);
 }
 
-/* Lessons */
+/* ============================================================
+   LESSONS
+============================================================ */
 .lesson-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 14px;
+  gap: 16px;
   margin-top: 12px;
 }
 
 .lesson-card {
-  text-align: left;
-  background: rgba(2, 4, 10, 0.9);
+  background: rgba(0, 10, 5, 0.85);
   border-radius: 18px;
-  padding: 14px 16px;
-  border: 1px solid rgba(24, 255, 143, 0.16);
+  padding: 16px;
+  border: 1px solid rgba(0,255,149,0.35);
   cursor: pointer;
   transition: var(--transition-fast);
+  box-shadow: inset 0 0 18px rgba(0,255,149,0.15);
+}
+
+.lesson-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 0 28px rgba(0,255,149,0.5);
 }
 
 .lesson-card h3 {
   margin: 0 0 6px;
-  font-size: 15px;
+  font-size: 16px;
   color: var(--text);
 }
 
@@ -192,69 +255,9 @@ p {
   font-size: 13px;
 }
 
-.lesson-card:hover {
-  border-color: rgba(24, 255, 143, 0.8);
-  box-shadow: 0 0 18px rgba(24, 255, 143, 0.3);
-  transform: translateY(-2px);
-}
-
-.lesson-detail {
-  margin-top: 18px;
-  padding: 14px 16px;
-  border-radius: 18px;
-  background: rgba(2, 4, 10, 0.9);
-  border: 1px dashed rgba(24, 255, 143, 0.4);
-}
-
-/* Diagrams */
-.diagram-container {
-  margin-top: 14px;
-}
-
-.diagram {
-  margin-top: 10px;
-  padding: 18px;
-  border-radius: 18px;
-  background: rgba(2, 4, 10, 0.9);
-  border: 1px solid rgba(24, 255, 143, 0.25);
-}
-
-.node {
-  display: inline-block;
-  padding: 4px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(24, 255, 143, 0.6);
-  color: var(--accent);
-  font-size: 12px;
-  margin: 4px;
-  background: rgba(24, 255, 143, 0.08);
-}
-
-.root {
-  font-weight: 600;
-}
-
-.node-level {
-  margin-top: 10px;
-}
-
-.node-branch {
-  margin: 4px 0;
-}
-
-.node-children {
-  margin-left: 24px;
-}
-
-.child {
-  border-style: dashed;
-}
-
-.muted {
-  opacity: 0.5;
-}
-
-/* Lesson Modal */
+/* ============================================================
+   MODAL
+============================================================ */
 .lesson-modal {
   position: fixed;
   inset: 0;
@@ -268,11 +271,11 @@ p {
 .lesson-modal-content {
   width: 90%;
   max-width: 700px;
-  background: #050816;
+  background: #03070f;
   border-radius: 22px;
   padding: 24px;
-  border: 1px solid rgba(24, 255, 143, 0.3);
-  box-shadow: 0 0 40px rgba(24, 255, 143, 0.4);
+  border: 1px solid rgba(0,255,149,0.5);
+  box-shadow: 0 0 50px rgba(0,255,149,0.6);
   position: relative;
 }
 
@@ -283,102 +286,68 @@ p {
   background: transparent;
   border: none;
   color: var(--accent);
-  font-size: 20px;
+  font-size: 22px;
   cursor: pointer;
 }
 
-/* Quiz */
+/* ============================================================
+   QUIZ
+============================================================ */
 .quiz-question {
   margin-top: 18px;
-  font-size: 16px;
+  font-size: 18px;
   color: var(--text);
 }
 
 .quiz-option {
-  margin-top: 10px;
-  padding: 10px 14px;
-  background: rgba(24, 255, 143, 0.08);
-  border: 1px solid rgba(24, 255, 143, 0.3);
+  margin-top: 12px;
+  padding: 12px 16px;
+  background: rgba(0,255,149,0.08);
+  border: 1px solid rgba(0,255,149,0.4);
   border-radius: 12px;
   cursor: pointer;
   transition: 0.2s;
 }
 
 .quiz-option:hover {
-  background: rgba(24, 255, 143, 0.18);
+  background: rgba(0,255,149,0.18);
 }
 
 .quiz-option.correct {
   border-color: #00ff7f;
-  background: rgba(0, 255, 127, 0.2);
+  background: rgba(0,255,127,0.2);
 }
 
 .quiz-option.wrong {
   border-color: #ff4b6b;
-  background: rgba(255, 75, 107, 0.2);
+  background: rgba(255,75,107,0.2);
 }
 
 .complete-lesson-btn {
   margin-top: 20px;
   background: var(--accent);
   color: #02100a;
-  padding: 10px 16px;
+  padding: 12px 18px;
   border-radius: 999px;
   border: none;
   cursor: pointer;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
-.sim-box {
-  background: #050816;
-  padding: 20px;
-  border-radius: 16px;
-  border: 1px solid rgba(0,255,140,0.3);
-  max-width: 400px;
-  margin: 20px auto;
-  text-align: left;
-}
-
-.sim-box input,
-.sim-box select {
-  width: 100%;
-  padding: 10px;
-  margin-top: 8px;
-  margin-bottom: 16px;
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.2);
-  background: #0a1220;
-  color: white;
-}
-
-.sim-box button {
-  width: 100%;
-  padding: 12px;
-  background: #00ff7f;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: bold;
-  color: #02150a;
-}
-
-.sim-result {
-  margin-top: 15px;
-  font-size: 16px;
-}
-/* Local video */
+/* ============================================================
+   WEBRTC
+============================================================ */
 #localVideo {
   width: 260px;
   height: 180px;
   background: #000;
-  border: 2px solid rgba(24,255,143,0.4);
+  border: 2px solid rgba(0,255,149,0.4);
   border-radius: 12px;
-  box-shadow: 0 0 18px rgba(24,255,143,0.3);
+  box-shadow: 0 0 18px rgba(0,255,149,0.3);
 }
 
-/* Remote videos grid */
 .remote-grid {
   margin-top: 20px;
   display: grid;
@@ -391,53 +360,36 @@ p {
   height: 200px;
   background: #000;
   border-radius: 12px;
-  border: 2px solid rgba(24,255,143,0.3);
-  box-shadow: 0 0 18px rgba(24,255,143,0.2);
+  border: 2px solid rgba(0,255,149,0.3);
+  box-shadow: 0 0 18px rgba(0,255,149,0.2);
 }
 
-/* Controls */
 .local-controls button {
   margin-right: 8px;
   padding: 8px 14px;
   border-radius: 8px;
   border: none;
-  background: rgba(24,255,143,0.2);
+  background: rgba(0,255,149,0.2);
   color: var(--accent);
   cursor: pointer;
 }
 
-/* Connection Status Panel */
 .status-panel {
   margin-top: 20px;
   padding: 14px;
-  background: rgba(24,255,143,0.08);
-  border: 1px solid rgba(24,255,143,0.3);
+  background: rgba(0,255,149,0.08);
+  border: 1px solid rgba(0,255,149,0.3);
   border-radius: 12px;
   font-size: 14px;
   color: var(--accent);
 }
 
-/* Troubleshooting Overlay */
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.75);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-}
-
-.overlay-content {
-  background: #050816;
-  padding: 24px;
-  border-radius: 16px;
-  width: 90%;
-  max-width: 400px;
-  border: 1px solid rgba(24,255,143,0.4);
-  box-shadow: 0 0 30px rgba(24,255,143,0.3);
-}
-
-.hidden {
-  display: none;
+/* ============================================================
+   LOCKED STATE
+============================================================ */
+.locked {
+  opacity: 0.35;
+  filter: grayscale(100%);
+  cursor: not-allowed !important;
+  pointer-events: none;
 }
