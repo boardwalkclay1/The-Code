@@ -1,16 +1,37 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* ============================
-     ACCESS CONTROL SYSTEM
-  ============================ */
+  /* ============================================================
+     MATRIX TERMINAL BOOT SEQUENCE
+  ============================================================ */
+  function logMatrix(msg) {
+    console.log(`%c[MATRIX] ${msg}`, "color:#00ff41; font-weight:bold;");
+  }
+
+  function logError(msg) {
+    console.log(`%c[ERROR] ${msg}`, "color:#ff4f4f; font-weight:bold;");
+  }
+
+  logMatrix("SYSTEM BOOTING...");
+  setTimeout(() => logMatrix("LOADING MODULES..."), 300);
+  setTimeout(() => logMatrix("ACCESS CONTROL ONLINE"), 600);
+  setTimeout(() => logMatrix("UI ENGINE ONLINE"), 900);
+  setTimeout(() => logMatrix("SIMULATOR ENGINE ONLINE"), 1200);
+  setTimeout(() => logMatrix("WEBRTC ENGINE ONLINE"), 1500);
+  setTimeout(() => logMatrix("SYSTEM READY"), 1800);
+
+
+
+  /* ============================================================
+     ACCESS CONTROL SYSTEM (UNCHANGED LOGIC)
+  ============================================================ */
   const ownerEmail = "boardwalkclay1@gmail.com";
 
   const savedEmail = localStorage.getItem("user_email");
   const hasAccessFlag = localStorage.getItem("access_granted") === "true";
 
-  // If saved email is yours, auto-unlock
   if (savedEmail && savedEmail.toLowerCase() === ownerEmail.toLowerCase()) {
     localStorage.setItem("access_granted", "true");
+    logMatrix("OWNER EMAIL DETECTED — ACCESS AUTO-GRANTED");
   }
 
   function userHasAccess() {
@@ -29,15 +50,22 @@ document.addEventListener("DOMContentLoaded", () => {
         el.setAttribute("disabled", "true");
       }
     });
+
+    if (userHasAccess()) {
+      logMatrix("ACCESS VERIFIED — SYSTEM UNLOCKED");
+      document.body.classList.add("matrix-unlocked");
+    } else {
+      logMatrix("ACCESS RESTRICTED — LOCKED MODE ACTIVE");
+    }
   }
 
   updateLockState();
 
 
 
-  /* ============================
-     MATRIX LOADING SCREEN
-  ============================ */
+  /* ============================================================
+     MATRIX LOADING SCREEN (UNCHANGED LOGIC, ENHANCED LOGS)
+  ============================================================ */
   const loadingScreen = document.getElementById("loading-screen");
   const app = document.getElementById("app");
   const loadingFill = document.querySelector(".loading-fill");
@@ -51,6 +79,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (loadingFill) loadingFill.style.width = progress + "%";
     if (loadingPercent) loadingPercent.textContent = progress + "%";
 
+    if (progress === 100) logMatrix("BOOT SEQUENCE COMPLETE");
+
     if (progress >= 100) {
       clearInterval(interval);
       setTimeout(() => {
@@ -62,6 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
           if (loadingScreen) loadingScreen.remove();
           if (app) app.classList.remove("hidden");
+          logMatrix("UI ONLINE");
         }, 600);
       }, 300);
     }
@@ -69,13 +100,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-  /* ============================
-     NAVIGATION SYSTEM
-  ============================ */
+  /* ============================================================
+     NAVIGATION SYSTEM (UNCHANGED LOGIC, MATRIX LOGS ADDED)
+  ============================================================ */
   const navButtons = document.querySelectorAll(".nav-btn");
   const views = document.querySelectorAll(".view");
 
   function setActiveView(targetId) {
+    logMatrix(`NAVIGATING TO VIEW: ${targetId.toUpperCase()}`);
+
     views.forEach(v => v.classList.remove("active"));
     const target = document.getElementById(`view-${targetId}`);
     if (target) target.classList.add("active");
@@ -87,7 +120,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   navButtons.forEach(btn => {
     btn.addEventListener("click", () => {
-      if (!userHasAccess() && btn.hasAttribute("data-lock")) return;
+      if (!userHasAccess() && btn.hasAttribute("data-lock")) {
+        logError("ACCESS DENIED — LOCKED VIEW");
+        return;
+      }
       setActiveView(btn.dataset.target);
     });
   });
@@ -95,16 +131,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const startPathBtn = document.getElementById("start-path-btn");
   if (startPathBtn) {
     startPathBtn.addEventListener("click", () => {
-      if (!userHasAccess() && startPathBtn.hasAttribute("data-lock")) return;
+      if (!userHasAccess() && startPathBtn.hasAttribute("data-lock")) {
+        logError("ACCESS DENIED — START PATH LOCKED");
+        return;
+      }
       setActiveView("lessons");
     });
   }
 
 
 
-  /* ============================
-     LESSON ENGINE + PROGRESSION
-  ============================ */
+  /* ============================================================
+     LESSON ENGINE (UNCHANGED LOGIC, MATRIX LOGS ADDED)
+  ============================================================ */
   const lessonCards = document.querySelectorAll(".lesson-card");
   const lessonModal = document.getElementById("lesson-modal");
   const lessonModalBody = document.getElementById("lesson-modal-body");
@@ -183,16 +222,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function openLesson(id) {
     if (!userHasAccess()) {
+      logError("ACCESS DENIED — LESSON LOCKED");
       alert("You must unlock access first.");
       return;
     }
 
     if (id > 1 && !lessonProgress[id - 1]) {
+      logError("ACCESS DENIED — PREVIOUS LESSON NOT COMPLETE");
       alert("Complete the previous lesson first.");
       return;
     }
 
     const lesson = fullLessons[id];
+    logMatrix(`OPENING LESSON ${id}`);
 
     lessonModalBody.innerHTML = `
       <h2>${lesson.title}</h2>
@@ -218,8 +260,10 @@ document.addEventListener("DOMContentLoaded", () => {
         if (correct) {
           opt.classList.add("correct");
           completeBtn.classList.remove("hidden");
+          logMatrix("QUIZ CORRECT — LESSON COMPLETE BUTTON ENABLED");
         } else {
           opt.classList.add("wrong");
+          logError("QUIZ INCORRECT");
         }
       });
     });
@@ -228,12 +272,14 @@ document.addEventListener("DOMContentLoaded", () => {
       lessonProgress[id] = true;
       localStorage.setItem("codeLessonProgress", JSON.stringify(lessonProgress));
       lessonModal.classList.add("hidden");
+      logMatrix(`LESSON ${id} MARKED COMPLETE`);
     }, { once: true });
   }
 
   if (closeLessonModal) {
     closeLessonModal.addEventListener("click", () => {
       lessonModal.classList.add("hidden");
+      logMatrix("LESSON MODAL CLOSED");
     });
   }
 
@@ -245,9 +291,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-  /* ============================
-     WEBRTC LIVE ROOM
-  ============================ */
+  /* ============================================================
+     WEBRTC LIVE ROOM (UNCHANGED LOGIC, MATRIX LOGS ADDED)
+  ============================================================ */
   let localStream = null;
   let peerConnection = null;
 
@@ -272,18 +318,22 @@ document.addEventListener("DOMContentLoaded", () => {
   if (startCameraBtn) {
     startCameraBtn.addEventListener("click", async () => {
       try {
+        logMatrix("REQUESTING CAMERA ACCESS...");
         localStream = await navigator.mediaDevices.getUserMedia({
           video: true,
           audio: true
         });
         if (localVideo) localVideo.srcObject = localStream;
+        logMatrix("CAMERA STREAM ACTIVE");
       } catch (err) {
+        logError("CAMERA/MIC ACCESS FAILED");
         alert("Camera/mic access failed.");
       }
     });
   }
 
   function createPeerConnection() {
+    logMatrix("CREATING PEER CONNECTION...");
     peerConnection = new RTCPeerConnection(iceServers);
 
     if (localStream) {
@@ -294,6 +344,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     peerConnection.addEventListener("track", event => {
       if (remoteVideo) remoteVideo.srcObject = event.streams[0];
+      logMatrix("REMOTE STREAM RECEIVED");
     });
   }
 
@@ -307,6 +358,7 @@ document.addEventListener("DOMContentLoaded", () => {
       await peerConnection.setLocalDescription(offer);
 
       if (offerOut) offerOut.value = JSON.stringify(offer);
+      logMatrix("OFFER CREATED");
     });
   }
 
@@ -318,8 +370,10 @@ document.addEventListener("DOMContentLoaded", () => {
         createPeerConnection();
         await peerConnection.setRemoteDescription(offer);
 
+        logMatrix("OFFER SET — READY TO CREATE ANSWER");
         alert("Offer set. Now create answer.");
       } catch {
+        logError("INVALID OFFER JSON");
         alert("Invalid offer JSON.");
       }
     });
@@ -334,6 +388,7 @@ document.addEventListener("DOMContentLoaded", () => {
       await peerConnection.setLocalDescription(answer);
 
       if (answerOut) answerOut.value = JSON.stringify(answer);
+      logMatrix("ANSWER CREATED");
     });
   }
 
@@ -343,8 +398,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const answer = JSON.parse(answerIn.value);
         await peerConnection.setRemoteDescription(answer);
 
+        logMatrix("CONNECTION ESTABLISHED");
         alert("Connected.");
       } catch {
+        logError("INVALID ANSWER JSON");
         alert("Invalid answer JSON.");
       }
     });
