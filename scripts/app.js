@@ -4,7 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
      MATRIX TERMINAL CORE
   ============================================================ */
   function logMatrix(msg) {
-    console.log(`%c[MATRIX] ${msg}`, "color:#00ff41; font-weight:bold;");
+    const color = getComputedStyle(document.documentElement)
+      .getPropertyValue("--matrix-color")
+      .trim();
+    console.log(`%c[MATRIX] ${msg}`, `color:${color}; font-weight:bold;`);
   }
 
   function logError(msg) {
@@ -20,11 +23,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* ============================================================
+     MATRIX COLOR CYCLE (GREEN → RED → BLUE → GREEN)
+  ============================================================ */
+  const matrixColors = [
+    "#00ff41", // green
+    "#ff0033", // red
+    "#0099ff", // blue
+    "#00ff41"  // back to green
+  ];
+
+  let matrixIndex = 0;
+
+  setInterval(() => {
+    matrixIndex = (matrixIndex + 1) % matrixColors.length;
+    const newColor = matrixColors[matrixIndex];
+    document.documentElement.style.setProperty("--matrix-color", newColor);
+    logMatrix(`COLOR SHIFT`);
+  }, 3000);
+
+
+
+  /* ============================================================
      ACCESS CONTROL (PAYPAL / EMAIL DRIVEN)
   ============================================================ */
-  // You still control access_granted via PayPal + email elsewhere.
-  // This file just *reads* it and locks/unlocks UI.
-
   function userHasAccess() {
     return localStorage.getItem("access_granted") === "true";
   }
@@ -54,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* ============================================================
-     5‑CLICK MASTER OVERRIDE (YOUR SECRET UNLOCK)
+     5‑CLICK MASTER OVERRIDE
   ============================================================ */
   let clickCount = 0;
   let clickTimeout = null;
@@ -90,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* ============================================================
-     MATRIX LOADING SCREEN (IF PRESENT ON THIS PAGE)
+     MATRIX LOADING SCREEN
   ============================================================ */
   const loadingScreen = document.getElementById("loading-screen");
   const appRoot = document.getElementById("app");
@@ -125,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* ============================================================
-     LESSON CARDS → LESSON PAGES (GENERIC HANDLING)
+     LESSON CARDS
   ============================================================ */
   const lessonCards = document.querySelectorAll(".lesson-card");
 
@@ -142,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* ============================================================
-     SIMULATOR BUTTONS (GENERIC HANDLING)
+     SIMULATOR BUTTONS
   ============================================================ */
   const simLinks = document.querySelectorAll('a[href*="simulators"], button[data-sim]');
 
@@ -159,7 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* ============================================================
-     NAVIGATION BUTTONS WITH data-lock (GLOBAL)
+     NAV BUTTONS
   ============================================================ */
   const navButtons = document.querySelectorAll(".nav-btn");
 
@@ -168,7 +189,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!userHasAccess() && btn.hasAttribute("data-lock")) {
         event.preventDefault();
         logError("ACCESS DENIED — NAV TARGET LOCKED");
-        return;
       }
     });
   });
@@ -176,7 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* ============================================================
-     LESSON MODAL (IF PRESENT ON THIS PAGE)
+     LESSON MODAL
   ============================================================ */
   const lessonModal = document.getElementById("lesson-modal");
   const closeLessonModal = document.getElementById("close-lesson-modal");
@@ -191,7 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* ============================================================
-     WEBRTC LIVE ROOM (HOOKS ONLY, YOUR LOGIC STAYS SEPARATE)
+     WEBRTC LIVE ROOM
   ============================================================ */
   const startCameraBtn = document.getElementById("startCameraBtn");
   const createOfferBtn = document.getElementById("createOfferBtn");
