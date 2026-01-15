@@ -5,89 +5,137 @@
   <title>The Code — Common Errors & Fixes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- GLOBAL MATRIX THEME -->
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/matrix.css">
+
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #02040a;
-      color: white;
+      background: #000;
+      color: #00ff41;
+      font-family: "Courier New", monospace;
+      overflow: hidden;
       display: flex;
     }
 
+    /* MATRIX RAIN */
+    #matrix-rain {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* SIDEBAR — BRIGHT MATRIX VERSION */
     #sidebar {
       width: 260px;
-      background: #03050f;
-      border-right: 1px solid rgba(0,255,140,0.2);
+      background: rgba(0, 0, 0, 0.92);
+      border-right: 2px solid #00ff41;
       padding: 20px;
       height: 100vh;
-      position: fixed;
       overflow-y: auto;
-      box-shadow: 0 0 20px rgba(0,255,140,0.2);
+      position: fixed;
+      box-shadow: 0 0 25px #00ff41, inset 0 0 20px rgba(0,255,65,0.4);
+      z-index: 2;
     }
 
     #sidebar h1 {
-      font-size: 26px;
-      color: #00ff7f;
-      text-shadow: 0 0 10px #00ff7f;
-      margin-bottom: 20px;
-      letter-spacing: 0.1em;
+      font-size: 30px;
+      letter-spacing: 0.25em;
+      margin-bottom: 25px;
+      text-shadow: 0 0 18px #00ff41;
+    }
+
+    .side-section-title {
+      margin-top: 22px;
+      margin-bottom: 8px;
+      font-size: 12px;
+      color: #00ff41cc;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      text-shadow: 0 0 8px #00ff41;
     }
 
     .side-link {
       display: block;
-      padding: 12px 10px;
+      padding: 10px 14px;
       margin-bottom: 10px;
-      background: #050816;
-      border-radius: 10px;
-      border: 1px solid rgba(0,255,140,0.2);
-      cursor: pointer;
-      transition: 0.2s;
+      border-radius: 999px;
+      border: 1px solid #00ff41;
+      background: rgba(0, 0, 0, 0.75);
+      color: #00ff41;
       text-decoration: none;
-      color: white;
+      transition: 0.2s;
+      font-size: 15px;
+      box-shadow: inset 0 0 10px rgba(0,255,65,0.25);
     }
 
     .side-link:hover {
-      background: rgba(0,255,140,0.15);
-      transform: translateX(4px);
+      background: rgba(0,255,65,0.2);
+      transform: translateX(5px);
+      box-shadow: 0 0 15px #00ff41;
     }
 
+    /* LOCKED STATE */
+    .locked {
+      opacity: 0.35;
+      filter: grayscale(1);
+      pointer-events: none;
+    }
+
+    /* MAIN CONTENT */
     #main {
       margin-left: 260px;
       padding: 40px;
+      height: 100vh;
+      overflow-y: auto;
+      position: relative;
+      z-index: 2;
       max-width: 900px;
     }
 
-    h2 {
-      color: #00ff7f;
-      text-shadow: 0 0 10px #00ff7f;
+    .section {
+      background: rgba(0, 0, 0, 0.85);
+      padding: 22px;
+      border-radius: 14px;
+      border: 1px solid #00ff41;
+      margin-bottom: 30px;
+      box-shadow: 0 0 20px rgba(0,255,65,0.25);
+      animation: fadeIn 0.8s ease;
     }
 
-    .section {
-      background: #050816;
-      padding: 20px;
-      border-radius: 16px;
-      border: 1px solid rgba(0,255,140,0.2);
-      margin-bottom: 30px;
-      box-shadow: 0 0 20px rgba(0,255,140,0.2);
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      color: #00ff41;
+      text-shadow: 0 0 12px #00ff41;
+      margin-bottom: 12px;
     }
 
     .error-box {
-      background: #030712;
+      background: rgba(0, 0, 0, 0.7);
       padding: 14px;
       border-radius: 10px;
       border: 1px solid rgba(255,80,80,0.4);
       margin-bottom: 14px;
+      box-shadow: 0 0 12px rgba(255,80,80,0.25);
     }
 
     .error-title {
       color: #ff8080;
       font-weight: bold;
       margin-bottom: 6px;
+      text-shadow: 0 0 8px #ff8080;
     }
 
     .fix {
       color: #9efad1;
       margin-top: 6px;
+      text-shadow: 0 0 6px #00ff41;
     }
 
     code {
@@ -95,26 +143,38 @@
       padding: 2px 4px;
       border-radius: 4px;
       font-size: 13px;
+      color: #00ff41;
     }
   </style>
 </head>
 
 <body>
 
-  <div id="sidebar">
+  <!-- MATRIX RAIN -->
+  <div id="matrix-rain"></div>
+
+  <!-- SIDEBAR -->
+  <div id="sidebar" data-lock>
     <h1>THE CODE</h1>
 
     <a class="side-link" href="index.html">Home</a>
-    <a class="side-link" href="lessons.html">Lessons</a>
-    <a class="side-link" href="simulators.html">Simulators</a>
-    <a class="side-link" href="chat.html">Live Room</a>
-    <a class="side-link" href="github.html">GitHub Guide</a>
-    <a class="side-link" href="code.html">Understanding the Code</a>
-    <a class="side-link" href="common-errors.html">Common Errors & Fixes</a>
-    <a class="side-link" href="reading-code.html">How to Read Code</a>
-    <a class="side-link" href="roadmap.html">Beginner Roadmap</a>
+
+    <div class="side-section-title">Core Path</div>
+    <a class="side-link" href="lessons.html" data-lock>Lessons</a>
+    <a class="side-link" href="simulators.html" data-lock>Simulators</a>
+
+    <div class="side-section-title">Knowledge</div>
+    <a class="side-link" href="code.html" data-lock>Understanding the Code</a>
+    <a class="side-link" href="common-errors.html" data-lock>Common Errors & Fixes</a>
+    <a class="side-link" href="reading-code.html" data-lock>How to Read Code</a>
+    <a class="side-link" href="roadmap.html" data-lock>Beginner Roadmap</a>
+
+    <div class="side-section-title">Tools</div>
+    <a class="side-link" href="github.html" data-lock>GitHub Guide</a>
+    <a class="side-link" href="chat.html" data-lock>Live Room</a>
   </div>
 
+  <!-- MAIN CONTENT -->
   <div id="main">
 
     <div class="section">
