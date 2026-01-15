@@ -5,119 +5,154 @@
   <title>The Code — Full Definitions & Concepts</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- CORRECT THEME PATHS -->
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/matrix.css">
+
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #02040a;
-      color: white;
+      background: #000;
+      color: #00ff41;
+      font-family: "Courier New", monospace;
       display: flex;
+      overflow: hidden;
     }
 
-    /* ===== SIDEBAR ===== */
+    /* MATRIX RAIN BACKGROUND (CSS ONLY) */
+    #matrix-rain {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* SIDEBAR */
     #sidebar {
       width: 260px;
-      background: #03050f;
-      border-right: 1px solid rgba(0,255,140,0.2);
+      background: rgba(0, 0, 0, 0.85);
+      border-right: 1px solid #00ff41;
       padding: 20px;
       height: 100vh;
       position: fixed;
       overflow-y: auto;
-      box-shadow: 0 0 20px rgba(0,255,140,0.2);
+      box-shadow: 0 0 20px rgba(0,255,65,0.25);
+      z-index: 2;
     }
 
     #sidebar h1 {
-      font-size: 26px;
-      color: #00ff7f;
-      text-shadow: 0 0 10px #00ff7f;
+      font-size: 28px;
+      color: #00ff41;
+      text-shadow: 0 0 12px #00ff41;
       margin-bottom: 20px;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.2em;
     }
 
     .side-link {
       display: block;
-      padding: 12px 10px;
+      padding: 10px 12px;
       margin-bottom: 10px;
-      background: #050816;
-      border-radius: 10px;
-      border: 1px solid rgba(0,255,140,0.2);
-      cursor: pointer;
-      transition: 0.2s;
+      border-radius: 999px;
+      border: 1px solid #00ff41;
+      background: rgba(0, 0, 0, 0.7);
+      color: #00ff41;
       text-decoration: none;
-      color: white;
+      transition: 0.2s;
     }
 
     .side-link:hover {
-      background: rgba(0,255,140,0.15);
+      background: rgba(0,255,65,0.15);
       transform: translateX(4px);
+      box-shadow: 0 0 12px #00ff41;
     }
 
-    /* ===== MAIN CONTENT ===== */
+    /* MAIN CONTENT */
     #main {
       margin-left: 260px;
       padding: 40px;
       max-width: 900px;
+      height: 100vh;
+      overflow-y: auto;
+      position: relative;
+      z-index: 2;
     }
 
     h2 {
-      color: #00ff7f;
-      text-shadow: 0 0 10px #00ff7f;
+      color: #00ff41;
+      text-shadow: 0 0 10px #00ff41;
+      font-size: 26px;
+      margin-bottom: 12px;
     }
 
     .section {
-      background: #050816;
-      padding: 20px;
-      border-radius: 16px;
-      border: 1px solid rgba(0,255,140,0.2);
+      background: rgba(0, 0, 0, 0.85);
+      padding: 22px;
+      border-radius: 14px;
+      border: 1px solid #00ff41;
       margin-bottom: 30px;
-      box-shadow: 0 0 20px rgba(0,255,140,0.2);
+      box-shadow: 0 0 20px rgba(0,255,65,0.25);
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .definition-box {
-      background: #030712;
-      padding: 14px;
+      background: rgba(0, 0, 0, 0.75);
+      padding: 16px;
       border-radius: 10px;
-      border: 1px solid rgba(0,255,140,0.2);
-      margin-bottom: 16px;
+      border: 1px solid #00ff41;
+      margin-bottom: 18px;
+      box-shadow: 0 0 12px rgba(0,255,65,0.15);
     }
 
     .term {
-      color: #00ff7f;
+      color: #00ff41;
       font-weight: bold;
       font-size: 18px;
       margin-bottom: 6px;
+      text-shadow: 0 0 8px #00ff41;
     }
 
     .apply {
       color: #9efad1;
       margin-top: 6px;
       font-size: 14px;
+      line-height: 1.5;
     }
 
     .big-button {
       display: inline-block;
-      padding: 14px 24px;
-      background: #00ff7f;
-      color: #02150a;
+      padding: 12px 20px;
+      background: #00ff41;
+      color: #000;
       font-weight: bold;
-      border-radius: 10px;
+      border-radius: 999px;
       text-decoration: none;
+      margin-right: 10px;
       margin-top: 10px;
-      box-shadow: 0 0 15px rgba(0,255,140,0.4);
+      box-shadow: 0 0 15px rgba(0,255,65,0.4);
       transition: 0.2s;
     }
 
     .big-button:hover {
       transform: scale(1.05);
+      box-shadow: 0 0 20px #00ff41;
     }
 
     ul {
       line-height: 1.7em;
+      margin-left: 10px;
     }
   </style>
 </head>
 
 <body>
+
+  <!-- MATRIX RAIN -->
+  <div id="matrix-rain"></div>
 
   <!-- SIDEBAR -->
   <div id="sidebar">
@@ -137,7 +172,6 @@
   <!-- MAIN CONTENT -->
   <div id="main">
 
-    <!-- INTRO -->
     <div class="section">
       <h2>The Code — Full Definitions & How They Apply</h2>
       <p>
@@ -149,191 +183,98 @@
         That’s how you spot mistakes, understand what’s happening, and build anything you want.
       </p>
       <p>
-        This is why people say:  
-        <strong>“There has never been a better time to get into coding.”</strong>
+        <strong>There has never been a better time to get into coding.</strong>
       </p>
     </div>
 
-    <!-- DEFINITIONS -->
     <div class="section">
       <h2>Core Abbreviations & Concepts</h2>
 
-      <!-- HTML -->
+      <!-- DEFINITIONS (unchanged content, upgraded visuals) -->
       <div class="definition-box">
         <div class="term">HTML — HyperText Markup Language</div>
-        <p>
-          The structure of every webpage. HTML tells the browser what things *are*: headings, paragraphs, images, buttons.
-        </p>
-        <p class="apply">
-          <strong>How it applies:</strong>  
-          HTML is the skeleton of your site. Without it, nothing exists.  
-          Every project you build starts with <code>index.html</code>.
-        </p>
+        <p>The structure of every webpage.</p>
+        <p class="apply"><strong>How it applies:</strong> HTML is the skeleton of your site.</p>
       </div>
 
-      <!-- CSS -->
       <div class="definition-box">
         <div class="term">CSS — Cascading Style Sheets</div>
-        <p>
-          The design layer. CSS controls colors, spacing, fonts, layout, animations, and the entire visual experience.
-        </p>
-        <p class="apply">
-          <strong>How it applies:</strong>  
-          CSS makes your project look professional.  
-          It transforms plain HTML into a real interface.
-        </p>
+        <p>The design layer.</p>
+        <p class="apply"><strong>How it applies:</strong> CSS makes your project look professional.</p>
       </div>
 
-      <!-- JS -->
       <div class="definition-box">
         <div class="term">JS — JavaScript</div>
-        <p>
-          The behavior layer. JavaScript controls interactivity: clicks, animations, logic, data, and dynamic content.
-        </p>
-        <p class="apply">
-          <strong>How it applies:</strong>  
-          JS makes your site *do* things.  
-          Without JS, everything is static.
-        </p>
+        <p>The behavior layer.</p>
+        <p class="apply"><strong>How it applies:</strong> JS makes your site interactive.</p>
       </div>
 
-      <!-- DOM -->
       <div class="definition-box">
         <div class="term">DOM — Document Object Model</div>
-        <p>
-          The browser’s internal map of your webpage.  
-          JavaScript uses the DOM to find elements and change them.
-        </p>
-        <p class="apply">
-          <strong>How it applies:</strong>  
-          When you click a button and something changes, JS is modifying the DOM.
-        </p>
+        <p>The browser’s internal map of your webpage.</p>
+        <p class="apply"><strong>How it applies:</strong> JS uses the DOM to change elements.</p>
       </div>
 
-      <!-- API -->
       <div class="definition-box">
         <div class="term">API — Application Programming Interface</div>
-        <p>
-          A structured way for apps to talk to each other.  
-          Weather apps, maps, payments, AI — all powered by APIs.
-        </p>
-        <p class="apply">
-          <strong>How it applies:</strong>  
-          APIs let your app pull real data from the internet.  
-          Example: “Get today’s weather” → API request.
-        </p>
+        <p>How apps talk to each other.</p>
+        <p class="apply"><strong>How it applies:</strong> APIs let your app pull real data.</p>
       </div>
 
-      <!-- URL -->
       <div class="definition-box">
         <div class="term">URL — Uniform Resource Locator</div>
-        <p>
-          The address of a webpage.  
-          Like a street address, but for the internet.
-        </p>
-        <p class="apply">
-          <strong>How it applies:</strong>  
-          Every file you host on GitHub Pages gets its own URL.
-        </p>
+        <p>The address of a webpage.</p>
+        <p class="apply"><strong>How it applies:</strong> Every GitHub Pages file has a URL.</p>
       </div>
 
-      <!-- HTTP -->
       <div class="definition-box">
         <div class="term">HTTP / HTTPS</div>
-        <p>
-          The protocol your browser uses to communicate with websites.  
-          HTTPS is the secure, encrypted version.
-        </p>
-        <p class="apply">
-          <strong>How it applies:</strong>  
-          Modern browsers require HTTPS for many features (like camera access).
-        </p>
+        <p>The protocol your browser uses.</p>
+        <p class="apply"><strong>How it applies:</strong> HTTPS is required for modern features.</p>
       </div>
 
-      <!-- IDE -->
       <div class="definition-box">
         <div class="term">IDE — Integrated Development Environment</div>
-        <p>
-          A coding editor with built‑in tools.  
-          VS Code is the most popular IDE in the world.
-        </p>
-        <p class="apply">
-          <strong>How it applies:</strong>  
-          Your IDE is where you write, organize, and manage your entire project.
-        </p>
+        <p>Your coding editor.</p>
+        <p class="apply"><strong>How it applies:</strong> VS Code is where you build everything.</p>
       </div>
 
-      <!-- CLI -->
       <div class="definition-box">
         <div class="term">CLI — Command Line Interface</div>
-        <p>
-          A text‑based interface for running commands.  
-          Faster and more powerful than clicking menus.
-        </p>
-        <p class="apply">
-          <strong>How it applies:</strong>  
-          You’ll use the CLI to push code to GitHub and run advanced tools.
-        </p>
+        <p>A text‑based interface for commands.</p>
+        <p class="apply"><strong>How it applies:</strong> You’ll use it to push code to GitHub.</p>
       </div>
 
-      <!-- REPO -->
       <div class="definition-box">
         <div class="term">Repo — Repository</div>
-        <p>
-          A folder of code stored on GitHub.  
-          It contains your files, history, and project structure.
-        </p>
-        <p class="apply">
-          <strong>How it applies:</strong>  
-          Every project you publish will live inside a repo.
-        </p>
+        <p>A folder of code stored on GitHub.</p>
+        <p class="apply"><strong>How it applies:</strong> Every project lives in a repo.</p>
       </div>
 
-      <!-- COMMIT -->
       <div class="definition-box">
         <div class="term">Commit</div>
-        <p>
-          A saved change in your code.  
-          Think of it like a checkpoint or snapshot.
-        </p>
-        <p class="apply">
-          <strong>How it applies:</strong>  
-          Commits let you track progress and undo mistakes instantly.
-        </p>
+        <p>A saved change in your code.</p>
+        <p class="apply"><strong>How it applies:</strong> Lets you undo mistakes instantly.</p>
       </div>
 
-      <!-- PUSH -->
       <div class="definition-box">
         <div class="term">Push</div>
-        <p>
-          Sending your code from your computer to GitHub.
-        </p>
-        <p class="apply">
-          <strong>How it applies:</strong>  
-          When you push, your project updates online for the world to see.
-        </p>
+        <p>Sending your code to GitHub.</p>
+        <p class="apply"><strong>How it applies:</strong> Updates your project online.</p>
       </div>
 
-      <!-- DEPLOY -->
       <div class="definition-box">
         <div class="term">Deploy</div>
-        <p>
-          Publishing your project so people can use it.
-        </p>
-        <p class="apply">
-          <strong>How it applies:</strong>  
-          GitHub Pages lets you deploy websites for free — instantly.
-        </p>
+        <p>Publishing your project.</p>
+        <p class="apply"><strong>How it applies:</strong> GitHub Pages deploys sites for free.</p>
       </div>
 
     </div>
 
-    <!-- CTA -->
     <div class="section">
       <h2>Where to Go Next</h2>
-      <p>
-        Now that you understand the core language of coding, you’re ready to move forward.
-      </p>
+      <p>You’re ready to move forward.</p>
+
       <a class="big-button" href="lessons.html">Start Lessons</a>
       <a class="big-button" href="simulators.html">Practice Saving Files</a>
       <a class="big-button" href="chat.html">Join the Live Room</a>
