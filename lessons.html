@@ -5,7 +5,7 @@
   <title>The Code — Lessons</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- CORRECT THEME PATH -->
+  <!-- MATRIX THEME -->
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/matrix.css">
 
@@ -18,7 +18,6 @@
       overflow: hidden;
     }
 
-    /* MATRIX RAIN */
     #matrix-rain {
       position: fixed;
       inset: 0;
@@ -26,7 +25,6 @@
       pointer-events: none;
     }
 
-    /* SIDEBAR — BRIGHTER, STRONGER, MORE MATRIX */
     #sidebar {
       width: 260px;
       background: rgba(0, 0, 0, 0.92);
@@ -76,14 +74,12 @@
       box-shadow: 0 0 15px #00ff41;
     }
 
-    /* LOCKED STATE */
     .locked {
       opacity: 0.35;
       filter: grayscale(1);
       pointer-events: none;
     }
 
-    /* MAIN CONTENT */
     #main {
       margin-left: 260px;
       padding: 40px;
@@ -103,23 +99,6 @@
       animation: fadeIn 0.8s ease;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    h2 {
-      color: #00ff41;
-      text-shadow: 0 0 12px #00ff41;
-      margin-bottom: 12px;
-    }
-
-    ul {
-      line-height: 1.7em;
-      margin-left: 10px;
-    }
-
-    /* LESSON CARDS */
     .lesson-list {
       display: flex;
       flex-direction: column;
@@ -144,34 +123,13 @@
       transform: translateX(5px);
       box-shadow: 0 0 15px #00ff41;
     }
-
-    /* BUTTON */
-    .big-button {
-      display: inline-block;
-      padding: 12px 20px;
-      background: #00ff41;
-      color: #000;
-      font-weight: bold;
-      border-radius: 999px;
-      text-decoration: none;
-      margin-top: 10px;
-      box-shadow: 0 0 15px rgba(0,255,65,0.4);
-      transition: 0.2s;
-    }
-
-    .big-button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #00ff41;
-    }
   </style>
 </head>
 
 <body>
 
-  <!-- MATRIX RAIN -->
   <div id="matrix-rain"></div>
 
-  <!-- SIDEBAR -->
   <div id="sidebar" data-lock>
     <h1>THE CODE</h1>
 
@@ -192,68 +150,40 @@
     <a class="side-link" href="chat.html" data-lock>Live Room</a>
   </div>
 
-  <!-- MAIN CONTENT -->
   <div id="main">
 
     <div class="section">
       <h2>Welcome to The Lessons</h2>
       <p><strong>Coding becomes simple when the structure is correct.</strong></p>
-      <p>Most beginners struggle not because code is hard — but because their files are a mess.</p>
-      <p>The Code teaches you the foundation the pros use: files, folders, naming, linking, discipline.</p>
-      <p>Once you understand structure, you can build anything.</p>
-    </div>
-
-    <div class="section">
-      <h2>What You Will Learn</h2>
-      <ul>
-        <li>How to save HTML, CSS, and JS files correctly</li>
-        <li>How to structure a real project</li>
-        <li>How to link your files so your site works</li>
-        <li>How to build real websites and apps</li>
-        <li>How to use GitHub to host websites for free</li>
-        <li>How to set up your GitHub profile</li>
-        <li>How to think like a disciplined developer</li>
-        <li>How to avoid beginner mistakes</li>
-      </ul>
-      <a class="big-button" href="simulators.html" data-lock>Open Simulators</a>
+      <p>The Code teaches you the foundation the pros use.</p>
     </div>
 
     <div class="section">
       <h2>Lessons (15 Total)</h2>
       <p>Click any lesson to open it.</p>
 
-      <div class="lesson-list">
-
-        <a class="lesson-card" href="lessons/lesson1.html" data-lock>Lesson 1 — What Makes a File HTML</a>
-        <a class="lesson-card" href="lessons/lesson2.html" data-lock>Lesson 2 — Saving index.html</a>
-        <a class="lesson-card" href="lessons/lesson3.html" data-lock>Lesson 3 — HTML Structure</a>
-        <a class="lesson-card" href="lessons/lesson4.html" data-lock>Lesson 4 — The Head & Body</a>
-        <a class="lesson-card" href="lessons/lesson5.html" data-lock>Lesson 5 — Tags & Elements</a>
-
-        <a class="lesson-card" href="lessons/lesson6.html" data-lock>Lesson 6 — What Makes a File CSS</a>
-        <a class="lesson-card" href="lessons/lesson7.html" data-lock>Lesson 7 — Saving style.css</a>
-        <a class="lesson-card" href="lessons/lesson8.html" data-lock>Lesson 8 — Linking CSS</a>
-        <a class="lesson-card" href="lessons/lesson9.html" data-lock>Lesson 9 — Selectors & Classes</a>
-        <a class="lesson-card" href="lessons/lesson10.html" data-lock>Lesson 10 — Styling Your Page</a>
-
-        <a class="lesson-card" href="lessons/lesson11.html" data-lock>Lesson 11 — What Makes a File JS</a>
-        <a class="lesson-card" href="lessons/lesson12.html" data-lock>Lesson 12 — Saving app.js</a>
-        <a class="lesson-card" href="lessons/lesson13.html" data-lock>Lesson 13 — Linking JavaScript</a>
-        <a class="lesson-card" href="lessons/lesson14.html" data-lock>Lesson 14 — Console & Variables</a>
-        <a class="lesson-card" href="lessons/lesson15.html" data-lock>Lesson 15 — Making Your First App</a>
-
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>Your GitHub Setup</h2>
-      <p>Your GitHub profile becomes your public identity as a developer.</p>
-      <p>Host websites for free, share your work, build your portfolio.</p>
+      <div class="lesson-list" id="lessonList"></div>
     </div>
 
   </div>
 
-  <!-- GLOBAL JS -->
+  <!-- LOAD LESSON DATA -->
+  <script type="module">
+    import { LESSONS } from "./lessons/lesson-data.js";
+
+    const list = document.getElementById("lessonList");
+
+    Object.keys(LESSONS).forEach(id => {
+      const L = LESSONS[id];
+      const card = document.createElement("a");
+      card.className = "lesson-card";
+      card.href = `lesson.html?id=${id}`;
+      card.setAttribute("data-lock", "");
+      card.textContent = `${L.title}`;
+      list.appendChild(card);
+    });
+  </script>
+
   <script src="scripts/app.js"></script>
 </body>
 </html>
