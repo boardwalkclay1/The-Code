@@ -19,7 +19,7 @@
       overflow: hidden;
     }
 
-    /* MATRIX RAIN BACKGROUND */
+    /* MATRIX RAIN */
     #matrix-rain {
       position: fixed;
       inset: 0;
@@ -34,18 +34,26 @@
       border-right: 1px solid #00ff41;
       padding: 20px;
       height: 100vh;
-      position: fixed;
       overflow-y: auto;
+      position: fixed;
       box-shadow: 0 0 20px rgba(0,255,65,0.25);
       z-index: 2;
     }
 
     #sidebar h1 {
       font-size: 28px;
-      color: #00ff41;
-      text-shadow: 0 0 12px #00ff41;
-      margin-bottom: 20px;
       letter-spacing: 0.2em;
+      margin-bottom: 20px;
+      text-shadow: 0 0 12px #00ff41;
+    }
+
+    .side-section-title {
+      margin-top: 20px;
+      margin-bottom: 6px;
+      font-size: 12px;
+      color: #00ff41aa;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
     }
 
     .side-link {
@@ -64,6 +72,13 @@
       background: rgba(0,255,65,0.15);
       transform: translateX(4px);
       box-shadow: 0 0 12px #00ff41;
+    }
+
+    /* LOCKED STATE */
+    .locked {
+      opacity: 0.4;
+      filter: grayscale(1);
+      pointer-events: none;
     }
 
     /* MAIN CONTENT */
@@ -131,14 +146,24 @@
   <div id="matrix-rain"></div>
 
   <!-- SIDEBAR -->
-  <div id="sidebar">
+  <div id="sidebar" data-lock>
     <h1>THE CODE</h1>
 
     <a class="side-link" href="index.html">Home</a>
-    <a class="side-link" href="lessons.html">Lessons</a>
-    <a class="side-link" href="simulators.html">Simulators</a>
-    <a class="side-link" href="chat.html">Live Room</a>
-    <a class="side-link" href="github.html">GitHub Guide</a>
+
+    <div class="side-section-title">Core Path</div>
+    <a class="side-link" href="lessons.html" data-lock>Lessons</a>
+    <a class="side-link" href="simulators.html" data-lock>Simulators</a>
+
+    <div class="side-section-title">Knowledge</div>
+    <a class="side-link" href="code.html" data-lock>Understanding the Code</a>
+    <a class="side-link" href="common-errors.html" data-lock>Common Errors</a>
+    <a class="side-link" href="reading-code.html" data-lock>How to Read Code</a>
+    <a class="side-link" href="roadmap.html" data-lock>Beginner Roadmap</a>
+
+    <div class="side-section-title">Tools</div>
+    <a class="side-link" href="github.html" data-lock>GitHub Guide</a>
+    <a class="side-link" href="chat.html" data-lock>Live Room</a>
   </div>
 
   <!-- MAIN CONTENT -->
