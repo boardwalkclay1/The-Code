@@ -5,111 +5,147 @@
   <title>The Code — Live Room</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- GLOBAL MATRIX THEME -->
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/matrix.css">
+
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #02040a;
-      color: white;
+      background: #000;
+      color: #00ff41;
+      font-family: "Courier New", monospace;
+      overflow: hidden;
       display: flex;
       height: 100vh;
-      overflow: hidden;
     }
 
-    /* Sidebar */
+    /* MATRIX RAIN */
+    #matrix-rain {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* SIDEBAR */
     #sidebar {
       width: 260px;
-      background: #03050f;
-      border-right: 1px solid rgba(0,255,140,0.2);
+      background: rgba(0, 0, 0, 0.92);
+      border-right: 2px solid #00ff41;
       padding: 20px;
       height: 100vh;
-      box-shadow: 0 0 20px rgba(0,255,140,0.2);
+      overflow-y: auto;
+      position: fixed;
+      box-shadow: 0 0 25px #00ff41, inset 0 0 20px rgba(0,255,65,0.4);
+      z-index: 2;
     }
 
     #sidebar h1 {
-      font-size: 24px;
-      color: #00ff7f;
-      text-shadow: 0 0 10px #00ff7f;
-      margin-bottom: 20px;
-      letter-spacing: 0.1em;
+      font-size: 30px;
+      letter-spacing: 0.25em;
+      margin-bottom: 25px;
+      text-shadow: 0 0 18px #00ff41;
+    }
+
+    .side-section-title {
+      margin-top: 22px;
+      margin-bottom: 8px;
+      font-size: 12px;
+      color: #00ff41cc;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      text-shadow: 0 0 8px #00ff41;
     }
 
     .side-link {
       display: block;
-      padding: 10px;
+      padding: 10px 14px;
       margin-bottom: 10px;
-      background: #050816;
-      border-radius: 10px;
-      border: 1px solid rgba(0,255,140,0.2);
+      border-radius: 999px;
+      border: 1px solid #00ff41;
+      background: rgba(0, 0, 0, 0.75);
+      color: #00ff41;
       text-decoration: none;
-      color: white;
-      cursor: pointer;
       transition: 0.2s;
+      font-size: 15px;
+      box-shadow: inset 0 0 10px rgba(0,255,65,0.25);
     }
 
     .side-link:hover {
-      background: rgba(0,255,140,0.15);
-      transform: translateX(4px);
+      background: rgba(0,255,65,0.2);
+      transform: translateX(5px);
+      box-shadow: 0 0 15px #00ff41;
     }
 
-    /* Main layout */
+    /* LOCKED STATE */
+    .locked {
+      opacity: 0.35;
+      filter: grayscale(1);
+      pointer-events: none;
+    }
+
+    /* MAIN LAYOUT */
     #main {
-      flex: 1;
+      margin-left: 260px;
+      padding: 20px;
+      height: 100vh;
+      overflow: hidden;
       display: grid;
       grid-template-columns: 320px 1fr;
-      height: 100vh;
+      gap: 20px;
+      position: relative;
+      z-index: 2;
     }
 
+    /* LEFT PANEL */
     #left-panel {
-      border-right: 1px solid rgba(0,255,140,0.2);
+      background: rgba(0, 0, 0, 0.85);
+      border: 1px solid #00ff41;
+      border-radius: 14px;
       padding: 20px;
       overflow-y: auto;
-      background: #050816;
-    }
-
-    #right-panel {
-      padding: 20px;
-      display: grid;
-      grid-template-rows: 1fr 220px;
-      gap: 10px;
+      box-shadow: 0 0 20px rgba(0,255,65,0.25);
     }
 
     .section {
-      background: #050816;
-      border-radius: 16px;
-      border: 1px solid rgba(0,255,140,0.2);
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 14px;
+      border: 1px solid #00ff41;
       padding: 16px;
-      box-shadow: 0 0 20px rgba(0,255,140,0.2);
-      margin-bottom: 16px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 12px rgba(0,255,65,0.25);
     }
 
     h2 {
-      color: #00ff7f;
+      color: #00ff41;
       margin-top: 0;
+      text-shadow: 0 0 12px #00ff41;
     }
 
-    input, select, button, textarea {
+    input, button, textarea {
       width: 100%;
-      padding: 8px 10px;
+      padding: 10px;
       margin-top: 6px;
       margin-bottom: 12px;
       border-radius: 8px;
       border: 1px solid rgba(255,255,255,0.2);
       background: #0a1220;
-      color: white;
+      color: #00ff41;
       font-family: inherit;
     }
 
     button {
-      background: #00ff7f;
-      color: #02150a;
+      background: #00ff41;
+      color: #000;
       font-weight: bold;
       cursor: pointer;
       border: none;
+      box-shadow: 0 0 12px rgba(0,255,65,0.4);
     }
 
     button:hover {
-      filter: brightness(1.1);
+      filter: brightness(1.15);
     }
 
     #profile-avatar-preview {
@@ -117,35 +153,41 @@
       height: 80px;
       border-radius: 50%;
       background: #0a1220;
-      border: 1px solid rgba(0,255,140,0.4);
+      border: 1px solid #00ff41;
       object-fit: cover;
-      display: block;
       margin-bottom: 10px;
+    }
+
+    /* RIGHT PANEL */
+    #right-panel {
+      display: grid;
+      grid-template-rows: 1fr 220px;
+      gap: 20px;
     }
 
     #video-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 10px;
-      background: #02040a;
-      border-radius: 16px;
-      border: 1px solid rgba(0,255,140,0.2);
+      background: rgba(0, 0, 0, 0.85);
+      border-radius: 14px;
+      border: 1px solid #00ff41;
       padding: 10px;
+      box-shadow: 0 0 20px rgba(0,255,65,0.25);
     }
 
     .video-tile {
       position: relative;
-      background: #050816;
+      background: #000;
       border-radius: 12px;
       overflow: hidden;
-      border: 1px solid rgba(0,255,140,0.2);
+      border: 1px solid #00ff41;
     }
 
     .video-tile video {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      background: black;
     }
 
     .video-label {
@@ -158,13 +200,15 @@
       border-radius: 6px;
     }
 
+    /* CHAT */
     #chat-box {
-      background: #050816;
-      border-radius: 16px;
-      border: 1px solid rgba(0,255,140,0.2);
+      background: rgba(0, 0, 0, 0.85);
+      border-radius: 14px;
+      border: 1px solid #00ff41;
       display: flex;
       flex-direction: column;
       padding: 10px;
+      box-shadow: 0 0 20px rgba(0,255,65,0.25);
     }
 
     #chat-messages {
@@ -179,7 +223,7 @@
     }
 
     .chat-name {
-      color: #00ff7f;
+      color: #00ff41;
       font-weight: bold;
       margin-right: 4px;
     }
@@ -188,16 +232,34 @@
 
 <body>
 
-  <div id="sidebar">
+  <!-- MATRIX RAIN -->
+  <div id="matrix-rain"></div>
+
+  <!-- SIDEBAR -->
+  <div id="sidebar" data-lock>
     <h1>THE CODE</h1>
+
     <a class="side-link" href="index.html">Home</a>
-    <a class="side-link" href="lessons.html">Lessons</a>
-    <a class="side-link" href="simulators.html">Simulators</a>
-    <a class="side-link" href="chat.html">Live Room</a>
+
+    <div class="side-section-title">Core Path</div>
+    <a class="side-link" href="lessons.html" data-lock>Lessons</a>
+    <a class="side-link" href="simulators.html" data-lock>Simulators</a>
+
+    <div class="side-section-title">Tools</div>
+    <a class="side-link" href="chat.html" data-lock>Live Room</a>
+    <a class="side-link" href="github.html" data-lock>GitHub Guide</a>
+
+    <div class="side-section-title">Knowledge</div>
+    <a class="side-link" href="code.html" data-lock>Understanding the Code</a>
+    <a class="side-link" href="common-errors.html" data-lock>Common Errors</a>
+    <a class="side-link" href="reading-code.html" data-lock>How to Read Code</a>
+    <a class="side-link" href="roadmap.html" data-lock>Beginner Roadmap</a>
   </div>
 
+  <!-- MAIN -->
   <div id="main">
-    <!-- LEFT: Profile + Room -->
+
+    <!-- LEFT PANEL -->
     <div id="left-panel">
       <div class="section">
         <h2>Your Profile</h2>
@@ -211,7 +273,7 @@
 
       <div class="section">
         <h2>Room</h2>
-        <p>Enter a room name to join. Anyone using the same room name will connect once signaling is added.</p>
+        <p>Enter a room name to join.</p>
         <input id="room-name" placeholder="e.g. the-code-lab" />
         <button id="join-room-btn">Join Room</button>
         <p id="room-status"></p>
@@ -222,14 +284,10 @@
         <p>
           This live room is where you’ll eventually collaborate, pair‑program, and build real projects together.
         </p>
-        <p>
-          Don’t get overwhelmed — this page is just the interface.  
-          When you’re ready, we’ll plug in a signaling server and make it fully real‑time.
-        </p>
       </div>
     </div>
 
-    <!-- RIGHT: Video + Chat -->
+    <!-- RIGHT PANEL -->
     <div id="right-panel">
       <div id="video-grid"></div>
 
@@ -239,8 +297,10 @@
         <button id="send-chat-btn">Send</button>
       </div>
     </div>
+
   </div>
 
+  <!-- MODULES -->
   <script type="module">
     import { loadProfile, saveProfile } from "./js/profile-store.js";
     import { createWebRTCManager } from "./js/webrtc-engine.js";
@@ -250,46 +310,6 @@
     const webrtc = createWebRTCManager();
     initChatroomUI({ profile, webrtc });
   </script>
-<div id="liveRoom">
-
-  <!-- Room Join -->
-  <div class="room-join">
-    <input id="roomIdInput" placeholder="Enter room ID" />
-    <button id="joinRoomBtn">Join Room</button>
-  </div>
-
-  <!-- Local Video -->
-  <div class="video-section">
-    <video id="localVideo" autoplay playsinline muted></video>
-    <div class="local-controls">
-      <button id="toggleMicBtn">Mic</button>
-      <button id="toggleCamBtn">Camera</button>
-      <button id="openTroubleshootBtn">Troubleshoot</button>
-    </div>
-  </div>
-
-  <!-- Remote Videos -->
-  <div id="remoteVideos" class="remote-grid"></div>
-
-  <!-- Connection Status Panel -->
-  <div id="connectionStatus" class="status-panel"></div>
-
-  <!-- Troubleshooting Overlay -->
-  <div id="troubleshootOverlay" class="overlay hidden">
-    <div class="overlay-content">
-      <h2>Troubleshooting</h2>
-      <ul>
-        <li><strong>No video?</strong> Check camera permissions.</li>
-        <li><strong>No audio?</strong> Check mic permissions.</li>
-        <li><strong>Not connecting?</strong> Ensure HTTPS + correct room ID.</li>
-        <li><strong>Other users not visible?</strong> They may not have allowed camera.</li>
-        <li><strong>Lag?</strong> Close extra tabs or apps using camera.</li>
-      </ul>
-      <button id="closeTroubleshootBtn">Close</button>
-    </div>
-  </div>
-
-</div>
 
 </body>
 </html>
