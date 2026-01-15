@@ -5,16 +5,197 @@
   <title>The Code — Lesson</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- GLOBAL MATRIX + THEME -->
+  <!-- GLOBAL MATRIX THEME -->
   <link rel="stylesheet" href="../styles.css">
+
+  <style>
+    /* MATRIX TERMINAL UPGRADE */
+    body {
+      background: #000;
+      color: #00ff41;
+      font-family: "Courier New", monospace;
+      overflow: hidden;
+    }
+
+    #matrix-rain {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    #hacker-hand {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 260px;
+      opacity: 0.15;
+      z-index: 1;
+      pointer-events: none;
+      animation: ghostHand 6s infinite ease-in-out;
+    }
+
+    @keyframes ghostHand {
+      0% { opacity: 0.1; transform: translateY(0); }
+      50% { opacity: 0.25; transform: translateY(-8px); }
+      100% { opacity: 0.1; transform: translateY(0); }
+    }
+
+    #content-wrapper {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      height: 100vh;
+    }
+
+    /* SIDEBAR */
+    #sidebar {
+      background: rgba(0, 0, 0, 0.85);
+      border-right: 1px solid #00ff41;
+      padding: 20px;
+      overflow-y: auto;
+      box-shadow: 0 0 20px #00ff41;
+    }
+
+    #sidebar h1 {
+      font-size: 28px;
+      letter-spacing: 0.2em;
+      margin-bottom: 20px;
+      text-shadow: 0 0 12px #00ff41;
+    }
+
+    .side-section-title {
+      margin-top: 20px;
+      margin-bottom: 6px;
+      font-size: 12px;
+      color: #00ff41aa;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    .side-link {
+      display: block;
+      padding: 8px 10px;
+      margin-bottom: 6px;
+      border: 1px solid #00ff41;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.7);
+      transition: 0.2s;
+    }
+
+    .side-link:hover {
+      background: rgba(0, 255, 65, 0.15);
+      box-shadow: 0 0 12px #00ff41;
+      transform: translateX(3px);
+    }
+
+    /* MAIN */
+    #main {
+      padding: 30px;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    .lesson-box {
+      background: rgba(0, 0, 0, 0.85);
+      border: 1px solid #00ff41;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 255, 65, 0.25);
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    #lesson-title {
+      font-size: 32px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 12px #00ff41;
+    }
+
+    #lesson-intro,
+    #lesson-body,
+    #lesson-extra {
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    /* QUIZ */
+    .quiz-question {
+      font-size: 16px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 8px #00ff41;
+    }
+
+    .quiz-option {
+      padding: 10px;
+      margin-bottom: 6px;
+      border: 1px solid #00ff41;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.2s;
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .quiz-option:hover {
+      background: rgba(0, 255, 65, 0.15);
+      transform: translateX(3px);
+    }
+
+    .quiz-option.correct {
+      background: rgba(0, 255, 65, 0.25);
+      border-color: #00ff41;
+      box-shadow: 0 0 12px #00ff41;
+    }
+
+    .quiz-option.wrong {
+      background: rgba(255, 0, 0, 0.25);
+      border-color: #ff4f4f;
+      box-shadow: 0 0 12px #ff4f4f;
+    }
+
+    .quiz-feedback {
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    /* NAV BUTTONS */
+    .nav-row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .nav-btn {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid #00ff41;
+      background: rgba(0, 0, 0, 0.8);
+      color: #00ff41;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .nav-btn:hover {
+      background: rgba(0, 255, 65, 0.15);
+      box-shadow: 0 0 12px #00ff41;
+      transform: translateY(-2px);
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- GLOBAL MATRIX RAIN -->
-  <div id="matrix-rain"></div>
+  <!-- MATRIX RAIN -->
+  <canvas id="matrix-rain"></canvas>
 
-  <!-- GHOST HAND -->
+  <!-- HACKER HAND -->
   <img id="hacker-hand" src="../hand-typing.png" alt="">
 
   <!-- PAGE WRAPPER -->
@@ -76,7 +257,7 @@
     </div>
   </div>
 
-  <!-- GLOBAL APP JS -->
+  <!-- GLOBAL JS -->
   <script src="../app.js"></script>
   <script src="../matrix.js"></script>
 
@@ -84,12 +265,10 @@
   <script type="module">
     import { LESSONS } from "./lesson-data.js";
 
-    // Load lesson ID
     const params = new URLSearchParams(window.location.search);
     let currentId = parseInt(params.get("id") || "1", 10);
     if (!LESSONS[currentId]) currentId = 1;
 
-    // DOM elements
     const titleEl = document.getElementById("lesson-title");
     const introEl = document.getElementById("lesson-intro");
     const bodyEl = document.getElementById("lesson-body");
@@ -97,7 +276,6 @@
     const q1Container = document.getElementById("question1");
     const q2Container = document.getElementById("question2");
 
-    // Render lesson
     function renderLesson(id) {
       const L = LESSONS[id];
 
@@ -112,7 +290,6 @@
       history.replaceState(null, "", `lesson.html?id=${id}`);
     }
 
-    // Render quiz question
     function renderQuestion(container, q) {
       container.innerHTML = "";
 
@@ -153,7 +330,6 @@
       });
     }
 
-    // Navigation
     document.getElementById("prev-lesson").addEventListener("click", () => {
       const ids = Object.keys(LESSONS).map(Number).sort((a, b) => a - b);
       const idx = ids.indexOf(currentId);
