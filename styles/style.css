@@ -5,15 +5,16 @@
 
 /* THEME VARIABLES */
 :root {
+  --matrix-color: #00ff95; /* THIS WILL BE OVERRIDDEN BY JS COLOR CYCLE */
   --bg: #000204;
   --bg-alt: #03070f;
-  --accent: #00ff95;
-  --accent-soft: rgba(0, 255, 149, 0.25);
+  --accent: var(--matrix-color);
+  --accent-soft: color-mix(in srgb, var(--matrix-color) 25%, transparent);
   --text: #e9fff5;
   --muted: #6f8c8a;
   --danger: #ff4b6b;
   --radius: 16px;
-  --border-glow: 0 0 28px rgba(0, 255, 149, 0.7);
+  --border-glow: 0 0 28px color-mix(in srgb, var(--matrix-color) 70%, transparent);
   --transition-fast: 0.18s ease-out;
 }
 
@@ -47,11 +48,13 @@ body {
 
 .matrix-char {
   position: absolute;
-  color: #00ff95;
+  color: var(--matrix-color);
   font-family: monospace;
   font-size: 18px;
   animation: fall linear infinite;
-  text-shadow: 0 0 8px #00ff95, 0 0 14px #00ff95;
+  text-shadow:
+    0 0 8px var(--matrix-color),
+    0 0 14px var(--matrix-color);
 }
 
 @keyframes fall {
@@ -70,7 +73,7 @@ body {
   width: 140px;
   opacity: 0;
   z-index: 10;
-  filter: drop-shadow(0 0 12px rgba(0,255,149,0.7));
+  filter: drop-shadow(0 0 12px var(--matrix-color));
   animation: handAppear 12s infinite;
 }
 
@@ -101,7 +104,7 @@ body {
   justify-content: space-between;
   padding: 14px 24px;
   background: linear-gradient(to right, #000204, #03070f);
-  border-bottom: 1px solid rgba(0, 255, 149, 0.18);
+  border-bottom: 1px solid color-mix(in srgb, var(--matrix-color) 18%, transparent);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.65);
 }
 
@@ -115,7 +118,7 @@ body {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: 1px solid rgba(0, 255, 149, 0.7);
+  border: 1px solid var(--accent);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -139,9 +142,9 @@ body {
 }
 
 .nav-btn {
-  background: rgba(0,255,149,0.06);
+  background: color-mix(in srgb, var(--matrix-color) 6%, transparent);
   color: var(--muted);
-  border: 1px solid rgba(0,255,149,0.25);
+  border: 1px solid color-mix(in srgb, var(--matrix-color) 25%, transparent);
   padding: 8px 16px;
   border-radius: 999px;
   font-size: 13px;
@@ -154,9 +157,9 @@ body {
 .nav-btn:hover,
 .nav-btn.active {
   color: var(--accent);
-  border-color: rgba(0,255,149,0.9);
-  box-shadow: 0 0 18px rgba(0,255,149,0.4);
-  background: rgba(0,255,149,0.12);
+  border-color: var(--accent);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--matrix-color) 40%, transparent);
+  background: color-mix(in srgb, var(--matrix-color) 12%, transparent);
 }
 
 /* ============================================================
@@ -170,9 +173,9 @@ body {
 
 .view {
   display: none;
-  background: radial-gradient(circle at top left, rgba(0,255,149,0.12), #03070f);
+  background: radial-gradient(circle at top left, color-mix(in srgb, var(--matrix-color) 12%, transparent), #03070f);
   border-radius: 26px;
-  border: 1px solid rgba(0,255,149,0.25);
+  border: 1px solid color-mix(in srgb, var(--matrix-color) 25%, transparent);
   padding: 26px;
   box-shadow: 0 18px 60px rgba(0, 0, 0, 0.8);
 }
@@ -200,7 +203,7 @@ p {
 ============================================================ */
 .primary-btn {
   margin-top: 16px;
-  background: linear-gradient(135deg, #00ff95, #00c76a);
+  background: linear-gradient(135deg, var(--matrix-color), color-mix(in srgb, var(--matrix-color) 70%, #00c76a));
   color: #02100a;
   border: none;
   padding: 12px 20px;
@@ -210,13 +213,13 @@ p {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   cursor: pointer;
-  box-shadow: var(--border-glow), inset 0 0 12px rgba(0,255,149,0.4);
+  box-shadow: var(--border-glow), inset 0 0 12px color-mix(in srgb, var(--matrix-color) 40%, transparent);
   transition: var(--transition-fast);
 }
 
 .primary-btn:hover {
   transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 0 32px rgba(0,255,149,0.9);
+  box-shadow: 0 0 32px var(--matrix-color);
 }
 
 /* ============================================================
@@ -233,15 +236,15 @@ p {
   background: rgba(0, 10, 5, 0.85);
   border-radius: 18px;
   padding: 16px;
-  border: 1px solid rgba(0,255,149,0.35);
+  border: 1px solid color-mix(in srgb, var(--matrix-color) 35%, transparent);
   cursor: pointer;
   transition: var(--transition-fast);
-  box-shadow: inset 0 0 18px rgba(0,255,149,0.15);
+  box-shadow: inset 0 0 18px color-mix(in srgb, var(--matrix-color) 15%, transparent);
 }
 
 .lesson-card:hover {
   transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 0 28px rgba(0,255,149,0.5);
+  box-shadow: 0 0 28px color-mix(in srgb, var(--matrix-color) 50%, transparent);
 }
 
 .lesson-card h3 {
@@ -274,8 +277,8 @@ p {
   background: #03070f;
   border-radius: 22px;
   padding: 24px;
-  border: 1px solid rgba(0,255,149,0.5);
-  box-shadow: 0 0 50px rgba(0,255,149,0.6);
+  border: 1px solid color-mix(in srgb, var(--matrix-color) 50%, transparent);
+  box-shadow: 0 0 50px color-mix(in srgb, var(--matrix-color) 60%, transparent);
   position: relative;
 }
 
@@ -302,20 +305,20 @@ p {
 .quiz-option {
   margin-top: 12px;
   padding: 12px 16px;
-  background: rgba(0,255,149,0.08);
-  border: 1px solid rgba(0,255,149,0.4);
+  background: color-mix(in srgb, var(--matrix-color) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--matrix-color) 40%, transparent);
   border-radius: 12px;
   cursor: pointer;
   transition: 0.2s;
 }
 
 .quiz-option:hover {
-  background: rgba(0,255,149,0.18);
+  background: color-mix(in srgb, var(--matrix-color) 18%, transparent);
 }
 
 .quiz-option.correct {
-  border-color: #00ff7f;
-  background: rgba(0,255,127,0.2);
+  border-color: var(--matrix-color);
+  background: color-mix(in srgb, var(--matrix-color) 20%, transparent);
 }
 
 .quiz-option.wrong {
@@ -343,9 +346,9 @@ p {
   width: 260px;
   height: 180px;
   background: #000;
-  border: 2px solid rgba(0,255,149,0.4);
+  border: 2px solid color-mix(in srgb, var(--matrix-color) 40%, transparent);
   border-radius: 12px;
-  box-shadow: 0 0 18px rgba(0,255,149,0.3);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--matrix-color) 30%, transparent);
 }
 
 .remote-grid {
@@ -360,8 +363,8 @@ p {
   height: 200px;
   background: #000;
   border-radius: 12px;
-  border: 2px solid rgba(0,255,149,0.3);
-  box-shadow: 0 0 18px rgba(0,255,149,0.2);
+  border: 2px solid color-mix(in srgb, var(--matrix-color) 30%, transparent);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--matrix-color) 20%, transparent);
 }
 
 .local-controls button {
@@ -369,7 +372,7 @@ p {
   padding: 8px 14px;
   border-radius: 8px;
   border: none;
-  background: rgba(0,255,149,0.2);
+  background: color-mix(in srgb, var(--matrix-color) 20%, transparent);
   color: var(--accent);
   cursor: pointer;
 }
@@ -377,8 +380,8 @@ p {
 .status-panel {
   margin-top: 20px;
   padding: 14px;
-  background: rgba(0,255,149,0.08);
-  border: 1px solid rgba(0,255,149,0.3);
+  background: color-mix(in srgb, var(--matrix-color) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--matrix-color) 30%, transparent);
   border-radius: 12px;
   font-size: 14px;
   color: var(--accent);
@@ -393,7 +396,8 @@ p {
   cursor: not-allowed !important;
   pointer-events: none;
 }
-/* GHOST HAND (CSS ONLY — NO IMAGES) */
+
+/* GHOST HAND */
 #ghost-hand {
   position: fixed;
   bottom: 80px;
@@ -403,12 +407,12 @@ p {
   z-index: 2;
   pointer-events: none;
 
-  /* Silhouette hand shape using gradients */
-  background: radial-gradient(circle at 40% 60%, rgba(0,255,140,0.35), transparent 60%),
-              radial-gradient(circle at 60% 40%, rgba(0,255,140,0.25), transparent 70%),
-              radial-gradient(circle at 50% 50%, rgba(0,255,140,0.45), transparent 80%);
+  background:
+    radial-gradient(circle at 40% 60%, color-mix(in srgb, var(--matrix-color) 35%, transparent), transparent 60%),
+    radial-gradient(circle at 60% 40%, color-mix(in srgb, var(--matrix-color) 25%, transparent), transparent 70%),
+    radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--matrix-color) 45%, transparent), transparent 80%);
 
-  filter: blur(12px) drop-shadow(0 0 18px rgba(0,255,140,0.6));
+  filter: blur(12px) drop-shadow(0 0 18px color-mix(in srgb, var(--matrix-color) 60%, transparent));
   opacity: 0;
   animation: ghostHandFloat 12s infinite ease-in-out;
 }
