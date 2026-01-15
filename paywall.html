@@ -1,17 +1,46 @@
-<input type="email" id="userEmail" placeholder="Enter your email">
-<button id="continueBtn">Continue</button>
+<div id="paywall-wrapper">
 
-<div id="paymentSection" style="display:none;">
-  <!-- PayPal button -->
-  <script 
-    src="https://www.paypal.com/sdk/js?client-id=BAATF49HKoRbCK65m7W0bYTarz8r9_JhusqikTQGTGIQ1l6GPuaiCxXx23jXoC2HdQldxmOIz3FydVHHjg&components=hosted-buttons&enable-funding=venmo&currency=USD">
-  </script>
+  <h2 class="paywall-title">Unlock The Code</h2>
+  <p class="paywall-sub">Enter your email to continue</p>
 
-  <div id="paypal-container-3465GAQ3WBRQ8"></div>
+  <div id="emailSection">
+    <input type="email" id="userEmail" placeholder="Enter your email" class="paywall-input">
+    <button id="continueBtn" class="paywall-btn">Continue</button>
+  </div>
 
-  <script>
+  <div id="paymentSection" style="display:none;">
+    <h3 class="paywall-title small">Complete Verification</h3>
+
+    <div id="paypal-container-3465GAQ3WBRQ8" class="paypal-box"></div>
+  </div>
+
+</div>
+
+<!-- PAYPAL SDK (must be outside hidden divs) -->
+<script 
+  src="https://www.paypal.com/sdk/js?client-id=BAATF49HKoRbCK65m7W0bYTarz8r9_JhusqikTQGTGIQ1l6GPuaiCxXx23jXoC2HdQldxmOIz3FydVHHjg&components=hosted-buttons&enable-funding=venmo&currency=USD">
+</script>
+
+<script>
+  // Reveal PayPal after email
+  document.getElementById("continueBtn").addEventListener("click", () => {
+    const email = document.getElementById("userEmail").value.trim();
+
+    if (!email) {
+      alert("Enter your email first.");
+      return;
+    }
+
+    // Save email for access logic
+    localStorage.setItem("pendingEmail", email);
+
+    // Reveal PayPal
+    document.getElementById("paymentSection").style.display = "block";
+    document.getElementById("emailSection").style.display = "none";
+
+    // Render PayPal button
     paypal.HostedButtons({
       hostedButtonId: "3465GAQ3WBRQ8",
-    }).render("#paypal-container-3465GAQ3WBRQ8")
-  </script>
-</div>
+    }).render("#paypal-container-3465GAQ3WBRQ8");
+  });
+</script>
