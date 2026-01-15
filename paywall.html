@@ -6,198 +6,104 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    *{margin:0;padding:0;box-sizing:border-box}
+    html,body{
+      width:100%;height:100%;
+      background:#000;color:#00ff41;
+      font-family:"Courier New",monospace;
     }
-
-    html, body {
-      width: 100%;
-      height: 100%;
-      background: #000;
-      color: #00ff41;
-      font-family: "Courier New", monospace;
+    body{
+      display:flex;align-items:center;justify-content:center;
+      padding:20px;
     }
-
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
+    #paywall-wrapper{
+      width:100%;max-width:520px;
+      background:rgba(0,0,0,0.9);
+      border:1px solid #00ff41;
+      box-shadow:0 0 24px rgba(0,255,65,0.4);
+      border-radius:12px;
+      padding:24px 22px 20px;
+      position:relative;overflow:hidden;
     }
-
-    #paywall-wrapper {
-      width: 100%;
-      max-width: 520px;
-      background: rgba(0, 0, 0, 0.9);
-      border: 1px solid #00ff41;
-      box-shadow: 0 0 24px rgba(0, 255, 65, 0.4);
-      border-radius: 12px;
-      padding: 24px 22px 20px;
-      position: relative;
-      overflow: hidden;
+    #paywall-wrapper::before{
+      content:"ACCESS_GATEWAY: THE_CODE_MATRIX";
+      position:absolute;top:8px;left:12px;
+      font-size:10px;color:#00ff41aa;
     }
-
-    #paywall-wrapper::before {
-      content: "ACCESS_GATEWAY: THE_CODE_MATRIX";
-      position: absolute;
-      top: 8px;
-      left: 12px;
-      font-size: 10px;
-      color: #00ff41aa;
+    #paywall-wrapper::after{
+      content:"NO_RETURN_POINT_REACHED";
+      position:absolute;bottom:8px;right:12px;
+      font-size:10px;color:#00ff41aa;
     }
-
-    #paywall-wrapper::after {
-      content: "NO_RETURN_POINT_REACHED";
-      position: absolute;
-      bottom: 8px;
-      right: 12px;
-      font-size: 10px;
-      color: #00ff41aa;
+    .paywall-title{
+      font-size:26px;letter-spacing:0.18em;
+      text-transform:uppercase;text-align:center;
+      margin-bottom:8px;text-shadow:0 0 12px #00ff41;
     }
-
-    .paywall-title {
-      font-size: 26px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      text-align: center;
-      margin-bottom: 8px;
-      text-shadow: 0 0 12px #00ff41;
+    .paywall-title.small{font-size:20px;letter-spacing:0.12em}
+    .paywall-sub{
+      font-size:13px;text-align:center;
+      color:#00ff41cc;margin-bottom:18px;
     }
-
-    .paywall-title.small {
-      font-size: 20px;
-      letter-spacing: 0.12em;
+    .paywall-warning{
+      font-size:12px;text-align:center;
+      color:#00ff41aa;margin-bottom:18px;line-height:1.5;
     }
-
-    .paywall-sub {
-      font-size: 13px;
-      text-align: center;
-      color: #00ff41cc;
-      margin-bottom: 18px;
+    .paywall-warning span{display:block}
+    .paywall-section-label{
+      font-size:11px;text-transform:uppercase;
+      letter-spacing:0.16em;color:#00ff41aa;
+      margin-bottom:6px;
     }
-
-    .paywall-warning {
-      font-size: 12px;
-      text-align: center;
-      color: #00ff41aa;
-      margin-bottom: 18px;
-      line-height: 1.5;
+    #emailSection,#paymentSection{
+      margin-bottom:18px;padding:12px 10px;
+      border-radius:8px;border:1px solid #00ff41;
+      background:rgba(0,0,0,0.85);
     }
-
-    .paywall-warning span {
-      display: block;
+    .paywall-input{
+      width:100%;padding:10px;border-radius:6px;
+      border:1px solid #00ff41;background:#000;
+      color:#00ff41;font-size:13px;outline:none;
+      margin-bottom:10px;
     }
-
-    .paywall-section-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #00ff41aa;
-      margin-bottom: 6px;
+    .paywall-input::placeholder{color:#00ff41aa}
+    .paywall-btn{
+      width:100%;padding:10px;border-radius:6px;
+      border:1px solid #00ff41;background:#000;
+      color:#00ff41;font-size:13px;cursor:pointer;
+      transition:background .15s,box-shadow .15s,transform .15s;
     }
-
-    #emailSection,
-    #paymentSection {
-      margin-bottom: 18px;
-      padding: 12px 10px;
-      border-radius: 8px;
-      border: 1px solid #00ff41;
-      background: rgba(0, 0, 0, 0.85);
+    .paywall-btn:hover{
+      background:rgba(0,255,65,0.12);
+      box-shadow:0 0 12px #00ff41;
+      transform:translateY(-1px);
     }
-
-    .paywall-input {
-      width: 100%;
-      padding: 10px;
-      border-radius: 6px;
-      border: 1px solid #00ff41;
-      background: #000;
-      color: #00ff41;
-      font-size: 13px;
-      outline: none;
-      margin-bottom: 10px;
+    .paywall-note{
+      font-size:11px;color:#00ff41aa;margin-top:6px;line-height:1.4;
     }
-
-    .paywall-input::placeholder {
-      color: #00ff41aa;
+    .paypal-box{
+      margin-top:8px;padding:10px;border-radius:6px;
+      border:1px solid #00ff41;background:rgba(0,0,0,0.9);
+      box-shadow:0 0 14px rgba(0,255,65,0.25);
     }
-
-    .paywall-btn {
-      width: 100%;
-      padding: 10px;
-      border-radius: 6px;
-      border: 1px solid #00ff41;
-      background: #000;
-      color: #00ff41;
-      font-size: 13px;
-      cursor: pointer;
-      transition: background 0.15s, box-shadow 0.15s, transform 0.15s;
+    .divider{
+      margin:10px 0;text-align:center;font-size:10px;color:#00ff41aa;
+      position:relative;
     }
-
-    .paywall-btn:hover {
-      background: rgba(0, 255, 65, 0.12);
-      box-shadow: 0 0 12px #00ff41;
-      transform: translateY(-1px);
+    .divider::before,.divider::after{
+      content:"";position:absolute;top:50%;width:40%;height:1px;
+      background:#00ff4155;
     }
-
-    .paywall-note {
-      font-size: 11px;
-      color: #00ff41aa;
-      margin-top: 6px;
-      line-height: 1.4;
+    .divider::before{left:0}
+    .divider::after{right:0}
+    .footer-text{
+      font-size:10px;color:#00ff41aa;text-align:center;
+      margin-top:4px;line-height:1.4;
     }
-
-    .paypal-box {
-      margin-top: 8px;
-      padding: 10px;
-      border-radius: 6px;
-      border: 1px solid #00ff41;
-      background: rgba(0, 0, 0, 0.9);
-      box-shadow: 0 0 14px rgba(0, 255, 65, 0.25);
-    }
-
-    .divider {
-      margin: 10px 0;
-      text-align: center;
-      font-size: 10px;
-      color: #00ff41aa;
-      position: relative;
-    }
-
-    .divider::before,
-    .divider::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      width: 40%;
-      height: 1px;
-      background: #00ff4155;
-    }
-
-    .divider::before {
-      left: 0;
-    }
-
-    .divider::after {
-      right: 0;
-    }
-
-    .footer-text {
-      font-size: 10px;
-      color: #00ff41aa;
-      text-align: center;
-      margin-top: 4px;
-      line-height: 1.4;
-    }
-
-    .code-inline {
-      font-family: "Courier New", monospace;
-      background: rgba(0, 0, 0, 0.9);
-      padding: 1px 4px;
-      border-radius: 4px;
-      border: 1px solid #00ff41;
-      font-size: 10px;
+    .code-inline{
+      font-family:"Courier New",monospace;
+      background:rgba(0,0,0,0.9);padding:1px 4px;
+      border-radius:4px;border:1px solid #00ff41;font-size:10px;
     }
   </style>
 </head>
@@ -206,18 +112,19 @@
   <div id="paywall-wrapper">
 
     <h2 class="paywall-title">UNLOCK THE CODE</h2>
-    <p class="paywall-sub">Matrix access gate engaged. There is no turning back from here.</p>
+    <p class="paywall-sub">Matrix access gate engaged. No turning back.</p>
 
     <p class="paywall-warning">
-      <span>Listen carefully.</span>
-      <span>This terminal routes you directly into the payment stream for full academy access.</span>
-      <span>Standard users proceed through PayPal. Authorized operator bypasses with a key email.</span>
+      <span>This is the threshold.</span>
+      <span>Standard users proceed through PayPal.</span>
+      <span>Authorized operator bypasses with the key email.</span>
     </p>
 
+    <!-- PRIMARY PAYPAL PATH -->
     <div id="paymentSection">
       <div class="paywall-section-label">Primary Path: PayPal Verification</div>
       <p class="paywall-note">
-        Proceed here to unlock all lessons, simulations, and tools. Once verified, your access flag is stored and the matrix opens permanently on this device.
+        Verification unlocks all lessons, simulations, and tools permanently on this device.
       </p>
 
       <div id="paypal-container-3465GAQ3WBRQ8" class="paypal-box"></div>
@@ -225,23 +132,27 @@
 
     <div class="divider">OR</div>
 
+    <!-- OWNER EMAIL OVERRIDE -->
     <div id="emailSection">
       <div class="paywall-section-label">Operator Override: Email Key</div>
+
       <input
         type="email"
         id="userEmail"
         placeholder="Enter operator email for direct unlock"
         class="paywall-input"
       >
+
       <button id="continueBtn" class="paywall-btn">Unlock with Operator Key</button>
+
       <p class="paywall-note">
-        Only the correct operator email will bypass payment. All other entries are ignored and must use the primary PayPal path.
+        Only the correct operator email bypasses payment. All others must use PayPal.
       </p>
     </div>
 
     <p class="footer-text">
-      <span>After successful verification, this terminal will mark your device with an access token</span>
-      <span>and route you deeper into <span class="code-inline">THE_CODE</span> environment.</span>
+      <span>After verification, this terminal marks your device with an access token</span>
+      <span>and routes you deeper into <span class="code-inline">THE_CODE</span>.</span>
     </p>
 
   </div>
@@ -252,13 +163,13 @@
   </script>
 
   <script>
-    // Render PayPal button immediately (primary path)
+    // Render PayPal button immediately
     paypal.HostedButtons({
       hostedButtonId: "3465GAQ3WBRQ8",
     }).render("#paypal-container-3465GAQ3WBRQ8");
 
-    // Operator override email (change this to your real email)
-    const OPERATOR_EMAIL = "youremail@example.com"; // <-- put your email here
+    // YOUR EMAIL — INSTALLED EXACTLY AS REQUESTED
+    const OPERATOR_EMAIL = "boardwalkclay1@gmail.com";
 
     // Operator unlock logic
     document.getElementById("continueBtn").addEventListener("click", () => {
@@ -270,16 +181,15 @@
       }
 
       if (email.toLowerCase() === OPERATOR_EMAIL.toLowerCase()) {
-        // Operator bypass: direct unlock
         localStorage.setItem("academyAccess", "true");
-        localStorage.setItem("academyAccessMethod", "boardwalkclay1@gmail.com");
+        localStorage.setItem("academyAccessMethod", "operator_email");
         window.location.href = "lessons.html";
       } else {
-        alert("Email does not match operator key. Use PayPal path to continue.");
+        alert("Incorrect operator key. Use PayPal to continue.");
       }
     });
 
-    // Optional: if PayPal returns with a success flag, unlock and redirect
+    // PayPal return unlock
     (function () {
       const params = new URLSearchParams(window.location.search);
       const access = params.get("access");
@@ -292,13 +202,3 @@
   </script>
 </body>
 </html>
-    // Reveal PayPal
-    document.getElementById("paymentSection").style.display = "block";
-    document.getElementById("emailSection").style.display = "none";
-
-    // Render PayPal button
-    paypal.HostedButtons({
-      hostedButtonId: "3465GAQ3WBRQ8",
-    }).render("#paypal-container-3465GAQ3WBRQ8");
-  });
-</script>
