@@ -5,8 +5,9 @@
   <title>The Code — Lesson</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- GLOBAL MATRIX THEME -->
-  <link rel="stylesheet" href="../styles.css">
+  <!-- CORRECT GLOBAL MATRIX THEME -->
+  <link rel="stylesheet" href="../styles/style.css">
+  <link rel="stylesheet" href="../styles/matrix.css">
 
   <style>
     /* MATRIX TERMINAL UPGRADE */
@@ -22,23 +23,6 @@
       inset: 0;
       z-index: 0;
       pointer-events: none;
-    }
-
-    #hacker-hand {
-      position: fixed;
-      bottom: 0;
-      right: 0;
-      width: 260px;
-      opacity: 0.15;
-      z-index: 1;
-      pointer-events: none;
-      animation: ghostHand 6s infinite ease-in-out;
-    }
-
-    @keyframes ghostHand {
-      0% { opacity: 0.1; transform: translateY(0); }
-      50% { opacity: 0.25; transform: translateY(-8px); }
-      100% { opacity: 0.1; transform: translateY(0); }
     }
 
     #content-wrapper {
@@ -192,11 +176,8 @@
 
 <body>
 
-  <!-- MATRIX RAIN -->
-  <canvas id="matrix-rain"></canvas>
-
-  <!-- HACKER HAND -->
-  <img id="hacker-hand" src="../hand-typing.png" alt="">
+  <!-- MATRIX RAIN (CSS ONLY) -->
+  <div id="matrix-rain"></div>
 
   <!-- PAGE WRAPPER -->
   <div id="content-wrapper">
@@ -259,7 +240,6 @@
 
   <!-- GLOBAL JS -->
   <script src="../app.js"></script>
-  <script src="../matrix.js"></script>
 
   <!-- LESSON LOGIC -->
   <script type="module">
