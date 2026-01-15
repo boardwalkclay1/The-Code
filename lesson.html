@@ -5,19 +5,21 @@
   <title>The Code — Lesson</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- CORRECT GLOBAL MATRIX THEME -->
+  <!-- GLOBAL MATRIX THEME -->
   <link rel="stylesheet" href="../styles/style.css">
   <link rel="stylesheet" href="../styles/matrix.css">
 
   <style>
-    /* MATRIX TERMINAL UPGRADE */
+    /* MATRIX TERMINAL BASE */
     body {
+      margin: 0;
       background: #000;
       color: #00ff41;
       font-family: "Courier New", monospace;
       overflow: hidden;
     }
 
+    /* MATRIX RAIN */
     #matrix-rain {
       position: fixed;
       inset: 0;
@@ -25,12 +27,14 @@
       pointer-events: none;
     }
 
+    /* PAGE LAYOUT */
     #content-wrapper {
       position: relative;
       z-index: 2;
       display: grid;
       grid-template-columns: 260px 1fr;
       height: 100vh;
+      overflow: hidden;
     }
 
     /* SIDEBAR */
@@ -66,6 +70,8 @@
       border-radius: 999px;
       background: rgba(0, 0, 0, 0.7);
       transition: 0.2s;
+      color: #00ff41;
+      text-decoration: none;
     }
 
     .side-link:hover {
@@ -74,10 +80,11 @@
       transform: translateX(3px);
     }
 
-    /* MAIN */
+    /* MAIN CONTENT */
     #main {
       padding: 30px;
       overflow-y: auto;
+      height: 100vh;
       position: relative;
     }
 
@@ -171,12 +178,19 @@
       box-shadow: 0 0 12px #00ff41;
       transform: translateY(-2px);
     }
+
+    /* LOCKED STATE VISUAL */
+    .locked {
+      opacity: 0.4;
+      filter: grayscale(1);
+      pointer-events: none;
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- MATRIX RAIN (CSS ONLY) -->
+  <!-- MATRIX RAIN -->
   <div id="matrix-rain"></div>
 
   <!-- PAGE WRAPPER -->
