@@ -8,11 +8,163 @@
   <!-- CORRECT THEME PATH -->
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/matrix.css">
+
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      color: #00ff41;
+      font-family: "Courier New", monospace;
+      overflow: hidden;
+    }
+
+    /* MATRIX RAIN */
+    #matrix-rain {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* LAYOUT */
+    #sidebar {
+      width: 260px;
+      background: rgba(0,0,0,0.85);
+      border-right: 1px solid #00ff41;
+      padding: 20px;
+      height: 100vh;
+      overflow-y: auto;
+      position: fixed;
+      box-shadow: 0 0 20px rgba(0,255,65,0.25);
+      z-index: 2;
+    }
+
+    #main {
+      margin-left: 260px;
+      padding: 40px;
+      height: 100vh;
+      overflow-y: auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* SIDEBAR TEXT */
+    #sidebar h1 {
+      font-size: 28px;
+      letter-spacing: 0.2em;
+      margin-bottom: 20px;
+      text-shadow: 0 0 12px #00ff41;
+    }
+
+    .side-section-title {
+      margin-top: 20px;
+      margin-bottom: 6px;
+      font-size: 12px;
+      color: #00ff41aa;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    .side-link {
+      display: block;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+      border-radius: 999px;
+      border: 1px solid #00ff41;
+      background: rgba(0,0,0,0.7);
+      color: #00ff41;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .side-link:hover {
+      background: rgba(0,255,65,0.15);
+      transform: translateX(4px);
+      box-shadow: 0 0 12px #00ff41;
+    }
+
+    /* SECTIONS */
+    .section {
+      background: rgba(0,0,0,0.85);
+      padding: 22px;
+      border-radius: 14px;
+      border: 1px solid #00ff41;
+      margin-bottom: 30px;
+      box-shadow: 0 0 20px rgba(0,255,65,0.25);
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      color: #00ff41;
+      text-shadow: 0 0 10px #00ff41;
+      margin-bottom: 12px;
+    }
+
+    ul {
+      line-height: 1.7em;
+      margin-left: 10px;
+    }
+
+    /* LESSON CARDS */
+    .lesson-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .lesson-card {
+      display: block;
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1px solid #00ff41;
+      background: rgba(0,0,0,0.7);
+      color: #00ff41;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .lesson-card:hover {
+      background: rgba(0,255,65,0.15);
+      transform: translateX(4px);
+      box-shadow: 0 0 12px #00ff41;
+    }
+
+    /* BUTTON */
+    .big-button {
+      display: inline-block;
+      padding: 12px 20px;
+      background: #00ff41;
+      color: #000;
+      font-weight: bold;
+      border-radius: 999px;
+      text-decoration: none;
+      margin-top: 10px;
+      box-shadow: 0 0 15px rgba(0,255,65,0.4);
+      transition: 0.2s;
+    }
+
+    .big-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #00ff41;
+    }
+
+    /* LOCKED STATE */
+    .locked {
+      opacity: 0.4;
+      filter: grayscale(1);
+      pointer-events: none;
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- MATRIX BACKGROUND (CSS ONLY) -->
+  <!-- MATRIX RAIN -->
   <div id="matrix-rain"></div>
 
   <!-- SIDEBAR -->
