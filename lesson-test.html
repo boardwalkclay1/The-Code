@@ -5,22 +5,34 @@
   <title>The Code — Test Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- CORRECT THEME PATHS -->
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/matrix.css">
+
   <style>
-    /* ===== BASIC RESET ===== */
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #02040a;
-      color: white;
+      background: #000;
+      color: #00ff41;
+      font-family: "Courier New", monospace;
+      overflow: hidden;
     }
 
     .hidden { display: none; }
 
-    /* ===== MATRIX LOADING SCREEN ===== */
+    /* MATRIX RAIN BACKGROUND */
+    #matrix-rain {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* LOADING SCREEN */
     #loading-screen {
       position: fixed;
       inset: 0;
-      background: black;
+      background: #000;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -83,10 +95,12 @@
       letter-spacing: 0.15em;
     }
 
-    /* ===== MAIN CONTENT ===== */
+    /* MAIN CONTENT */
     #app {
       padding: 40px;
       text-align: center;
+      position: relative;
+      z-index: 2;
     }
 
     button {
@@ -98,9 +112,15 @@
       font-weight: bold;
       color: #02150a;
       box-shadow: 0 0 10px rgba(0,255,140,0.5);
+      transition: 0.2s;
     }
 
-    /* ===== MODAL ===== */
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #00ff7f;
+    }
+
+    /* MODAL */
     #lesson-modal {
       position: fixed;
       inset: 0;
@@ -114,12 +134,18 @@
     .lesson-modal-content {
       width: 90%;
       max-width: 600px;
-      background: #050816;
+      background: rgba(0,0,0,0.85);
       border-radius: 20px;
       padding: 24px;
-      border: 1px solid rgba(0,255,140,0.3);
+      border: 1px solid #00ff41;
       box-shadow: 0 0 40px rgba(0,255,140,0.4);
       position: relative;
+      animation: fadeIn 0.4s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .close-btn {
@@ -137,6 +163,9 @@
 
 <body>
 
+  <!-- MATRIX RAIN -->
+  <div id="matrix-rain"></div>
+
   <!-- MATRIX LOADING SCREEN -->
   <div id="loading-screen">
     <div class="loading-center">
@@ -151,7 +180,7 @@
   <!-- MAIN APP -->
   <div id="app" class="hidden">
     <h2>Welcome to The Code</h2>
-    <p>This is your new test page with the Matrix loader and working modal.</p>
+    <p>This is your Matrix‑themed test page with a loader and modal.</p>
     <button id="openModalBtn">Open Modal</button>
   </div>
 
@@ -160,7 +189,7 @@
     <div class="lesson-modal-content">
       <button id="close-lesson-modal" class="close-btn">✕</button>
       <h2>Modal Working!</h2>
-      <p>This modal now opens and closes correctly.</p>
+      <p>Your modal opens and closes perfectly.</p>
     </div>
   </div>
 
