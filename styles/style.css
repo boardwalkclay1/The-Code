@@ -393,3 +393,30 @@ p {
   cursor: not-allowed !important;
   pointer-events: none;
 }
+/* GHOST HAND (CSS ONLY — NO IMAGES) */
+#ghost-hand {
+  position: fixed;
+  bottom: 80px;
+  right: 120px;
+  width: 180px;
+  height: 180px;
+  z-index: 2;
+  pointer-events: none;
+
+  /* Silhouette hand shape using gradients */
+  background: radial-gradient(circle at 40% 60%, rgba(0,255,140,0.35), transparent 60%),
+              radial-gradient(circle at 60% 40%, rgba(0,255,140,0.25), transparent 70%),
+              radial-gradient(circle at 50% 50%, rgba(0,255,140,0.45), transparent 80%);
+
+  filter: blur(12px) drop-shadow(0 0 18px rgba(0,255,140,0.6));
+  opacity: 0;
+  animation: ghostHandFloat 12s infinite ease-in-out;
+}
+
+@keyframes ghostHandFloat {
+  0%   { opacity: 0; transform: translateY(20px) scale(0.9); }
+  10%  { opacity: 0.8; transform: translateY(0) scale(1); }
+  40%  { opacity: 0.6; }
+  60%  { opacity: 0.2; transform: translateY(-10px) scale(1.05); }
+  100% { opacity: 0; transform: translateY(20px) scale(0.9); }
+}
