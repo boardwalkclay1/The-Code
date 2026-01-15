@@ -2,93 +2,1158 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>The Code — Terminal Access</title>
+  <title>The Code — Matrix Interface</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="styles/style.css">
+  <style>
+    /* =========================
+       GLOBAL RESET
+    ========================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+      color: #00ff41;
+      font-family: "Courier New", monospace;
+    }
+
+    a {
+      color: #00ff41;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* =========================
+       MATRIX BACKGROUND
+    ========================== */
+    #matrix-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      background: #000;
+    }
+
+    /* =========================
+       LOADING SCREEN
+    ========================== */
+    #loading-screen {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at center, #001a00 0%, #000 60%, #000 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .loading-title {
+      font-size: 64px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #00ff41;
+      text-shadow: 0 0 12px #00ff41, 0 0 24px #00ff41;
+      margin-bottom: 20px;
+    }
+
+    .loading-sub {
+      font-size: 16px;
+      color: #00ff41cc;
+      margin-bottom: 30px;
+    }
+
+    .loading-bar {
+      width: 60%;
+      max-width: 500px;
+      height: 10px;
+      border: 1px solid #00ff41;
+      border-radius: 999px;
+      overflow: hidden;
+      box-shadow: 0 0 12px #00ff41;
+    }
+
+    .loading-fill {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, #00ff41, #00ffaa);
+      box-shadow: 0 0 12px #00ff41;
+      transition: width 0.2s linear;
+    }
+
+    .loading-text {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #00ff41aa;
+    }
+
+    /* =========================
+       MAIN LAYOUT
+    ========================== */
+    #app {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* =========================
+       SIDEBAR
+    ========================== */
+    #sidebar {
+      background: rgba(0, 0, 0, 0.9);
+      border-right: 1px solid #00ff41;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      overflow-y: auto;
+    }
+
+    .sidebar-title {
+      font-size: 26px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+      text-shadow: 0 0 10px #00ff41;
+    }
+
+    .sidebar-sub {
+      font-size: 12px;
+      color: #00ff41aa;
+      margin-bottom: 10px;
+    }
+
+    .sidebar-section-label {
+      font-size: 12px;
+      color: #00ff41aa;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    .sidebar-menu {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .sidebar-link {
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid #00ff41;
+      background: rgba(0, 0, 0, 0.8);
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
+    }
+
+    .sidebar-link span {
+      pointer-events: none;
+    }
+
+    .sidebar-link:hover {
+      background: rgba(0, 255, 65, 0.1);
+      box-shadow: 0 0 12px #00ff41;
+      transform: translateX(2px);
+    }
+
+    .sidebar-link .arrow {
+      font-size: 10px;
+      color: #00ff41aa;
+    }
+
+    .sidebar-dropdown {
+      list-style: none;
+      margin-left: 10px;
+      margin-top: 5px;
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .sidebar-dropdown.open {
+      display: flex;
+    }
+
+    .sidebar-dropdown li a {
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      display: inline-block;
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .sidebar-dropdown li a:hover {
+      border-color: #00ff41;
+      background: rgba(0, 255, 65, 0.1);
+    }
+
+    /* =========================
+       MAIN CONTENT
+    ========================== */
+    #main {
+      position: relative;
+      padding: 20px 30px;
+      overflow-y: auto;
+    }
+
+    .page-title {
+      font-size: 40px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      text-shadow: 0 0 12px #00ff41;
+    }
+
+    .page-subtitle {
+      font-size: 14px;
+      color: #00ff41aa;
+      margin-bottom: 30px;
+    }
+
+    .bubble-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .bubble-button {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid #00ff41;
+      background: rgba(0, 0, 0, 0.85);
+      font-size: 13px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+    }
+
+    .bubble-button:hover {
+      background: rgba(0, 255, 65, 0.1);
+      box-shadow: 0 0 12px #00ff41;
+      transform: translateY(-1px);
+    }
+
+    .bubble-button::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-radius: 999px;
+      background: rgba(0, 255, 65, 0.3);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .section-block {
+      margin-bottom: 40px;
+      padding: 18px 20px;
+      border-radius: 12px;
+      border: 1px solid #00ff41;
+      background: rgba(0, 0, 0, 0.85);
+      box-shadow: 0 0 18px rgba(0, 255, 65, 0.25);
+    }
+
+    .section-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: #00ff41aa;
+      margin-bottom: 15px;
+    }
+
+    .section-text {
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .section-list {
+      list-style: none;
+      margin-left: 10px;
+      margin-top: 8px;
+      margin-bottom: 10px;
+    }
+
+    .section-list li {
+      font-size: 13px;
+      margin-bottom: 4px;
+      position: relative;
+      padding-left: 14px;
+    }
+
+    .section-list li::before {
+      content: ">";
+      position: absolute;
+      left: 0;
+      color: #00ff41;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid #00ff41;
+      background: rgba(0, 0, 0, 0.9);
+    }
+
+    .code-inline {
+      font-family: "Courier New", monospace;
+      background: rgba(0, 0, 0, 0.9);
+      padding: 2px 4px;
+      border-radius: 4px;
+      border: 1px solid #00ff41;
+      font-size: 12px;
+    }
+
+    .lesson-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .lesson-card {
+      border-radius: 10px;
+      border: 1px solid #00ff41;
+      background: rgba(0, 0, 0, 0.9);
+      padding: 14px 16px;
+      box-shadow: 0 0 14px rgba(0, 255, 65, 0.2);
+    }
+
+    .lesson-title {
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    .lesson-meta {
+      font-size: 11px;
+      color: #00ff41aa;
+      margin-bottom: 8px;
+    }
+
+    .lesson-desc {
+      font-size: 12px;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .lesson-outcomes {
+      list-style: none;
+      margin-left: 10px;
+      margin-top: 4px;
+    }
+
+    .lesson-outcomes li {
+      font-size: 12px;
+      margin-bottom: 3px;
+      position: relative;
+      padding-left: 12px;
+    }
+
+    .lesson-outcomes li::before {
+      content: "-";
+      position: absolute;
+      left: 0;
+      color: #00ff41;
+    }
+
+    .lesson-button {
+      margin-top: 8px;
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid #00ff41;
+      font-size: 12px;
+      cursor: pointer;
+      background: rgba(0, 0, 0, 0.9);
+      transition: background 0.15s, box-shadow 0.15s, transform 0.15s;
+    }
+
+    .lesson-button:hover {
+      background: rgba(0, 255, 65, 0.1);
+      box-shadow: 0 0 10px #00ff41;
+      transform: translateY(-1px);
+    }
+
+    .sim-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .sim-card {
+      border-radius: 10px;
+      border: 1px solid #00ff41;
+      background: rgba(0, 0, 0, 0.9);
+      padding: 14px 16px;
+      box-shadow: 0 0 14px rgba(0, 255, 65, 0.2);
+    }
+
+    .sim-title {
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    .sim-meta {
+      font-size: 11px;
+      color: #00ff41aa;
+      margin-bottom: 8px;
+    }
+
+    .sim-desc {
+      font-size: 12px;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .sim-outcomes {
+      list-style: none;
+      margin-left: 10px;
+      margin-top: 4px;
+    }
+
+    .sim-outcomes li {
+      font-size: 12px;
+      margin-bottom: 3px;
+      position: relative;
+      padding-left: 12px;
+    }
+
+    .sim-outcomes li::before {
+      content: "-";
+      position: absolute;
+      left: 0;
+      color: #00ff41;
+    }
+
+    .sim-button {
+      margin-top: 8px;
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid #00ff41;
+      font-size: 12px;
+      cursor: pointer;
+      background: rgba(0, 0, 0, 0.9);
+      transition: background 0.15s, box-shadow 0.15s, transform 0.15s;
+    }
+
+    .sim-button:hover {
+      background: rgba(0, 255, 65, 0.1);
+      box-shadow: 0 0 10px #00ff41;
+      transform: translateY(-1px);
+    }
+
+    .micro-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .micro-card {
+      border-radius: 10px;
+      border: 1px solid #00ff41;
+      background: rgba(0, 0, 0, 0.9);
+      padding: 14px 16px;
+      box-shadow: 0 0 14px rgba(0, 255, 65, 0.2);
+    }
+
+    .micro-title {
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    .micro-desc {
+      font-size: 12px;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .micro-list {
+      list-style: none;
+      margin-left: 10px;
+      margin-top: 4px;
+    }
+
+    .micro-list li {
+      font-size: 12px;
+      margin-bottom: 3px;
+      position: relative;
+      padding-left: 12px;
+    }
+
+    .micro-list li::before {
+      content: "-";
+      position: absolute;
+      left: 0;
+      color: #00ff41;
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 11px;
+      color: #00ff41aa;
+      border-top: 1px solid #00ff41;
+      padding-top: 10px;
+    }
+
+    .footer span {
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* Scrollbar */
+    #sidebar::-webkit-scrollbar,
+    #main::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    #sidebar::-webkit-scrollbar-thumb,
+    #main::-webkit-scrollbar-thumb {
+      background: #00ff41;
+    }
+
+    #sidebar::-webkit-scrollbar-track,
+    #main::-webkit-scrollbar-track {
+      background: #000;
+    }
+
+    @media (max-width: 800px) {
+      #app {
+        grid-template-columns: 1fr;
+      }
+      #sidebar {
+        height: 220px;
+        border-right: none;
+        border-bottom: 1px solid #00ff41;
+      }
+      #main {
+        height: calc(100vh - 220px);
+      }
+    }
+  </style>
 </head>
 
-<body class="terminal">
+<body>
+  <canvas id="matrix-canvas"></canvas>
 
-  <div class="terminal-container">
-
-    <h1 class="terminal-title">THE CODE ACADEMY</h1>
-    <p class="terminal-sub">Access Point: Public Index</p>
-
-    <section class="terminal-section">
-      <h2>WELCOME</h2>
-      <p>
-        You’ve reached the public access terminal for <strong>The Code Academy</strong>.  
-        This is your entry point into learning how the digital world actually works.
-      </p>
-      <p>
-        Coding is not just a skill — it’s a system of power.  
-        It lets you build websites, apps, automations, tools, dashboards, and entire digital systems.
-      </p>
-      <p>
-        This academy teaches you everything from the ground up.  
-        No experience required. No confusion. No noise.  
-        Just pure, structured knowledge.
-      </p>
-    </section>
-
-    <section class="terminal-section">
-      <h2>WHY JOIN?</h2>
-      <ul>
-        <li>Learn how websites and apps are built</li>
-        <li>Understand HTML, CSS, and JavaScript from scratch</li>
-        <li>Build real projects step‑by‑step</li>
-        <li>Avoid beginner mistakes and confusion</li>
-        <li>Learn to think like a developer</li>
-        <li>Publish your own website online</li>
-      </ul>
-    </section>
-
-    <section class="terminal-section">
-      <h2>LESSONS</h2>
-      <p>Click any lesson to continue. You will be asked to verify access after selection.</p>
-      <ul>
-        <li><a href="paywall.html?next=lesson1">Lesson 1 — What Makes a File HTML</a></li>
-        <li><a href="paywall.html?next=lesson2">Lesson 2 — Saving index.html</a></li>
-        <li><a href="paywall.html?next=lesson3">Lesson 3 — HTML Structure</a></li>
-        <li><a href="paywall.html?next=lesson4">Lesson 4 — Head & Body</a></li>
-        <li><a href="paywall.html?next=lesson5">Lesson 5 — Tags & Elements</a></li>
-        <li><a href="paywall.html?next=lesson6">Lesson 6 — What Makes a File CSS</a></li>
-        <li><a href="paywall.html?next=lesson7">Lesson 7 — Saving style.css</a></li>
-        <li><a href="paywall.html?next=lesson8">Lesson 8 — Linking CSS</a></li>
-        <li><a href="paywall.html?next=lesson9">Lesson 9 — Selectors & Classes</a></li>
-        <li><a href="paywall.html?next=lesson10">Lesson 10 — Styling Your Page</a></li>
-        <li><a href="paywall.html?next=lesson11">Lesson 11 — What Makes a File JS</a></li>
-        <li><a href="paywall.html?next=lesson12">Lesson 12 — Saving app.js</a></li>
-        <li><a href="paywall.html?next=lesson13">Lesson 13 — Linking JavaScript</a></li>
-        <li><a href="paywall.html?next=lesson14">Lesson 14 — Console & Variables</a></li>
-        <li><a href="paywall.html?next=lesson15">Lesson 15 — Making Your First App</a></li>
-      </ul>
-    </section>
-
-    <section class="terminal-section">
-      <h2>TOOLS</h2>
-      <ul>
-        <li><a href="paywall.html?next=simulators">Simulators</a></li>
-        <li><a href="paywall.html?next=github">GitHub Guide</a></li>
-        <li><a href="paywall.html?next=chat">Live WebRTC Room</a></li>
-        <li><a href="paywall.html?next=roadmap">Beginner Roadmap</a></li>
-        <li><a href="paywall.html?next=code">Understanding the Code</a></li>
-        <li><a href="paywall.html?next=errors">Common Errors</a></li>
-        <li><a href="paywall.html?next=reading">How to Read Code</a></li>
-      </ul>
-    </section>
-
-    <section class="terminal-section">
-      <h2>ACCESS</h2>
-      <p>
-        Full academy access requires a one‑time verification through PayPal.  
-        This protects the system and unlocks all lessons, tools, and simulators.
-      </p>
-      <a class="terminal-button" href="paywall.html">Proceed to Verification</a>
-    </section>
-
+  <div id="loading-screen">
+    <div class="loading-title">THE CODE</div>
+    <div class="loading-sub">Initializing matrix interface... stand by</div>
+    <div class="loading-bar">
+      <div class="loading-fill" id="loading-fill"></div>
+    </div>
+    <div class="loading-text" id="loading-text">[ 0% ] establishing secure terminal...</div>
   </div>
 
+  <div id="app" style="display:none;">
+    <aside id="sidebar">
+      <div>
+        <div class="sidebar-title">THE CODE</div>
+        <div class="sidebar-sub">Matrix Terminal • Learning Interface</div>
+      </div>
+
+      <div>
+        <div class="sidebar-section-label">Navigation</div>
+        <ul class="sidebar-menu">
+          <li>
+            <button class="sidebar-link" data-dropdown="nav-lessons">
+              <span>Lessons</span>
+              <span class="arrow">▼</span>
+            </button>
+            <ul class="sidebar-dropdown" id="nav-lessons">
+              <li><a href="paywall.html?next=lesson1">Lesson 1 — HTML Files</a></li>
+              <li><a href="paywall.html?next=lesson2">Lesson 2 — index.html</a></li>
+              <li><a href="paywall.html?next=lesson3">Lesson 3 — Structure</a></li>
+              <li><a href="paywall.html?next=lesson4">Lesson 4 — Head & Body</a></li>
+              <li><a href="paywall.html?next=lesson5">Lesson 5 — Tags</a></li>
+              <li><a href="paywall.html?next=lesson6">Lesson 6 — CSS Files</a></li>
+              <li><a href="paywall.html?next=lesson7">Lesson 7 — style.css</a></li>
+              <li><a href="paywall.html?next=lesson8">Lesson 8 — Linking CSS</a></li>
+              <li><a href="paywall.html?next=lesson9">Lesson 9 — Selectors</a></li>
+              <li><a href="paywall.html?next=lesson10">Lesson 10 — Styling</a></li>
+              <li><a href="paywall.html?next=lesson11">Lesson 11 — JS Files</a></li>
+              <li><a href="paywall.html?next=lesson12">Lesson 12 — app.js</a></li>
+              <li><a href="paywall.html?next=lesson13">Lesson 13 — Linking JS</a></li>
+              <li><a href="paywall.html?next=lesson14">Lesson 14 — Console</a></li>
+              <li><a href="paywall.html?next=lesson15">Lesson 15 — First App</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <button class="sidebar-link" data-dropdown="nav-sim">
+              <span>Simulators</span>
+              <span class="arrow">▼</span>
+            </button>
+            <ul class="sidebar-dropdown" id="nav-sim">
+              <li><a href="paywall.html?next=sim-html">HTML Simulator</a></li>
+              <li><a href="paywall.html?next=sim-css">CSS Simulator</a></li>
+              <li><a href="paywall.html?next=sim-js">JavaScript Simulator</a></li>
+              <li><a href="paywall.html?next=sim-micro">Microcontroller Logic Lab</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <button class="sidebar-link" data-dropdown="nav-knowledge">
+              <span>Knowledge Hub</span>
+              <span class="arrow">▼</span>
+            </button>
+            <ul class="sidebar-dropdown" id="nav-knowledge">
+              <li><a href="paywall.html?next=code">Understanding the Code</a></li>
+              <li><a href="paywall.html?next=errors">Common Errors</a></li>
+              <li><a href="paywall.html?next=reading">How to Read Code</a></li>
+              <li><a href="paywall.html?next=roadmap">Beginner Roadmap</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <button class="sidebar-link" data-dropdown="nav-tools">
+              <span>Tools</span>
+              <span class="arrow">▼</span>
+            </button>
+            <ul class="sidebar-dropdown" id="nav-tools">
+              <li><a href="paywall.html?next=github">GitHub Guide</a></li>
+              <li><a href="paywall.html?next=chat">Live WebRTC Room</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <main id="main">
+      <header>
+        <h1 class="page-title">THE CODE</h1>
+        <p class="page-subtitle">
+          You are inside a learning terminal designed to teach you how the digital world is built — from raw files to living systems.
+        </p>
+      </header>
+
+      <div class="bubble-row">
+        <button class="bubble-button">HTML Foundations</button>
+        <button class="bubble-button">CSS Styling</button>
+        <button class="bubble-button">JavaScript Logic</button>
+        <button class="bubble-button">Microcontrollers</button>
+        <button class="bubble-button">Simulators</button>
+        <button class="bubble-button">Real Projects</button>
+      </div>
+
+      <section class="section-block">
+        <h2 class="section-title">What This Course Is</h2>
+        <p class="section-subtitle">
+          A structured path from “I don’t know where to start” to “I can build and understand real systems.”
+        </p>
+        <p class="section-text">
+          <span class="code-inline">The Code</span> is not just a collection of random tutorials. It is a carefully designed sequence of lessons, simulations, and mental models that teach you how to think like a developer.
+        </p>
+        <p class="section-text">
+          You will learn how to create real files on your machine, how to connect them, how to debug them, and how to reason about what is happening behind the scenes. You will see how HTML defines structure, how CSS defines appearance, and how JavaScript defines behavior.
+        </p>
+        <p class="section-text">
+          Beyond the browser, you will also explore how microcontrollers use similar logic to control physical systems — motors, sensors, lights, and more. The same thinking that powers a website can power a robot, a smart device, or an automated system.
+        </p>
+        <ul class="section-list">
+          <li>Understand how files, folders, and links form the backbone of every project.</li>
+          <li>Learn how to read and write code instead of just copying it.</li>
+          <li>Gain the confidence to experiment, break things, and fix them.</li>
+          <li>See how digital logic maps to real‑world hardware and microcontrollers.</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Microcontrollers</span>
+          <span class="tag">Debugging</span>
+          <span class="tag">Project Structure</span>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <h2 class="section-title">Lessons — Detailed Breakdown</h2>
+        <p class="section-subtitle">
+          Each lesson is a focused mission. You are not just watching — you are building.
+        </p>
+
+        <div class="lesson-grid">
+          <div class="lesson-card">
+            <div class="lesson-title">Lesson 1 — What Makes a File HTML</div>
+            <div class="lesson-meta">Focus: File types, extensions, and the browser.</div>
+            <p class="lesson-desc">
+              You learn what an HTML file actually is, why the <span class="code-inline">.html</span> extension matters, and how your computer and browser recognize it as a web page. This lesson removes the mystery around “web files” and shows you that they are just text with structure.
+            </p>
+            <ul class="lesson-outcomes">
+              <li>Understand the difference between plain text and HTML.</li>
+              <li>Know how to create and save a valid HTML file.</li>
+              <li>See how the browser interprets your file as a page.</li>
+            </ul>
+            <a class="lesson-button" href="paywall.html?next=lesson1">Access Lesson 1</a>
+          </div>
+
+          <div class="lesson-card">
+            <div class="lesson-title">Lesson 2 — Saving index.html</div>
+            <div class="lesson-meta">Focus: Entry points and naming conventions.</div>
+            <p class="lesson-desc">
+              You learn why <span class="code-inline">index.html</span> is the default entry point for most websites and how servers and hosting platforms look for it automatically. This lesson teaches you how to structure your project so it behaves like a real site.
+            </p>
+            <ul class="lesson-outcomes">
+              <li>Understand why <span class="code-inline">index.html</span> is special.</li>
+              <li>Learn where to save it in your folder structure.</li>
+              <li>Open it directly in the browser and see it render.</li>
+            </ul>
+            <a class="lesson-button" href="paywall.html?next=lesson2">Access Lesson 2</a>
+          </div>
+
+          <div class="lesson-card">
+            <div class="lesson-title">Lesson 3 — HTML Structure</div>
+            <div class="lesson-meta">Focus: The skeleton of every page.</div>
+            <p class="lesson-desc">
+              You learn the core structure of an HTML document: <span class="code-inline">&lt;!DOCTYPE html&gt;</span>, <span class="code-inline">&lt;html&gt;</span>, <span class="code-inline">&lt;head&gt;</span>, and <span class="code-inline">&lt;body&gt;</span>. You see how every page, no matter how complex, starts from this simple skeleton.
+            </p>
+            <ul class="lesson-outcomes">
+              <li>Memorize the basic HTML document structure.</li>
+              <li>Understand where metadata and visible content live.</li>
+              <li>Be able to write a valid HTML skeleton from scratch.</li>
+            </ul>
+            <a class="lesson-button" href="paywall.html?next=lesson3">Access Lesson 3</a>
+          </div>
+
+          <div class="lesson-card">
+            <div class="lesson-title">Lesson 4 — Head & Body</div>
+            <div class="lesson-meta">Focus: Invisible vs visible content.</div>
+            <p class="lesson-desc">
+              You learn the difference between the <span class="code-inline">&lt;head&gt;</span> and <span class="code-inline">&lt;body&gt;</span> sections. The head controls metadata, titles, and linked files. The body controls what the user actually sees. This separation is key to building organized pages.
+            </p>
+            <ul class="lesson-outcomes">
+              <li>Know what belongs in the head vs the body.</li>
+              <li>Link CSS and JS correctly from the head or body.</li>
+              <li>Understand how the browser reads your document.</li>
+            </ul>
+            <a class="lesson-button" href="paywall.html?next=lesson4">Access Lesson 4</a>
+          </div>
+
+          <div class="lesson-card">
+            <div class="lesson-title">Lesson 5 — Tags & Elements</div>
+            <div class="lesson-meta">Focus: The building blocks of HTML.</div>
+            <p class="lesson-desc">
+              You learn what tags and elements are, how opening and closing tags work, and how nesting creates structure. You see how everything on a page — text, images, buttons, layouts — is built from these simple pieces.
+            </p>
+            <ul class="lesson-outcomes">
+              <li>Understand the concept of elements and attributes.</li>
+              <li>Write clean, nested HTML without breaking structure.</li>
+              <li>Recognize common tags used in real projects.</li>
+            </ul>
+            <a class="lesson-button" href="paywall.html?next=lesson5">Access Lesson 5</a>
+          </div>
+
+          <div class="lesson-card">
+            <div class="lesson-title">Lesson 6 — What Makes a File CSS</div>
+            <div class="lesson-meta">Focus: Styling and separation of concerns.</div>
+            <p class="lesson-desc">
+              You learn what a CSS file is, why the <span class="code-inline">.css</span> extension matters, and how it separates design from structure. You see how a single CSS file can control the look of an entire site.
+            </p>
+            <ul class="lesson-outcomes">
+              <li>Understand the role of CSS in a project.</li>
+              <li>Create and save a valid <span class="code-inline">style.css</span> file.</li>
+              <li>See how CSS changes the appearance of HTML.</li>
+            </ul>
+            <a class="lesson-button" href="paywall.html?next=lesson6">Access Lesson 6</a>
+          </div>
+
+          <div class="lesson-card">
+            <div class="lesson-title">Lesson 7 — Saving style.css</div>
+            <div class="lesson-meta">Focus: File placement and organization.</div>
+            <p class="lesson-desc">
+              You learn where to place your CSS file in your project, how to name it, and how to keep your structure clean so you never lose track of your styles. This lesson sets the foundation for scalable projects.
+            </p>
+            <ul class="lesson-outcomes">
+              <li>Choose a consistent folder structure for styles.</li>
+              <li>Understand relative paths and how the browser finds files.</li>
+              <li>Prepare your project for future growth.</li>
+            </ul>
+            <a class="lesson-button" href="paywall.html?next=lesson7">Access Lesson 7</a>
+          </div>
+
+          <div class="lesson-card">
+            <div class="lesson-title">Lesson 8 — Linking CSS</div>
+            <div class="lesson-meta">Focus: Connecting HTML and CSS.</div>
+            <p class="lesson-desc">
+              You learn how to use the <span class="code-inline">&lt;link&gt;</span> tag to connect your HTML and CSS. You see how a single line in the head can transform a plain document into a designed interface.
+            </p>
+            <ul class="lesson-outcomes">
+              <li>Write a correct <span class="code-inline">&lt;link&gt;</span> tag.</li>
+              <li>Fix common path errors that break styles.</li>
+              <li>Verify that your CSS is loading correctly.</li>
+            </ul>
+            <a class="lesson-button" href="paywall.html?next=lesson8">Access Lesson 8</a>
+          </div>
+
+          <div class="lesson-card">
+            <div class="lesson-title">Lesson 9 — Selectors & Classes</div>
+            <div class="lesson-meta">Focus: Targeting elements with precision.</div>
+            <p class="lesson-desc">
+              You learn how CSS selectors work, how classes let you style specific elements, and how to avoid messy, unmaintainable styles. This is where you start to control the page with intention.
+            </p>
+            <ul class="lesson-outcomes">
+              <li>Use class selectors to style groups of elements.</li>
+              <li>Understand the difference between tags, classes, and IDs.</li>
+              <li>Write clean, reusable CSS rules.</li>
+            </ul>
+            <a class="lesson-button" href="paywall.html?next=lesson9">Access Lesson 9</a>
+          </div>
+
+          <div class="lesson-card">
+            <div class="lesson-title">Lesson 10 — Styling Your Page</div>
+            <div class="lesson-meta">Focus: Turning structure into design.</div>
+            <p class="lesson-desc">
+              You apply everything you’ve learned to style a real page. Colors, spacing, fonts, layout — you see how CSS transforms raw HTML into something that feels intentional and alive.
+            </p>
+            <ul class="lesson-outcomes">
+              <li>Control typography, spacing, and layout.</li>
+              <li>Use classes to create consistent visual patterns.</li>
+              <li>Start thinking like a UI designer and developer.</li>
+            </ul>
+            <a class="lesson-button" href="paywall.html?next=lesson10">Access Lesson 10</a>
+          </div>
+
+          <div class="lesson-card">
+            <div class="lesson-title">Lesson 11 — What Makes a File JS</div>
+            <div class="lesson-meta">Focus: Behavior and logic.</div>
+            <p class="lesson-desc">
+              You learn what a JavaScript file is, why the <span class="code-inline">.js</span> extension matters, and how it adds behavior to your pages. This is where your projects stop being static and start reacting.
+            </p>
+            <ul class="lesson-outcomes">
+              <li>Understand the role of JavaScript in the stack.</li>
+              <li>Create and save a valid <span class="code-inline">app.js</span> file.</li>
+              <li>See how JS can change content and respond to input.</li>
+            </ul>
+            <a class="lesson-button" href="paywall.html?next=lesson11">Access Lesson 11</a>
+          </div>
+
+          <div class="lesson-card">
+            <div class="lesson-title">Lesson 12 — Saving app.js</div>
+            <div class="lesson-meta">Focus: Organizing your logic.</div>
+            <p class="lesson-desc">
+              You learn where to place your JavaScript file, how to name it, and how to keep your logic separate from your structure and styles. This lesson prepares you for real‑world project organization.
+            </p>
+            <ul class="lesson-outcomes">
+              <li>Choose a consistent folder for scripts.</li>
+              <li>Understand how browsers load JavaScript files.</li>
+              <li>Prepare for more advanced logic and features.</li>
+            </ul>
+            <a class="lesson-button" href="paywall.html?next=lesson12">Access Lesson 12</a>
+          </div>
+
+          <div class="lesson-card">
+            <div class="lesson-title">Lesson 13 — Linking JavaScript</div>
+            <div class="lesson-meta">Focus: Connecting behavior to the page.</div>
+            <p class="lesson-desc">
+              You learn how to use the <span class="code-inline">&lt;script&gt;</span> tag to connect your HTML and JavaScript. You see how a single script file can control interactions across your entire page.
+            </p>
+            <ul class="lesson-outcomes">
+              <li>Write a correct <span class="code-inline">&lt;script&gt;</span> tag.</li>
+              <li>Fix common path and loading order issues.</li>
+              <li>Verify that your JavaScript is running.</li>
+            </ul>
+            <a class="lesson-button" href="paywall.html?next=lesson13">Access Lesson 13</a>
+          </div>
+
+          <div class="lesson-card">
+            <div class="lesson-title">Lesson 14 — Console & Variables</div>
+            <div class="lesson-meta">Focus: Thinking like a programmer.</div>
+            <p class="lesson-desc">
+              You learn how to use the browser console to inspect values, debug code, and understand what your program is doing. You also learn what variables are and how they store information.
+            </p>
+            <ul class="lesson-outcomes">
+              <li>Use <span class="code-inline">console.log()</span> to see what’s happening.</li>
+              <li>Create and update variables in JavaScript.</li>
+              <li>Start reasoning about data and state.</li>
+            </ul>
+            <a class="lesson-button" href="paywall.html?next=lesson14">Access Lesson 14</a>
+          </div>
+
+          <div class="lesson-card">
+            <div class="lesson-title">Lesson 15 — Making Your First App</div>
+            <div class="lesson-meta">Focus: Bringing everything together.</div>
+            <p class="lesson-desc">
+              You build a small but complete app that uses HTML, CSS, and JavaScript together. You see how structure, style, and logic combine into something interactive and real.
+            </p>
+            <ul class="lesson-outcomes">
+              <li>Build a working mini‑application from scratch.</li>
+              <li>Connect user input to visible changes on the page.</li>
+              <li>Gain the confidence to start your own projects.</li>
+            </ul>
+            <a class="lesson-button" href="paywall.html?next=lesson15">Access Lesson 15</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <h2 class="section-title">Simulators — Practice in a Safe Environment</h2>
+        <p class="section-subtitle">
+          Simulators let you experiment without fear. You can break things, reset, and try again.
+        </p>
+
+        <div class="sim-grid">
+          <div class="sim-card">
+            <div class="sim-title">HTML Simulator</div>
+            <div class="sim-meta">Focus: Structure, tags, and layout.</div>
+            <p class="sim-desc">
+              The HTML simulator gives you a live environment where you can type HTML and instantly see the result. You can test headings, paragraphs, lists, images, and layouts without touching your real files.
+            </p>
+            <ul class="sim-outcomes">
+              <li>Practice writing clean, valid HTML.</li>
+              <li>See how small changes affect structure.</li>
+              <li>Build confidence before editing real projects.</li>
+            </ul>
+            <a class="sim-button" href="paywall.html?next=sim-html">Open HTML Simulator</a>
+          </div>
+
+          <div class="sim-card">
+            <div class="sim-title">CSS Simulator</div>
+            <div class="sim-meta">Focus: Colors, spacing, and visual design.</div>
+            <p class="sim-desc">
+              The CSS simulator lets you experiment with colors, fonts, spacing, and layout. You can see how different rules interact and how to avoid conflicts and messy styles.
+            </p>
+            <ul class="sim-outcomes">
+              <li>Understand how selectors and properties work together.</li>
+              <li>Test different visual ideas quickly.</li>
+              <li>Learn how to debug broken or conflicting styles.</li>
+            </ul>
+            <a class="sim-button" href="paywall.html?next=sim-css">Open CSS Simulator</a>
+          </div>
+
+          <div class="sim-card">
+            <div class="sim-title">JavaScript Simulator</div>
+            <div class="sim-meta">Focus: Logic, events, and interaction.</div>
+            <p class="sim-desc">
+              The JavaScript simulator gives you a safe space to write and run code. You can test variables, functions, events, and DOM manipulation without breaking anything important.
+            </p>
+            <ul class="sim-outcomes">
+              <li>Practice writing and running JavaScript code.</li>
+              <li>See how logic flows step by step.</li>
+              <li>Learn how to respond to user actions.</li>
+            </ul>
+            <a class="sim-button" href="paywall.html?next=sim-js">Open JavaScript Simulator</a>
+          </div>
+
+          <div class="sim-card">
+            <div class="sim-title">Microcontroller Logic Lab</div>
+            <div class="sim-meta">Focus: Digital logic and real‑world systems.</div>
+            <p class="sim-desc">
+              The microcontroller simulator shows you how code can control physical systems. You experiment with virtual sensors, LEDs, and motors, and see how simple logic can create complex behavior.
+            </p>
+            <ul class="sim-outcomes">
+              <li>Understand how microcontrollers read inputs and send outputs.</li>
+              <li>See how timing, loops, and conditions control hardware.</li>
+              <li>Connect web logic to real‑world devices.</li>
+            </ul>
+            <a class="sim-button" href="paywall.html?next=sim-micro">Open Microcontroller Lab</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <h2 class="section-title">Microcontrollers & The Real World</h2>
+        <p class="section-subtitle">
+          The same logic that powers a website can power a machine.
+        </p>
+
+        <div class="micro-grid">
+          <div class="micro-card">
+            <div class="micro-title">What Is a Microcontroller?</div>
+            <p class="micro-desc">
+              A microcontroller is a tiny computer that lives inside everyday devices. It reads inputs (buttons, sensors, signals), runs logic, and sends outputs (lights, motors, sounds). It is the invisible brain behind modern systems.
+            </p>
+            <ul class="micro-list">
+              <li>Found in cars, appliances, toys, and tools.</li>
+              <li>Runs code that you can write and understand.</li>
+              <li>Bridges the gap between software and hardware.</li>
+            </ul>
+          </div>
+
+          <div class="micro-card">
+            <div class="micro-title">Why Programmers Matter</div>
+            <p class="micro-desc">
+              Every microcontroller needs instructions. Those instructions are written by programmers. When you learn to code, you gain the ability to define how machines behave — how they react, how they protect, how they automate.
+            </p>
+            <ul class="micro-list">
+              <li>Design systems that respond to the real world.</li>
+              <li>Automate tasks that used to be manual.</li>
+              <li>Build tools that scale beyond your physical presence.</li>
+            </ul>
+          </div>
+
+          <div class="micro-card">
+            <div class="micro-title">From Web to Hardware</div>
+            <p class="micro-desc">
+              The mental models you build in this course — variables, conditions, loops, events — are the same models used in embedded systems. Once you understand them in the browser, you can apply them to microcontrollers.
+            </p>
+            <ul class="micro-list">
+              <li>Use the same logic to control LEDs and UI elements.</li>
+              <li>Think in terms of inputs, processing, and outputs.</li>
+              <li>See code as a universal language for systems.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <h2 class="section-title">What You Will Gain</h2>
+        <p class="section-subtitle">
+          This is not just about learning syntax. It is about changing how you see the world.
+        </p>
+        <p class="section-text">
+          By the end of this course, you will be able to look at a website, an app, or a device and understand that it is not magic — it is a series of decisions, structures, and instructions. You will know how to create your own.
+        </p>
+        <ul class="section-list">
+          <li>A clear mental model of how the web works.</li>
+          <li>The ability to build and host your own projects.</li>
+          <li>The confidence to read, modify, and extend code.</li>
+          <li>A foundation that can grow into advanced skills.</li>
+        </ul>
+      </section>
+
+      <footer class="footer">
+        <span>[ END OF PUBLIC INDEX ]</span>
+        <span>To continue, you will pass through a paywall that verifies access and unlocks the full academy.</span>
+        <span>All lessons, simulators, and tools are available after verification.</span>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // =========================
+    // MATRIX RAIN
+    // =========================
+    const canvas = document.getElementById("matrix-canvas");
+    const ctx = canvas.getContext("2d");
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    const matrixChars = "アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const fontSize = 16;
+    let columns = Math.floor(canvas.width / fontSize);
+    let drops = Array(columns).fill(1);
+
+    function drawMatrix() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.08)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#00ff41";
+      ctx.font = fontSize + "px Courier New";
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = matrixChars.charAt(Math.floor(Math.random() * matrixChars.length));
+        const x = i * fontSize;
+        const y = drops[i] * fontSize;
+        ctx.fillText(text, x, y);
+
+        if (y > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+      requestAnimationFrame(drawMatrix);
+    }
+    drawMatrix();
+
+    // =========================
+    // LOADING SCREEN
+    // =========================
+    const loadingFill = document.getElementById("loading-fill");
+    const loadingText = document.getElementById("loading-text");
+    const loadingScreen = document.getElementById("loading-screen");
+    const app = document.getElementById("app");
+
+    let progress = 0;
+    const loadingInterval = setInterval(() => {
+      progress += Math.floor(Math.random() * 7) + 3;
+      if (progress > 100) progress = 100;
+      loadingFill.style.width = progress + "%";
+      loadingText.textContent = `[ ${progress}% ] compiling learning environment...`;
+
+      if (progress >= 100) {
+        clearInterval(loadingInterval);
+        setTimeout(() => {
+          loadingScreen.style.opacity = "0";
+          loadingScreen.style.transition = "opacity 0.6s ease";
+          setTimeout(() => {
+            loadingScreen.style.display = "none";
+            app.style.display = "grid";
+          }, 600);
+        }, 400);
+      }
+    }, 120);
+
+    // =========================
+    // SIDEBAR DROPDOWNS
+    // =========================
+    document.querySelectorAll(".sidebar-link").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const id = btn.getAttribute("data-dropdown");
+        const dropdown = document.getElementById(id);
+        if (!dropdown) return;
+        dropdown.classList.toggle("open");
+        const arrow = btn.querySelector(".arrow");
+        if (arrow) {
+          arrow.textContent = dropdown.classList.contains("open") ? "▲" : "▼";
+        }
+      });
+    });
+
+    // =========================
+    // BUBBLE BUTTON RIPPLE
+    // =========================
+    document.querySelectorAll(".bubble-button").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const after = btn.querySelector("::after");
+      });
+    });
+  </script>
 </body>
 </html>
