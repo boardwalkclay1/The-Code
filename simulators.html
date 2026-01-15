@@ -5,100 +5,144 @@
   <title>The Code — Simulators</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- CORRECT THEME PATHS -->
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/matrix.css">
+
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #02040a;
-      color: white;
+      background: #000;
+      color: #00ff41;
+      font-family: "Courier New", monospace;
       display: flex;
+      overflow: hidden;
     }
 
-    /* ===== MATRIX SIDEBAR ===== */
+    /* MATRIX RAIN BACKGROUND */
+    #matrix-rain {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* SIDEBAR */
     #sidebar {
       width: 260px;
-      background: #03050f;
-      border-right: 1px solid rgba(0,255,140,0.2);
+      background: rgba(0, 0, 0, 0.85);
+      border-right: 1px solid #00ff41;
       padding: 20px;
       height: 100vh;
       position: fixed;
       overflow-y: auto;
-      box-shadow: 0 0 20px rgba(0,255,140,0.2);
+      box-shadow: 0 0 20px rgba(0,255,65,0.25);
+      z-index: 2;
     }
 
     #sidebar h1 {
-      font-size: 26px;
-      color: #00ff7f;
-      text-shadow: 0 0 10px #00ff7f;
+      font-size: 28px;
+      color: #00ff41;
+      text-shadow: 0 0 12px #00ff41;
       margin-bottom: 20px;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.2em;
     }
 
     .side-link {
       display: block;
-      padding: 12px 10px;
+      padding: 10px 12px;
       margin-bottom: 10px;
-      background: #050816;
-      border-radius: 10px;
-      border: 1px solid rgba(0,255,140,0.2);
-      cursor: pointer;
-      transition: 0.2s;
+      border-radius: 999px;
+      border: 1px solid #00ff41;
+      background: rgba(0, 0, 0, 0.7);
+      color: #00ff41;
       text-decoration: none;
-      color: white;
+      transition: 0.2s;
     }
 
     .side-link:hover {
-      background: rgba(0,255,140,0.15);
+      background: rgba(0,255,65,0.15);
       transform: translateX(4px);
+      box-shadow: 0 0 12px #00ff41;
     }
 
-    /* ===== MAIN CONTENT ===== */
+    /* MAIN CONTENT */
     #main {
       margin-left: 260px;
       padding: 40px;
       max-width: 900px;
+      height: 100vh;
+      overflow-y: auto;
+      position: relative;
+      z-index: 2;
     }
 
     h2 {
-      color: #00ff7f;
-      text-shadow: 0 0 10px #00ff7f;
+      color: #00ff41;
+      text-shadow: 0 0 10px #00ff41;
+      font-size: 26px;
+      margin-bottom: 12px;
+    }
+
+    h3 {
+      color: #9efad1;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 8px #00ff41;
     }
 
     .section {
-      background: #050816;
-      padding: 20px;
-      border-radius: 16px;
-      border: 1px solid rgba(0,255,140,0.2);
+      background: rgba(0, 0, 0, 0.85);
+      padding: 22px;
+      border-radius: 14px;
+      border: 1px solid #00ff41;
       margin-bottom: 30px;
-      box-shadow: 0 0 20px rgba(0,255,140,0.2);
+      box-shadow: 0 0 20px rgba(0,255,65,0.25);
+      animation: fadeIn 0.8s ease;
     }
 
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* BUTTONS */
     .big-button {
       display: inline-block;
-      padding: 14px 24px;
-      background: #00ff7f;
-      color: #02150a;
+      padding: 12px 20px;
+      background: #00ff41;
+      color: #000;
       font-weight: bold;
-      border-radius: 10px;
+      border-radius: 999px;
       text-decoration: none;
-      margin: 10px 10px 0 0;
-      box-shadow: 0 0 15px rgba(0,255,140,0.4);
+      margin: 8px 10px 0 0;
+      box-shadow: 0 0 15px rgba(0,255,65,0.4);
       transition: 0.2s;
       cursor: pointer;
     }
 
     .big-button:hover {
       transform: scale(1.05);
+      box-shadow: 0 0 20px #00ff41;
     }
 
-    /* ===== SIMULATOR AREA ===== */
+    /* SIMULATOR AREA */
     #simulator-area {
       margin-top: 30px;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #00ff41;
+      background: rgba(0, 0, 0, 0.75);
+      box-shadow: 0 0 20px rgba(0,255,65,0.25);
+      min-height: 120px;
     }
   </style>
 </head>
 
 <body>
+
+  <!-- MATRIX RAIN -->
+  <div id="matrix-rain"></div>
 
   <!-- SIDEBAR -->
   <div id="sidebar">
@@ -134,21 +178,23 @@
       <h2>Choose a Simulator</h2>
 
       <!-- FILE SAVING -->
-      <h3 style="color:#9efad1;">Saving Files</h3>
+      <h3>Saving Files</h3>
       <button class="big-button" id="openHTMLSim">HTML Save Simulator</button>
       <button class="big-button" id="openCSSSim">CSS Save Simulator</button>
       <button class="big-button" id="openJSSim">JS Save Simulator</button>
 
-      <!-- NEW SIMULATORS -->
-      <h3 style="color:#9efad1; margin-top:25px;">Project Structure</h3>
+      <!-- PROJECT STRUCTURE -->
+      <h3>Project Structure</h3>
       <button class="big-button" id="openFolderSim">Folder Structure Simulator</button>
       <button class="big-button" id="openLinkSim">Linking Files Simulator</button>
 
-      <h3 style="color:#9efad1; margin-top:25px;">Debugging & Awareness</h3>
+      <!-- DEBUGGING -->
+      <h3>Debugging & Awareness</h3>
       <button class="big-button" id="openErrorSim">Common Errors Debugger</button>
       <button class="big-button" id="openReadSim">Reading Code Simulator</button>
 
-      <h3 style="color:#9efad1; margin-top:25px;">Tools & Deployment</h3>
+      <!-- TOOLS -->
+      <h3>Tools & Deployment</h3>
       <button class="big-button" id="openGitSim">GitHub Flow Simulator</button>
       <button class="big-button" id="openWebRTCSim">WebRTC Join Simulator</button>
 
@@ -157,7 +203,7 @@
 
   </div>
 
-  <!-- MODULE IMPORTS -->
+  <!-- MODULE IMPORTS (UNCHANGED) -->
   <script type="module">
     import { startHTMLSaveSimulator } from "./simulators/save-html.js";
     import { startCSSSaveSimulator } from "./simulators/save-css.js";
