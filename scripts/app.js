@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ============================================================ */
   const ownerEmail = "boardwalkclay1@gmail.com";
 
-  const savedEmail = localStorage.getItem("user_email");
+  const savedEmail = localStorage.getItem("boardwalkclay1@gmail.com");
   const hasAccessFlag = localStorage.getItem("access_granted") === "true";
 
   if (savedEmail && savedEmail.toLowerCase() === ownerEmail.toLowerCase()) {
