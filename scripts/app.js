@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* ============================================================
-     ACCESS CONTROL (PAYPAL / EMAIL DRIVEN)
+     ACCESS CONTROL (PAYMENT / EMAIL / OVERRIDE)
   ============================================================ */
   function userHasAccess() {
     return localStorage.getItem("access_granted") === "true";
@@ -75,38 +75,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* ============================================================
-     5‑CLICK MASTER OVERRIDE
+     NEW 4‑CLICK MASTER OVERRIDE (TOP‑RIGHT)
   ============================================================ */
-  let clickCount = 0;
-  let clickTimeout = null;
+  (function () {
+    let tapCount = 0;
+    let resetTimer = null;
 
-  const unlockZone = document.createElement("div");
-  unlockZone.style.position = "fixed";
-  unlockZone.style.top = "0";
-  unlockZone.style.right = "0";
-  unlockZone.style.width = "80px";
-  unlockZone.style.height = "80px";
-  unlockZone.style.zIndex = "9999";
-  unlockZone.style.cursor = "pointer";
-  unlockZone.style.background = "transparent";
-  document.body.appendChild(unlockZone);
+    const overrideZone = document.createElement("div");
+    overrideZone.style.position = "fixed";
+    overrideZone.style.top = "0";
+    overrideZone.style.right = "0";
+    overrideZone.style.width = "80px";
+    overrideZone.style.height = "80px";
+    overrideZone.style.zIndex = "99999";
+    overrideZone.style.cursor = "pointer";
+    overrideZone.style.background = "transparent";
+    document.body.appendChild(overrideZone);
 
-  unlockZone.addEventListener("click", () => {
-    clickCount++;
+    overrideZone.addEventListener("click", () => {
+      tapCount++;
 
-    if (clickTimeout) clearTimeout(clickTimeout);
+      if (resetTimer) clearTimeout(resetTimer);
 
-    clickTimeout = setTimeout(() => {
-      clickCount = 0;
-    }, 1200);
+      resetTimer = setTimeout(() => {
+        tapCount = 0;
+      }, 1200);
 
-    if (clickCount >= 5) {
-      localStorage.setItem("access_granted", "true");
-      logMatrix("MASTER OVERRIDE ACTIVATED — ACCESS GRANTED");
-      clickCount = 0;
-      updateLockState();
-    }
-  });
+      if (tapCount >= 4) {
+        localStorage.setItem("access_granted", "true");
+        logMatrix("MASTER OVERRIDE — ACCESS GRANTED");
+        tapCount = 0;
+        updateLockState();
+      }
+    });
+  })();
 
 
 
