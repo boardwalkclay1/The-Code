@@ -1,0 +1,461 @@
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  color: #00ff41;
+  font-family: "Courier New", monospace;
+}
+
+a {
+  color: #00ff41;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   MATRIX BACKGROUND
+========================= */
+#matrix-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  background: #000;
+}
+
+/* =========================
+   LOADING SCREEN
+========================= */
+#loading-screen {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #001a00 0%, #000 60%, #000 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.loading-title {
+  font-size: 64px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #00ff41;
+  text-shadow: 0 0 12px #00ff41, 0 0 24px #00ff41;
+  margin-bottom: 20px;
+}
+
+.loading-sub {
+  font-size: 16px;
+  color: #00ff41cc;
+  margin-bottom: 30px;
+}
+
+.loading-bar {
+  width: 60%;
+  max-width: 500px;
+  height: 10px;
+  border: 1px solid #00ff41;
+  border-radius: 999px;
+  overflow: hidden;
+  box-shadow: 0 0 12px #00ff41;
+}
+
+.loading-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #00ff41, #00ffaa);
+  box-shadow: 0 0 12px #00ff41;
+  transition: width 0.2s linear;
+}
+
+.loading-text {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #00ff41aa;
+}
+
+/* =========================
+   MAIN LAYOUT
+========================= */
+#app {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+#sidebar {
+  background: rgba(0, 0, 0, 0.9);
+  border-right: 1px solid #00ff41;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+}
+
+.sidebar-title {
+  font-size: 26px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  text-shadow: 0 0 10px #00ff41;
+}
+
+.sidebar-sub {
+  font-size: 12px;
+  color: #00ff41aa;
+  margin-bottom: 10px;
+}
+
+.sidebar-section-label {
+  font-size: 12px;
+  color: #00ff41aa;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.sidebar-menu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sidebar-link {
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid #00ff41;
+  background: rgba(0, 0, 0, 0.8);
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+
+.sidebar-link:hover {
+  background: rgba(0, 255, 65, 0.1);
+  box-shadow: 0 0 12px #00ff41;
+  transform: translateX(2px);
+}
+
+.sidebar-dropdown {
+  list-style: none;
+  margin-left: 10px;
+  margin-top: 5px;
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar-dropdown.open {
+  display: flex;
+}
+
+.sidebar-dropdown li a {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.sidebar-dropdown li a:hover {
+  border-color: #00ff41;
+  background: rgba(0, 255, 65, 0.1);
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+#main {
+  position: relative;
+  padding: 20px 30px;
+  overflow-y: auto;
+}
+
+.page-title {
+  font-size: 40px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  text-shadow: 0 0 12px #00ff41;
+}
+
+.page-subtitle {
+  font-size: 14px;
+  color: #00ff41aa;
+  margin-bottom: 30px;
+}
+
+.bubble-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.bubble-button {
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid #00ff41;
+  background: rgba(0, 0, 0, 0.85);
+  font-size: 13px;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+}
+
+.bubble-button:hover {
+  background: rgba(0, 255, 65, 0.1);
+  box-shadow: 0 0 12px #00ff41;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   SECTION BLOCKS
+========================= */
+.section-block {
+  margin-bottom: 40px;
+  padding: 18px 20px;
+  border-radius: 12px;
+  border: 1px solid #00ff41;
+  background: rgba(0, 0, 0, 0.85);
+  box-shadow: 0 0 18px rgba(0, 255, 65, 0.25);
+}
+
+.section-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.section-subtitle {
+  font-size: 13px;
+  color: #00ff41aa;
+  margin-bottom: 15px;
+}
+
+.section-text {
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.section-list {
+  list-style: none;
+  margin-left: 10px;
+  margin-top: 8px;
+  margin-bottom: 10px;
+}
+
+.section-list li {
+  font-size: 13px;
+  margin-bottom: 4px;
+  position: relative;
+  padding-left: 14px;
+}
+
+.section-list li::before {
+  content: ">";
+  position: absolute;
+  left: 0;
+  color: #00ff41;
+}
+
+/* =========================
+   TAGS
+========================= */
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.tag {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid #00ff41;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* =========================
+   INLINE CODE
+========================= */
+.code-inline {
+  font-family: "Courier New", monospace;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 2px 4px;
+  border-radius: 4px;
+  border: 1px solid #00ff41;
+  font-size: 12px;
+}
+
+/* =========================
+   LESSON CARDS
+========================= */
+.lesson-grid,
+.sim-grid,
+.micro-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.lesson-card,
+.sim-card,
+.micro-card {
+  border-radius: 10px;
+  border: 1px solid #00ff41;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 14px 16px;
+  box-shadow: 0 0 14px rgba(0, 255, 65, 0.2);
+}
+
+.lesson-title,
+.sim-title,
+.micro-title {
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.lesson-meta,
+.sim-meta {
+  font-size: 11px;
+  color: #00ff41aa;
+  margin-bottom: 8px;
+}
+
+.lesson-desc,
+.sim-desc,
+.micro-desc {
+  font-size: 12px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.lesson-outcomes,
+.sim-outcomes,
+.micro-list {
+  list-style: none;
+  margin-left: 10px;
+  margin-top: 4px;
+}
+
+.lesson-outcomes li,
+.sim-outcomes li,
+.micro-list li {
+  font-size: 12px;
+  margin-bottom: 3px;
+  position: relative;
+  padding-left: 12px;
+}
+
+.lesson-outcomes li::before,
+.sim-outcomes li::before,
+.micro-list li::before {
+  content: "-";
+  position: absolute;
+  left: 0;
+  color: #00ff41;
+}
+
+.lesson-button,
+.sim-button {
+  margin-top: 8px;
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid #00ff41;
+  font-size: 12px;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.9);
+  transition: background 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+
+.lesson-button:hover,
+.sim-button:hover {
+  background: rgba(0, 255, 65, 0.1);
+  box-shadow: 0 0 10px #00ff41;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+  margin-top: 30px;
+  font-size: 11px;
+  color: #00ff41aa;
+  border-top: 1px solid #00ff41;
+  padding-top: 10px;
+}
+
+.footer span {
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* =========================
+   SCROLLBARS
+========================= */
+#sidebar::-webkit-scrollbar,
+#main::-webkit-scrollbar {
+  width: 6px;
+}
+
+#sidebar::-webkit-scrollbar-thumb,
+#main::-webkit-scrollbar-thumb {
+  background: #00ff41;
+}
+
+#sidebar::-webkit-scrollbar-track,
+#main::-webkit-scrollbar-track {
+  background: #000;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 800px) {
+  #app {
+    grid-template-columns: 1fr;
+  }
+  #sidebar {
+    height: 220px;
+    border-right: none;
+    border-bottom: 1px solid #00ff41;
+  }
+  #main {
+    height: calc(100vh - 220px);
+  }
+}
