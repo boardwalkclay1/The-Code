@@ -5,29 +5,33 @@
   <title>The Code — Matrix Interface</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- keep your external CSS but add a small override to place a faint background image layer -->
+  <!-- PWA manifest and theme -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#001a00" />
+  <link rel="icon" href="assets/img/icon-192.png" sizes="192x192" />
+
+  <!-- Main stylesheet -->
   <link rel="stylesheet" href="css/index.css" />
 
   <style>
-    /* --- Image layer sits behind the UI but above the page background.
-       This keeps the matrix canvas drawing (falling code) fully visible while the image is faint. */
+    /* faint background image layer between page background and canvas/UI */
     #app {
-      position: relative; /* ensure pseudo-element positions relative to app */
+      position: relative;
       z-index: 1;
     }
 
-    /* faint background image layer between page background and canvas/UI */
     #app::before {
       content: "";
       position: fixed;
       inset: 0;
-      z-index: -1; /* behind the app content but above the page background */
+      z-index: -2; /* behind app and canvas */
       background-image: url('assets/img/code-index.png');
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
-      opacity: 0.12;           /* faint — adjust 0.08 to 0.25 as needed */
-      filter: blur(2px) saturate(0.9);
+      opacity: 0.10;           /* faint — adjust 0.04 to 0.18 as needed */
+      filter: blur(1px) saturate(0.9);
+      mix-blend-mode: multiply;
       pointer-events: none;
       will-change: opacity, transform;
     }
@@ -35,7 +39,7 @@
     /* ensure the matrix canvas is transparent so the image shows through */
     #matrix-canvas {
       background: transparent !important;
-      z-index: 0;
+      z-index: -1;
       position: fixed;
       top: 0;
       left: 0;
@@ -44,13 +48,11 @@
     }
 
     /* keep the loading screen and app above the canvas */
-    #loading-screen { z-index: 10; }
-    #app { z-index: 1; }
+    #loading-screen { z-index: 20; }
+    #app { z-index: 10; }
 
-    /* small safety: if your existing CSS sets a background on body, keep it dark so neon text remains readable */
-    html, body {
-      background: #000;
-    }
+    /* safety: ensure body remains dark for neon text readability */
+    html, body { background: #000; }
   </style>
 </head>
 
@@ -99,5 +101,19 @@
   <script src="modules/sidebar.js"></script>
   <script src="modules/sections.js"></script>
 
+  <!-- Service worker registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => {
+            console.log('Service worker registered:', reg.scope);
+          })
+          .catch(err => {
+            console.warn('Service worker registration failed:', err);
+          });
+      });
+    }
+  </script>
 </body>
 </html>
