@@ -76,7 +76,7 @@
   // --- Intro content ---
   const introHTML = `
     <div class="section-block">
-      <h1 class="page-title">The Code — Learn to Build Real Things</h1>
+      <h1 class="page-title">The Code</h1>
       <p class="page-subtitle">Four complete paths: Websites, Apps, Microcontrollers, Cybersecurity (Pen Testing & Ethical Hacking).</p>
       <p class="section-text">Each path teaches real workflows, real projects, and real income opportunities. You will get step‑by‑step lessons, project files, simulators, and direct guidance so nothing is left unclear.</p>
       <div class="bubble-row">
