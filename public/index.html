@@ -5,54 +5,58 @@
   <title>The Code — Matrix Interface</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- PWA manifest and theme -->
-  <link rel="manifest" href="/manifest.json" />
-  <meta name="theme-color" content="#001a00" />
-  <link rel="icon" href="assets/img/icon-192.png" sizes="192x192" />
-
   <!-- Main stylesheet -->
   <link rel="stylesheet" href="css/index.css" />
 
   <style>
-    /* faint background image layer between page background and canvas/UI */
-    #app {
-      position: relative;
-      z-index: 1;
-    }
-
-    #app::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -2; /* behind app and canvas */
-      background-image: url('assets/img/code-index.png');
+    /* Make the page background a faint image so it sits behind the falling code canvas.
+       The matrix canvas remains fully visible and draws on top of this faint image. */
+    html, body {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      background-color: #000;
+      /* dark overlay + faint image */
+      background-image:
+        linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.82)),
+        url('assets/img/code-index.png');
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
-      opacity: 0.10;           /* faint — adjust 0.04 to 0.18 as needed */
-      filter: blur(1px) saturate(0.9);
-      mix-blend-mode: multiply;
-      pointer-events: none;
-      will-change: opacity, transform;
+      background-attachment: fixed;
+      color: #00ff41;
+      font-family: "Courier New", monospace;
     }
 
-    /* ensure the matrix canvas is transparent so the image shows through */
+    /* Make the faint image less intrusive while keeping it behind the canvas */
+    /* If you want it even fainter, reduce the alpha in the linear-gradient above. */
+
+    /* Ensure the matrix canvas draws above the page background */
     #matrix-canvas {
-      background: transparent !important;
-      z-index: -1;
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
+      z-index: 0; /* above the body background image */
+      background: transparent !important;
     }
 
-    /* keep the loading screen and app above the canvas */
-    #loading-screen { z-index: 20; }
-    #app { z-index: 10; }
+    /* App UI sits above the canvas */
+    #app {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      height: 100vh;
+      overflow: hidden;
+    }
 
-    /* safety: ensure body remains dark for neon text readability */
-    html, body { background: #000; }
+    /* Loading screen above everything while active */
+    #loading-screen { z-index: 20; }
+
+    /* Small safety: keep any inline app pseudo-elements behind the canvas */
+    #app::before { display: none; }
   </style>
 </head>
 
@@ -101,19 +105,5 @@
   <script src="modules/sidebar.js"></script>
   <script src="modules/sections.js"></script>
 
-  <!-- Service worker registration -->
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-          .then(reg => {
-            console.log('Service worker registered:', reg.scope);
-          })
-          .catch(err => {
-            console.warn('Service worker registration failed:', err);
-          });
-      });
-    }
-  </script>
 </body>
 </html>
