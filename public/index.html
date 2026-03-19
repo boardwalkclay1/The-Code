@@ -5,8 +5,24 @@
   <title>The Code — Matrix Interface</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Main stylesheet -->
+  <!-- Primary stylesheet -->
   <link rel="stylesheet" href="css/index.css" />
+
+  <!-- Favicon and app icons -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/icon-192.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/icon-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/img/icon-512.png" />
+  <link rel="mask-icon" href="/assets/img/icon-512.png" color="#00ff41" />
+
+  <!-- PWA manifest and theme -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#001a00" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="msapplication-TileColor" content="#001a00" />
 
   <style>
     /* GLOBAL BACKGROUND — faint image behind everything */
@@ -105,5 +121,19 @@
   <script src="modules/sidebar.js"></script>
   <script src="modules/sections.js"></script>
 
+  <!-- Service worker registration (optional; safe to keep) -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => {
+            console.log('Service worker registered:', reg.scope);
+          })
+          .catch(err => {
+            console.warn('Service worker registration failed:', err);
+          });
+      });
+    }
+  </script>
 </body>
 </html>
