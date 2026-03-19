@@ -1,5 +1,5 @@
 /* css/index.css
-   MATRIX THEME — full stylesheet (sidebar fixed)
+   MATRIX THEME — full stylesheet (final corrected)
    - Place at css/index.css
    - Image path assumes ../assets/img/code-index.png
 */
@@ -95,24 +95,24 @@ html,body{
   overflow:hidden;
 }
 
-/* ===== Sidebar (FIXED: deep black + neon green) ===== */
+/* ===== Sidebar (FINAL — deep black, neon green, no white) ===== */
 #sidebar{
-  background:linear-gradient(180deg, rgba(0,0,0,0.92), rgba(0,0,0,0.88));
-  border-right:1px solid rgba(var(--accent-rgba),0.12);
+  background:linear-gradient(180deg, rgba(0,0,0,0.96), rgba(0,0,0,0.92));
+  border-right:1px solid rgba(var(--accent-rgba),0.18);
   padding:20px;
   display:flex;
   flex-direction:column;
   gap:18px;
   overflow-y:auto;
   color:var(--accent);
-  backdrop-filter:blur(6px) brightness(0.65);
+  backdrop-filter:blur(8px) brightness(0.55);
 }
 
 .sidebar-title{
   font-size:24px;
   letter-spacing:.18em;
   text-transform:uppercase;
-  text-shadow:0 0 8px rgba(var(--accent-rgba),0.15);
+  text-shadow:0 0 8px rgba(var(--accent-rgba),0.25);
 }
 .sidebar-sub{font-size:12px;color:rgba(var(--accent-rgba),0.66)}
 .sidebar-section-label{
@@ -123,12 +123,12 @@ html,body{
 }
 .sidebar-menu{list-style:none;display:flex;flex-direction:column;gap:8px}
 
-/* ===== Nav links (FIXED: no gray, no white) ===== */
+/* ===== Nav links (FINAL — pure Matrix green) ===== */
 .sidebar-link{
   padding:8px 10px;
   border-radius:999px;
-  border:1px solid rgba(var(--accent-rgba),0.15);
-  background:rgba(0,20,0,0.55);
+  border:1px solid rgba(var(--accent-rgba),0.22);
+  background:rgba(0,25,0,0.65);
   font-size:13px;
   display:flex;
   justify-content:space-between;
@@ -139,13 +139,13 @@ html,body{
   text-decoration:none;
 }
 .sidebar-link:hover,.sidebar-link:focus{
-  background:rgba(var(--accent-rgba),0.08);
-  box-shadow:0 0 10px rgba(var(--accent-rgba),0.15);
+  background:rgba(var(--accent-rgba),0.12);
+  box-shadow:0 0 12px rgba(var(--accent-rgba),0.25);
   transform:translateX(2px);
   outline:none;
 }
 
-/* ===== Dropdowns (FIXED: green‑tinted, not gray) ===== */
+/* ===== Dropdowns (FINAL — green tinted, no gray) ===== */
 .sidebar-dropdown{
   list-style:none;
   margin-left:10px;
@@ -159,8 +159,8 @@ html,body{
   font-size:12px;
   padding:6px 8px;
   border-radius:999px;
-  background:rgba(0,30,0,0.55);
-  border:1px solid rgba(var(--accent-rgba),0.10);
+  background:rgba(0,35,0,0.65);
+  border:1px solid rgba(var(--accent-rgba),0.15);
   color:var(--accent);
 }
 
@@ -179,15 +179,15 @@ html,body{
 .bubble-row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:22px}
 .bubble-button{
   padding:10px 18px;border-radius:999px;
-  border:1px solid rgba(var(--accent-rgba),0.08);
+  border:1px solid rgba(var(--accent-rgba),0.12);
   background:rgba(0,0,0,0.55);
   font-size:13px;color:var(--accent);
   cursor:pointer;
   transition:transform .12s,box-shadow .12s,background .12s;
 }
 .bubble-button:hover{
-  background:rgba(var(--accent-rgba),0.08);
-  box-shadow:0 0 10px rgba(var(--accent-rgba),0.15);
+  background:rgba(var(--accent-rgba),0.12);
+  box-shadow:0 0 10px rgba(var(--accent-rgba),0.25);
   transform:translateY(-1px);
 }
 
@@ -260,15 +260,15 @@ html,body{
 /* ===== Buttons inside cards ===== */
 .lesson-button,.sim-button{
   margin-top:8px;display:inline-block;padding:6px 12px;border-radius:999px;
-  border:1px solid rgba(var(--accent-rgba),0.08);
+  border:1px solid rgba(var(--accent-rgba),0.12);
   font-size:12px;cursor:pointer;
   background:rgba(0,0,0,0.55);
   color:var(--accent);
   transition:background .12s,box-shadow .12s,transform .12s;
 }
 .lesson-button:hover,.sim-button:hover{
-  background:rgba(var(--accent-rgba),0.08);
-  box-shadow:0 0 10px rgba(var(--accent-rgba),0.15);
+  background:rgba(var(--accent-rgba),0.12);
+  box-shadow:0 0 10px rgba(var(--accent-rgba),0.25);
   transform:translateY(-1px);
 }
 
@@ -283,7 +283,7 @@ html,body{
 /* ===== Scrollbars ===== */
 #sidebar::-webkit-scrollbar,#main::-webkit-scrollbar{width:6px}
 #sidebar::-webkit-scrollbar-thumb,#main::-webkit-scrollbar-thumb{
-  background:rgba(var(--accent-rgba),0.12);border-radius:999px;
+  background:rgba(var(--accent-rgba),0.18);border-radius:999px;
 }
 #sidebar::-webkit-scrollbar-track,#main::-webkit-scrollbar-track{background:transparent}
 
