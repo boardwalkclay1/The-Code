@@ -9,40 +9,35 @@
   <link rel="stylesheet" href="css/index.css" />
 
   <style>
-    /* Make the page background a faint image so it sits behind the falling code canvas.
-       The matrix canvas remains fully visible and draws on top of this faint image. */
+    /* GLOBAL BACKGROUND — faint image behind everything */
     html, body {
       height: 100%;
       width: 100%;
       margin: 0;
-      background-color: #000;
-      /* dark overlay + faint image */
+      background: #000;
       background-image:
         linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.82)),
         url('assets/img/code-index.png');
       background-size: cover;
-      background-position: center center;
+      background-position: center;
       background-repeat: no-repeat;
       background-attachment: fixed;
       color: #00ff41;
       font-family: "Courier New", monospace;
     }
 
-    /* Make the faint image less intrusive while keeping it behind the canvas */
-    /* If you want it even fainter, reduce the alpha in the linear-gradient above. */
-
-    /* Ensure the matrix canvas draws above the page background */
+    /* MATRIX CANVAS ABOVE BACKGROUND */
     #matrix-canvas {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      z-index: 0; /* above the body background image */
+      z-index: 0;
       background: transparent !important;
     }
 
-    /* App UI sits above the canvas */
+    /* APP ABOVE CANVAS */
     #app {
       position: relative;
       z-index: 1;
@@ -52,17 +47,22 @@
       overflow: hidden;
     }
 
-    /* Loading screen above everything while active */
-    #loading-screen { z-index: 20; }
+    /* REMOVE INLINE PSEUDO BACKGROUND */
+    #app::before { display: none !important; }
 
-    /* Small safety: keep any inline app pseudo-elements behind the canvas */
-    #app::before { display: none; }
+    /* FORCE SIDEBAR TO BE PURE BLACK */
+    #sidebar {
+      background: #000 !important;
+      border-right: 1px solid rgba(0,255,65,0.18) !important;
+      color: #00ff41 !important;
+      backdrop-filter: blur(6px) brightness(0.55) !important;
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- MATRIX BACKGROUND (canvas remains the drawing surface for falling code) -->
+  <!-- MATRIX BACKGROUND -->
   <canvas id="matrix-canvas"></canvas>
 
   <!-- LOADING SCREEN -->
