@@ -1,3 +1,4 @@
+// modules/category-data.js
 const CATEGORY_DATA = [
   {
     id: "websites",
@@ -32,12 +33,10 @@ const CATEGORY_DATA = [
       "I guide you step‑by‑step so you understand every workflow, every file, and every customization.",
     pricing: {
       single: 150,
-      bundles: {
-        two: 250,
-        three: 350,
-        four: 450
-      }
-    }
+      bundles: { two: 250, three: 350, four: 450 }
+    },
+    paywallUrl: "/pay/websites",        // paywall landing for Websites
+    contentUrl: "/lessons/websites"     // protected content URL
   },
 
   {
@@ -73,12 +72,10 @@ const CATEGORY_DATA = [
       "I walk you through every workflow so you can build apps with confidence and clarity.",
     pricing: {
       single: 150,
-      bundles: {
-        two: 250,
-        three: 350,
-        four: 450
-      }
-    }
+      bundles: { two: 250, three: 350, four: 450 }
+    },
+    paywallUrl: "/pay/apps",
+    contentUrl: "/lessons/apps"
   },
 
   {
@@ -114,12 +111,10 @@ const CATEGORY_DATA = [
       "I help you understand every wire, every sensor, and every line of code.",
     pricing: {
       single: 150,
-      bundles: {
-        two: 250,
-        three: 350,
-        four: 450
-      }
-    }
+      bundles: { two: 250, three: 350, four: 450 }
+    },
+    paywallUrl: "/pay/microcontrollers",
+    contentUrl: "/lessons/microcontrollers"
   },
 
   {
@@ -153,12 +148,10 @@ const CATEGORY_DATA = [
       "I teach you the mindset, the tools, and the workflows so you understand everything clearly and safely.",
     pricing: {
       single: 150,
-      bundles: {
-        two: 250,
-        three: 350,
-        four: 450
-      }
-    }
+      bundles: { two: 250, three: 350, four: 450 }
+    },
+    paywallUrl: "/pay/pentesting",
+    contentUrl: "/lessons/pentesting"
   }
 ];
 
