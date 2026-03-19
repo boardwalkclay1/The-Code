@@ -297,3 +297,21 @@ html,body{
   }
   #main{height:calc(100vh - 220px);padding:16px}
 }
+/* FIX SIDEBAR VISIBILITY */
+#sidebar {
+  background: rgba(0, 0, 0, 0.78) !important;   /* translucent black panel */
+  backdrop-filter: blur(6px) brightness(1.15) !important;
+  border-right: 1px solid rgba(0,255,65,0.25) !important;
+}
+
+#sidebar .sidebar-link,
+#sidebar .sidebar-dropdown a {
+  background: rgba(0, 40, 0, 0.55) !important;  /* green‑tinted panel */
+  color: #00ff41 !important;
+}
+
+#sidebar .sidebar-link:hover,
+#sidebar .sidebar-dropdown a:hover {
+  background: rgba(0,255,65,0.12) !important;
+  box-shadow: 0 0 12px rgba(0,255,65,0.25) !important;
+}
