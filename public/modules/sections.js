@@ -1,12 +1,10 @@
 // modules/sections.js
-// Replaces the previous sections renderer. Populates intro, categories, pricing, and sidebar.
-// Ensures the sidebar is light (overrides dark styles) and removes any "Lessons" nav item.
-// Exposes category data on window.APP_CATEGORIES for other modules to use.
+// FINAL MATRIX VERSION — no light theme, no inline CSS, no overrides
 
 (function () {
   const $ = id => document.getElementById(id);
 
-  // --- Category data (source of truth) ---
+  // --- Category data ---
   const categories = [
     {
       id: 'websites',
@@ -70,24 +68,23 @@
     }
   ];
 
-  // expose categories globally for other modules
   window.APP_CATEGORIES = categories;
 
   // --- Intro content ---
   const introHTML = `
     <div class="section-block">
       <h1 class="page-title">The Code</h1>
-      <p class="page-subtitle">Four complete paths: Websites, Apps, Microcontrollers, Cybersecurity (Pen Testing & Ethical Hacking).</p>
-      <p class="section-text">Each path teaches real workflows, real projects, and real income opportunities. You will get step‑by‑step lessons, project files, simulators, and direct guidance so nothing is left unclear.</p>
+      <p class="page-subtitle">Websites • Apps • Microcontrollers • Cybersecurity</p>
+      <p class="section-text">Each path teaches real workflows, real projects, and real income opportunities.</p>
       <div class="bubble-row">
         <button class="bubble-button" data-action="explore-courses">Explore Courses</button>
         <button class="bubble-button" data-action="pricing">Pricing & Bundles</button>
-        <a class="bubble-button" href="lessons.html" role="button">All Lessons</a>
+        <a class="bubble-button" href="lessons.html">All Lessons</a>
       </div>
     </div>
   `;
 
-  // --- Render category cards for main content ---
+  // --- Category cards ---
   function renderCategoryCards() {
     return categories.map(cat => `
       <article class="lesson-card section-block" id="cat-${cat.id}">
@@ -106,11 +103,11 @@
     `).join('');
   }
 
-  // --- Pricing HTML and bundle calculator ---
+  // --- Pricing ---
   const pricingHTML = `
     <div class="section-block" id="pricing-block">
       <h3 class="section-title">Pricing</h3>
-      <p class="section-text">One‑time fee per category. Choose a single path or bundle multiple categories for a discount.</p>
+      <p class="section-text">One‑time fee per category. Bundle for discounts.</p>
       <table style="width:100%;margin-top:8px;border-collapse:collapse;">
         <tr><td style="padding:6px;border-bottom:1px solid rgba(0,255,65,0.08)"><strong>Single category</strong></td><td style="padding:6px;border-bottom:1px solid rgba(0,255,65,0.08)">$150</td></tr>
         <tr><td style="padding:6px;border-bottom:1px solid rgba(0,255,65,0.08)"><strong>Any 2 categories</strong></td><td style="padding:6px;border-bottom:1px solid rgba(0,255,65,0.08)">$250</td></tr>
@@ -119,9 +116,9 @@
       </table>
 
       <div style="margin-top:12px;">
-        <label style="display:block;margin-bottom:6px;">Select categories to estimate price:</label>
+        <label style="display:block;margin-bottom:6px;">Select categories:</label>
         <div class="tag-row" id="bundle-checkboxes">
-          ${categories.map(c => `<label class="tag" style="cursor:pointer;"><input type="checkbox" class="bundle-checkbox" value="${c.id}" style="margin-right:6px;"> ${c.title}</label>`).join('')}
+          ${categories.map(c => `<label class="tag"><input type="checkbox" class="bundle-checkbox" value="${c.id}" style="margin-right:6px;"> ${c.title}</label>`).join('')}
         </div>
         <div style="margin-top:10px;">Selected: <strong id="bundle-count">0</strong> — Price: <strong id="bundle-price">$0</strong></div>
         <div style="margin-top:10px;">
@@ -131,20 +128,20 @@
     </div>
   `;
 
-  // --- Support / guidance block ---
+  // --- Support block ---
   const supportHTML = `
     <div class="section-block">
       <h3 class="section-title">Guided learning</h3>
-      <p class="section-text">You will be guided through every step of the code. Lessons include examples, simulators, troubleshooting notes, and direct explanations so you finish projects that work in the real world.</p>
-      <p class="section-text">Microcontroller lessons show how to customize sensors, cameras, lights, relays, motors, and any device you can imagine. Cybersecurity is taught as ethical pen testing and defensive practices only.</p>
+      <p class="section-text">You will be guided through every step of the code.</p>
+      <p class="section-text">Microcontroller lessons show sensors, cameras, lights, relays, motors, and automation.</p>
     </div>
   `;
 
-  // --- Assemble lessons section HTML ---
+  // --- Lessons section ---
   const lessonsHTML = `
     <div class="section-block">
-      <h2 class="section-title">What you can build and learn</h2>
-      <p class="section-text">Each category contains multiple projects, step‑by‑step workflows, and customization options so you can build exactly what you imagine — custom apps, websites, devices, and secure systems.</p>
+      <h2 class="section-title">What you can build</h2>
+      <p class="section-text">Each category contains multiple projects and workflows.</p>
       <div class="lesson-grid">
         ${renderCategoryCards()}
       </div>
@@ -153,45 +150,41 @@
     </div>
   `;
 
-  // --- Sidebar renderer (light, compact, no "Lessons" item) ---
+  // --- Sidebar (Matrix version ONLY) ---
   function renderSidebar() {
     const sidebar = $('sidebar');
     if (!sidebar) return;
 
-    // Force light appearance via inline styles to override any dark CSS
-    sidebar.style.background = 'linear-gradient(180deg,#f7f8fa 0%,#eef0f2 100%)';
-    sidebar.style.color = '#0b0b0b';
-    sidebar.style.borderRight = '1px solid rgba(0,255,65,0.12)';
-    sidebar.style.boxShadow = 'inset 0 0 40px rgba(0,0,0,0.03)';
-
-    // Build nav HTML: brand + category links + pricing CTA
     sidebar.innerHTML = `
       <div>
-        <div class="sidebar-title" style="color:#0b0b0b;">The Code</div>
-        <div class="sidebar-sub" style="color:#2b2b2b;">Websites · Apps · Microcontrollers · Cybersecurity</div>
+        <div class="sidebar-title">THE CODE</div>
+        <div class="sidebar-sub">Matrix Terminal • Learning Interface</div>
       </div>
-      <nav>
+
+      <div>
         <div class="sidebar-section-label">Categories</div>
-        <div class="sidebar-menu">
+        <ul class="sidebar-menu">
           ${categories.map(c => `
-            <a class="sidebar-link" href="${c.link}" data-cat="${c.id}" style="text-decoration:none;">
-              <span style="color:#0b0b0b;"><strong>${c.title}</strong></span>
-              <span style="font-size:11px;color:#2b2b2b;">${c.subtitle}</span>
-            </a>
+            <li>
+              <a class="sidebar-link" href="${c.link}">
+                <span>${c.title}</span>
+              </a>
+            </li>
           `).join('')}
-        </div>
-      </nav>
+        </ul>
+      </div>
+
       <div style="margin-top:auto;">
         <div class="sidebar-section-label">Quick</div>
-        <div style="display:flex;flex-direction:column;gap:8px;">
-          <a class="sidebar-link" href="checkout.html" style="justify-content:center;">Pricing</a>
-          <a class="sidebar-link" href="simulators.html" style="justify-content:center;">Simulators</a>
-        </div>
+        <ul class="sidebar-menu">
+          <li><a class="sidebar-link" href="checkout.html">Pricing</a></li>
+          <li><a class="sidebar-link" href="simulators.html">Simulators</a></li>
+        </ul>
       </div>
     `;
   }
 
-  // --- Bundle calculator logic ---
+  // --- Bundle logic ---
   function setupBundleLogic() {
     const checkboxes = Array.from(document.querySelectorAll('.bundle-checkbox'));
     const countEl = $('bundle-count');
@@ -204,34 +197,29 @@
       if (n === 2) return 250;
       if (n === 3) return 350;
       if (n === 4) return 450;
-      return 150 * n; // fallback
+      return 150 * n;
     }
 
     function update() {
       const selected = checkboxes.filter(cb => cb.checked).map(cb => cb.value);
       const n = selected.length;
       const price = computePrice(n);
-      if (countEl) countEl.textContent = n;
-      if (priceEl) priceEl.textContent = `$${price}`;
-      if (proceedBtn) {
-        proceedBtn.disabled = n === 0;
-        proceedBtn.dataset.selected = selected.join(',');
-      }
+      countEl.textContent = n;
+      priceEl.textContent = `$${price}`;
+      proceedBtn.disabled = n === 0;
+      proceedBtn.dataset.selected = selected.join(',');
     }
 
     checkboxes.forEach(cb => cb.addEventListener('change', update));
     update();
 
-    if (proceedBtn) {
-      proceedBtn.addEventListener('click', () => {
-        const selected = proceedBtn.dataset.selected || '';
-        // Navigate to checkout placeholder with selected categories
-        window.location.href = `checkout.html?categories=${encodeURIComponent(selected)}`;
-      });
-    }
+    proceedBtn.addEventListener('click', () => {
+      const selected = proceedBtn.dataset.selected || '';
+      window.location.href = `checkout.html?categories=${encodeURIComponent(selected)}`;
+    });
   }
 
-  // --- Click handlers for CTAs and Learn More ---
+  // --- Handlers ---
   function setupHandlers() {
     document.addEventListener('click', (e) => {
       const explore = e.target.closest('[data-action="explore-courses"]');
@@ -254,26 +242,19 @@
     });
   }
 
-  // --- Inject content into DOM ---
+  // --- Inject content ---
   function inject() {
-    const intro = $('intro-section');
-    const lessons = $('lessons-section');
-    const micro = $('microcontrollers-section');
-    const gain = $('gain-section');
-    const footer = $('footer');
-
-    if (intro) intro.innerHTML = introHTML;
-    if (lessons) lessons.innerHTML = lessonsHTML;
-    if (micro) micro.innerHTML = ''; // reserved for future microcontroller demos
-    if (gain) gain.innerHTML = ''; // reserved for growth / testimonials
-    if (footer) footer.innerHTML = `<div class="footer"><span>© The Code — Matrix Interface</span></div>`;
+    $('intro-section').innerHTML = introHTML;
+    $('lessons-section').innerHTML = lessonsHTML;
+    $('microcontrollers-section').innerHTML = '';
+    $('gain-section').innerHTML = '';
+    $('footer').innerHTML = `<div class="footer"><span>© The Code — Matrix Interface</span></div>`;
 
     renderSidebar();
     setupBundleLogic();
     setupHandlers();
   }
 
-  // Initialize when DOM ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', inject);
   } else {
