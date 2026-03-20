@@ -271,3 +271,20 @@ html,body{
     padding:16px;
   }
 }
+/* FIX TOP MENU BUTTONS */
+.bubble-button,
+.bubble-button * {
+  color: #00ff41 !important;
+  text-shadow: 0 0 8px rgba(0,255,65,0.55) !important;
+  font-weight: bold !important;
+}
+
+.bubble-button {
+  background: rgba(0,80,0,0.85) !important;
+  border: 1px solid rgba(0,255,65,0.55) !important;
+}
+
+.bubble-button:hover {
+  background: rgba(0,255,65,0.22) !important;
+  box-shadow: 0 0 16px rgba(0,255,65,0.55) !important;
+}
