@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Finalizing access</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body{margin:0;background:#000;color:#00ff41;font-family:Courier,monospace;display:flex;align-items:center;justify-content:center;height:100vh}
+    .box{max-width:720px;padding:20px;border-radius:10px;background:rgba(0,0,0,0.6);border:1px solid rgba(0,255,65,0.06);text-align:center}
+    .muted{color:rgba(0,255,65,0.6);font-size:14px}
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Authorizing this device</h2>
+    <div id="msg" class="muted" style="margin-top:12px">Processing — you will be taken to your lessons shortly.</div>
+  </div>
+
+  <script>
+  (function(){
+    // CONFIG: change these to match your site
+    const REQUIRED_CATEGORY = 'websites';      // category id expected from PayPal redirect
+    const REDIRECT_TARGET = '/index.html';     // where to send user after entitlement is written
+    const LOCAL_KEY = 'thecode_paid_v1';
+    const DEVICE_KEY = 'thecode_device_id';
+
+    // parse query or fragment for category and order
+    function parseParams(){
+      const u = new URL(location.href);
+      let category = u.searchParams.get('category');
+      let order = u.searchParams.get('order');
+      if (!category && location.hash) {
+        const m = location.hash.match(/category=([^&]+)/);
+        if (m) category = decodeURIComponent(m[1]);
+        const n = location.hash.match(/order=([^&]+)/);
+        if (n) order = decodeURIComponent(n[1]);
+      }
+      return { category, order };
+    }
+
+    function genDeviceId(){
+      return 'dev-' + Math.random().toString(36).slice(2,12);
+    }
+
+    const { category, order } = parseParams();
+    const msg = document.getElementById('msg');
+
+    // Only proceed when the redirect includes the expected category (prevents direct visits)
+    if (!category || category !== REQUIRED_CATEGORY) {
+      msg.textContent = 'Missing or invalid redirect parameters. Please complete purchase via PayPal to unlock lessons.';
+      // show a visible PayPal link for manual flow (optional)
+      return;
+    }
+
+    // create device id if missing
+    let deviceId = localStorage.getItem(DEVICE_KEY);
+    if (!deviceId) {
+      deviceId = genDeviceId();
+      localStorage.setItem(DEVICE_KEY, deviceId);
+    }
+
+    // read existing entitlements and append if not present
+    let paid = [];
+    try { paid = JSON.parse(localStorage.getItem(LOCAL_KEY) || '[]'); } catch(e){ paid = []; }
+    const now = Date.now();
+    const exists = paid.some(p => p.id === category && p.deviceId === deviceId);
+    if (!exists) {
+      paid.push({ id: category, paidAt: now, deviceId, orderId: order || null, verified: true });
+      localStorage.setItem(LOCAL_KEY, JSON.stringify(paid));
+    }
+
+    // remove query/fragment from URL so the success URL cannot be reused
+    try {
+      const clean = location.origin + location.pathname;
+      history.replaceState({}, '', clean);
+    } catch(e){ /* ignore */ }
+
+    // brief confirmation then redirect
+    msg.textContent = 'This device is authorized. Redirecting to lessons…';
+    setTimeout(() => { location.href = REDIRECT_TARGET; }, 700);
+  })();
+  </script>
+</body>
+</html>
