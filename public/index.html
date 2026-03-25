@@ -25,24 +25,18 @@
   <meta name="msapplication-TileColor" content="#001a00" />
 
   <style>
-    /* GLOBAL BACKGROUND — faint image behind everything */
+    /* CLEAN GLOBAL BACKGROUND — let index.css control visuals */
     html, body {
       height: 100%;
       width: 100%;
       margin: 0;
       background: #000;
-      background-image:
-        linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.82)),
-        url('assets/img/code-index.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
       color: #00ff41;
       font-family: "Courier New", monospace;
+      overflow: hidden;
     }
 
-    /* MATRIX CANVAS ABOVE BACKGROUND */
+    /* MATRIX CANVAS — behind everything */
     #matrix-canvas {
       position: fixed;
       top: 0;
@@ -51,9 +45,10 @@
       height: 100vh;
       z-index: 0;
       background: transparent !important;
+      pointer-events: none;
     }
 
-    /* APP ABOVE CANVAS */
+    /* APP LAYOUT — global CSS handles visuals */
     #app {
       position: relative;
       z-index: 1;
@@ -63,7 +58,7 @@
       overflow: hidden;
     }
 
-    /* REMOVE INLINE PSEUDO BACKGROUND */
+    /* REMOVE INLINE BACKGROUND OVERRIDE */
     #app::before { display: none !important; }
   </style>
 </head>
@@ -118,12 +113,8 @@
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js')
-          .then(reg => {
-            console.log('Service worker registered:', reg.scope);
-          })
-          .catch(err => {
-            console.warn('Service worker registration failed:', err);
-          });
+          .then(reg => console.log('Service worker registered:', reg.scope))
+          .catch(err => console.warn('Service worker registration failed:', err));
       });
     }
   </script>
