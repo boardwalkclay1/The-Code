@@ -1,0 +1,93 @@
+[title]
+The Basics: Words You Must Know Before You Can Build Anything
+
+[meaning]
+Before you can build an app, a website, or any kind of digital project, 
+you must understand the basic words that describe the things you will be working with.
+These words are simple, but they are powerful. 
+They are the foundation of everything you will learn later.
+
+[why]
+If you do not understand these words, you will get lost.
+If you DO understand these words, everything else becomes easier.
+These words are the “alphabet” of building things on a computer.
+
+[example]
+Imagine trying to build a house without knowing the words:
+brick, hammer, wood, or door.
+You would not know what anyone was talking about.
+You would not know what to pick up.
+You would not know what to do.
+
+The same is true for building apps.
+
+[story]
+You are standing at the beginning of a long road.
+The road is dark, but a soft green glow lights the ground in front of you.
+A calm voice speaks:
+
+“Before you can build anything, you must learn the language of building.
+These words are your tools. 
+Once you understand them, the road ahead becomes clear.”
+
+You take a step forward. 
+The glow brightens. 
+The lesson begins.
+
+[steps]
+1. Learn the word: Computer
+   A computer is a machine that shows information, saves information, and runs programs.
+   It is the place where your work will live.
+
+2. Learn the word: File
+   A file is a single piece of information saved on your computer.
+   A picture is a file. A note is a file. A lesson is a file.
+
+3. Learn the word: Folder
+   A folder is a container that holds files and other folders.
+   It keeps things organized so nothing gets lost.
+
+4. Learn the word: Project
+   A project is a big folder that holds everything you are building.
+   It is your “home base.”
+
+5. Learn the word: Organizing
+   Organizing means putting things in the right place so you can find them later.
+   Good organizing makes building easier.
+   Bad organizing makes building confusing.
+
+6. Learn the word: File Ending
+   A file ending is the letters at the end of a file name.
+   These letters tell the computer what kind of file it is.
+
+7. Learn the endings:
+   .html — a file that holds a webpage
+   .css — a file that holds style and appearance
+   .js — a file that holds instructions for behavior
+   .json — a file that holds structured information
+   .txt — a file that holds plain text
+
+8. Learn why endings matter:
+   If you save something with the wrong ending, the computer will not know what to do with it.
+   The ending tells the computer how to read the file.
+
+[practice]
+Say these out loud:
+- “A file is one thing.”
+- “A folder holds files.”
+- “A project is a big folder.”
+- “The ending tells the computer what the file is.”
+- “Organizing keeps me from getting lost.”
+
+Now answer these:
+1. What is a file?
+2. What is a folder?
+3. What is a project?
+4. Why does organizing matter?
+5. Why does the ending of a file matter?
+
+[reflection]
+You now understand the basic words that every builder must know.
+You are no longer in the dark.
+You have taken your first real step.
+The road ahead is long, but you are ready for it.
