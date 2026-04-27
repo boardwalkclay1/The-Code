@@ -1,0 +1,239 @@
+[title]
+Foundation Quiz — Understanding the Basics
+
+[intro]
+This quiz checks your understanding of the basic words.
+Take your time. Read each question slowly.
+If you get something wrong, that is okay.
+You are learning.
+
+[question]
+What is a file?
+
+[options]
+A: A single piece of information saved on your computer.
+B: A folder that holds other folders.
+C: A website.
+
+[answer]
+A
+
+[help]
+A file is one thing. A picture is a file. A note is a file.
+
+---
+
+[question]
+What is a folder?
+
+[options]
+A: A container that holds files.
+B: A type of computer.
+C: A command you type.
+
+[answer]
+A
+
+[help]
+A folder keeps things organized.
+
+---
+
+[question]
+What is a project?
+
+[options]
+A: A big folder that holds everything you are building.
+B: A picture.
+C: A button.
+
+[answer]
+A
+
+[help]
+A project is your home base.
+
+---
+
+[question]
+Why does organizing matter?
+
+[options]
+A: It keeps your work easy to find.
+B: It makes your computer faster.
+C: It changes your screen color.
+
+[answer]
+A
+
+[help]
+Organizing keeps you from getting lost.
+
+---
+
+[question]
+What does the ending of a file tell the computer?
+
+[options]
+A: What type of file it is.
+B: How old the file is.
+C: Who made the file.
+
+[answer]
+A
+
+[help]
+The ending tells the computer how to read the file.
+
+---
+
+[question]
+Which ending is used for a webpage?
+
+[options]
+A: .html
+B: .css
+C: .txt
+
+[answer]
+A
+
+[help]
+.html files hold webpage structure.
+
+---
+
+[question]
+Which ending controls appearance?
+
+[options]
+A: .css
+B: .json
+C: .js
+
+[answer]
+A
+
+[help]
+.css controls colors, sizes, and style.
+
+---
+
+[question]
+Which ending holds instructions for behavior?
+
+[options]
+A: .js
+B: .txt
+C: .html
+
+[answer]
+A
+
+[help]
+.js tells the computer what to do.
+
+---
+
+[question]
+Which ending holds structured information?
+
+[options]
+A: .json
+B: .css
+C: .html
+
+[answer]
+A
+
+[help]
+.json is used for lists and settings.
+
+---
+
+[question]
+Which ending is best for lessons and quizzes?
+
+[options]
+A: .txt
+B: .js
+C: .css
+
+[answer]
+A
+
+[help]
+.txt is simple and safe.
+
+---
+
+[question]
+What is a path?
+
+[options]
+A: The address of a file or folder.
+B: A type of computer.
+C: A color.
+
+[answer]
+A
+
+[help]
+A path tells the computer where something lives.
+
+---
+
+[question]
+What is a terminal?
+
+[options]
+A: A window where you type commands.
+B: A picture.
+C: A folder.
+
+[answer]
+A
+
+[help]
+A terminal gives you control.
+
+---
+
+[question]
+What is GitHub?
+
+[options]
+A: A website where you store your projects online.
+B: A type of file.
+C: A command.
+
+[answer]
+A
+
+[help]
+GitHub keeps your work safe.
+
+---
+
+[question]
+What does “clone” mean?
+
+[options]
+A: Make a copy of a project from GitHub.
+B: Delete a file.
+C: Change a color.
+
+[answer]
+A
+
+[help]
+Cloning brings a project from online to your computer.
+
+---
+
+[closing]
+You finished the Foundation Quiz.
+You understand the basic words.
+You are ready for Lesson 1.
+You are doing great.
+Keep going.
