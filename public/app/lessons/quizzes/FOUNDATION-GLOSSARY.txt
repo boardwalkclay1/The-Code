@@ -1,0 +1,289 @@
+[title]
+Foundation Glossary — The Words You Must Know Before You Build Anything
+
+[intro]
+Before you can build an app, a website, or any kind of digital project,
+you must understand the basic words that describe the things you will be working with.
+These words are simple, but they are powerful.
+They are the foundation of everything you will learn later.
+
+Each word below is explained slowly, clearly, and with real examples.
+Take your time. Read each one. Let it sink in.
+
+[word]
+Computer
+
+[meaning]
+A machine that shows information, saves information, and runs programs.
+
+[why]
+Everything you build will live on a computer.
+It is your workspace, your toolbox, and your workshop.
+
+[example]
+A laptop or desktop is a computer.
+Your phone is also a computer, just smaller.
+
+---
+
+[word]
+File
+
+[meaning]
+A single piece of information saved on your computer.
+
+[why]
+Everything you build is made of files.
+Lessons, pictures, notes, code, and quizzes are all files.
+
+[example]
+A picture is a file. A text document is a file.
+
+---
+
+[word]
+Folder
+
+[meaning]
+A container that holds files and other folders.
+
+[why]
+Folders keep your work organized so nothing gets lost.
+
+[example]
+A backpack is like a folder. It holds your things in one place.
+
+---
+
+[word]
+Project
+
+[meaning]
+A big folder that holds everything you are building.
+
+[why]
+A project keeps all your work together so you can find it easily.
+
+[example]
+A binder full of papers is like a project.
+
+---
+
+[word]
+Organizing
+
+[meaning]
+Putting things in the right place so you can find them later.
+
+[why]
+Good organizing makes building easier.
+Bad organizing makes building confusing.
+
+[example]
+Putting your tools back in the toolbox.
+
+---
+
+[word]
+File Ending
+
+[meaning]
+The letters at the end of a file name that tell the computer what type it is.
+
+[why]
+The computer reads files differently based on their ending.
+
+[example]
+index.html, style.css, script.js
+
+---
+
+[word]
+.html
+
+[meaning]
+A file that holds the structure of a webpage.
+
+[why]
+It tells the computer what to show on the screen.
+
+[example]
+A webpage is built from an .html file.
+
+---
+
+[word]
+.css
+
+[meaning]
+A file that controls the appearance of a webpage.
+
+[why]
+It tells the computer how things should look:
+colors, sizes, spacing, and style.
+
+[example]
+Changing the color of text happens in a .css file.
+
+---
+
+[word]
+.js
+
+[meaning]
+A file that holds instructions for behavior.
+
+[why]
+It tells the computer what to do when something happens.
+
+[example]
+When you click a button and something changes, that is .js.
+
+---
+
+[word]
+.json
+
+[meaning]
+A file that holds structured information.
+
+[why]
+It is used to store lists, settings, and organized data.
+
+[example]
+A list of lessons can be stored in a .json file.
+
+---
+
+[word]
+.txt
+
+[meaning]
+A file that holds plain text.
+
+[why]
+It is simple, safe, and perfect for lessons, quizzes, and notes.
+
+[example]
+This glossary is a .txt file.
+
+---
+
+[word]
+Path
+
+[meaning]
+The address of a file or folder inside your project.
+
+[why]
+It tells the computer where something lives.
+
+[example]
+public/app/pages/level-easy/lesson-01.txt
+
+---
+
+[word]
+Command
+
+[meaning]
+A short instruction you type into a terminal.
+
+[why]
+Commands let you control your computer with words instead of clicking.
+
+[example]
+cd means “go into a folder.”
+
+---
+
+[word]
+Terminal
+
+[meaning]
+A window where you type commands.
+
+[why]
+It gives you more control and speed than clicking.
+
+[example]
+Git Bash is a terminal.
+
+---
+
+[word]
+GitHub
+
+[meaning]
+A website where you store your projects online.
+
+[why]
+It keeps your work safe and lets you share it with others.
+
+[example]
+Your project can live on GitHub so others can see it.
+
+---
+
+[word]
+Clone
+
+[meaning]
+To make a copy of a project from GitHub onto your computer.
+
+[why]
+It lets you work on projects that live online.
+
+[example]
+You can clone your own project or someone else’s.
+
+---
+
+[word]
+Save
+
+[meaning]
+To store your work so it does not disappear.
+
+[why]
+Saving keeps your progress safe.
+
+[example]
+When you close your computer, saved work stays. Unsaved work disappears.
+
+---
+
+[word]
+Progress
+
+[meaning]
+The steps you have completed so far.
+
+[why]
+Tracking progress helps you see how far you’ve come.
+
+[example]
+If you finish Lesson 1, your progress shows it.
+
+---
+
+[word]
+IndexedDB
+
+[meaning]
+A place inside your browser where your progress can be saved.
+
+[why]
+It remembers what you have done, even if you close the browser.
+
+[example]
+Your completed lessons and quiz scores live in IndexedDB.
+
+---
+
+[closing]
+You now understand the basic words that every builder must know.
+You are ready to begin the real lessons.
+Take your time. You are not alone.
+There is a whole world of builders out here.
+And now, you are one of them.
