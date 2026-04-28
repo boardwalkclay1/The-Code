@@ -1,75 +1,256 @@
 [title]
-The Basics: Words You Must Know Before You Can Build Anything
+The Foundation: Understanding the Words, the Tools, and the Structure of Your First Project
 
-[meaning]
-Before you can build an app, a website, or any kind of digital project, 
+[intro]
+Before you can build an app, a website, or any kind of digital project,
 you must understand the basic words that describe the things you will be working with.
-These words are simple, but they are powerful. 
+These words are simple, but they are powerful.
 They are the foundation of everything you will learn later.
 
+This lesson teaches you:
+- The basic words of building
+- What a project is
+- Why organizing matters
+- What file endings are
+- Why file endings change everything
+- How to think like a builder
+
+Take your time. Go slow. You are learning a new language.
+
+[meaning]
+This lesson gives you the vocabulary and mental tools you need to build anything.
+Without these words, you cannot understand the lessons that come after.
+With these words, everything becomes clear.
+
 [why]
-If you do not understand these words, you will get lost.
-If you DO understand these words, everything else becomes easier.
-These words are the “alphabet” of building things on a computer.
+Builders do not get confused because they know the language.
+They know what things are called.
+They know where things go.
+They know why things matter.
 
-[example]
-Imagine trying to build a house without knowing the words:
-brick, hammer, wood, or door.
-You would not know what anyone was talking about.
-You would not know what to pick up.
-You would not know what to do.
-
-The same is true for building apps.
+You are becoming one of them.
 
 [story]
-You are standing at the beginning of a long road.
-The road is dark, but a soft green glow lights the ground in front of you.
+You stand at the beginning of a long road.
+The world around you is dark, but a soft green glow lights the ground in front of you.
 A calm voice speaks:
 
-“Before you can build anything, you must learn the language of building.
-These words are your tools. 
-Once you understand them, the road ahead becomes clear.”
+"Before you can build anything, you must learn the language of building.
+These words are your tools.
+Once you understand them, the road ahead becomes clear."
 
-You take a step forward. 
-The glow brightens. 
+You take a step forward.
+The glow brightens.
 The lesson begins.
 
+[section]
+Basic Words Every Builder Must Know
+
+[word]
+Computer
+
+[meaning]
+A machine that shows information, saves information, and runs programs.
+
+[why]
+Everything you build will live on a computer.
+It is your workspace, your toolbox, and your workshop.
+
+[example]
+A laptop or desktop is a computer.
+Your phone is also a computer, just smaller.
+
+---
+
+[word]
+File
+
+[meaning]
+A single piece of information saved on your computer.
+
+[why]
+Everything you build is made of files.
+Lessons, pictures, notes, code, and quizzes are all files.
+
+[example]
+A picture is a file. A note is a file.
+
+---
+
+[word]
+Folder
+
+[meaning]
+A container that holds files and other folders.
+
+[why]
+Folders keep your work organized so nothing gets lost.
+
+[example]
+A backpack is like a folder. It holds your things in one place.
+
+---
+
+[word]
+Project
+
+[meaning]
+A big folder that holds everything you are building.
+
+[why]
+A project keeps all your work together so you can find it easily.
+
+[example]
+A binder full of papers is like a project.
+
+---
+
+[word]
+Organizing
+
+[meaning]
+Putting things in the right place so you can find them later.
+
+[why]
+Good organizing makes building easier.
+Bad organizing makes building confusing.
+
+[example]
+Putting your tools back in the toolbox.
+
+---
+
+[section]
+Understanding File Endings
+
+[intro]
+Every file has an ending.
+The ending tells the computer what kind of file it is.
+If you save something with the wrong ending, the computer will not know what to do with it.
+
+These endings matter more than you think.
+
+[word]
+.html
+
+[meaning]
+A file that holds the structure of a webpage.
+
+[why]
+It tells the computer what to show on the screen.
+
+[example]
+A webpage is built from an .html file.
+
+---
+
+[word]
+.css
+
+[meaning]
+A file that controls the appearance of a webpage.
+
+[why]
+It tells the computer how things should look:
+colors, sizes, spacing, and style.
+
+[example]
+Changing the color of text happens in a .css file.
+
+---
+
+[word]
+.js
+
+[meaning]
+A file that holds instructions for behavior.
+
+[why]
+It tells the computer what to do when something happens.
+
+[example]
+When you click a button and something changes, that is .js.
+
+---
+
+[word]
+.json
+
+[meaning]
+A file that holds structured information.
+
+[why]
+It is used to store lists, settings, and organized data.
+
+[example]
+A list of lessons can be stored in a .json file.
+
+---
+
+[word]
+.txt
+
+[meaning]
+A file that holds plain text.
+
+[why]
+It is simple, safe, and perfect for lessons, quizzes, and notes.
+
+[example]
+This lesson is a .txt file.
+
+---
+
+[section]
+Why Organization Is the Most Important Skill You Will Ever Learn
+
+[meaning]
+Organization is not optional.
+It is the difference between:
+- A builder who can create anything
+- A beginner who gets lost and gives up
+
+[why]
+When your files are organized:
+- You always know where things are
+- You never lose your work
+- You can build faster
+- You can fix mistakes easier
+- You can understand your own project
+
+When your files are NOT organized:
+- You get confused
+- You lose progress
+- You break things without knowing why
+- You get frustrated
+- You quit
+
+[example]
+Imagine trying to cook a meal with:
+- The salt in the bathroom
+- The pan in the garage
+- The spoon under your bed
+
+You would never finish.
+
+A project works the same way.
+
 [steps]
-1. Learn the word: Computer
-   A computer is a machine that shows information, saves information, and runs programs.
-   It is the place where your work will live.
-
-2. Learn the word: File
-   A file is a single piece of information saved on your computer.
-   A picture is a file. A note is a file. A lesson is a file.
-
-3. Learn the word: Folder
-   A folder is a container that holds files and other folders.
-   It keeps things organized so nothing gets lost.
-
-4. Learn the word: Project
-   A project is a big folder that holds everything you are building.
-   It is your “home base.”
-
-5. Learn the word: Organizing
-   Organizing means putting things in the right place so you can find them later.
-   Good organizing makes building easier.
-   Bad organizing makes building confusing.
-
-6. Learn the word: File Ending
-   A file ending is the letters at the end of a file name.
-   These letters tell the computer what kind of file it is.
-
-7. Learn the endings:
-   .html — a file that holds a webpage
-   .css — a file that holds style and appearance
-   .js — a file that holds instructions for behavior
-   .json — a file that holds structured information
-   .txt — a file that holds plain text
-
-8. Learn why endings matter:
-   If you save something with the wrong ending, the computer will not know what to do with it.
-   The ending tells the computer how to read the file.
+1. Choose a place on your computer where you will keep your work.
+2. Create a new folder.
+3. Name it: the-code
+4. This folder is your project.
+5. Everything you build will live inside it.
+6. Inside your project, create folders for:
+   - pages
+   - quizzes
+   - glossary
+   - help
+   - images
+7. Keep everything in the right place.
+8. Never mix things.
+9. Never leave files loose.
+10. Treat your project like a toolbox.
 
 [practice]
 Say these out loud:
