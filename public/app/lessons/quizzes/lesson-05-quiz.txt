@@ -1,0 +1,213 @@
+[title]
+Lesson 5 Quiz — The Languages of Building
+
+[intro]
+This quiz checks your understanding of:
+- HTML, CSS, JavaScript
+- Python and Node.js
+- Backend and servers
+- Why languages exist
+- What each language does
+
+Take your time. You’re learning a new language.
+
+---
+
+[question]
+1. What does HTML do?
+
+[options]
+A: Builds the structure  
+B: Controls colors  
+C: Runs backend logic  
+
+[answer]
+A
+
+---
+
+[question]
+2. What does CSS do?
+
+[options]
+A: Controls appearance  
+B: Controls behavior  
+C: Saves data  
+
+[answer]
+A
+
+---
+
+[question]
+3. What does JavaScript do?
+
+[options]
+A: Controls behavior  
+B: Controls fonts  
+C: Stores images  
+
+[answer]
+A
+
+---
+
+[question]
+4. What is a backend?
+
+[options]
+A: The part of your app that runs on a server  
+B: The colors of your app  
+C: The images in your app  
+
+[answer]
+A
+
+---
+
+[question]
+5. Why do apps need a server?
+
+[options]
+A: To save data and run backend logic  
+B: To change colors  
+C: To store CSS  
+
+[answer]
+A
+
+---
+
+[question]
+6. Why is Python beginner‑friendly?
+
+[options]
+A: It is clean and easy to read  
+B: It controls colors  
+C: It builds PWAs  
+
+[answer]
+A
+
+---
+
+[question]
+7. Why is Node.js powerful?
+
+[options]
+A: It lets you use JavaScript on the backend  
+B: It replaces HTML  
+C: It only works offline  
+
+[answer]
+A
+
+---
+
+[question]
+8. What is a server?
+
+[options]
+A: A computer that runs backend code  
+B: A CSS file  
+C: A JavaScript function  
+
+[answer]
+A
+
+---
+
+[question]
+9. Why do apps need a backend?
+
+[options]
+A: To save data, run logic, and handle accounts  
+B: To change fonts  
+C: To store images  
+
+[answer]
+A
+
+---
+
+[question]
+10. What is the “brain” of your app?
+
+[options]
+A: JavaScript  
+B: CSS  
+C: HTML  
+
+[answer]
+A
+
+---
+
+[question]
+11. What is the “skeleton” of your app?
+
+[options]
+A: HTML  
+B: CSS  
+C: Python  
+
+[answer]
+A
+
+---
+
+[question]
+12. What is the “skin” of your app?
+
+[options]
+A: CSS  
+B: JavaScript  
+C: Node.js  
+
+[answer]
+A
+
+---
+
+[question]
+13. What does manifest.json do?
+
+[options]
+A: Defines how your PWA behaves  
+B: Stores images  
+C: Runs backend logic  
+
+[answer]
+A
+
+---
+
+[question]
+14. What does service-worker.js do?
+
+[options]
+A: Controls offline behavior  
+B: Controls colors  
+C: Stores fonts  
+
+[answer]
+A
+
+---
+
+[question]
+15. What is the main message of Lesson 5?
+
+[options]
+A: You don’t need to learn everything at once  
+B: You must master every language today  
+C: Coding is impossible  
+
+[answer]
+A
+
+---
+
+[closing]
+You finished the Lesson 5 Quiz.
+You’re learning the languages of creation.
