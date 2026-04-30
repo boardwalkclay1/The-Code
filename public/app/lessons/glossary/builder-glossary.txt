@@ -1,0 +1,386 @@
+[title]
+Builder Glossary — The Words You Need As You Start Building Real Apps
+
+[intro]
+This glossary expands on the foundation you already learned.
+These words appear in Lessons 2–5 and will appear throughout the rest of the course.
+Each word is explained slowly, clearly, and with real examples.
+
+Take your time. These words will make everything easier.
+
+[word]
+Application (App)
+
+[meaning]
+A set of files that work together to help the user do something.
+An app can be simple or complex, small or large.
+
+[why]
+Understanding what an app truly is helps you understand how to build one.
+
+[example]
+A calculator is an app.  
+A website can be an app.  
+A PWA is an app.  
+A native iPhone app is an app.
+
+---
+
+[word]
+Native Application
+
+[meaning]
+An app built specifically for one device type (iPhone, Android, Windows, etc.).
+
+[why]
+Native apps can use everything the device offers: camera, GPS, notifications, sensors.
+
+[example]
+Instagram, TikTok, and Snapchat are native apps.
+
+---
+
+[word]
+Web Application (Web App)
+
+[meaning]
+An app that runs inside a browser and does not need to be downloaded.
+
+[why]
+Web apps work on all devices and are easy to update.
+
+[example]
+Gmail, YouTube, and Google Docs are web apps.
+
+---
+
+[word]
+Hybrid Application
+
+[meaning]
+A mix between a native app and a web app.
+It uses web technology but is wrapped in a native shell.
+
+[why]
+Hybrid apps can be installed like native apps but built like websites.
+
+[example]
+Early versions of Instagram and Uber were hybrid apps.
+
+---
+
+[word]
+Progressive Web App (PWA)
+
+[meaning]
+A web app that can be installed like a native app and works offline.
+
+[why]
+PWAs give you the power of native apps without needing an app store.
+
+[example]
+Twitter Lite, Starbucks, Pinterest.
+
+---
+
+[word]
+Manifest File (manifest.json)
+
+[meaning]
+A file that tells the browser how your PWA should behave:
+name, icon, theme color, display mode.
+
+[why]
+Without a manifest, your PWA cannot be installed.
+
+[example]
+It controls how your app looks on the home screen.
+
+---
+
+[word]
+Service Worker (service-worker.js)
+
+[meaning]
+A special JavaScript file that runs in the background.
+
+[why]
+It controls offline behavior, caching, and background tasks.
+
+[example]
+It lets your app load instantly even with no internet.
+
+---
+
+[word]
+Frontend
+
+[meaning]
+The part of your app the user sees and interacts with.
+
+[why]
+Frontend is built with HTML, CSS, and JavaScript.
+
+[example]
+Buttons, text, images, animations.
+
+---
+
+[word]
+Backend
+
+[meaning]
+The part of your app that runs on a server and handles data, logic, and storage.
+
+[why]
+Apps need a backend to save information, manage accounts, and run logic.
+
+[example]
+Saving a user’s score or login information.
+
+---
+
+[word]
+Server
+
+[meaning]
+A computer that runs backend code and responds to requests.
+
+[why]
+Without a server, your app cannot save data or handle accounts.
+
+[example]
+When you log into a website, the server checks your password.
+
+---
+
+[word]
+Python
+
+[meaning]
+A simple, clean backend language used for servers, APIs, and data processing.
+
+[why]
+Python is beginner‑friendly and extremely powerful.
+
+[example]
+Django and Flask are Python frameworks for building backends.
+
+---
+
+[word]
+Node.js
+
+[meaning]
+A way to run JavaScript on the backend.
+
+[why]
+It lets you use the same language (JavaScript) for both frontend and backend.
+
+[example]
+Chat apps, dashboards, and real‑time systems use Node.js.
+
+---
+
+[word]
+Framework
+
+[meaning]
+A set of tools that helps you build apps faster.
+
+[why]
+Frameworks give you shortcuts so you don’t have to build everything from scratch.
+
+[example]
+React, Vue, Angular, Django, Flask, Express.
+
+---
+
+[word]
+Library
+
+[meaning]
+A collection of code you can use to add features to your app.
+
+[why]
+Libraries save time and make your code cleaner.
+
+[example]
+jQuery, Lodash, Chart.js.
+
+---
+
+[word]
+API (Application Programming Interface)
+
+[meaning]
+A way for apps to talk to each other.
+
+[why]
+APIs let your app get data from other places.
+
+[example]
+Weather apps use APIs to get weather data.
+
+---
+
+[word]
+File Structure
+
+[meaning]
+The way your folders and files are organized.
+
+[why]
+A clean structure makes your project easier to understand and build.
+
+[example]
+css/, js/, pages/, assets/.
+
+---
+
+[word]
+Entry Point
+
+[meaning]
+The first file the browser or server loads.
+
+[why]
+Every project needs a clear starting point.
+
+[example]
+index.html is the entry point for websites.
+
+---
+
+[word]
+Syntax
+
+[meaning]
+The rules of a programming language.
+
+[why]
+If you break the rules, the computer cannot understand your code.
+
+[example]
+Missing a semicolon or bracket can break your code.
+
+---
+
+[word]
+Logic
+
+[meaning]
+The decisions your app makes based on conditions.
+
+[why]
+Logic controls how your app behaves.
+
+[example]
+“If the user clicks this button, show this message.”
+
+---
+
+[word]
+Runtime
+
+[meaning]
+The environment where your code runs.
+
+[why]
+JavaScript runs in the browser.  
+Node.js runs on the server.
+
+[example]
+Chrome is a JavaScript runtime.
+
+---
+
+[word]
+Package Manager
+
+[meaning]
+A tool that installs libraries and frameworks.
+
+[why]
+It saves time and keeps your project organized.
+
+[example]
+npm (Node Package Manager).
+
+---
+
+[word]
+Repository (Repo)
+
+[meaning]
+A folder stored on GitHub that holds your project.
+
+[why]
+Repos keep your work safe and shareable.
+
+[example]
+Your project can live in a GitHub repo.
+
+---
+
+[word]
+Clone
+
+[meaning]
+To copy a GitHub repo onto your computer.
+
+[why]
+Cloning lets you work on projects that live online.
+
+[example]
+You can clone your own repo or someone else’s.
+
+---
+
+[word]
+Commit
+
+[meaning]
+A saved snapshot of your project.
+
+[why]
+Commits let you track changes and go back in time.
+
+[example]
+“Added new homepage layout.”
+
+---
+
+[word]
+Push
+
+[meaning]
+Send your changes from your computer to GitHub.
+
+[why]
+Pushing keeps your online repo updated.
+
+[example]
+“Push your latest commit to GitHub.”
+
+---
+
+[word]
+Pull
+
+[meaning]
+Download the latest changes from GitHub to your computer.
+
+[why]
+Pulling keeps your local project updated.
+
+[example]
+“Pull the newest version before you start working.”
+
+---
+
+[closing]
+You now understand the next layer of builder vocabulary.
+These words will appear throughout the course.
+Come back to this glossary anytime you feel confused.
+You are learning a new language, and you are doing great.
