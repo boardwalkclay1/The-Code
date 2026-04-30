@@ -1,0 +1,213 @@
+[title]
+Lesson 3 Quiz — Organizing Your Thoughts and Your Files
+
+[intro]
+This quiz checks your understanding of:
+- Why learning feels overwhelming
+- How to organize your thoughts
+- How to organize your files
+- Why organization matters
+- Why you are not alone
+
+Take your time. Go slow.
+
+---
+
+[question]
+1. Why does learning feel overwhelming at first?
+
+[options]
+A: Your brain is learning many new ideas at once  
+B: You are doing it wrong  
+C: Coding is impossible  
+
+[answer]
+A
+
+---
+
+[question]
+2. What is the first step to organizing your thoughts?
+
+[options]
+A: Accept that you won’t understand everything at once  
+B: Learn Python  
+C: Delete your project  
+
+[answer]
+A
+
+---
+
+[question]
+3. Why is breaking big ideas into small steps helpful?
+
+[options]
+A: It makes learning manageable  
+B: It makes your computer faster  
+C: It changes your screen color  
+
+[answer]
+A
+
+---
+
+[question]
+4. Why is organizing your files important?
+
+[options]
+A: It keeps your project clean and easy to understand  
+B: It makes your internet faster  
+C: It changes your wallpaper  
+
+[answer]
+A
+
+---
+
+[question]
+5. What folder should CSS files go in?
+
+[options]
+A: css/  
+B: js/  
+C: pages/  
+
+[answer]
+A
+
+---
+
+[question]
+6. What folder should JavaScript files go in?
+
+[options]
+A: js/  
+B: css/  
+C: assets/  
+
+[answer]
+A
+
+---
+
+[question]
+7. What folder should extra HTML pages go in?
+
+[options]
+A: pages/  
+B: js/  
+C: css/  
+
+[answer]
+A
+
+---
+
+[question]
+8. Why does a messy project slow you down?
+
+[options]
+A: You waste time searching for files  
+B: It breaks your computer  
+C: It deletes your work  
+
+[answer]
+A
+
+---
+
+[question]
+9. Why does a clean project make you powerful?
+
+[options]
+A: You always know where things are  
+B: It makes your internet faster  
+C: It changes your theme  
+
+[answer]
+A
+
+---
+
+[question]
+10. Why is it okay to feel overwhelmed?
+
+[options]
+A: It is normal and temporary  
+B: It means you should quit  
+C: It means you are behind  
+
+[answer]
+A
+
+---
+
+[question]
+11. Why is organizing your mind important?
+
+[options]
+A: A messy mind creates a messy project  
+B: It changes your screen color  
+C: It makes your keyboard faster  
+
+[answer]
+A
+
+---
+
+[question]
+12. Why is organizing your files important?
+
+[options]
+A: A messy project creates confusion  
+B: It makes your battery last longer  
+C: It changes your font  
+
+[answer]
+A
+
+---
+
+[question]
+13. Why are you not alone in this journey?
+
+[options]
+A: Millions of builders started where you are  
+B: Coding is easy  
+C: Everyone learns instantly  
+
+[answer]
+A
+
+---
+
+[question]
+14. What is one way to calm your mind while learning?
+
+[options]
+A: Focus on one thing at a time  
+B: Try to learn everything at once  
+C: Delete your project  
+
+[answer]
+A
+
+---
+
+[question]
+15. What is the most important message of Lesson 3?
+
+[options]
+A: You are not alone  
+B: You must learn everything today  
+C: You should memorize every file  
+
+[answer]
+A
+
+---
+
+[closing]
+You finished the Lesson 3 Quiz.
+You’re learning how to think like a builder.
