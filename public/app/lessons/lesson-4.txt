@@ -1,0 +1,214 @@
+[title]
+Lesson 4 — Building Your First Real Folder Structure (And Why YOU Make the Rules)
+
+[intro]
+You have learned the words.
+You have learned the types of apps.
+You have learned why organization matters.
+Now it is time to build your first real project structure.
+
+This lesson teaches you:
+- How to create a clean, organized folder structure
+- Where CSS files belong
+- Where JavaScript files belong
+- Where pages belong
+- Why structure makes everything easier
+- Why there are no “official rules”
+- Why YOU make the rules in your own project
+
+This is your first real builder moment.
+
+[story]
+You stand in front of a glowing green table.
+On the table are empty boxes with labels:
+css, js, pages, assets.
+
+A calm voice speaks:
+
+“These are not rules.  
+These are tools.  
+You decide how your project is shaped.  
+You decide how your files live.  
+You decide how your world is built.”
+
+The glow brightens.
+Your hands move toward the boxes.
+You begin.
+
+[section]
+Why Structure Matters (But Rules Don’t)
+
+[meaning]
+A folder structure is a map.
+It tells you where things live.
+It keeps your mind clear.
+It keeps your project clean.
+
+But here is the truth:
+There are no official rules.
+
+[why]
+Every builder organizes differently.
+Every project is unique.
+Every creator has their own style.
+
+You are not following someone else’s rules.
+You are building your own.
+
+[example]
+Some builders put everything in one folder.
+Some builders create 20 folders.
+Some builders use long names.
+Some builders use short names.
+
+There is no “right way.”
+There is only “your way.”
+
+[section]
+The Structure We Will Use (Your First Real Project)
+
+[intro]
+This structure is simple, clean, and powerful.
+It is the perfect starting point.
+Later, you can change it.
+You can expand it.
+You can make it your own.
+
+For now, we start here.
+
+[steps]
+1. Open the workbench.
+2. Choose “Website Mode.”
+3. Create a new folder named: my-first-project
+
+Inside it, create these folders:
+
+4. Create a folder named: css
+   This is where all your .css files will live.
+   Example: style.css
+
+5. Create a folder named: js
+   This is where all your .js files will live.
+   Example: script.js
+
+6. Create a folder named: pages
+   This is where extra .html pages will live.
+   Example: about.html, contact.html
+
+7. Create a folder named: assets
+   This is where images, icons, and fonts will live.
+
+8. Create your main file:
+   index.html
+   This is the “front door” of your project.
+
+9. Save everything.
+10. Look at the preview on the right.
+11. You now have a real project structure.
+
+[section]
+Why CSS Goes in the CSS Folder
+
+[meaning]
+CSS controls how your project looks.
+It is the “style” of your world.
+
+[why]
+Putting all CSS files in one place:
+- Keeps your styles organized
+- Makes them easy to find
+- Makes your project cleaner
+
+[example]
+style.css lives in:
+css/style.css
+
+[section]
+Why JavaScript Goes in the JS Folder
+
+[meaning]
+JavaScript controls how your project behaves.
+It is the “brain” of your world.
+
+[why]
+Putting all JS files in one place:
+- Keeps your logic organized
+- Makes debugging easier
+- Makes your project faster to understand
+
+[example]
+script.js lives in:
+js/script.js
+
+[section]
+Why Pages Go in the Pages Folder
+
+[meaning]
+Pages are the “screens” of your project.
+Each page is a different part of your world.
+
+[why]
+Putting all pages in one place:
+- Keeps your navigation clean
+- Makes your project expandable
+- Helps you stay organized
+
+[example]
+about.html lives in:
+pages/about.html
+
+[section]
+Why YOU Make the Rules
+
+[intro]
+This is the most important part of the lesson.
+
+There are no official rules.
+There is no “correct” structure.
+There is no “perfect” way.
+
+You are the builder.
+You make the rules.
+
+[meaning]
+Your project is your world.
+You decide how it is shaped.
+You decide how it grows.
+You decide how it is organized.
+
+[why]
+When you understand the basics,
+you earn the right to bend the rules.
+
+[example]
+If you want a folder named “styles” instead of “css,” you can.
+If you want a folder named “logic” instead of “js,” you can.
+If you want a folder named “screens” instead of “pages,” you can.
+
+This is your code.
+This is your world.
+This is your creation.
+
+[practice]
+Say these out loud:
+- “I can organize my project.”
+- “I can create my own structure.”
+- “There are no rules.”
+- “This is my code.”
+- “I make the rules.”
+
+Now answer these:
+1. Why does structure matter?
+2. Why are there no official rules?
+3. Where do CSS files belong?
+4. Where do JS files belong?
+5. Where do pages belong?
+6. Why do YOU make the rules?
+
+[reflection]
+You have built your first real project structure.
+You understand where files go.
+You understand why organization matters.
+You understand that you are the creator.
+
+You are ready for Lesson 5.
