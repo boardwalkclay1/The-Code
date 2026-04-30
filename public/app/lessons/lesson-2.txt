@@ -1,0 +1,307 @@
+[title]
+Understanding Apps: What They Are, The Types That Exist, and The Files You Need to Deploy a Real Website
+
+[intro]
+Before you can build an app or a website, you must understand what an “app” truly is.
+Most beginners think an app is just something you download from a store.
+But apps come in many forms, and each one works differently.
+
+This lesson teaches you:
+- What an app is
+- The different kinds of apps
+- Why PWAs changed everything
+- What files are needed to deploy a real website
+- How these files work together
+- Why this knowledge prepares you for real building
+
+Take your time. Go slow. This is the foundation of everything you will create.
+
+[section]
+What Is an App?
+
+[meaning]
+An app is a set of files that work together to do something for the user.
+It can be simple or complex, small or large, but it always has one purpose:
+to help the user do something.
+
+[why]
+If you understand what an app is, you will understand how to build one.
+If you do not understand this, everything else becomes confusing.
+
+[example]
+A calculator is an app.
+A game is an app.
+A website can be an app.
+A PWA is an app.
+A native iPhone app is an app.
+
+They all do something for the user.
+
+[story]
+You stand in a room with four doors.
+Each door glows a different shade of green.
+A voice says:
+
+“These doors lead to different kinds of apps.
+To build your own, you must understand them all.”
+
+You walk toward the first door.
+
+[section]
+The Four Types of Apps
+
+[word]
+1. Native Apps
+
+[meaning]
+A native app is an app built specifically for one device type.
+For example:
+- iPhone apps are written for iPhones
+- Android apps are written for Android phones
+
+[why]
+Native apps can use everything the device offers:
+camera, GPS, notifications, sensors, offline storage.
+
+[example]
+Instagram, TikTok, and Snapchat are native apps.
+
+---
+
+[word]
+2. Web Apps
+
+[meaning]
+A web app is an app that runs inside a browser.
+It does not need to be downloaded.
+
+[why]
+Web apps are easy to update and work on all devices.
+
+[example]
+Gmail, YouTube, and Google Docs are web apps.
+
+---
+
+[word]
+3. Hybrid Apps
+
+[meaning]
+A hybrid app is a mix of native and web.
+It uses web technology but is wrapped in a native shell.
+
+[why]
+Hybrid apps can be installed like native apps but built like websites.
+
+[example]
+The early versions of Instagram and Uber were hybrid apps.
+
+---
+
+[word]
+4. Progressive Web Apps (PWAs)
+
+[meaning]
+A PWA is a web app that can be installed like a native app.
+It works offline, loads fast, and feels like a real app.
+
+[why]
+PWAs give you the power of native apps without needing an app store.
+
+[example]
+Twitter Lite, Starbucks, Pinterest, and your future apps.
+
+---
+
+[section]
+Why PWAs Are So Important
+
+[meaning]
+PWAs changed the world because they made app building easier, faster, and more accessible.
+
+[why]
+PWAs:
+- Work offline
+- Install on home screens
+- Load instantly
+- Use caching
+- Use service workers
+- Can send notifications
+- Can feel like native apps
+- Do not require app store approval
+
+[history]
+PWAs became popular around 2015–2017.
+Google pushed the idea forward.
+Developers realized they could build powerful apps without app stores.
+
+[example]
+A PWA can be built with:
+- HTML
+- CSS
+- JavaScript
+- A manifest file
+- A service worker
+
+That’s it.
+
+You can build one.
+
+[section]
+Files Needed to Deploy a Real Website
+
+[intro]
+To deploy a real website, you need specific files.
+Each file has a job.
+Each file has a purpose.
+Together, they create the experience the user sees.
+
+Here are the files you must know:
+
+[file]
+index.html
+
+[purpose]
+The main page of your website.
+The browser looks for this file first.
+
+---
+
+[file]
+style.css
+
+[purpose]
+Controls how your website looks:
+colors, fonts, spacing, layout.
+
+---
+
+[file]
+script.js
+
+[purpose]
+Controls how your website behaves:
+buttons, animations, interactions.
+
+---
+
+[file]
+manifest.json
+
+[purpose]
+Tells the browser how your PWA should behave:
+name, icon, theme color, display mode.
+
+---
+
+[file]
+service-worker.js
+
+[purpose]
+Controls offline behavior, caching, and background tasks.
+
+---
+
+[file]
+assets/
+
+[purpose]
+A folder that holds images, icons, fonts, and other resources.
+
+---
+
+[file]
+pages/
+
+[purpose]
+A folder that holds additional HTML pages if your site has more than one.
+
+---
+
+[file]
+components/ (optional)
+
+[purpose]
+Reusable pieces of your site:
+headers, footers, cards, buttons.
+
+---
+
+[file]
+README.txt
+
+[purpose]
+A simple file that explains what your project is.
+
+---
+
+[section]
+How These Files Work Together
+
+[meaning]
+These files are like a team.
+Each one has a job.
+When they work together, they create a complete experience.
+
+[example]
+index.html loads style.css to look good.
+index.html loads script.js to behave correctly.
+manifest.json tells the browser how to install your app.
+service-worker.js makes your app work offline.
+
+[why]
+If one file is missing, your app may break.
+If all files are present, your app becomes powerful.
+
+[section]
+Your First Builder Moment
+
+[intro]
+You are now ready to create your first real project folder.
+This is where the workbench will come in.
+You will create real files.
+You will save them.
+You will see the results instantly.
+
+This is where you stop learning and start building.
+
+[steps]
+1. Open the workbench.
+2. Choose “Website Mode.”
+3. Create a new folder named: my-first-site
+4. Inside it, create these files:
+   - index.html
+   - style.css
+   - script.js
+   - manifest.json
+   - service-worker.js
+5. Create a folder named: assets
+6. Create a folder named: pages
+7. Save everything.
+8. Look at the preview on the right.
+9. You just created the skeleton of a real website.
+
+[practice]
+Say these out loud:
+- “A PWA is a web app that can be installed.”
+- “A website needs index.html to load.”
+- “A manifest tells the browser how my app behaves.”
+- “A service worker makes my app work offline.”
+- “I can build real apps.”
+
+Now answer these:
+1. What is a native app?
+2. What is a web app?
+3. What is a PWA?
+4. Why are PWAs important?
+5. What file does every website need?
+6. What does manifest.json do?
+7. What does service-worker.js do?
+
+[reflection]
+You now understand the different kinds of apps.
+You know why PWAs matter.
+You know what files are needed to deploy a real website.
+You have taken your first builder step.
+
+You are ready for Lesson 3.
