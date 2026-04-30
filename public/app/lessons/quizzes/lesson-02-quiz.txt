@@ -1,0 +1,231 @@
+[title]
+Lesson 2 Quiz — Understanding Apps and Deployment Files
+
+[intro]
+This quiz checks your understanding of:
+- Types of apps
+- PWAs
+- Why PWAs matter
+- Deployment files
+- How apps work in the real world
+
+Take your time. You’re learning a new world.
+
+---
+
+[question]
+1. What is a native app?
+
+[options]
+A: An app built specifically for one device type  
+B: A website that runs in a browser  
+C: A Python script  
+
+[answer]
+A
+
+[help]
+Native apps are built for one platform like iPhone or Android.
+
+---
+
+[question]
+2. What is a web app?
+
+[options]
+A: An app that runs inside a browser  
+B: An app you download from the app store  
+C: A backend server  
+
+[answer]
+A
+
+[help]
+Web apps run in browsers and don’t need installation.
+
+---
+
+[question]
+3. What makes a PWA special?
+
+[options]
+A: It can be installed and works offline  
+B: It only works on Android  
+C: It requires Python  
+
+[answer]
+A
+
+[help]
+PWAs combine the power of web and native apps.
+
+---
+
+[question]
+4. When did PWAs become popular?
+
+[options]
+A: Around 2015–2017  
+B: 1995  
+C: 2023  
+
+[answer]
+A
+
+[help]
+Google pushed PWAs heavily during this time.
+
+---
+
+[question]
+5. Which file is required for a PWA to be installable?
+
+[options]
+A: manifest.json  
+B: style.css  
+C: index.html  
+
+[answer]
+A
+
+[help]
+The manifest tells the browser how your app behaves.
+
+---
+
+[question]
+6. What does a service worker do?
+
+[options]
+A: Controls offline behavior and caching  
+B: Changes colors  
+C: Stores images  
+
+[answer]
+A
+
+[help]
+Service workers run in the background.
+
+---
+
+[question]
+7. Which file is the “front door” of a website?
+
+[options]
+A: index.html  
+B: script.js  
+C: manifest.json  
+
+[answer]
+A
+
+---
+
+[question]
+8. What folder usually holds images and icons?
+
+[options]
+A: assets/  
+B: css/  
+C: js/  
+
+[answer]
+A
+
+---
+
+[question]
+9. What folder holds extra HTML pages?
+
+[options]
+A: pages/  
+B: js/  
+C: css/  
+
+[answer]
+A
+
+---
+
+[question]
+10. What is the purpose of style.css?
+
+[options]
+A: Controls appearance  
+B: Controls behavior  
+C: Runs backend logic  
+
+[answer]
+A
+
+---
+
+[question]
+11. What is the purpose of script.js?
+
+[options]
+A: Controls behavior  
+B: Controls colors  
+C: Stores data  
+
+[answer]
+A
+
+---
+
+[question]
+12. What is the purpose of manifest.json?
+
+[options]
+A: Defines how your PWA behaves  
+B: Stores images  
+C: Runs backend logic  
+
+[answer]
+A
+
+---
+
+[question]
+13. What is the purpose of service-worker.js?
+
+[options]
+A: Offline support and caching  
+B: Changing fonts  
+C: Storing CSS  
+
+[answer]
+A
+
+---
+
+[question]
+14. Why are PWAs useful for beginners?
+
+[options]
+A: They don’t require app store approval  
+B: They only work offline  
+C: They replace HTML  
+
+[answer]
+A
+
+---
+
+[question]
+15. What is the main advantage of web apps?
+
+[options]
+A: They work on all devices  
+B: They require installation  
+C: They only run on iPhones  
+
+[answer]
+A
+
+---
+
+[closing]
+You finished the Lesson 2 Quiz.
+You’re doing great. Keep going.
