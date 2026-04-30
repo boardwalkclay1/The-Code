@@ -1,0 +1,211 @@
+[title]
+Lesson 4 Quiz — Folder Structure and Making Your Own Rules
+
+[intro]
+This quiz checks your understanding of:
+- Folder structure
+- css/, js/, pages/, assets/
+- Why structure matters
+- Why YOU make the rules
+- How to think like a builder
+
+---
+
+[question]
+1. Why does structure matter?
+
+[options]
+A: It keeps your project clean and easy to understand  
+B: It makes your computer faster  
+C: It changes your wallpaper  
+
+[answer]
+A
+
+---
+
+[question]
+2. Where should CSS files go?
+
+[options]
+A: css/  
+B: js/  
+C: pages/  
+
+[answer]
+A
+
+---
+
+[question]
+3. Where should JavaScript files go?
+
+[options]
+A: js/  
+B: css/  
+C: assets/  
+
+[answer]
+A
+
+---
+
+[question]
+4. Where should extra HTML pages go?
+
+[options]
+A: pages/  
+B: css/  
+C: js/  
+
+[answer]
+A
+
+---
+
+[question]
+5. Where should images and icons go?
+
+[options]
+A: assets/  
+B: js/  
+C: css/  
+
+[answer]
+A
+
+---
+
+[question]
+6. What is index.html?
+
+[options]
+A: The entry point of your project  
+B: A CSS file  
+C: A backend server  
+
+[answer]
+A
+
+---
+
+[question]
+7. Why are there “no rules” in how you organize your project?
+
+[options]
+A: Because you are the builder and you make the rules  
+B: Because nothing matters  
+C: Because folders don’t work  
+
+[answer]
+A
+
+---
+
+[question]
+8. Why do some developers use different folder names?
+
+[options]
+A: Every builder has their own style  
+B: There is only one correct way  
+C: They are doing it wrong  
+
+[answer]
+A
+
+---
+
+[question]
+9. Why is a clean structure helpful?
+
+[options]
+A: It removes confusion  
+B: It makes your battery last longer  
+C: It changes your theme  
+
+[answer]
+A
+
+---
+
+[question]
+10. Why is a messy structure harmful?
+
+[options]
+A: It slows you down and creates confusion  
+B: It breaks your computer  
+C: It deletes your files  
+
+[answer]
+A
+
+---
+
+[question]
+11. Why is it okay to rename folders?
+
+[options]
+A: Because you make the rules  
+B: Because the computer forces you  
+C: Because names don’t matter  
+
+[answer]
+A
+
+---
+
+[question]
+12. Why is the css/ folder important?
+
+[options]
+A: It keeps all styles in one place  
+B: It stores backend logic  
+C: It holds images  
+
+[answer]
+A
+
+---
+
+[question]
+13. Why is the js/ folder important?
+
+[options]
+A: It keeps all behavior in one place  
+B: It controls colors  
+C: It stores fonts  
+
+[answer]
+A
+
+---
+
+[question]
+14. Why is the pages/ folder important?
+
+[options]
+A: It keeps extra HTML pages organized  
+B: It stores CSS  
+C: It stores backend logic  
+
+[answer]
+A
+
+---
+
+[question]
+15. What is the main message of Lesson 4?
+
+[options]
+A: You make the rules  
+B: You must follow strict rules  
+C: You must memorize everything  
+
+[answer]
+A
+
+---
+
+[closing]
+You finished the Lesson 4 Quiz.
+You’re building your own world now.
