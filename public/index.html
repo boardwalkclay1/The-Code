@@ -5,6 +5,7 @@
   <title>THE CODE — Terminal Gateway</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- SINGLE CSS ENTRY -->
   <link rel="stylesheet" href="css/index.css" />
 
   <meta name="theme-color" content="#001a00" />
@@ -12,33 +13,38 @@
 
 <body>
 
-  <!-- MATRIX RAIN -->
+  <!-- MATRIX RAIN BACKGROUND -->
   <canvas id="matrix-canvas"></canvas>
 
-  <!-- LOADING SCREEN -->
+  <!-- MATRIX LOADING SCREEN -->
   <div id="loading-screen" class="hidden"></div>
 
-  <!-- PURE TERMINAL -->
+  <!-- TERMINAL GATEWAY -->
   <div id="terminal-shell">
+    <div class="terminal-window">
 
-    <div class="terminal-header">
-      <div class="dot red"></div>
-      <div class="dot yellow"></div>
-      <div class="dot green"></div>
-      <div class="terminal-title">THE CODE / MATRIX EXIT TERMINAL</div>
+      <div class="terminal-header">
+        <div class="dot red"></div>
+        <div class="dot yellow"></div>
+        <div class="dot green"></div>
+        <div class="terminal-title">THE CODE / MATRIX EXIT TERMINAL</div>
+      </div>
+
+      <div class="terminal-body" id="terminal-output"></div>
+
+      <div class="prompt-line">
+        <span class="prompt-label" id="prompt-label">></span>
+        <input id="terminal-input" autocomplete="off" />
+        <span class="cursor"></span>
+      </div>
+
     </div>
-
-    <div class="terminal-body" id="terminal-output"></div>
-
-    <div class="prompt-line">
-      <span class="prompt-label" id="prompt-label">></span>
-      <input id="terminal-input" autocomplete="off" />
-      <span class="cursor"></span>
-    </div>
-
   </div>
 
+  <!-- TERMINAL LOGIC -->
   <script src="app/lessons/terminal/js/terminal-landing.js"></script>
+
+  <!-- MATRIX RAIN -->
   <script src="modules/matrix.js"></script>
 
 </body>
