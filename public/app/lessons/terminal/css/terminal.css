@@ -117,3 +117,17 @@ body {
     height: 100%;
     border: none;
 }
+#file-tree ul {
+    list-style: none;
+    padding-left: 10px;
+}
+
+#file-tree li {
+    cursor: pointer;
+    padding: 2px 0;
+    font-size: 13px;
+}
+
+#file-tree li:hover {
+    color: #00ffcc;
+}
