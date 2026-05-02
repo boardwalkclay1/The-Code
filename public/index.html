@@ -5,8 +5,10 @@
   <title>THE CODE — Terminal Gateway</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- make sure this path matches your CSS file location -->
   <link rel="stylesheet" href="css/index.css" />
-  <meta name="theme-color" content="#001a00" />
+
+  <meta name="theme-color" content="#000000" />
 </head>
 
 <body>
@@ -32,14 +34,17 @@
 
       <div class="prompt-line">
         <span class="prompt-label" id="prompt-label">></span>
-        <input id="terminal-input" autocomplete="off" />
+        <input id="terminal-input" type="text" autocomplete="off" />
         <span class="cursor"></span>
       </div>
 
     </div>
   </div>
 
+  <!-- TERMINAL LOGIC -->
   <script src="app/lessons/terminal/js/terminal-landing.js"></script>
+
+  <!-- MATRIX RAIN -->
   <script src="modules/matrix.js"></script>
 
 </body>
