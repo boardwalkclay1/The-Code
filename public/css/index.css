@@ -9,7 +9,7 @@ html, body {
   overflow: hidden;
 }
 
-/* TERMINAL SHELL (NO BOX) */
+/* TERMINAL SHELL */
 #terminal-shell {
   position: fixed;
   inset: 0;
@@ -21,7 +21,7 @@ html, body {
   box-shadow: none !important;
 }
 
-/* TERMINAL WINDOW (NO BOX) */
+/* TERMINAL WINDOW */
 .terminal-window {
   width: 100%;
   height: 100%;
@@ -32,7 +32,7 @@ html, body {
   box-shadow: none !important;
 }
 
-/* HEADER (NO BOX, JUST DOTS + TEXT) */
+/* HEADER */
 .terminal-header {
   display: flex;
   align-items: center;
@@ -58,7 +58,7 @@ html, body {
   margin-left: 8px;
 }
 
-/* TERMINAL BODY (NO BOX) */
+/* TERMINAL BODY */
 .terminal-body {
   flex: 1;
   background: transparent !important;
@@ -75,7 +75,7 @@ html, body {
   margin: 2px 0;
 }
 
-/* PROMPT LINE (NO BOX) */
+/* PROMPT LINE */
 .prompt-line {
   display: flex;
   align-items: center;
@@ -94,16 +94,19 @@ html, body {
 /* INPUT FIELD — BLACK, NO RECTANGLE */
 #terminal-input {
   flex: 1;
-  background: #000 !important;          /* ← black like the screen */
+  background: #000 !important;     /* ← REQUIRED to kill the white box */
   border: none !important;
   outline: none !important;
   box-shadow: none !important;
   color: #00cc33 !important;
   font-family: inherit;
   font-size: 16px;
+  padding: 0;                      /* ← removes invisible padding box */
+  margin: 0;                       /* ← removes invisible margin box */
+  appearance: none;                /* ← kills browser default styling */
 }
 
-/* Autofill kill — keep it black */
+/* Autofill kill */
 #terminal-input:-webkit-autofill,
 #terminal-input:-webkit-autofill:hover,
 #terminal-input:-webkit-autofill:focus,
