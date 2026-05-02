@@ -2,44 +2,50 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: black;
+  background: #000;
   color: #00cc33;
   font-family: "Courier New", monospace;
   height: 100%;
   overflow: hidden;
 }
 
-/* TERMINAL SHELL */
+/* TERMINAL SHELL (NO BOX) */
 #terminal-shell {
   position: fixed;
   inset: 0;
   z-index: 2;
   padding: 20px;
   box-sizing: border-box;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
-/* TERMINAL WINDOW (kept, no white box) */
+/* TERMINAL WINDOW (NO BOX) */
 .terminal-window {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  background: rgba(0,0,0,0.0) !important;
+  background: transparent !important;
   border: none !important;
   box-shadow: none !important;
 }
 
-/* HEADER (kept) */
+/* HEADER (NO BOX, JUST DOTS + TEXT) */
 .terminal-header {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 0;
+  padding: 4px 0;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .dot {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
 }
 .dot.red { background: #ff5f56; }
@@ -49,15 +55,16 @@ html, body {
 .terminal-title {
   color: #00cc33;
   font-size: 14px;
-  margin-left: 10px;
+  margin-left: 8px;
 }
 
-/* TERMINAL BODY */
+/* TERMINAL BODY (NO BOX) */
 .terminal-body {
   flex: 1;
   background: transparent !important;
   color: #00cc33;
   font-size: 16px;
+  line-height: 1.4;
   overflow-y: auto;
   white-space: pre-wrap;
 }
@@ -68,11 +75,14 @@ html, body {
   margin: 2px 0;
 }
 
-/* PROMPT LINE */
+/* PROMPT LINE (NO BOX) */
 .prompt-line {
   display: flex;
   align-items: center;
-  padding: 4px 0;
+  padding: 2px 0;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 /* PROMPT LABEL */
@@ -81,24 +91,26 @@ html, body {
   margin-right: 6px;
 }
 
-/* INPUT FIELD — THIS IS THE FIX */
+/* INPUT FIELD — NO RECTANGLE */
 #terminal-input {
   flex: 1;
-  background: transparent !important;   /* ← removes white box */
-  border: none !important;              /* ← removes border */
-  outline: none !important;             /* ← removes outline */
-  box-shadow: none !important;          /* ← removes glow */
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
   color: #00cc33 !important;
   font-family: inherit;
   font-size: 16px;
 }
 
-/* KILL CHROME AUTOFILL WHITE */
+/* Autofill kill */
 #terminal-input:-webkit-autofill,
 #terminal-input:-webkit-autofill:hover,
-#terminal-input:-webkit-autofill:focus {
+#terminal-input:-webkit-autofill:focus,
+#terminal-input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
   -webkit-text-fill-color: #00cc33 !important;
+  background: transparent !important;
 }
 
 /* CURSOR */
@@ -112,4 +124,13 @@ html, body {
 
 @keyframes blink {
   50% { opacity: 0; }
+}
+
+/* DIAGRAMS */
+.diagram {
+  color: #00cc33;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  white-space: pre;
+  margin: 10px 0;
 }
