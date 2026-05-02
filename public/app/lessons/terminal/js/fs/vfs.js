@@ -23,5 +23,14 @@ export const VFS = {
         const tx = this.db.transaction("files", "readonly");
         const req = tx.objectStore("files").get(path);
         req.onsuccess = () => callback(req.result?.content || "");
+    },
+
+    getAllFiles() {
+        return new Promise((resolve) => {
+            const tx = this.db.transaction("files", "readonly");
+            const store = tx.objectStore("files");
+            const req = store.getAll();
+            req.onsuccess = () => resolve(req.result || []);
+        });
     }
 };
