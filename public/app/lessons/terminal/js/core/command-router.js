@@ -3,10 +3,12 @@ export const CommandRouter = {
         const [cmd, ...args] = command.split(" ");
 
         // File system commands
-        if (window.FileOps[cmd]) return window.FileOps[cmd](args);
+        if (["ls", "cd", "new", "open", "delete", "rename", "tree"].includes(cmd)) {
+            return window.FileOps[cmd](args);
+        }
 
         // Help system
-        if (cmd === "-help") return window.HelpSystem.show();
+        if (cmd === "-help" || cmd === "help") return window.HelpSystem.show();
 
         // Lesson search
         if (cmd === "lesson") return window.LessonLoader.handle(args);
@@ -17,7 +19,12 @@ export const CommandRouter = {
         // Preview
         if (cmd === "preview") return window.PreviewEngine.load();
 
-        // Unknown
+        // Clear
+        if (cmd === "clear") {
+            document.getElementById("terminal-output").innerHTML = "";
+            return;
+        }
+
         window.TerminalCore.print("Unknown command. Type -help for assistance.");
     }
 };
