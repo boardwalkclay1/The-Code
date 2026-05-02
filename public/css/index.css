@@ -91,10 +91,10 @@ html, body {
   margin-right: 6px;
 }
 
-/* INPUT FIELD — NO RECTANGLE */
+/* INPUT FIELD — BLACK, NO RECTANGLE */
 #terminal-input {
   flex: 1;
-  background: transparent !important;
+  background: #000 !important;          /* ← black like the screen */
   border: none !important;
   outline: none !important;
   box-shadow: none !important;
@@ -103,14 +103,14 @@ html, body {
   font-size: 16px;
 }
 
-/* Autofill kill */
+/* Autofill kill — keep it black */
 #terminal-input:-webkit-autofill,
 #terminal-input:-webkit-autofill:hover,
 #terminal-input:-webkit-autofill:focus,
 #terminal-input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+  -webkit-box-shadow: 0 0 0px 1000px #000 inset !important;
   -webkit-text-fill-color: #00cc33 !important;
-  background: transparent !important;
+  background: #000 !important;
 }
 
 /* CURSOR */
