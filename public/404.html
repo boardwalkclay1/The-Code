@@ -18,8 +18,11 @@
   <!-- MATRIX RAIN -->
   <canvas id="matrix-canvas"></canvas>
 
+  <!-- GLYPH ASSEMBLY LAYER -->
+  <div id="matrix-assemble"></div>
+
   <!-- TERMINAL FAILURE WINDOW -->
-  <div id="terminal-shell">
+  <div id="terminal-shell" class="hidden">
     <div class="terminal-window">
 
       <div class="terminal-header">
@@ -33,7 +36,7 @@
 
       <div class="prompt-line">
         <span class="prompt-label">></span>
-        <input id="terminal-input" disabled />
+        <input id="terminal-input" autocomplete="off" />
         <span class="cursor"></span>
       </div>
 
