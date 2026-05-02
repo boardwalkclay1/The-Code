@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>THE CODE Workbench</title>
+    <link rel="stylesheet" href="../css/terminal.css">
+</head>
+
+<body>
+
+    <!-- TIPS MARQUEE -->
+    <div id="tips-bar">
+        <span id="tips-text">Loading tips...</span>
+    </div>
+
+    <div id="workbench">
+
+        <!-- FILE TREE -->
+        <div id="file-tree">
+            <h3>Files</h3>
+            <div id="tree-content"></div>
+        </div>
+
+        <!-- EDITOR + TERMINAL -->
+        <div id="center-panel">
+
+            <!-- EDITOR -->
+            <div id="editor-panel">
+                <div id="editor-header">Editor</div>
+                <textarea id="editor-area"></textarea>
+            </div>
+
+            <!-- TERMINAL -->
+            <div id="terminal-panel">
+                <div id="terminal-output"></div>
+                <input id="terminal-input" placeholder="Type a command...">
+            </div>
+
+        </div>
+
+        <!-- PREVIEW -->
+        <div id="preview-panel">
+            <iframe id="preview-frame"></iframe>
+        </div>
+
+    </div>
+
+    <script type="module" src="../js/master.js"></script>
+
+</body>
+</html>
