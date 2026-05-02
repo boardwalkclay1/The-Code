@@ -1,4 +1,4 @@
-/* FULLSCREEN TRANSPARENT TERMINAL */
+/* GLOBAL */
 html, body {
   margin: 0;
   padding: 0;
@@ -15,37 +15,54 @@ html, body {
   inset: 0;
   z-index: 2;
   padding: 20px;
-  background: transparent !important;
   box-sizing: border-box;
+  background: transparent !important;
 }
 
-/* REMOVE WHITE BOX COMPLETELY */
-.terminal-window,
-#terminal-shell,
-.terminal-body,
-.prompt-line,
-#terminal-input {
+/* TERMINAL WINDOW (NO BOX) */
+.terminal-window {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
 }
 
-/* KEEP HEADER, REMOVE ITS BOX */
+/* HEADER (NO BOX) */
 .terminal-header {
   display: flex;
   align-items: center;
   gap: 6px;
+  margin-bottom: 10px;
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
-  margin-bottom: 10px;
 }
 
-/* TERMINAL TEXT */
+/* DOTS (KEEP, NO BOX) */
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27c93f; }
+
+.terminal-title {
+  color: #00cc33;
+  font-size: 14px;
+}
+
+/* TERMINAL BODY */
 .terminal-body {
   flex: 1;
+  background: transparent !important;
   color: #00cc33;
   font-size: 16px;
+  line-height: 1.4;
   overflow-y: auto;
   white-space: pre-wrap;
 }
@@ -56,25 +73,39 @@ html, body {
   margin: 2px 0;
 }
 
-/* PROMPT */
+/* PROMPT LINE */
 .prompt-line {
   display: flex;
   align-items: center;
+  background: transparent !important;
+  padding: 0;
+  margin: 0;
 }
 
+/* PROMPT LABEL */
 .prompt-label {
   color: #00cc33;
   margin-right: 6px;
 }
 
-/* INPUT */
+/* INPUT FIELD — KILL WHITE RECTANGLE */
 #terminal-input {
   flex: 1;
+  background: transparent !important;  /* no white */
+  border: none !important;             /* no border */
+  outline: none !important;            /* no outline */
+  box-shadow: none !important;         /* no glow/box */
   color: #00cc33;
+  font-family: inherit;
   font-size: 16px;
-  border: none;
-  outline: none;
-  background: transparent;
+}
+
+/* Autofill kill (Chrome) */
+#terminal-input:-webkit-autofill,
+#terminal-input:-webkit-autofill:hover,
+#terminal-input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+  -webkit-text-fill-color: #00cc33 !important;
 }
 
 /* CURSOR */
@@ -82,9 +113,40 @@ html, body {
   width: 8px;
   height: 16px;
   background: #00cc33;
+  margin-left: 4px;
   animation: blink 1s step-start infinite;
 }
 
 @keyframes blink {
   50% { opacity: 0; }
+}
+
+/* STATIC FLASH */
+.static-flash {
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 255, 65, 0.2),
+    rgba(0, 255, 65, 0.2) 2px,
+    rgba(0, 0, 0, 0.9) 4px
+  );
+  mix-blend-mode: screen;
+  z-index: 9999;
+  pointer-events: none;
+  animation: staticPulse 0.5s ease-out forwards;
+}
+
+@keyframes staticPulse {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* DIAGRAM BLOCKS */
+.diagram {
+  color: #00cc33;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  white-space: pre;
+  margin: 10px 0;
 }
