@@ -5,7 +5,7 @@
   <title>THE CODE — Terminal Gateway</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- MATRIX + TERMINAL CSS -->
+  <!-- YOUR EXACT CSS PATHS -->
   <link rel="stylesheet" href="/css/index.css" />
   <link rel="stylesheet" href="/styles/matrix.css" />
   <link rel="stylesheet" href="/app/lessons/terminal/css/terminal.css" />
@@ -17,13 +17,13 @@
 
 <body>
 
-  <!-- MATRIX RAIN BACKGROUND (ALWAYS RUNNING) -->
+  <!-- MATRIX RAIN BACKGROUND -->
   <canvas id="matrix-canvas"></canvas>
 
-  <!-- MATRIX LOADING SCREEN (HIDDEN UNTIL JS SHOWS IT) -->
+  <!-- MATRIX LOADING SCREEN -->
   <div id="loading-screen" class="hidden"></div>
 
-  <!-- TERMINAL GATEWAY (FIRST THING USER SEES) -->
+  <!-- TERMINAL GATEWAY -->
   <div id="terminal-shell">
     <div class="terminal-window">
 
@@ -45,11 +45,11 @@
     </div>
   </div>
 
-  <!-- MATRIX RAIN SCRIPT -->
-  <script src="modules/matrix.js"></script>
-
-  <!-- MASTER LOGIC FOR GATEWAY + INDEX REVEAL + COMMANDS -->
+  <!-- LOAD TERMINAL LOGIC FIRST -->
   <script src="/app/lessons/terminal/js/terminal-landing.js"></script>
+
+  <!-- THEN LOAD MATRIX RAIN -->
+  <script src="modules/matrix.js"></script>
 
 </body>
 </html>
