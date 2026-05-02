@@ -27,7 +27,7 @@ const typeLine = (text, speed = 20) => {
   });
 };
 
-const printLine = text => {
+const printLine = (text = "") => {
   const line = document.createElement("div");
   line.className = "terminal-line";
   line.textContent = text;
@@ -82,7 +82,7 @@ const handleGatewayInput = async value => {
     flashStatic();
     await sleep(400);
 
-    loadingScreen.classList.remove("hidden");
+    showLoadingScreen();
     await sleep(1500);
 
     outEl.innerHTML = "";
@@ -100,8 +100,19 @@ const handleGatewayInput = async value => {
   await typeLine("invalid response. type y or n.");
 };
 
-const showIndexTerminal = async () => {
+const showLoadingScreen = () => {
+  if (!loadingScreen) return;
+  loadingScreen.classList.remove("hidden");
+  loadingScreen.classList.add("active");
+};
+
+const hideLoadingScreen = () => {
+  if (!loadingScreen) return;
   loadingScreen.classList.add("hidden");
+};
+
+const showIndexTerminal = async () => {
+  hideLoadingScreen();
 
   await typeLine("WELCOME TO THE CODE TERMINAL");
   await typeLine("--------------------------------");
@@ -125,8 +136,11 @@ inputEl.addEventListener("keydown", async e => {
     const value = inputEl.value;
     inputEl.value = "";
 
-    if (!gatewayPassed) return handleGatewayInput(value);
-    return respond(value);
+    if (!gatewayPassed) {
+      await handleGatewayInput(value);
+    } else {
+      await respond(value);
+    }
   }
 });
 
