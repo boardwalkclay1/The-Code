@@ -1,0 +1,119 @@
+/* GLOBAL */
+body {
+    margin: 0;
+    background: #0d0d0d;
+    color: #e0e0e0;
+    font-family: Consolas, monospace;
+    overflow: hidden;
+}
+
+/* TIPS BAR */
+#tips-bar {
+    width: 100%;
+    height: 35px;
+    background: #111;
+    border-bottom: 1px solid #222;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    color: #00ffcc;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#tips-text {
+    animation: scroll-left 20s linear infinite;
+}
+
+@keyframes scroll-left {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+}
+
+/* WORKBENCH LAYOUT */
+#workbench {
+    display: grid;
+    grid-template-columns: 220px 1fr 40%;
+    height: calc(100vh - 35px);
+}
+
+/* FILE TREE */
+#file-tree {
+    background: #111;
+    border-right: 1px solid #222;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+#file-tree h3 {
+    margin-top: 0;
+    color: #00ffcc;
+}
+
+/* CENTER PANEL */
+#center-panel {
+    display: grid;
+    grid-template-rows: 60% 40%;
+    border-right: 1px solid #222;
+}
+
+/* EDITOR */
+#editor-panel {
+    background: #0f0f0f;
+    border-bottom: 1px solid #222;
+    display: flex;
+    flex-direction: column;
+}
+
+#editor-header {
+    background: #111;
+    padding: 8px;
+    color: #00ffcc;
+    border-bottom: 1px solid #222;
+}
+
+#editor-area {
+    flex: 1;
+    background: #0d0d0d;
+    color: #e0e0e0;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    resize: none;
+}
+
+/* TERMINAL */
+#terminal-panel {
+    background: #000;
+    display: flex;
+    flex-direction: column;
+}
+
+#terminal-output {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    color: #00ffcc;
+}
+
+#terminal-input {
+    padding: 10px;
+    border: none;
+    outline: none;
+    background: #111;
+    color: #00ffcc;
+    font-size: 14px;
+}
+
+/* PREVIEW */
+#preview-panel {
+    background: #fff;
+    border-left: 1px solid #222;
+}
+
+#preview-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
