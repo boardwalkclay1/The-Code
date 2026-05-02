@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>ACCESS DENIED — MATRIX FAILURE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- MATRIX + TERMINAL CSS -->
+  <link rel="stylesheet" href="css/matrix.css" />
+  <link rel="stylesheet" href="css/terminal.css" />
+  <link rel="stylesheet" href="css/loading.css" />
+
+  <meta name="theme-color" content="#001a00" />
+</head>
+
+<body>
+
+  <!-- MATRIX RAIN -->
+  <canvas id="matrix-canvas"></canvas>
+
+  <!-- TERMINAL FAILURE WINDOW -->
+  <div id="terminal-shell">
+    <div class="terminal-window">
+
+      <div class="terminal-header">
+        <div class="dot red"></div>
+        <div class="dot yellow"></div>
+        <div class="dot green"></div>
+        <div class="terminal-title">SYSTEM FAILURE / ACCESS DENIED</div>
+      </div>
+
+      <div class="terminal-body" id="terminal-output"></div>
+
+      <div class="prompt-line">
+        <span class="prompt-label">></span>
+        <input id="terminal-input" disabled />
+        <span class="cursor"></span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MATRIX RAIN SCRIPT -->
+  <script src="modules/matrix.js"></script>
+
+  <!-- MASTER LOGIC FOR 404 -->
+  <script src="js/terminal-404.js"></script>
+
+</body>
+</html>
