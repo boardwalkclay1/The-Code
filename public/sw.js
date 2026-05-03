@@ -1,33 +1,14 @@
-// sw.js — THE CODE (FINAL VERSION)
-// • Clean, safe, no missing-file crashes
-// • Only caches files that actually exist
-// • Fully synced with Terminal Landing + Terminal 1
-// • Pure Matrix PWA behavior
+// sw.js — THE CODE (STABLE VERSION)
+// • No missing-file crashes
+// • Minimal guaranteed-OK precache
+// • Runtime caching for everything else
 
-const CACHE = "thecode-v2";
+const CACHE = "thecode-v3";
 
-// ONLY CACHE FILES THAT **EXIST** IN YOUR NEW STRUCTURE
 const PRECACHE = [
   "/",
   "/index.html",
-
-  // GLOBAL CSS
   "/css/index.css",
-
-  // TERMINAL LANDING
-  "/app/lessons/terminal/js/terminal-landing.js",
-
-  // TERMINAL 1 (PREVIEW TERMINAL)
-  "/app/lessons/terminal/js/terminal-master.js",
-  "/app/lessons/terminal/js/command.js",
-
-  // MATRIX ENGINE
-  "/modules/matrix.js",
-
-  // BRANDING
-  "/assets/img/code-index.png",
-
-  // PWA
   "/manifest.json"
 ];
 
@@ -69,7 +50,7 @@ self.addEventListener("fetch", event => {
     return;
   }
 
-  // Cache-first for static assets
+  // Cache-first for everything else
   event.respondWith(
     caches.match(req).then(cached => {
       if (cached) return cached;
