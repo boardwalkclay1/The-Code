@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terminal 2</title>
+
+<style>
+html,body{
+    margin:0;
+    padding:0;
+    background:#000;
+    color:#00cc33;
+    font-family: "Courier New", monospace;
+    height:100%;
+    overflow:hidden;
+}
+:root{
+    --t2-fg:#00cc33;
+    --t2-glow:0 0 6px #00cc33;
+}
+#t2-matrix{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:1;
+}
+#t2-lights{
+    position:fixed;
+    top:20px;
+    left:20px;
+    display:flex;
+    gap:10px;
+    z-index:3;
+}
+.t2-light{
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background:#003300;
+    box-shadow:0 0 4px #003300;
+}
+.t2-light.on{
+    background:var(--t2-fg);
+    box-shadow:0 0 10px var(--t2-fg);
+}
+#t2-screen{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:4;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    padding:40px;
+    box-sizing:border-box;
+}
+#t2-output{
+    flex:1;
+    overflow-y:auto;
+    white-space:pre-wrap;
+    font-size:16px;
+    text-shadow:var(--t2-glow);
+}
+#t2-inputbar{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:16px;
+}
+#t2-prompt{
+    text-shadow:var(--t2-glow);
+}
+#t2-input{
+    flex:1;
+    background:transparent;
+    border:none;
+    outline:none;
+    color:var(--t2-fg);
+    font-family:"Courier New", monospace;
+    font-size:16px;
+    text-shadow:var(--t2-glow);
+}
+#t2-menu{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:5;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    background:rgba(0,0,0,0.85);
+    opacity:0;
+    pointer-events:none;
+    transition:0.4s ease;
+}
+#t2-menu.active{
+    opacity:1;
+    pointer-events:auto;
+}
+.t2-menu-title{
+    font-size:22px;
+    text-shadow:var(--t2-glow);
+}
+.t2-menu-category{
+    font-size:20px;
+    cursor:pointer;
+    text-shadow:var(--t2-glow);
+}
+.t2-menu-list{
+    display:none;
+    flex-direction:column;
+    gap:10px;
+    margin-top:10px;
+}
+.t2-menu-list.open{
+    display:flex;
+}
+.t2-menu-item{
+    background:transparent;
+    border:none;
+    color:var(--t2-fg);
+    font-family:"Courier New", monospace;
+    font-size:16px;
+    cursor:pointer;
+    text-shadow:var(--t2-glow);
+}
+#t2-module{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:6;
+    background:rgba(0,0,0,0.92);
+    display:none;
+    flex-direction:column;
+    padding:40px;
+    box-sizing:border-box;
+}
+#t2-module-title{
+    font-size:22px;
+    margin-bottom:20px;
+    text-shadow:var(--t2-glow);
+}
+#t2-module-body{
+    flex:1;
+    overflow-y:auto;
+    white-space:pre-wrap;
+    font-size:16px;
+    text-shadow:var(--t2-glow);
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="t2-matrix"></canvas>
+
+<div id="t2-lights">
+    <div id="t2-light-red" class="t2-light"></div>
+    <div id="t2-light-yellow" class="t2-light"></div>
+    <div id="t2-light-green" class="t2-light"></div>
+</div>
+
+<div id="t2-screen">
+    <div id="t2-output"></div>
+    <div id="t2-inputbar">
+        <div id="t2-prompt">$</div>
+        <input id="t2-input" autocomplete="off">
+    </div>
+</div>
+
+<div id="t2-menu"></div>
+
+<div id="t2-module">
+    <div id="t2-module-title"></div>
+    <div id="t2-module-body"></div>
+</div>
+
+<script src="terminal2.js"></script>
+
+</body>
+</html>
