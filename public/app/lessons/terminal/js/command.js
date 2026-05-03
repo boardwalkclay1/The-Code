@@ -1,5 +1,7 @@
 // public/app/lessons/terminal/js/command.js
 
+import { Diagrams } from "./diagrams.js";
+
 export const CommandEngine = {
   commands: {},
   loaded: false,
@@ -28,7 +30,7 @@ export const CommandEngine = {
     const cmd = raw.trim().toLowerCase();
     if (!cmd) return false;
 
-    // HELP
+    // HELP (dynamic from commands.txt)
     if (cmd === "help" || cmd === "-help") {
       return this.showHelp();
     }
@@ -50,7 +52,7 @@ export const CommandEngine = {
     // FULL SYSTEM ACCESS
     if (cmd === "code unlock") return this.showCodeUnlock();
 
-    // EXPLAIN COMMANDS
+    // EXPLAIN COMMANDS (long-form + diagrams)
     if (cmd.endsWith(" explain")) {
       const base = cmd.replace(" explain", "").trim();
       return this.showExplain(base);
@@ -68,8 +70,11 @@ export const CommandEngine = {
     // FLASH PAYWALL
     if (cmd === "flash-run") return this.showFlashPaywall();
 
-    // GAMES EXPLAIN (system-level)
-    if (cmd === "games explain") return this.showGamesExplain();
+    // FALLBACK: if command exists in commands.txt, show its definition
+    if (this.commands[cmd]) {
+      await typeLine(`${cmd} :: ${this.commands[cmd]}`);
+      return true;
+    }
 
     return false;
   },
@@ -81,25 +86,14 @@ export const CommandEngine = {
     await typeLine("--------------------------------");
     await typeLine("type a command to explore it:");
     await typeLine("");
-    await typeLine("courses, list courses");
-    await typeLine("games, list games, games explain");
-    await typeLine("flash, list flash, flash-run");
-    await typeLine("pricing, list bundles, system");
-    await typeLine("code unlock");
+
+    const keys = Object.keys(this.commands).sort();
+    for (const key of keys) {
+      await typeLine(`  ${key} :: ${this.commands[key]}`);
+    }
+
     await typeLine("");
-    await typeLine("courses (with explain):");
-    await typeLine("  web, web explain");
-    await typeLine("  apps, apps explain");
-    await typeLine("  mcu, mcu explain");
-    await typeLine("  hacking, hacking explain");
-    await typeLine("  automation, automation explain");
-    await typeLine("  github, github explain");
-    await typeLine("  bash, bash explain");
-    await typeLine("  widgets, widgets explain");
-    await typeLine("  tools, tools explain");
-    await typeLine("");
-    await typeLine("utility:");
-    await typeLine("  control c  // exit current screen");
+    await typeLine("tip: use '<command> explain' for full breakdowns.");
   },
 
   async showCourses() {
@@ -312,7 +306,7 @@ export const CommandEngine = {
     await typeLine("to understand flash learning, type: 'flash explain'");
   },
 
-  // EXPLAINERS
+  // EXPLAINERS (LONG FORM + DIAGRAMS)
 
   async showExplain(cmd) {
     const text = this.getExplainText(cmd);
@@ -320,7 +314,20 @@ export const CommandEngine = {
       await typeLine("no explanation found for: " + cmd);
       return;
     }
-    await typeLine(text);
+    const lines = text.trim().split("\n");
+    for (const line of lines) {
+      await typeLine(line);
+    }
+
+    // attach diagram if available
+    const diagram = Diagrams[cmd];
+    if (diagram) {
+      await typeLine("");
+      const dLines = diagram.trim().split("\n");
+      for (const line of dLines) {
+        await typeLine(line);
+      }
+    }
   },
 
   getExplainText(cmd) {
