@@ -1,27 +1,34 @@
-/* GLOBAL */
+/* ============================================================
+   GLOBAL
+   ============================================================ */
 html, body {
   margin: 0;
   padding: 0;
   background: #000;
-  color: #00cc33;
+  color: #00ff55;
   font-family: "Courier New", monospace;
   height: 100%;
   overflow: hidden;
+  letter-spacing: 0.3px;
 }
 
-/* TERMINAL SHELL */
+/* ============================================================
+   TERMINAL SHELL
+   ============================================================ */
 #terminal-shell {
   position: fixed;
   inset: 0;
-  z-index: 2;
+  z-index: 3;
   padding: 20px;
   box-sizing: border-box;
   background: transparent !important;
   border: none !important;
-  box-shadow: none !important;
+  pointer-events: auto;
 }
 
-/* TERMINAL WINDOW */
+/* ============================================================
+   TERMINAL WINDOW
+   ============================================================ */
 .terminal-window {
   width: 100%;
   height: 100%;
@@ -29,81 +36,100 @@ html, body {
   flex-direction: column;
   background: transparent !important;
   border: none !important;
-  box-shadow: none !important;
 }
 
-/* HEADER */
+/* ============================================================
+   HEADER (DOTS + TITLE)
+   ============================================================ */
 .terminal-header {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 0;
+  padding: 6px 0 10px 0;
   background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
 }
 
 .dot {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
+  box-shadow: 0 0 6px currentColor;
 }
-.dot.red { background: #ff5f56; }
-.dot.yellow { background: #ffbd2e; }
-.dot.green { background: #27c93f; }
+
+.dot.red { background: #ff5f56; color: #ff5f56; }
+.dot.yellow { background: #ffbd2e; color: #ffbd2e; }
+.dot.green { background: #27c93f; color: #27c93f; }
 
 .terminal-title {
-  color: #00cc33;
-  font-size: 14px;
-  margin-left: 8px;
+  color: #00ff55;
+  font-size: 15px;
+  margin-left: 10px;
+  text-shadow: 0 0 6px #00ff55;
 }
 
-/* TERMINAL BODY */
+/* ============================================================
+   TERMINAL BODY
+   ============================================================ */
 .terminal-body {
   flex: 1;
   background: transparent !important;
-  color: #00cc33;
-  font-size: 16px;
-  line-height: 1.4;
+  color: #00ff55;
+  font-size: 17px;
+  line-height: 1.45;
   overflow-y: auto;
   white-space: pre-wrap;
+  padding-right: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #00ff55 #000;
 }
 
-/* TERMINAL LINES */
+.terminal-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+  background: #00ff55;
+  box-shadow: 0 0 6px #00ff55;
+}
+
 .terminal-line {
-  color: #00cc33;
-  margin: 2px 0;
+  color: #00ff55;
+  margin: 3px 0;
+  text-shadow: 0 0 4px #00ff55;
 }
 
-/* PROMPT LINE */
+/* ============================================================
+   PROMPT LINE
+   ============================================================ */
 .prompt-line {
   display: flex;
   align-items: center;
-  padding: 2px 0;
+  padding: 4px 0;
   background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
 }
 
-/* PROMPT LABEL */
 .prompt-label {
-  color: #00cc33;
+  color: #00ff55;
   margin-right: 6px;
+  text-shadow: 0 0 4px #00ff55;
 }
 
-/* INPUT FIELD — BLACK, NO RECTANGLE */
+/* ============================================================
+   INPUT FIELD — PURE BLACK, NO BOX
+   ============================================================ */
 #terminal-input {
   flex: 1;
-  background: #000 !important;     /* ← REQUIRED to kill the white box */
+  background: #000 !important;
   border: none !important;
   outline: none !important;
   box-shadow: none !important;
-  color: #00cc33 !important;
+  color: #00ff55 !important;
   font-family: inherit;
-  font-size: 16px;
-  padding: 0;                      /* ← removes invisible padding box */
-  margin: 0;                       /* ← removes invisible margin box */
-  appearance: none;                /* ← kills browser default styling */
+  font-size: 17px;
+  padding: 0;
+  margin: 0;
+  appearance: none;
+  caret-color: #00ff55;
 }
 
 /* Autofill kill */
@@ -112,28 +138,65 @@ html, body {
 #terminal-input:-webkit-autofill:focus,
 #terminal-input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0px 1000px #000 inset !important;
-  -webkit-text-fill-color: #00cc33 !important;
+  -webkit-text-fill-color: #00ff55 !important;
   background: #000 !important;
 }
 
-/* CURSOR */
+/* ============================================================
+   CURSOR
+   ============================================================ */
 .cursor {
-  width: 8px;
-  height: 16px;
-  background: #00cc33;
+  width: 10px;
+  height: 18px;
+  background: #00ff55;
   margin-left: 4px;
-  animation: blink 1s step-start infinite;
+  animation: blink 0.8s step-start infinite;
+  box-shadow: 0 0 6px #00ff55;
 }
 
 @keyframes blink {
   50% { opacity: 0; }
 }
 
-/* DIAGRAMS */
+/* ============================================================
+   DIAGRAMS
+   ============================================================ */
 .diagram {
-  color: #00cc33;
+  color: #00ff55;
   font-family: "Courier New", monospace;
-  font-size: 14px;
+  font-size: 15px;
   white-space: pre;
-  margin: 10px 0;
+  margin: 12px 0;
+  text-shadow: 0 0 4px #00ff55;
+}
+
+/* ============================================================
+   MATRIX CANVAS
+   ============================================================ */
+#matrix-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background: #000;
+}
+
+/* ============================================================
+   LOADING SCREEN
+   ============================================================ */
+#loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 4;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+#loading-screen.active {
+  opacity: 1;
+}
+
+.hidden {
+  display: none;
 }
