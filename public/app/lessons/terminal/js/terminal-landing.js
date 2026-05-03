@@ -44,7 +44,8 @@ const printLine = text => {
 
 const loadCommandsTxt = async () => {
   try {
-    const res = await fetch("../txt/commands.txt");
+    // FIXED PATH — Cloudflare requires absolute paths
+    const res = await fetch("/app/lessons/terminal/txt/commands.txt");
     const text = await res.text();
     const lines = text.split("\n");
 
