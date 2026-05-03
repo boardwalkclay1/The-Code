@@ -1,0 +1,49 @@
+apps :: shows price and paywall link for the apps course
+apps explain :: explains the apps course in full detail
+
+automation :: shows price and paywall link for the automation course
+automation explain :: explains automation in full detail
+
+bash :: shows price and paywall link for the bash bonus course
+bash explain :: explains bash in full detail
+
+code unlock :: unlocks full system access
+control c :: exits the current screen
+
+courses :: lists all available courses
+
+flash :: lists all flash‑learning sequences
+flash explain :: explains flash‑learning in full detail
+flash-run :: shows price and access info for flash learning
+
+games :: lists all available games
+games explain :: explains the game system in full detail
+
+github :: shows price and paywall link for the github bonus course
+github explain :: explains github in full detail
+
+hacking :: shows price and paywall link for the hacking course
+hacking explain :: explains hacking in full detail
+
+help :: shows the help menu
+
+list bundles :: lists all bundle deals and rules
+list courses :: lists all courses alphabetically
+list flash :: lists all flash‑learning sequences alphabetically
+list games :: lists all games alphabetically
+
+mcu :: shows price and paywall link for the mcu course
+mcu explain :: explains mcu in full detail
+
+pricing :: shows pricing info
+
+system :: shows system overview
+
+tools :: shows price and paywall link for the tools course
+tools explain :: explains the tools course in full detail
+
+web :: shows price and paywall link for the web course
+web explain :: explains web in full detail
+
+widgets :: shows price and paywall link for the widgets course
+widgets explain :: explains the widgets course in full detail
