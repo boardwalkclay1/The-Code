@@ -36,7 +36,67 @@ window.LessonSearch = LessonSearch;
 window.Editor = Editor;
 
 
+// ============================================================
+// TERMINAL 1 → TERMINAL 2 SYNC
+// ============================================================
+
+function flickerScreen() {
+    const el = document.body;
+    el.style.transition = "none";
+    el.style.opacity = "0.2";
+    setTimeout(() => {
+        el.style.opacity = "1";
+        setTimeout(() => {
+            el.style.opacity = "0.4";
+            setTimeout(() => {
+                el.style.opacity = "1";
+                el.style.transition = "";
+            }, 120);
+        }, 120);
+    }, 120);
+}
+
+async function runUnlockSequence() {
+    TerminalCore.print("");
+    TerminalCore.print("initializing unlock sequence...");
+    flickerScreen();
+    await new Promise(r => setTimeout(r, 300));
+
+    TerminalCore.print("verifying access...");
+    await new Promise(r => setTimeout(r, 300));
+
+    TerminalCore.print("activating gateway...");
+    flickerScreen();
+    await new Promise(r => setTimeout(r, 300));
+
+    TerminalCore.print("");
+    TerminalCore.print("redirecting to terminal 2...");
+    await new Promise(r => setTimeout(r, 500));
+
+    window.location.href = "./terminal2/terminal2.html";
+}
+
+
+// ============================================================
+// EXTEND TERMINAL 1 COMMANDS
+// ============================================================
+
+CommandRouter.register("code", async args => {
+    const sub = args.trim().toLowerCase();
+
+    if (sub === "unlock") {
+        await runUnlockSequence();
+        return;
+    }
+
+    TerminalCore.print("unknown code command.");
+});
+
+
+// ============================================================
 // INITIALIZE EVERYTHING
+// ============================================================
+
 window.addEventListener("DOMContentLoaded", () => {
 
     // 1. Virtual File System
@@ -57,7 +117,7 @@ window.addEventListener("DOMContentLoaded", () => {
         TerminalCore.print("File system ready.");
     }, 300);
 
-    // 5. Tips Engine (placeholder until lessons load tips)
+    // 5. Tips Engine
     TipsEngine.load([
         "HTML is the skeleton. CSS is the style. JS is the brain.",
         "A clean project creates a clean mind.",
@@ -67,4 +127,5 @@ window.addEventListener("DOMContentLoaded", () => {
     ]);
 
     TerminalCore.print("Workbench initialized.");
+    TerminalCore.print("type: code unlock");
 });
