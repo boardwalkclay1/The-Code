@@ -1,8 +1,8 @@
 /* ============================================================
-   THE CODE — TERMINAL LANDING (FINAL VERSION)
+   THE CODE — TERMINAL LANDING (STANDALONE VERSION)
    ============================================================ */
 
-import "./terminal-master.js"; // exposes window.CommandEngine + window.Diagrams
+// NO IMPORTS — this file now runs independently
 
 const outEl = document.getElementById("terminal-output");
 const inputEl = document.getElementById("terminal-input");
@@ -102,13 +102,11 @@ const handleGatewayInput = async value => {
    ============================================================ */
 
 const showLoadingScreen = () => {
-  if (!loadingScreen) return;
   loadingScreen.classList.remove("hidden");
   loadingScreen.classList.add("active");
 };
 
 const hideLoadingScreen = () => {
-  if (!loadingScreen) return;
   loadingScreen.classList.add("hidden");
 };
 
@@ -130,7 +128,7 @@ const showIndexTerminal = async () => {
 };
 
 /* ============================================================
-   COMMAND ROUTER
+   COMMAND ROUTER (STANDALONE)
    ============================================================ */
 
 const respond = async value => {
@@ -140,40 +138,14 @@ const respond = async value => {
   printLine("$ " + value);
   await sleep(60);
 
-  if (!window.CommandEngine) {
-    await typeLine("system not ready. reload and try again.");
+  // Minimal standalone behavior
+  if (cmd === "-help" || cmd === "help") {
+    await typeLine("this is the preview terminal.");
+    await typeLine("full command set unlocks after enrollment.");
     return;
   }
 
-  // EXPLAIN HANDLER
-  if (cmd.endsWith(" explain")) {
-    const base = cmd.replace(" explain", "").trim();
-    const explanation = await window.CommandEngine.getExplainText(base);
-
-    if (explanation) {
-      const lines = explanation.trim().split("\n");
-      for (const line of lines) {
-        await typeLine(line);
-      }
-
-      if (window.Diagrams && window.Diagrams[base]) {
-        await typeLine("");
-        const dLines = window.Diagrams[base].trim().split("\n");
-        for (const line of dLines) {
-          await typeLine(line);
-        }
-      }
-    } else {
-      await typeLine("no explanation found for: " + base);
-    }
-    return;
-  }
-
-  // ROUTE THROUGH COMMAND ENGINE
-  const handled = await window.CommandEngine.run(cmd);
-  if (handled !== false) return;
-
-  await typeLine("unknown command. type -help for options.");
+  await typeLine("command unavailable in preview mode.");
 };
 
 /* ============================================================
