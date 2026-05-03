@@ -1,6 +1,8 @@
 /* ============================================================
-   THE CODE — LANDING TERMINAL (PREVIEW MODE) — FINAL VERSION
+   THE CODE — TERMINAL LANDING (FINAL VERSION)
    ============================================================ */
+
+import "./terminal-master.js"; // REQUIRED to load CommandEngine + typeLine globally
 
 const outEl = document.getElementById("terminal-output");
 const inputEl = document.getElementById("terminal-input");
@@ -9,29 +11,25 @@ const loadingScreen = document.getElementById("loading-screen");
 
 let gatewayPassed = false;
 
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-const typeLine = (text, speed = 12) => {
-  return new Promise(resolve => {
-    const line = document.createElement("div");
-    line.className = "terminal-line";
-    outEl.appendChild(line);
+const typeLine = async (text, speed = 12) => {
+  const line = document.createElement("div");
+  line.className = "terminal-line";
+  outEl.appendChild(line);
 
-    let i = 0;
-    const interval = setInterval(() => {
-      line.textContent = text.slice(0, i);
-      i++;
-      outEl.scrollTop = outEl.scrollHeight;
-
-      if (i > text.length) {
-        clearInterval(interval);
-        resolve();
-      }
-    }, speed);
-  });
+  for (let i = 0; i <= text.length; i++) {
+    line.textContent = text.slice(0, i);
+    outEl.scrollTop = outEl.scrollHeight;
+    await sleep(speed);
+  }
 };
 
-const printLine = (text = "") => {
+const printLine = text => {
   const line = document.createElement("div");
   line.className = "terminal-line";
   line.textContent = text;
@@ -43,14 +41,8 @@ const flashStatic = () => {
   const div = document.createElement("div");
   div.className = "static-flash";
   document.body.appendChild(div);
-  setTimeout(() => div.remove(), 500);
+  setTimeout(() => div.remove(), 350);
 };
-
-/* ============================================================
-   COMMAND ENGINE (EXTERNAL)
-   ============================================================ */
-
-import { CommandEngine } from "./js/command.js";
 
 /* ============================================================
    GATEWAY SEQUENCE
@@ -60,11 +52,11 @@ const gatewaySequence = async () => {
   inputEl.disabled = true;
 
   await typeLine("booting exit node...");
-  await sleep(200);
+  await sleep(150);
   await typeLine("linking to THE CODE...");
-  await sleep(200);
+  await sleep(150);
   await typeLine("you are leaving the matrix.");
-  await sleep(200);
+  await sleep(150);
   await typeLine("proceed? (y/n)");
 
   inputEl.disabled = false;
@@ -73,23 +65,22 @@ const gatewaySequence = async () => {
 
 const handleGatewayInput = async value => {
   const v = value.trim().toLowerCase();
-
   printLine("> " + value);
 
   if (v === "y" || v === "yes") {
     gatewayPassed = true;
 
-    await sleep(200);
+    await sleep(150);
     await typeLine("establishing secure link...");
-    await sleep(200);
+    await sleep(150);
     await typeLine("dropping matrix overlay...");
-    await sleep(200);
+    await sleep(150);
 
     flashStatic();
     await sleep(300);
 
     showLoadingScreen();
-    await sleep(1200);
+    await sleep(1000);
 
     outEl.innerHTML = "";
     await showIndexTerminal();
@@ -98,7 +89,7 @@ const handleGatewayInput = async value => {
 
   if (v === "n" || v === "no") {
     await typeLine("exit aborted. returning to matrix...");
-    await sleep(400);
+    await sleep(300);
     window.location.href = "/404.html";
     return;
   }
@@ -107,38 +98,37 @@ const handleGatewayInput = async value => {
 };
 
 /* ============================================================
-   LOADING + INDEX
+   LOADING SCREEN
    ============================================================ */
 
 const showLoadingScreen = () => {
-  if (!loadingScreen) return;
   loadingScreen.classList.remove("hidden");
   loadingScreen.classList.add("active");
 };
 
 const hideLoadingScreen = () => {
-  if (!loadingScreen) return;
   loadingScreen.classList.add("hidden");
 };
+
+/* ============================================================
+   PREVIEW TERMINAL INTRO (CINEMATIC)
+   ============================================================ */
 
 const showIndexTerminal = async () => {
   hideLoadingScreen();
 
-  await typeLine("WELCOME TO THE CODE TERMINAL (PREVIEW MODE)");
-  await typeLine("--------------------------------------------");
-  await typeLine("you are not in the full system yet.");
-  await typeLine("this is the preview terminal.");
-  await typeLine("after enrollment, you unlock the full command set.");
-  printLine("");
-
-  await typeLine("type -help for command descriptions.");
+  await typeLine("WELCOME TO THE CODE");
+  await typeLine("-------------------");
+  await typeLine("preview terminal loaded.");
+  await typeLine("full system access locked.");
   await typeLine("");
-  await typeLine("what do you want to explore?");
+  await typeLine("type -help to begin.");
+
   promptLabel.textContent = "$";
 };
 
 /* ============================================================
-   COMMAND ROUTER (FINAL)
+   COMMAND ROUTER
    ============================================================ */
 
 const respond = async value => {
@@ -146,15 +136,25 @@ const respond = async value => {
   if (!cmd) return;
 
   printLine("$ " + value);
-  await sleep(80);
+  await sleep(60);
 
-  // EXPLAIN COMMANDS
+  // EXPLAIN HANDLER (terminal-master handles full logic)
   if (cmd.endsWith(" explain")) {
     const base = cmd.replace(" explain", "").trim();
-    const explanation = await CommandEngine.getExplainText(base);
+    const explanation = await window.CommandEngine.getExplainText(base);
 
     if (explanation) {
-      await typeLine(explanation);
+      const lines = explanation.trim().split("\n");
+      for (const line of lines) {
+        await typeLine(line);
+      }
+
+      // DIAGRAM SUPPORT
+      if (window.Diagrams && window.Diagrams[base]) {
+        await typeLine("");
+        const d = window.Diagrams[base].trim().split("\n");
+        for (const line of d) await typeLine(line);
+      }
     } else {
       await typeLine("no explanation found for: " + base);
     }
@@ -162,7 +162,7 @@ const respond = async value => {
   }
 
   // ROUTE THROUGH COMMAND ENGINE
-  const handled = await CommandEngine.run(cmd);
+  const handled = await window.CommandEngine.run(cmd);
   if (handled !== false) return;
 
   await typeLine("unknown command. type -help for options.");
