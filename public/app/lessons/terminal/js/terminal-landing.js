@@ -1,5 +1,5 @@
 /* ============================================================
-   THE CODE — LANDING TERMINAL (PREVIEW MODE) UPGRADED
+   THE CODE — LANDING TERMINAL (PREVIEW MODE) — FINAL VERSION
    ============================================================ */
 
 const outEl = document.getElementById("terminal-output");
@@ -11,7 +11,7 @@ let gatewayPassed = false;
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-const typeLine = (text, speed = 12) => {   // FASTER TYPING
+const typeLine = (text, speed = 12) => {
   return new Promise(resolve => {
     const line = document.createElement("div");
     line.className = "terminal-line";
@@ -35,14 +35,6 @@ const printLine = (text = "") => {
   const line = document.createElement("div");
   line.className = "terminal-line";
   line.textContent = text;
-  outEl.appendChild(line);
-  outEl.scrollTop = outEl.scrollHeight;
-};
-
-const printBlock = html => {
-  const line = document.createElement("div");
-  line.className = "terminal-line";
-  line.innerHTML = html;
   outEl.appendChild(line);
   outEl.scrollTop = outEl.scrollHeight;
 };
@@ -146,7 +138,7 @@ const showIndexTerminal = async () => {
 };
 
 /* ============================================================
-   COMMAND ROUTER (UPGRADED)
+   COMMAND ROUTER (FINAL)
    ============================================================ */
 
 const respond = async value => {
@@ -154,39 +146,14 @@ const respond = async value => {
   if (!cmd) return;
 
   printLine("$ " + value);
-  await sleep(100);
+  await sleep(80);
 
-  // NEW: list courses
-  if (cmd === "list courses") {
-    await typeLine("available courses:");
-    await typeLine("  web");
-    await typeLine("  apps");
-    await typeLine("  mcu");
-    await typeLine("  hacking");
-    await typeLine("  automation");
-    await typeLine("  github");
-    await typeLine("  bash");
-    return;
-  }
-
-  // NEW: list games
-  if (cmd === "list games") {
-    await typeLine("available games:");
-    await typeLine("  bugfix");
-    await typeLine("  navigator");
-    await typeLine("  logic");
-    await typeLine("  hack-sim");
-    await typeLine("  flash-run");
-    return;
-  }
-
-  // NEW: explain command
+  // EXPLAIN COMMANDS
   if (cmd.endsWith(" explain")) {
     const base = cmd.replace(" explain", "").trim();
-    const explanation = await CommandEngine.explain(base);
+    const explanation = await CommandEngine.getExplainText(base);
 
     if (explanation) {
-      await typeLine(`[${base.toUpperCase()} — EXPLAINED]`);
       await typeLine(explanation);
     } else {
       await typeLine("no explanation found for: " + base);
@@ -194,9 +161,9 @@ const respond = async value => {
     return;
   }
 
-  // NEW: command engine lookup
+  // ROUTE THROUGH COMMAND ENGINE
   const handled = await CommandEngine.run(cmd);
-  if (handled) return;
+  if (handled !== false) return;
 
   await typeLine("unknown command. type -help for options.");
 };
