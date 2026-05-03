@@ -2,38 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>THE CODE — Terminal Gateway</title>
+  <title>THE CODE — Terminal Landing</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- MAIN CSS -->
   <link rel="stylesheet" href="css/index.css" />
+
   <meta name="theme-color" content="#000000" />
 </head>
 
 <body>
 
-  <!-- MATRIX RAIN BACKGROUND -->
+  <!-- MATRIX BACKDROP -->
   <canvas id="matrix-canvas"></canvas>
 
-  <!-- MATRIX LOADING SCREEN -->
+  <!-- LOADING SCREEN -->
   <div id="loading-screen" class="hidden"></div>
 
-  <!-- TERMINAL GATEWAY -->
+  <!-- TERMINAL SHELL -->
   <div id="terminal-shell">
     <div class="terminal-window">
 
+      <!-- HEADER WITH DOTS -->
       <div class="terminal-header">
         <div class="dot red"></div>
         <div class="dot yellow"></div>
         <div class="dot green"></div>
-        <div class="terminal-title">THE CODE / MATRIX EXIT TERMINAL</div>
+        <div class="terminal-title">THE CODE / TERMINAL LANDING</div>
       </div>
 
+      <!-- TERMINAL OUTPUT -->
       <div class="terminal-body" id="terminal-output"></div>
 
+      <!-- INPUT LINE -->
       <div class="prompt-line">
         <span class="prompt-label" id="prompt-label">></span>
 
-        <!-- INPUT FIELD — FORCED BLACK, NO RECTANGLE -->
         <input
           id="terminal-input"
           type="text"
@@ -43,7 +47,7 @@
             border:none;
             outline:none;
             box-shadow:none;
-            color:#00cc33;
+            color:#00ff55;
             font-family:'Courier New', monospace;
             font-size:16px;
             padding:0;
@@ -58,10 +62,10 @@
     </div>
   </div>
 
-  <!-- MASTER TERMINAL LOGIC -->
-  <script src="app/lessons/terminal/js/terminal-master.js"></script>
+  <!-- LANDING TERMINAL LOGIC -->
+  <script src="app/lessons/terminal/js/terminal-landing.js"></script>
 
-  <!-- MATRIX RAIN -->
+  <!-- MATRIX RAIN ENGINE -->
   <script src="modules/matrix.js"></script>
 
 </body>
