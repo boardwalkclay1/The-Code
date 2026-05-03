@@ -2,7 +2,7 @@
    THE CODE — TERMINAL LANDING (FINAL VERSION)
    ============================================================ */
 
-import "./terminal-master.js"; // REQUIRED to load CommandEngine + typeLine globally
+import "./terminal-master.js"; // exposes window.CommandEngine + window.Diagrams
 
 const outEl = document.getElementById("terminal-output");
 const inputEl = document.getElementById("terminal-input");
@@ -29,7 +29,7 @@ const typeLine = async (text, speed = 12) => {
   }
 };
 
-const printLine = text => {
+const printLine = (text = "") => {
   const line = document.createElement("div");
   line.className = "terminal-line";
   line.textContent = text;
@@ -102,16 +102,18 @@ const handleGatewayInput = async value => {
    ============================================================ */
 
 const showLoadingScreen = () => {
+  if (!loadingScreen) return;
   loadingScreen.classList.remove("hidden");
   loadingScreen.classList.add("active");
 };
 
 const hideLoadingScreen = () => {
+  if (!loadingScreen) return;
   loadingScreen.classList.add("hidden");
 };
 
 /* ============================================================
-   PREVIEW TERMINAL INTRO (CINEMATIC)
+   PREVIEW TERMINAL INTRO
    ============================================================ */
 
 const showIndexTerminal = async () => {
@@ -138,7 +140,12 @@ const respond = async value => {
   printLine("$ " + value);
   await sleep(60);
 
-  // EXPLAIN HANDLER (terminal-master handles full logic)
+  if (!window.CommandEngine) {
+    await typeLine("system not ready. reload and try again.");
+    return;
+  }
+
+  // EXPLAIN HANDLER
   if (cmd.endsWith(" explain")) {
     const base = cmd.replace(" explain", "").trim();
     const explanation = await window.CommandEngine.getExplainText(base);
@@ -149,11 +156,12 @@ const respond = async value => {
         await typeLine(line);
       }
 
-      // DIAGRAM SUPPORT
       if (window.Diagrams && window.Diagrams[base]) {
         await typeLine("");
-        const d = window.Diagrams[base].trim().split("\n");
-        for (const line of d) await typeLine(line);
+        const dLines = window.Diagrams[base].trim().split("\n");
+        for (const line of dLines) {
+          await typeLine(line);
+        }
       }
     } else {
       await typeLine("no explanation found for: " + base);
