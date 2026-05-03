@@ -1,22 +1,33 @@
-// sw.js — FINAL CLEAN VERSION
-// • No broken icon caching
-// • No missing-file crashes
-// • No precache of files that may not exist
-// • Pure Matrix PWA service worker
+// sw.js — THE CODE (FINAL VERSION)
+// • Clean, safe, no missing-file crashes
+// • Only caches files that actually exist
+// • Fully synced with Terminal Landing + Terminal 1
+// • Pure Matrix PWA behavior
 
-const CACHE = "thecode-v1";
+const CACHE = "thecode-v2";
 
-// ONLY CACHE FILES THAT **EXIST**
+// ONLY CACHE FILES THAT **EXIST** IN YOUR NEW STRUCTURE
 const PRECACHE = [
-  "/", 
+  "/",
   "/index.html",
+
+  // GLOBAL CSS
   "/css/index.css",
-  "/assets/js/index.js",
+
+  // TERMINAL LANDING
+  "/app/lessons/terminal/js/terminal-landing.js",
+
+  // TERMINAL 1 (PREVIEW TERMINAL)
+  "/app/lessons/terminal/js/terminal-master.js",
+  "/app/lessons/terminal/js/command.js",
+
+  // MATRIX ENGINE
   "/modules/matrix.js",
-  "/modules/loading.js",
-  "/modules/sidebar.js",
-  "/modules/sections.js",
+
+  // BRANDING
   "/assets/img/code-index.png",
+
+  // PWA
   "/manifest.json"
 ];
 
