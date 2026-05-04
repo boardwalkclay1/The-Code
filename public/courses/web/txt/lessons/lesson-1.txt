@@ -1,71 +1,101 @@
-LESSON 1 — WELCOME, YOU’RE SAFE HERE
+LESSON 1 — THE REAL BEGINNING
 
-Hey… slow down. Breathe. You’re okay.
+PART 1 — WHAT YOU’RE ACTUALLY LEARNING
+You’re learning how the web works from the ground up.  
+Not the fake version people pretend to understand.  
+The real version that gives you control.
 
-I know all these words like “HTML” and “JavaScript” might look big and scary right now, but you’re going to learn them one tiny step at a time. You don’t have to know anything yet. You’re just a baby taking your first steps, and I’m holding your hand the whole way.
+PART 2 — WHY THIS MATTERS
+Everything you see online is built from the same simple pieces.  
+Once you understand those pieces, nothing feels confusing anymore.  
+You stop being a consumer and start being a builder.
 
-Let’s start super simple.
+PART 3 — THE THREE CORE LANGUAGES
+Websites are built with HTML, CSS, and JavaScript.  
+These three languages work together like a small team.  
+Each one has a job, and none of them are complicated.
 
-HTML is just the words on the page.
-CSS is just the colors and the style.
-JavaScript is just the brain that makes things move.
+PART 4 — WHAT HTML REALLY IS
+HTML is the structure of a page.  
+It decides what exists: text, images, buttons, sections.  
+It’s the skeleton, nothing more.
 
-That’s it. Three little friends.
+PART 5 — WHAT CSS REALLY IS
+CSS controls how things look.  
+Colors, spacing, fonts, layout — all of that is CSS.  
+It’s the style layer that makes a page feel alive.
 
-They work together like this:
-HTML says “here I am.”
-CSS says “let me make you pretty.”
-JavaScript says “let me make you smart.”
+PART 6 — WHAT JAVASCRIPT REALLY IS
+JavaScript controls behavior.  
+It makes things react, move, update, and respond.  
+It’s the logic layer that brings everything to life.
 
-You don’t have to memorize anything. You’ll see it over and over until it feels easy.
+PART 7 — HOW THEY CONNECT
+These three languages must be linked together to work.  
+HTML loads CSS and JavaScript into the page.  
+When they’re connected, the website becomes a complete system.
 
-And guess what? You also got the GitHub and Bash courses for free. Those will help you save your files, create folders, and publish your websites like a real developer. But don’t worry about that yet. One step at a time.
+PART 8 — WHY THIS IS SIMPLE
+You don’t need to memorize anything right now.  
+You just need to understand what each part does.  
+The details come later, naturally.
 
-You’ll also get access to the Web Terminal. It looks like a real developer terminal, but it’s friendly. You can type commands like:
+PART 9 — THE FIRST SKILL YOU’RE BUILDING
+You’re learning how to think in layers.  
+Structure, style, behavior — three layers, one page.  
+This mindset makes everything easier later.
 
-mkdir pages
-touch index.html
+PART 10 — THE TERMINAL YOU WILL USE
+You’ll use the Web Terminal to create files and folders.  
+It works like a real developer terminal but without the stress.  
+Every command you type teaches your brain how the system works.
 
-And it will actually create the files in your virtual folder structure. Then you can switch to Preview Mode and see your website appear like magic.
+PART 11 — WHY THE TERMINAL MATTERS
+Developers use terminals every day.  
+It’s faster, cleaner, and more powerful than clicking around.  
+You’re learning the real workflow from day one.
 
-You’re doing great already.
+PART 12 — PREVIEW MODE
+Preview Mode shows you the website you’re building.  
+It updates as you create files and write code.  
+It’s the closest thing to watching your ideas appear in real time.
 
-QUIZ 1: What does HTML control?
-A) Words and structure
-B) Colors
-C) Animations
+PART 13 — THE GITHUB COURSE YOU GOT
+You also have the GitHub course included.  
+GitHub teaches you how to save, track, and publish your work.  
+It’s the backbone of real development.
 
-QUIZ 2: What does CSS do?
-A) Makes things pretty
-B) Runs logic
-C) Stores data
+PART 14 — THE BASH COURSE YOU GOT
+You also have the Bash course included.  
+Bash teaches you how to control your computer with commands.  
+It makes you faster and more confident than most beginners.
 
-QUIZ 3: JavaScript is the…
-A) Paint
-B) Brain
-C) Walls
+PART 15 — WHY WE MOVE SLOW
+Moving slow builds real understanding.  
+You’re not rushing through information.  
+You’re building a foundation that won’t collapse later.
 
-QUIZ 4: How many files usually work together?
-A) 1
-B) 2
-C) 3
+PART 16 — WHAT YOU SHOULD FEEL
+It’s normal to feel unsure at first.  
+You’re learning a new language and a new way of thinking.  
+But everything here is designed to make sense step by step.
 
-QUIZ 5: Which bonus courses did you get?
-A) Photoshop
-B) GitHub + Bash
-C) Blender
+PART 17 — WHAT YOU’RE NOT DOING
+You’re not memorizing.  
+You’re not guessing.  
+You’re not pretending to understand things you don’t.
 
-QUIZ 6: What does the terminal let you do?
-A) Watch movies
-B) Create files with commands
-C) Order pizza
+PART 18 — WHAT YOU ARE DOING
+You’re learning the real rules of how the web works.  
+You’re building confidence through clarity.  
+You’re taking control of something most people never understand.
 
-QUIZ 7: What does Preview Mode show you?
-A) Your website
-B) Your emails
-C) Your bank account
+PART 19 — THE GOAL OF LESSON 1
+By the end of this lesson, you should know what HTML, CSS, and JavaScript are.  
+You should know how they connect.  
+And you should know why the terminal and preview mode matter.
 
-QUIZ 8: Is it okay to feel overwhelmed?
-A) Yes, totally normal
-B) No
-C) Only on weekends
+PART 20 — YOU’RE READY FOR WHAT’S NEXT
+You now understand the three core languages and the tools you’ll use.  
+The next lesson will show you how to create your first real structure.  
+You’re moving forward with strength, not confusion.
