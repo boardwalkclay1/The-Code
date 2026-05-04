@@ -1,0 +1,70 @@
+LESSON 3 — YOUR FIRST REAL WEBPAGE (YOU’RE READY)
+
+Okay baby, today you’re going to make your first real webpage. Don’t worry. I’ll walk you through it slowly.
+
+Your website starts with one file:
+index.html
+
+Inside that file, you write the basic structure. You don’t have to memorize it. You’ll copy it a lot until it feels natural.
+
+Then you connect your CSS and JavaScript. Remember: they must hold hands.
+
+Your folder structure will look like this:
+
+index.html
+css/
+    style.css
+js/
+    script.js
+
+In the Web Terminal, you can create all of this with:
+
+mkdir css
+mkdir js
+touch index.html
+touch css/style.css
+touch js/script.js
+
+Then you can open Preview Mode and see your website appear. It’s like magic, but it’s actually just you being awesome.
+
+You’re not just learning — you’re becoming a real developer.
+
+QUIZ 1: What is the main file of a website?
+A) index.html
+B) start.txt
+C) home.docx
+
+QUIZ 2: What folder holds your CSS?
+A) css/
+B) js/
+C) downloads/
+
+QUIZ 3: What folder holds your JavaScript?
+A) css/
+B) js/
+C) pictures/
+
+QUIZ 4: What command makes a folder?
+A) mkdir
+B) makefolder
+C) box-create
+
+QUIZ 5: What command makes a file?
+A) touch
+B) file-new
+C) create-file-now
+
+QUIZ 6: What mode shows your website?
+A) Preview Mode
+B) Sleep Mode
+C) Airplane Mode
+
+QUIZ 7: What is index.html?
+A) The main webpage
+B) A video
+C) A song
+
+QUIZ 8: Are you ready for the next step?
+A) Yes
+B) Yes
+C) Yes
