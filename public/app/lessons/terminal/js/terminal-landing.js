@@ -176,7 +176,7 @@ const unlockTerminal2 = async () => {
   await typeLine("redirecting to terminal 2...");
   await sleep(500);
 
-  window.location.href = "./terminal2/terminal2.html";
+  window.location.href = "/app/lessons/terminal/terminal2/pages/terminal2.html";
 };
 
 /* ============================================================
