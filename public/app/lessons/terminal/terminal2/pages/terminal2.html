@@ -133,6 +133,8 @@ html,body{
     cursor:pointer;
     text-shadow:var(--t2-glow);
 }
+
+/* MODULE OVERLAY */
 #t2-module{
     position:fixed;
     top:0;
@@ -158,6 +160,26 @@ html,body{
     font-size:16px;
     text-shadow:var(--t2-glow);
 }
+
+/* MODULE LIST PANEL (ADDED) */
+#t2-modules{
+    position:fixed;
+    top:80px;
+    left:40px;
+    z-index:6;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+.t2-module-btn{
+    background:transparent;
+    border:none;
+    color:var(--t2-fg);
+    font-family:"Courier New", monospace;
+    font-size:16px;
+    cursor:pointer;
+    text-shadow:var(--t2-glow);
+}
 </style>
 </head>
 
@@ -178,6 +200,9 @@ html,body{
         <input id="t2-input" autocomplete="off">
     </div>
 </div>
+
+<!-- ⭐ ADDED MODULE LIST PANEL -->
+<div id="t2-modules"></div>
 
 <div id="t2-menu"></div>
 
