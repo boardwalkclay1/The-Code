@@ -1,74 +1,101 @@
-LESSON 2 — HOW FILES AND FOLDERS WORK (DON’T WORRY, IT’S EASY)
+LESSON 2 — HOW A WEBSITE IS ORGANIZED
 
-Okay baby developer, today we’re learning about folders. Don’t panic. This is simple.
+PART 1 — WHY STRUCTURE MATTERS
+A website is not one file.  
+It is a small system made of simple pieces.  
+Structure keeps everything clear and predictable.
 
-Think of folders like little boxes. You put files inside them so everything stays organized. Websites use folders the same way.
+PART 2 — THE ROOT FOLDER
+Every project starts with one main folder.  
+This folder holds everything your website needs.  
+Think of it as the home base.
 
-Here’s the most important part:
-HTML, CSS, and JavaScript must be connected.
+PART 3 — THE HTML FILE
+Your main HTML file is usually named index.html.  
+It is the first file the browser looks for.  
+It is the starting point of your entire site.
 
-If they’re not connected, nothing works. But connecting them is just one tiny line of text. You’ll learn it soon.
+PART 4 — THE CSS FOLDER
+Most websites keep their CSS files inside a folder named css.  
+This keeps style files separate from everything else.  
+It makes your project easier to manage.
 
-Your website usually has a structure like this:
+PART 5 — THE JS FOLDER
+JavaScript files usually live inside a folder named js.  
+This keeps your logic organized and easy to find.  
+It also matches how real developers structure their work.
 
-index.html
-css/
-    style.css
-js/
-    script.js
+PART 6 — WHY SEPARATION MATTERS
+Keeping HTML, CSS, and JavaScript in different places reduces confusion.  
+Each file has one job and stays focused on that job.  
+This is how clean systems are built.
 
-That’s it. Three things holding hands.
+PART 7 — CONNECTING CSS TO HTML
+Your HTML file must link to your CSS file.  
+This tells the browser where to find your styles.  
+Without this link, your page will look plain and unfinished.
 
-The Web Terminal will help you create these automatically. You can type:
+PART 8 — CONNECTING JAVASCRIPT TO HTML
+Your HTML file also links to your JavaScript file.  
+This gives your page behavior and interaction.  
+Without this link, nothing responds or moves.
 
-mkdir css
-mkdir js
-touch index.html
-touch css/style.css
-touch js/script.js
+PART 9 — THE ORDER OF CONNECTIONS
+HTML loads first, then CSS, then JavaScript.  
+This order keeps everything stable.  
+It is the natural flow of a webpage.
 
-And the terminal will build the whole structure for you. Just like real Git Bash.
+PART 10 — WHY THIS IS SIMPLE
+You are not memorizing code.  
+You are learning how pieces fit together.  
+Once you see the pattern, it becomes automatic.
 
-Then you can open Preview Mode and see your website appear instantly.
+PART 11 — THE TERMINAL’S ROLE
+The terminal helps you create folders and files quickly.  
+It teaches you the real workflow developers use.  
+It builds confidence through repetition.
 
-You’re doing amazing. You’re learning real developer skills.
+PART 12 — CREATING FOLDERS
+You will create folders for css and js.  
+This mirrors how real projects are structured.  
+It also prepares you for GitHub and Bash later.
 
-QUIZ 1: What are folders like?
-A) Boxes
-B) Clouds
-C) Cars
+PART 13 — CREATING FILES
+You will create index.html, style.css, and script.js.  
+These three files form the core of your website.  
+Everything else builds on top of them.
 
-QUIZ 2: What happens if files aren’t connected?
-A) Nothing works
-B) Everything explodes
-C) The computer cries
+PART 14 — PREVIEW MODE
+Preview Mode shows you the results of your structure.  
+It updates as you create and connect files.  
+It helps you see the system working.
 
-QUIZ 3: What command creates a folder?
-A) make-folder
-B) mkdir
-C) new-box
+PART 15 — WHY WE MOVE STEP BY STEP
+Each step builds on the last.  
+Skipping ahead creates confusion.  
+Slow and steady creates clarity.
 
-QUIZ 4: What command creates a file?
-A) touch
-B) poke
-C) tap
+PART 16 — WHAT YOU SHOULD FEEL
+You should feel things starting to make sense.  
+You should feel the pieces becoming familiar.  
+You should feel less pressure than before.
 
-QUIZ 5: Where does CSS usually go?
-A) css/
-B) js/
-C) images/
+PART 17 — WHAT YOU’RE NOT DOING
+You’re not rushing.  
+You’re not guessing.  
+You’re not trying to learn everything at once.
 
-QUIZ 6: Where does JavaScript usually go?
-A) css/
-B) js/
-C) fonts/
+PART 18 — WHAT YOU ARE DOING
+You’re building a real foundation.  
+You’re learning the structure behind every website.  
+You’re preparing for the next level.
 
-QUIZ 7: What shows you your website?
-A) Preview Mode
-B) Calculator
-C) Weather app
+PART 19 — THE GOAL OF LESSON 2
+By the end of this lesson, you should understand how a website is organized.  
+You should know where each file belongs.  
+And you should know why structure matters.
 
-QUIZ 8: Are you doing great?
-A) Yes
-B) Yes
-C) Yes
+PART 20 — YOU’RE READY FOR WHAT’S NEXT
+You now understand the layout of a real project.  
+The next lesson will show you how to build your first working page.  
+You’re moving forward with clarity and strength.
