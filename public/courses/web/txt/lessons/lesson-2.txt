@@ -1,0 +1,74 @@
+LESSON 2 — HOW FILES AND FOLDERS WORK (DON’T WORRY, IT’S EASY)
+
+Okay baby developer, today we’re learning about folders. Don’t panic. This is simple.
+
+Think of folders like little boxes. You put files inside them so everything stays organized. Websites use folders the same way.
+
+Here’s the most important part:
+HTML, CSS, and JavaScript must be connected.
+
+If they’re not connected, nothing works. But connecting them is just one tiny line of text. You’ll learn it soon.
+
+Your website usually has a structure like this:
+
+index.html
+css/
+    style.css
+js/
+    script.js
+
+That’s it. Three things holding hands.
+
+The Web Terminal will help you create these automatically. You can type:
+
+mkdir css
+mkdir js
+touch index.html
+touch css/style.css
+touch js/script.js
+
+And the terminal will build the whole structure for you. Just like real Git Bash.
+
+Then you can open Preview Mode and see your website appear instantly.
+
+You’re doing amazing. You’re learning real developer skills.
+
+QUIZ 1: What are folders like?
+A) Boxes
+B) Clouds
+C) Cars
+
+QUIZ 2: What happens if files aren’t connected?
+A) Nothing works
+B) Everything explodes
+C) The computer cries
+
+QUIZ 3: What command creates a folder?
+A) make-folder
+B) mkdir
+C) new-box
+
+QUIZ 4: What command creates a file?
+A) touch
+B) poke
+C) tap
+
+QUIZ 5: Where does CSS usually go?
+A) css/
+B) js/
+C) images/
+
+QUIZ 6: Where does JavaScript usually go?
+A) css/
+B) js/
+C) fonts/
+
+QUIZ 7: What shows you your website?
+A) Preview Mode
+B) Calculator
+C) Weather app
+
+QUIZ 8: Are you doing great?
+A) Yes
+B) Yes
+C) Yes
