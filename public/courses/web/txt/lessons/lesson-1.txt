@@ -1,0 +1,71 @@
+LESSON 1 — WELCOME, YOU’RE SAFE HERE
+
+Hey… slow down. Breathe. You’re okay.
+
+I know all these words like “HTML” and “JavaScript” might look big and scary right now, but you’re going to learn them one tiny step at a time. You don’t have to know anything yet. You’re just a baby taking your first steps, and I’m holding your hand the whole way.
+
+Let’s start super simple.
+
+HTML is just the words on the page.
+CSS is just the colors and the style.
+JavaScript is just the brain that makes things move.
+
+That’s it. Three little friends.
+
+They work together like this:
+HTML says “here I am.”
+CSS says “let me make you pretty.”
+JavaScript says “let me make you smart.”
+
+You don’t have to memorize anything. You’ll see it over and over until it feels easy.
+
+And guess what? You also got the GitHub and Bash courses for free. Those will help you save your files, create folders, and publish your websites like a real developer. But don’t worry about that yet. One step at a time.
+
+You’ll also get access to the Web Terminal. It looks like a real developer terminal, but it’s friendly. You can type commands like:
+
+mkdir pages
+touch index.html
+
+And it will actually create the files in your virtual folder structure. Then you can switch to Preview Mode and see your website appear like magic.
+
+You’re doing great already.
+
+QUIZ 1: What does HTML control?
+A) Words and structure
+B) Colors
+C) Animations
+
+QUIZ 2: What does CSS do?
+A) Makes things pretty
+B) Runs logic
+C) Stores data
+
+QUIZ 3: JavaScript is the…
+A) Paint
+B) Brain
+C) Walls
+
+QUIZ 4: How many files usually work together?
+A) 1
+B) 2
+C) 3
+
+QUIZ 5: Which bonus courses did you get?
+A) Photoshop
+B) GitHub + Bash
+C) Blender
+
+QUIZ 6: What does the terminal let you do?
+A) Watch movies
+B) Create files with commands
+C) Order pizza
+
+QUIZ 7: What does Preview Mode show you?
+A) Your website
+B) Your emails
+C) Your bank account
+
+QUIZ 8: Is it okay to feel overwhelmed?
+A) Yes, totally normal
+B) No
+C) Only on weekends
