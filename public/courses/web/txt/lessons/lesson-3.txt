@@ -1,70 +1,101 @@
-LESSON 3 — YOUR FIRST REAL WEBPAGE (YOU’RE READY)
+LESSON 3 — BUILDING YOUR FIRST REAL WEBPAGE
 
-Okay baby, today you’re going to make your first real webpage. Don’t worry. I’ll walk you through it slowly.
+PART 1 — THE STARTING POINT
+Every webpage begins with index.html.  
+This file tells the browser what the page contains.  
+It is the anchor of your project.
 
-Your website starts with one file:
-index.html
+PART 2 — THE BASIC STRUCTURE
+HTML pages follow a simple structure.  
+You don’t need to memorize it yet.  
+You will see it enough times that it becomes natural.
 
-Inside that file, you write the basic structure. You don’t have to memorize it. You’ll copy it a lot until it feels natural.
+PART 3 — THE HEAD SECTION
+The head section holds information about the page.  
+It includes the title and links to CSS.  
+It prepares the page before anything is shown.
 
-Then you connect your CSS and JavaScript. Remember: they must hold hands.
+PART 4 — THE BODY SECTION
+The body section holds everything the user sees.  
+Text, images, buttons, and layout all live here.  
+This is where your content goes.
 
-Your folder structure will look like this:
+PART 5 — ADDING TEXT
+You can add text with simple tags.  
+These tags tell the browser how to display the words.  
+This is the foundation of every page.
 
-index.html
-css/
-    style.css
-js/
-    script.js
+PART 6 — ADDING SECTIONS
+Sections help organize your content.  
+They break the page into meaningful parts.  
+This makes your website easier to read.
 
-In the Web Terminal, you can create all of this with:
+PART 7 — CONNECTING CSS
+Your CSS file controls the appearance of your page.  
+You connect it with one simple line.  
+Once connected, your page begins to take shape.
 
-mkdir css
-mkdir js
-touch index.html
-touch css/style.css
-touch js/script.js
+PART 8 — CONNECTING JAVASCRIPT
+Your JavaScript file controls behavior.  
+You connect it at the bottom of the page.  
+This gives your page life and interaction.
 
-Then you can open Preview Mode and see your website appear. It’s like magic, but it’s actually just you being awesome.
+PART 9 — WHY CONNECTIONS MATTER
+A webpage is a system of linked files.  
+If one link is missing, the system breaks.  
+Learning this early prevents confusion later.
 
-You’re not just learning — you’re becoming a real developer.
+PART 10 — BUILDING CONFIDENCE
+You are not expected to know everything now.  
+You are expected to understand the flow.  
+Confidence comes from clarity, not speed.
 
-QUIZ 1: What is the main file of a website?
-A) index.html
-B) start.txt
-C) home.docx
+PART 11 — USING THE TERMINAL
+The terminal helps you create and manage your files.  
+It mirrors how real developers work.  
+It builds muscle memory through repetition.
 
-QUIZ 2: What folder holds your CSS?
-A) css/
-B) js/
-C) downloads/
+PART 12 — USING PREVIEW MODE
+Preview Mode shows your progress instantly.  
+It helps you see the results of your structure.  
+It makes learning feel real.
 
-QUIZ 3: What folder holds your JavaScript?
-A) css/
-B) js/
-C) pictures/
+PART 13 — MAKING CHANGES
+You can update your HTML, CSS, or JavaScript anytime.  
+Preview Mode will reflect your changes immediately.  
+This teaches you how the system responds.
 
-QUIZ 4: What command makes a folder?
-A) mkdir
-B) makefolder
-C) box-create
+PART 14 — SEEING THE PATTERN
+You will start to notice a pattern in how pages are built.  
+Structure, style, behavior — always in that order.  
+This pattern never changes.
 
-QUIZ 5: What command makes a file?
-A) touch
-B) file-new
-C) create-file-now
+PART 15 — WHY THIS IS POWERFUL
+Once you understand the pattern, you can build anything.  
+Websites stop feeling mysterious.  
+They start feeling like tools you control.
 
-QUIZ 6: What mode shows your website?
-A) Preview Mode
-B) Sleep Mode
-C) Airplane Mode
+PART 16 — WHAT YOU SHOULD FEEL
+You should feel the pieces coming together.  
+You should feel less intimidated than before.  
+You should feel ready to try things on your own.
 
-QUIZ 7: What is index.html?
-A) The main webpage
-B) A video
-C) A song
+PART 17 — WHAT YOU’RE NOT DOING
+You’re not memorizing code.  
+You’re not forcing anything.  
+You’re not pretending to understand.
 
-QUIZ 8: Are you ready for the next step?
-A) Yes
-B) Yes
-C) Yes
+PART 18 — WHAT YOU ARE DOING
+You’re building your first real webpage.  
+You’re learning how the pieces connect.  
+You’re becoming someone who can create.
+
+PART 19 — THE GOAL OF LESSON 3
+By the end of this lesson, you should know how to build a basic page.  
+You should know how to connect CSS and JavaScript.  
+And you should know how to use the terminal and preview mode together.
+
+PART 20 — YOU’RE READY FOR THE NEXT STEP
+You now have the foundation of real web development.  
+The next lessons will build on this structure.  
+You’re moving forward with strength and clarity.
