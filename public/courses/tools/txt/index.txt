@@ -1,0 +1,12 @@
+TOOLS — COURSE OVERVIEW
+
+This course teaches you how to build small utilities that solve real problems. You will learn how to design tools that support your apps, websites, and workflow. You will learn how to build tools that feel clean, fast, and reliable.
+
+WHAT YOU WILL LEARN
+• How to design simple, powerful utilities  
+• How to build calculators, converters, and timers  
+• How to structure tool logic cleanly  
+• How to reuse code across tools  
+• How to support your apps and websites  
+• How to think like a systems designer  
+• How to build tools that improve your workflow  
