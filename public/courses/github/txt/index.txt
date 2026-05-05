@@ -1,0 +1,13 @@
+GITHUB — COURSE OVERVIEW
+
+This course teaches you how to save, track, and publish your work. You will learn how to use GitHub like a real developer and how to protect your projects. You will learn how to publish websites and manage versions.
+
+WHAT YOU WILL LEARN
+• How GitHub works  
+• How to create repositories  
+• How to commit, push, pull, and sync  
+• How to publish websites  
+• How to track changes safely  
+• How to collaborate using branches  
+• How to use GitHub as a portfolio  
+• How to think in versions  
