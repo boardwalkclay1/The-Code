@@ -1,0 +1,13 @@
+HACKING (DEFENSIVE) — COURSE OVERVIEW
+
+This course teaches you how systems break and how to protect them. You will learn how attackers think and how to defend your own projects. You will learn how to build safer systems from the start.
+
+WHAT YOU WILL LEARN
+• How systems fail  
+• How attackers think  
+• How to identify vulnerabilities  
+• How to protect your projects  
+• How to read logs and errors  
+• How to build secure systems  
+• How to think like a defender  
+• How to use this knowledge ethically  
