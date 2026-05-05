@@ -1,0 +1,13 @@
+APP DEVELOPMENT — COURSE OVERVIEW
+
+This course teaches you how to build full systems instead of single pages. You will learn how apps work, how screens connect, and how data flows through an application. You will learn how to design and build real tools, dashboards, and interactive experiences.
+
+WHAT YOU WILL LEARN
+• How apps differ from websites  
+• How to design multi-screen flows  
+• How to manage data and state  
+• How to build reusable components  
+• How to structure apps that scale  
+• How to connect screens and navigation  
+• How to store and retrieve information  
+• How to think like an app architect  
