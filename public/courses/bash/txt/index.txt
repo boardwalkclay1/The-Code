@@ -1,0 +1,12 @@
+BASH — COURSE OVERVIEW
+
+This course teaches you how to control your computer with commands. You will learn how to navigate folders, create files, and automate tasks. You will learn how to use the Web Terminal with confidence.
+
+WHAT YOU WILL LEARN
+• How to navigate folders with commands  
+• How to create, delete, and move files  
+• How to run scripts  
+• How to automate tasks  
+• How real developer workflows operate  
+• How to think in commands instead of clicks  
+• How to build precision and speed  
