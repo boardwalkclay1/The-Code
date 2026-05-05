@@ -1,0 +1,13 @@
+MCU ENGINEERING — COURSE OVERVIEW
+
+This course teaches you how to control the physical world with code. You will learn how microcontrollers work, how circuits behave, and how to build real devices that respond to input. You will learn how hardware and software connect.
+
+WHAT YOU WILL LEARN
+• How microcontrollers communicate with hardware  
+• How sensors, motors, and LEDs work  
+• How to wire simple circuits safely  
+• How to program microcontrollers to react to input  
+• How to control lights, motors, and displays  
+• How to debug electrical issues  
+• How to combine hardware and software  
+• How to build real physical devices  
