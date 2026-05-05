@@ -1,0 +1,12 @@
+WIDGETS — COURSE OVERVIEW
+
+This course teaches you how to build reusable UI components. You will learn how to design buttons, cards, menus, and interactive elements that can be dropped into any project. You will learn how to create your own component library.
+
+WHAT YOU WILL LEARN
+• How to design reusable UI components  
+• How to structure widget logic  
+• How to style widgets consistently  
+• How to connect widgets to data and events  
+• How to build components that work anywhere  
+• How to think in modular pieces  
+• How to create a personal component library  
