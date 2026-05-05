@@ -1,0 +1,13 @@
+AUTOMATION — COURSE OVERVIEW
+
+This course teaches you how to build systems that work without you. You will learn how to connect tools, apps, and triggers into automated workflows. You will learn how to design background systems that save time and scale.
+
+WHAT YOU WILL LEARN
+• How automation works  
+• How to connect systems together  
+• How to build workflows that run automatically  
+• How to design triggers, conditions, and actions  
+• How to automate repetitive tasks  
+• How to build background systems  
+• How to think in flows instead of steps  
+• How to create systems that scale  
