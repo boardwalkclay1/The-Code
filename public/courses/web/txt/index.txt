@@ -1,0 +1,14 @@
+WEB DEVELOPMENT — COURSE OVERVIEW
+
+This course teaches you how the web actually works. You will learn HTML, CSS, and JavaScript and how they connect into one working system. You will understand how to build real websites from scratch using clean structure and clear logic.
+
+WHAT YOU WILL LEARN
+• How HTML structures a page  
+• How CSS controls layout, spacing, and design  
+• How JavaScript adds behavior and interaction  
+• How to connect all three layers into one system  
+• How to build clean folder structures  
+• How to use the Web Terminal to create files  
+• How to use Preview Mode to see your work instantly  
+• How to debug and understand why things break  
+• How to build real pages, sections, and full websites  
