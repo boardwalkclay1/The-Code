@@ -1,30 +1,24 @@
 // public/app/lessons/terminal/terminal2/terminal2.js
 
 (function () {
+
+  // ------------------------------------------------------------
+  // ELEMENTS
+  // ------------------------------------------------------------
   const canvas = document.getElementById("t2-matrix");
   const ctx = canvas.getContext("2d");
-  const lights = {
-    red: document.getElementById("t2-light-red"),
-    yellow: document.getElementById("t2-light-yellow"),
-    green: document.getElementById("t2-light-green")
-  };
-  const screenEl = document.getElementById("t2-screen");
   const outputEl = document.getElementById("t2-output");
   const inputEl = document.getElementById("t2-input");
-  const promptEl = document.getElementById("t2-prompt");
-  const menuEl = document.getElementById("t2-menu");
-  const moduleEl = document.getElementById("t2-module");
-  const moduleTitleEl = document.getElementById("t2-module-title");
-  const moduleBodyEl = document.getElementById("t2-module-body");
+  const screenEl = document.getElementById("t2-screen");
   const root = document.documentElement;
 
-  let gatewayActive = true;
   let ready = false;
+  let gatewayActive = true;
   let theme = "matrix";
 
-  // ---------------------------
+  // ------------------------------------------------------------
   // MATRIX ENGINE
-  // ---------------------------
+  // ------------------------------------------------------------
   function resizeMatrix() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -36,20 +30,17 @@
   const fontSize = 16;
   let columns = Math.floor(canvas.width / fontSize);
   let drops = Array(columns).fill(1);
-  let glitchTimer = 0;
-  let glitchActive = false;
 
   function drawMatrix() {
     ctx.fillStyle = "rgba(0,0,0,0.08)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    let color = "#00cc33";
-    if (theme === "blue") color = "#00aaff";
-    if (theme === "white") color = "#e0e0e0";
-    if (theme === "red") color = "#ff0033";
-    if (theme === "dual") color = "#00ff99";
+    ctx.fillStyle = theme === "matrix" ? "#00cc33" :
+                    theme === "blue"   ? "#00aaff" :
+                    theme === "white"  ? "#e0e0e0" :
+                    theme === "red"    ? "#ff0033" :
+                    "#00ff99";
 
-    ctx.fillStyle = color;
     ctx.font = fontSize + "px 'Courier New', monospace";
 
     for (let i = 0; i < drops.length; i++) {
@@ -61,52 +52,13 @@
       drops[i]++;
     }
 
-    glitchTimer--;
-    if (glitchTimer <= 0) {
-      glitchActive = Math.random() > 0.8;
-      glitchTimer = 40 + Math.random() * 80;
-    }
-    if (glitchActive) {
-      ctx.save();
-      ctx.globalAlpha = 0.18;
-      ctx.fillStyle = "#ffffff";
-      const h = canvas.height * 0.15;
-      const y = Math.random() * (canvas.height - h);
-      ctx.fillRect(0, y, canvas.width, h);
-      ctx.restore();
-    }
-
     requestAnimationFrame(drawMatrix);
   }
   requestAnimationFrame(drawMatrix);
 
-  // ---------------------------
-  // LIGHTS
-  // ---------------------------
-  function setLights(state) {
-    lights.red.classList.remove("on");
-    lights.yellow.classList.remove("on");
-    lights.green.classList.remove("on");
-    if (state === "red") lights.red.classList.add("on");
-    if (state === "yellow") lights.yellow.classList.add("on");
-    if (state === "green") lights.green.classList.add("on");
-  }
-
-  function pulseLights(state) {
-    setLights(state);
-    [lights.red, lights.yellow, lights.green].forEach(el => {
-      el.classList.add("pulse");
-      setTimeout(() => el.classList.remove("pulse"), 500);
-    });
-  }
-
-  // ---------------------------
+  // ------------------------------------------------------------
   // UTILITIES
-  // ---------------------------
-  function sleep(ms) {
-    return new Promise(r => setTimeout(r, ms));
-  }
-
+  // ------------------------------------------------------------
   function printLine(text = "") {
     const line = document.createElement("div");
     line.textContent = text;
@@ -135,269 +87,190 @@
     });
   }
 
-  function flickerScreen(duration = 400) {
-    screenEl.style.transition = "none";
+  function flickerScreen() {
     screenEl.style.opacity = "0.2";
-    setTimeout(() => {
-      screenEl.style.opacity = "1";
-      setTimeout(() => {
-        screenEl.style.opacity = "0.4";
-        setTimeout(() => {
-          screenEl.style.opacity = "1";
-          screenEl.style.transition = "";
-        }, duration / 4);
-      }, duration / 4);
-    }, duration / 4);
+    setTimeout(() => screenEl.style.opacity = "1", 200);
   }
 
-  // ---------------------------
-  // MODULE + MENU SYSTEM
-  // ---------------------------
-  function showMenu() {
-    menuEl.classList.add("active");
+  // ------------------------------------------------------------
+  // LOADERS
+  // ------------------------------------------------------------
+  let commandIndex = [];
+  let commandOutput = {};
+
+  async function loadCommandIndex() {
+    const res = await fetch("txt/command.txt");
+    const text = await res.text();
+
+    commandIndex = text
+      .split("\n")
+      .map(line => line.trim())
+      .filter(line => line && !line.startsWith("//"))
+      .map(line => {
+        const [cmd, desc] = line.split("::");
+        return {
+          command: cmd.trim().toLowerCase(),
+          description: desc.trim()
+        };
+      })
+      .sort((a, b) => a.command.localeCompare(b.command));
   }
 
-  function hideMenu() {
-    menuEl.classList.remove("active");
-  }
+  async function loadCommandOutput() {
+    const res = await fetch("txt/command-output.txt");
+    const text = await res.text();
 
-  function showModule(title, body) {
-    moduleTitleEl.textContent = title;
-    moduleBodyEl.innerHTML = body;
-    moduleEl.style.display = "flex";
-  }
-
-  function hideModule() {
-    moduleEl.style.display = "none";
-  }
-
-  function applyTheme(name) {
-    theme = name;
-    if (name === "matrix") {
-      root.style.setProperty("--t2-fg", "#00cc33");
-      root.style.setProperty("--t2-glow", "0 0 6px #00cc33");
-    } else if (name === "blue") {
-      root.style.setProperty("--t2-fg", "#00aaff");
-      root.style.setProperty("--t2-glow", "0 0 6px #00aaff");
-    } else if (name === "white") {
-      root.style.setProperty("--t2-fg", "#e0e0e0");
-      root.style.setProperty("--t2-glow", "0 0 6px #e0e0e0");
-    } else if (name === "red") {
-      root.style.setProperty("--t2-fg", "#ff0033");
-      root.style.setProperty("--t2-glow", "0 0 6px #ff0033");
-    } else if (name === "dual") {
-      root.style.setProperty("--t2-fg", "#00ff99");
-      root.style.setProperty("--t2-glow", "0 0 8px #00ff99");
-    }
-    pulseLights("green");
-  }
-
-  // ---------------------------
-  // EXTERNAL COMMAND LOADER
-  // ---------------------------
-  let externalCommands = {};
-
-  async function loadExternalCommands() {
-    try {
-      const res = await fetch("txt/command.txt");
-      const text = await res.text();
-
-      text.split("\n").forEach(line => {
-        const trimmed = line.trim();
-        if (!trimmed || trimmed.startsWith("//")) return;
-
-        const [cmd, ...descParts] = trimmed.split("::");
-        const command = cmd.trim().toLowerCase();
-        const description = descParts.join("::").trim();
-
-        externalCommands[command] = description;
-      });
-    } catch (err) {
-      console.error("Failed to load external commands:", err);
-    }
-  }
-
-  // ---------------------------
-  // HELP
-  // ---------------------------
-  async function showHelp() {
-    await typeLine("[ADVANCED COMMANDS]");
-    await typeLine("  helpp        / show this list");
-    await typeLine("  menu         / show advanced categories");
-    await typeLine("  games        / open games category");
-    await typeLine("  flash        / open flash learning");
-    await typeLine("  courses      / open courses");
-    await typeLine("  systems      / open systems");
-    await typeLine("  unlockables  / open unlockables");
-    await typeLine("  color        / change terminal theme");
-    await typeLine("  open <id>    / open a module");
-    await typeLine("  clear        / clear screen");
-
-    await typeLine("");
-    await typeLine("[COURSE COMMANDS]");
-
-    Object.entries(externalCommands).forEach(([cmd, desc]) => {
-      printLine(`  ${cmd.padEnd(18)} ${desc}`);
+    const blocks = text.split("===").map(b => b.trim()).filter(b => b);
+    blocks.forEach(block => {
+      const firstLine = block.split("\n")[0].trim();
+      const key = firstLine.toLowerCase();
+      const content = block.split("\n").slice(1).join("\n");
+      commandOutput[key] = content;
     });
   }
 
-  // ---------------------------
-  // COMMAND HANDLER
-  // ---------------------------
+  // ------------------------------------------------------------
+  // HELP PAGES (12 per page)
+  // ------------------------------------------------------------
+  function getHelpPage(page) {
+    const size = 12;
+    const start = (page - 1) * size;
+    return commandIndex.slice(start, start + size);
+  }
+
+  async function showHelpPage(page) {
+    const list = getHelpPage(page);
+    if (!list.length) {
+      await typeLine("no commands on this page.");
+      return;
+    }
+    await typeLine(`[HELP PAGE ${page}]`);
+    for (const item of list) {
+      printLine(`  ${item.command.padEnd(20)} ${item.description}`);
+    }
+    printLine("");
+    printLine("type: help1, help2, help3, help4");
+  }
+
+  // ------------------------------------------------------------
+  // COURSE MAP
+  // ------------------------------------------------------------
+  const courseMap = {
+    web:      { price: 300, path: "web" },
+    apps:     { price: 300, path: "apps" },
+    mcu:      { price: 300, path: "mcu" },
+    automation:{ price: 300, path: "automation" },
+    tools:    { price: 300, path: "tools" },
+    widgets:  { price: 300, path: "widgets" },
+    github:   { price: 200, path: "github" },
+    bash:     { price: 200, path: "bash" },
+    hacking:  { price: 300, path: "hacking" }
+  };
+
+  async function showCourse(base) {
+    const c = courseMap[base];
+    await typeLine(base.toUpperCase() + " COURSE");
+    await typeLine(`price: $${c.price}`);
+    await typeLine(`link: /public/courses/${c.path}/index.html`);
+    printLine("");
+    await typeLine("for full explanation:");
+    await typeLine(`type: ${base} explain`);
+    printLine("");
+    printLine("press control + c to exit");
+  }
+
+  // ------------------------------------------------------------
+  // COMMAND EXECUTION
+  // ------------------------------------------------------------
+  async function runCommand(cmd) {
+    const key = cmd.toLowerCase();
+
+    // built-in help pages
+    if (key === "help1") return showHelpPage(1);
+    if (key === "help2") return showHelpPage(2);
+    if (key === "help3") return showHelpPage(3);
+    if (key === "help4") return showHelpPage(4);
+
+    // course commands
+    if (courseMap[key]) return showCourse(key);
+
+    // command-output.txt commands
+    if (commandOutput[key]) {
+      const lines = commandOutput[key].split("\n");
+      for (const line of lines) {
+        await typeLine(line, 12);
+      }
+      return;
+    }
+
+    await typeLine("unknown command. type help1");
+  }
+
+  // ------------------------------------------------------------
+  // HANDLE INPUT
+  // ------------------------------------------------------------
   async function handleCommand(raw) {
     const value = raw.trim();
     if (!value) return;
     printLine("$ " + value);
 
-    const [cmd, ...rest] = value.split(" ");
-    const arg = rest.join(" ").trim().toLowerCase();
-    const base = cmd.toLowerCase();
-
-    // built-in commands
-    if (base === "clear") return clearOutput();
-    if (base === "helpp" || base === "help" || base === "-help") return showHelp();
-
-    if (["menu", "games", "flash", "courses", "systems", "unlockables"].includes(base)) {
-      buildMenu();
-      showMenu();
+    if (value.toLowerCase() === "clear") {
+      clearOutput();
       return;
     }
 
-    if (base === "open") {
-      if (!arg) return typeLine("usage: open <module-id>");
-      const mod = findModuleById(arg);
-      if (!mod) return typeLine("module not found: " + arg);
-      hideMenu();
-      showModule(mod.title, mod.body);
-      return;
-    }
-
-    if (base === "color") {
-      if (!arg) {
-        await typeLine("available terminal themes:");
-        await typeLine("  1 / matrix green");
-        await typeLine("  2 / cyber blue");
-        await typeLine("  3 / clean white");
-        await typeLine("  4 / danger red");
-        await typeLine("  5 / dual-layer");
-        return;
-      }
-      const n = parseInt(arg, 10);
-      if (n === 1) applyTheme("matrix");
-      else if (n === 2) applyTheme("blue");
-      else if (n === 3) applyTheme("white");
-      else if (n === 4) applyTheme("red");
-      else if (n === 5) applyTheme("dual");
-      else await typeLine("unknown theme index.");
-      return;
-    }
-
-    if (base === "ghost") {
-      await typeLine("ghost mode: you are now reading the system without being seen.");
-      pulseLights("yellow");
-      return;
-    }
-
-    if (base === "root") {
-      await typeLine("root access is conceptual here. you already have the keys.");
-      pulseLights("red");
-      return;
-    }
-
-    if (base === "matrix+") {
-      await typeLine("intensifying matrix glitches.");
-      glitchTimer = 0;
-      return;
-    }
-
-    if (base === "lights+") {
-      await typeLine("cycling lights.");
-      setLights("red");
-      await sleep(200);
-      setLights("yellow");
-      await sleep(200);
-      setLights("green");
-      await sleep(200);
-      return;
-    }
-
-    if (base === "devmode") {
-      await typeLine("developer mode: internal signals now visible.");
-      return;
-    }
-
-    // ---------------------------
-    // EXTERNAL COMMAND EXECUTION
-    // ---------------------------
-    const fullKey = value.toLowerCase();
-    if (externalCommands[base] || externalCommands[fullKey]) {
-      const key = externalCommands[base] ? base : fullKey;
-      const desc = externalCommands[key];
-      await typeLine(desc);
-      return;
-    }
-
-    await typeLine("unknown command. type helpp for advanced commands.");
+    await runCommand(value);
   }
 
-  // ---------------------------
+  // ------------------------------------------------------------
   // BOOT
-  // ---------------------------
+  // ------------------------------------------------------------
   async function boot() {
-    setLights("yellow");
     await typeLine("terminal 2 online.");
-    await sleep(200);
     await typeLine("advanced shell loaded.");
-    await sleep(200);
     await typeLine("press control + c to exit this screen.");
-    await sleep(300);
     printLine("");
     await typeLine("are you there?  (y / n)");
-    gatewayActive = true;
     ready = true;
   }
 
-  // ---------------------------
-  // KEYBOARD
-  // ---------------------------
+  // ------------------------------------------------------------
+  // CONTROL + C
+  // ------------------------------------------------------------
   document.addEventListener("keydown", e => {
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "c") {
       e.preventDefault();
       printLine("");
-      printLine("interrupt signal received (control + c).");
-      printLine("returning to normal terminal...");
-      setLights("red");
-      flickerScreen(500);
-      setTimeout(() => {
-        window.location.href = "../index.html";
-      }, 900);
+      printLine("interrupt signal received.");
+      printLine("returning to prompt...");
+      flickerScreen();
+      clearOutput();
     }
   });
 
+  // ------------------------------------------------------------
+  // INPUT LISTENER
+  // ------------------------------------------------------------
   inputEl.addEventListener("keydown", async e => {
     if (e.key === "Enter" && ready) {
       const value = inputEl.value;
       inputEl.value = "";
+
       if (gatewayActive) {
-        const v = value.trim().toLowerCase();
         printLine("$ " + value);
+        const v = value.trim().toLowerCase();
         if (v === "y" || v === "yes") {
           gatewayActive = false;
-          setLights("green");
-          flickerScreen(400);
-          await typeLine("initializing advanced interface...");
-          await sleep(300);
-          await typeLine("loading categories...");
-          await sleep(300);
-          await typeLine("activating matrix overlay...");
-          await sleep(300);
           clearOutput();
-          buildMenu();
-          showMenu();
+          await typeLine("initializing...");
+          await typeLine("loading command index...");
+          await typeLine("loading command outputs...");
+          clearOutput();
+          await typeLine("type help1 to begin.");
         } else if (v === "n" || v === "no") {
           gatewayActive = false;
           await typeLine("understood.");
-          await typeLine("press helpp to reveal advanced commands.");
+          await typeLine("type help1 to begin.");
         } else {
           await typeLine("unrecognized response. type y or n.");
         }
@@ -407,13 +280,13 @@
     }
   });
 
-  // ---------------------------
+  // ------------------------------------------------------------
   // INIT
-  // ---------------------------
-  applyTheme("matrix");
-
+  // ------------------------------------------------------------
   (async () => {
-    await loadExternalCommands();
+    await loadCommandIndex();
+    await loadCommandOutput();
     boot();
   })();
+
 })();
