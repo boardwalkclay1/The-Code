@@ -120,7 +120,7 @@
   }
 
   async function loadCommandIndex() {
-    const text = await safeFetch(TXT_BASE + "command.txt");
+    const text = await safeFetch(TXT_BASE + "/app/lessons/terminal/terminal2/txt/command.txt");
     if (!text) {
       commandIndex = [];
       return;
@@ -142,7 +142,7 @@
   }
 
   async function loadCommandOutput() {
-    const text = await safeFetch(TXT_BASE + "command-output.txt");
+    const text = await safeFetch(TXT_BASE + "/app/lessons/terminal/terminal2/txt/command-output.txt");
     if (!text) {
       commandOutput = {};
       return;
