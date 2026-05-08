@@ -3,33 +3,40 @@
 (function () {
 
   // ------------------------------------------------------------
+  // CONFIG
+  // ------------------------------------------------------------
+  const TXT_BASE = "txt/"; 
+  // if your files live in pages/txt/, use:
+  // const TXT_BASE = "pages/txt/";
+
+  // ------------------------------------------------------------
   // ELEMENTS
   // ------------------------------------------------------------
-  const canvas = document.getElementById("t2-matrix");
-  const ctx = canvas.getContext("2d");
+  const canvas   = document.getElementById("t2-matrix");
+  const ctx      = canvas.getContext("2d");
   const outputEl = document.getElementById("t2-output");
-  const inputEl = document.getElementById("t2-input");
+  const inputEl  = document.getElementById("t2-input");
   const screenEl = document.getElementById("t2-screen");
-  const root = document.documentElement;
+  const root     = document.documentElement;
 
-  let ready = false;
+  let ready        = false;
   let gatewayActive = true;
-  let theme = "matrix";
+  let theme        = "matrix";
 
   // ------------------------------------------------------------
   // MATRIX ENGINE
   // ------------------------------------------------------------
   function resizeMatrix() {
-    canvas.width = window.innerWidth;
+    canvas.width  = window.innerWidth;
     canvas.height = window.innerHeight;
   }
   resizeMatrix();
   window.addEventListener("resize", resizeMatrix);
 
-  const chars = "アァカサタナハマヤャラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ{}[]<>/\\=+-_*";
+  const chars    = "アァカサタナハマヤャラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ{}[]<>/\\=+-_*";
   const fontSize = 16;
-  let columns = Math.floor(canvas.width / fontSize);
-  let drops = Array(columns).fill(1);
+  let columns    = Math.floor(canvas.width / fontSize);
+  let drops      = Array(columns).fill(1);
 
   function drawMatrix() {
     ctx.fillStyle = "rgba(0,0,0,0.08)";
@@ -45,8 +52,8 @@
 
     for (let i = 0; i < drops.length; i++) {
       const text = chars.charAt(Math.floor(Math.random() * chars.length));
-      const x = i * fontSize;
-      const y = drops[i] * fontSize;
+      const x    = i * fontSize;
+      const y    = drops[i] * fontSize;
       ctx.fillText(text, x, y);
       if (y > canvas.height && Math.random() > 0.975) drops[i] = 0;
       drops[i]++;
@@ -89,42 +96,70 @@
 
   function flickerScreen() {
     screenEl.style.opacity = "0.2";
-    setTimeout(() => screenEl.style.opacity = "1", 200);
+    setTimeout(() => (screenEl.style.opacity = "1"), 200);
   }
 
   // ------------------------------------------------------------
   // LOADERS
   // ------------------------------------------------------------
-  let commandIndex = [];
+  let commandIndex  = [];
   let commandOutput = {};
 
+  async function safeFetch(path) {
+    try {
+      const res = await fetch(path);
+      if (!res.ok) {
+        console.warn("[Terminal2] Failed to load:", path, res.status);
+        return "";
+      }
+      return await res.text();
+    } catch (err) {
+      console.error("[Terminal2] Fetch error:", path, err);
+      return "";
+    }
+  }
+
   async function loadCommandIndex() {
-    const res = await fetch("txt/command.txt");
-    const text = await res.text();
+    const text = await safeFetch(TXT_BASE + "command.txt");
+    if (!text) {
+      commandIndex = [];
+      return;
+    }
 
     commandIndex = text
       .split("\n")
-      .map(line => line.trim())
+      .map(line => line && line.trim ? line.trim() : "")
       .filter(line => line && !line.startsWith("//"))
       .map(line => {
         const [cmd, desc] = line.split("::");
         return {
-          command: cmd.trim().toLowerCase(),
-          description: desc.trim()
+          command: (cmd || "").trim().toLowerCase(),
+          description: (desc || "").trim()
         };
       })
+      .filter(item => item.command)
       .sort((a, b) => a.command.localeCompare(b.command));
   }
 
   async function loadCommandOutput() {
-    const res = await fetch("txt/command-output.txt");
-    const text = await res.text();
+    const text = await safeFetch(TXT_BASE + "command-output.txt");
+    if (!text) {
+      commandOutput = {};
+      return;
+    }
 
-    const blocks = text.split("===").map(b => b.trim()).filter(b => b);
+    const blocks = text
+      .split("===")
+      .map(b => (b && b.trim ? b.trim() : ""))
+      .filter(b => b);
+
     blocks.forEach(block => {
-      const firstLine = block.split("\n")[0].trim();
-      const key = firstLine.toLowerCase();
-      const content = block.split("\n").slice(1).join("\n");
+      const lines = block.split("\n");
+      if (!lines.length) return;
+      const firstLine = (lines[0] || "").trim();
+      if (!firstLine) return;
+      const key     = firstLine.toLowerCase();
+      const content = lines.slice(1).join("\n");
       commandOutput[key] = content;
     });
   }
@@ -133,7 +168,7 @@
   // HELP PAGES (12 per page)
   // ------------------------------------------------------------
   function getHelpPage(page) {
-    const size = 12;
+    const size  = 12;
     const start = (page - 1) * size;
     return commandIndex.slice(start, start + size);
   }
@@ -146,7 +181,9 @@
     }
     await typeLine(`[HELP PAGE ${page}]`);
     for (const item of list) {
-      printLine(`  ${item.command.padEnd(20)} ${item.description}`);
+      const cmd  = item.command || "";
+      const desc = item.description || "";
+      printLine(`  ${cmd.padEnd(20)} ${desc}`);
     }
     printLine("");
     printLine("type: help1, help2, help3, help4");
@@ -156,19 +193,23 @@
   // COURSE MAP
   // ------------------------------------------------------------
   const courseMap = {
-    web:      { price: 300, path: "web" },
-    apps:     { price: 300, path: "apps" },
-    mcu:      { price: 300, path: "mcu" },
+    web:       { price: 300, path: "web" },
+    apps:      { price: 300, path: "apps" },
+    mcu:       { price: 300, path: "mcu" },
     automation:{ price: 300, path: "automation" },
-    tools:    { price: 300, path: "tools" },
-    widgets:  { price: 300, path: "widgets" },
-    github:   { price: 200, path: "github" },
-    bash:     { price: 200, path: "bash" },
-    hacking:  { price: 300, path: "hacking" }
+    tools:     { price: 300, path: "tools" },
+    widgets:   { price: 300, path: "widgets" },
+    github:    { price: 200, path: "github" },
+    bash:      { price: 200, path: "bash" },
+    hacking:   { price: 300, path: "hacking" }
   };
 
   async function showCourse(base) {
     const c = courseMap[base];
+    if (!c) {
+      await typeLine("course not found.");
+      return;
+    }
     await typeLine(base.toUpperCase() + " COURSE");
     await typeLine(`price: $${c.price}`);
     await typeLine(`link: /public/courses/${c.path}/index.html`);
@@ -183,7 +224,7 @@
   // COMMAND EXECUTION
   // ------------------------------------------------------------
   async function runCommand(cmd) {
-    const key = cmd.toLowerCase();
+    const key = (cmd || "").toLowerCase();
 
     // built-in help pages
     if (key === "help1") return showHelpPage(1);
@@ -210,7 +251,7 @@
   // HANDLE INPUT
   // ------------------------------------------------------------
   async function handleCommand(raw) {
-    const value = raw.trim();
+    const value = (raw || "").trim();
     if (!value) return;
     printLine("$ " + value);
 
@@ -258,7 +299,7 @@
 
       if (gatewayActive) {
         printLine("$ " + value);
-        const v = value.trim().toLowerCase();
+        const v = (value || "").trim().toLowerCase();
         if (v === "y" || v === "yes") {
           gatewayActive = false;
           clearOutput();
