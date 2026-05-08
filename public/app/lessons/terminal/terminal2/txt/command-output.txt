@@ -28,10 +28,99 @@ bash is the language of automation, servers, and real systems.
 full explanation text here...
 
 === flash ===
-flash learning philosophy text here...
+FLASH LEARNING
+
+flash learning is not a study trick.
+it is a one‑of‑one learning system created by THE CODE.
+
+your brain does not learn best from long, slow, padded lessons.
+your brain learns from sharp hits of meaning.
+
+flash learning gives you:
+- fast exposure
+- emotional honesty
+- pattern recognition
+- instant recall
+- momentum
+
+it is built on a simple truth:
+your brain remembers what hits you,
+not what bores you.
+
+flash learning is:
+- short
+- cinematic
+- high‑signal
+- high‑impact
+- designed to stick
+
+diagram:
+[ INPUT ] → [ FLASH ] → [ RECALL ] → [ SKILL ]
+
+to continue:
+type: flash explain
+
+press control + c to exit
+
 
 === flash explain ===
-full detailed flash learning explanation...
+FLASH LEARNING — FULL BREAKDOWN
+
+flash learning works because it bypasses the slow, padded, school‑style learning loop.
+
+traditional learning:
+- long sessions
+- low retention
+- low emotion
+- high boredom
+- high dropout
+
+flash learning:
+- short bursts
+- high retention
+- high emotion
+- high pattern recognition
+- low friction
+
+why it works:
+your brain is built to notice:
+- contrast
+- speed
+- rhythm
+- repetition
+- emotional charge
+
+flash learning uses all five.
+
+diagram:
++------------------+
+|  FLASH SEQUENCE  |
++------------------+
+|  1. word         |
+|  2. meaning      |
+|  3. example      |
+|  4. recall hit   |
++------------------+
+
+each flash sequence is a micro‑lesson.
+each micro‑lesson builds a pattern.
+patterns become skills.
+
+flash learning is used:
+- before a course (priming)
+- during a course (reinforcement)
+- after a course (retention)
+- inside games (pattern training)
+- inside terminal 2 (mental sharpening)
+
+flash learning is not passive.
+it is a rep system for your mind.
+
+to run a flash sequence:
+type: [flash sequence name]
+
+to return:
+press control + c
 
 === games ===
 games list text here...
