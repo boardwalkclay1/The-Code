@@ -1,0 +1,127 @@
+=== apps ===
+price: $300
+link: /public/courses/apps/index.html
+description:
+apps are how people experience software in their hands.
+you learn to design and build app-like experiences using modern stacks.
+
+=== apps explain ===
+full explanation text here...
+
+=== automation ===
+price: $300
+link: /public/courses/automation/index.html
+description:
+automation is how you scale yourself.
+you design workflows that trigger on events and complete tasks while you sleep.
+
+=== automation explain ===
+full explanation text here...
+
+=== bash ===
+price: $200
+link: /public/courses/bash/index.html
+description:
+bash is the language of automation, servers, and real systems.
+
+=== bash explain ===
+full explanation text here...
+
+=== flash ===
+flash learning philosophy text here...
+
+=== flash explain ===
+full detailed flash learning explanation...
+
+=== games ===
+games list text here...
+
+=== games explain ===
+games philosophy text here...
+
+=== github ===
+price: $200
+link: /public/courses/github/index.html
+description:
+github is how modern developers collaborate, version, and deploy.
+
+=== github explain ===
+full explanation text here...
+
+=== hacking ===
+price: $300
+link: /public/courses/hacking/index.html
+description:
+hacking here means understanding how systems break so you can design them safer.
+
+=== hacking explain ===
+full explanation text here...
+
+=== math ===
+math philosophy text here...
+
+=== math explain ===
+why math matters in everything...
+
+=== math beginner ===
+beginner math module text...
+
+=== math intermediate ===
+intermediate math module text...
+
+=== math advanced ===
+advanced math module text...
+
+=== mcu ===
+price: $300
+link: /public/courses/mcu/index.html
+description:
+microcontrollers are how code touches the physical world.
+
+=== mcu explain ===
+full explanation text here...
+
+=== pricing ===
+pricing table text...
+
+=== system ===
+system overview text...
+
+=== tools ===
+price: $300
+link: /public/courses/tools/index.html
+description:
+tools teaches you the systems behind building, debugging, and shipping.
+
+=== tools explain ===
+full explanation text here...
+
+=== truth ===
+truth layer text...
+
+=== truth deep ===
+full deep philosophical text...
+
+=== web ===
+price: $300
+link: /public/courses/web/index.html
+description:
+web fundamentals teach you how the modern world’s interfaces are built.
+
+=== web explain ===
+full explanation text here...
+
+=== widgets ===
+price: $300
+link: /public/courses/widgets/index.html
+description:
+widgets teaches you how to build reusable UI components and systems.
+
+=== widgets explain ===
+full explanation text here...
+
+=== unlock ===
+unlockables list...
+
+=== unlock explain ===
+hidden layers explanation...
