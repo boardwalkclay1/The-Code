@@ -22,6 +22,9 @@
   let ready = false;
   let theme = "matrix";
 
+  // ---------------------------
+  // MATRIX ENGINE
+  // ---------------------------
   function resizeMatrix() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -77,6 +80,9 @@
   }
   requestAnimationFrame(drawMatrix);
 
+  // ---------------------------
+  // LIGHTS
+  // ---------------------------
   function setLights(state) {
     lights.red.classList.remove("on");
     lights.yellow.classList.remove("on");
@@ -94,6 +100,9 @@
     });
   }
 
+  // ---------------------------
+  // UTILITIES
+  // ---------------------------
   function sleep(ms) {
     return new Promise(r => setTimeout(r, ms));
   }
@@ -141,6 +150,9 @@
     }, duration / 4);
   }
 
+  // ---------------------------
+  // MODULE + MENU SYSTEM
+  // ---------------------------
   function showMenu() {
     menuEl.classList.add("active");
   }
@@ -180,247 +192,58 @@
     pulseLights("green");
   }
 
-  const categories = [
-    {
-      id: "education",
-      label: "⌘ education",
-      items: [
-        {
-          id: "edu-web",
-          label: "web fundamentals",
-          title: "WEB FUNDAMENTALS",
-          body:
-`[ BROWSER ] ⇄ [ YOUR WEB APP ] ⇄ [ DATABASE ]
-        ↑             |
-        |             ↓
-     [ USERS ]    [ AUTOMATION ]
+  // ---------------------------
+  // EXTERNAL COMMAND LOADER
+  // ---------------------------
+  let externalCommands = {};
 
-web fundamentals is where you learn how the interfaces of the modern world are built.
-you learn HTML, CSS, JavaScript, APIs, auth, state, and deployment as a system you control.
-most people only consume this layer. you will build it.`
-        },
-        {
-          id: "edu-apps",
-          label: "app development",
-          title: "APP DEVELOPMENT",
-          body:
-`[ USER ] → [ DEVICE ] → [ APP SHELL ] → [ CLOUD ]
+  async function loadExternalCommands() {
+    try {
+      const res = await fetch("txt/command.txt");
+      const text = await res.text();
 
-apps are how people experience software in their hands.
-you learn how to design and build app-like experiences using web tech and modern stacks.
-you are not just learning screens — you are learning systems.`
-        },
-        {
-          id: "edu-mcu",
-          label: "mcu engineering",
-          title: "MCU ENGINEERING",
-          body:
-`[ CODE ] → [ MICROCONTROLLER ] → [ SENSORS / MOTORS ] → [ REAL WORLD ]
+      text.split("\n").forEach(line => {
+        const trimmed = line.trim();
+        if (!trimmed || trimmed.startsWith("//")) return;
 
-microcontrollers are how code touches the physical world.
-you learn how factories, cars, drones, and robotics are controlled.
-you design safe, predictable systems that move real hardware.`
-        },
-        {
-          id: "edu-hacking",
-          label: "hacking & security",
-          title: "HACKING & SECURITY",
-          body:
-`[ ATTACK SURFACE ]
-        ↓
-[ DEFENSE LAYERS ] → [ LOGS / ALERTS ]
+        const [cmd, ...descParts] = trimmed.split("::");
+        const command = cmd.trim().toLowerCase();
+        const description = descParts.join("::").trim();
 
-hacking here means understanding how systems break so you can design them to be safer.
-you learn attack surfaces, defense layers, logging, and safe patterns.
-this is a societal superpower — you see the invisible edges of the systems everyone else trusts blindly.`
-        },
-        {
-          id: "edu-automation",
-          label: "automation systems",
-          title: "AUTOMATION SYSTEMS",
-          body:
-`[ TRIGGER ] → [ WORKFLOW ] → [ ACTIONS ] → [ RESULTS ]
-
-automation is how you scale yourself.
-you design workflows that trigger on events, move data, and complete tasks while you sleep.
-this is how modern businesses operate behind the scenes.`
-        }
-      ]
-    },
-    {
-      id: "games",
-      label: "▣ games",
-      items: [
-        { id: "game-flash", label: "code flash (10s)" },
-        { id: "game-bugfix", label: "bugfix trainer" },
-        { id: "game-navigator", label: "file navigator" },
-        { id: "game-logic", label: "logic puzzle" },
-        { id: "game-hack-sim", label: "hack simulation" }
-      ]
-    },
-    {
-      id: "flash",
-      label: "⚡ flash learning",
-      items: [
-        { id: "flash-code", label: "code flash (10s)" }
-      ]
-    },
-    {
-      id: "courses",
-      label: "▤ courses",
-      items: [
-        { id: "course-web", label: "web ($300)" },
-        { id: "course-apps", label: "apps ($300)" },
-        { id: "course-mcu", label: "mcu ($300)" },
-        { id: "course-hacking", label: "hacking ($300)" },
-        { id: "course-automation", label: "automation ($300)" },
-        { id: "course-github", label: "github ($200)" },
-        { id: "course-bash", label: "bash ($200)" }
-      ]
-    },
-    {
-      id: "systems",
-      label: "◉ systems",
-      items: [
-        {
-          id: "sys-map",
-          label: "system map",
-          title: "SYSTEM MAP",
-          body:
-`[ TERMINAL 1 ] → [ TERMINAL 2 ] → [ GAMES / FLASH / COURSES ]
-         ↓                 ↓
-   [ MATRIX ENGINE ]   [ SYSTEM MAP / UNLOCKABLES ]
-
-terminal 1 is your preview shell.
-terminal 2 is your advanced shell.
-from here you can reach games, flash learning, courses, and deeper system tools.
-this is not a website — this is your operating layer for learning and building.`
-        }
-      ]
-    },
-    {
-      id: "unlockables",
-      label: "⛉ unlockables",
-      items: [
-        {
-          id: "unlock-hidden",
-          label: "hidden commands",
-          title: "HIDDEN COMMANDS",
-          body:
-`some commands are not listed in helpp.
-
-try:
-  ghost
-  root
-  matrix+
-  lights+
-  devmode
-
-these commands reveal deeper layers, diagnostics, and experimental tools.`
-        },
-        {
-          id: "unlock-dev",
-          label: "developer mode",
-          title: "DEVELOPER MODE",
-          body:
-`developer mode exposes internal signals and debug output.
-
-you can see:
-  - theme changes
-  - matrix glitches
-  - light pulses
-  - command routing
-
-this mode is for builders who want to see the wiring behind the scenes.`
-        }
-      ]
+        externalCommands[command] = description;
+      });
+    } catch (err) {
+      console.error("Failed to load external commands:", err);
     }
-  ];
-
-  function buildMenu() {
-    menuEl.innerHTML = "";
-    const title = document.createElement("div");
-    title.className = "t2-menu-title";
-    title.textContent = "select a category:";
-    menuEl.appendChild(title);
-
-    categories.forEach(cat => {
-      const catEl = document.createElement("div");
-      catEl.className = "t2-menu-category";
-      catEl.textContent = cat.label;
-      const listEl = document.createElement("div");
-      listEl.className = "t2-menu-list";
-
-      cat.items.forEach(item => {
-        const itemEl = document.createElement("button");
-        itemEl.className = "t2-menu-item";
-        itemEl.textContent = "• " + item.label;
-        itemEl.addEventListener("click", () => {
-          if (item.id.startsWith("edu-") || item.id.startsWith("sys-") || item.id.startsWith("unlock-")) {
-            const full = findModuleById(item.id);
-            if (full) {
-              hideMenu();
-              showModule(full.title, full.body);
-            }
-          } else if (item.id.startsWith("game-")) {
-            hideMenu();
-            if (window.T2_GAMES && typeof window.T2_GAMES.launch === "function") {
-              window.T2_GAMES.launch(item.id);
-            } else {
-              showModule("GAMES ENGINE", "games are handled in a separate engine.\n\nwire T2_GAMES.launch(\"" + item.id + "\") here.");
-            }
-          } else if (item.id.startsWith("flash-")) {
-            hideMenu();
-            if (window.T2_FLASH && typeof window.T2_FLASH.run === "function") {
-              window.T2_FLASH.run(item.id);
-            } else {
-              showModule("FLASH LEARNING", "flash learning runs in its own module.\n\nwire T2_FLASH.run(\"" + item.id + "\") here.");
-            }
-          } else if (item.id.startsWith("course-")) {
-            hideMenu();
-            if (window.T2_COURSES && typeof window.T2_COURSES.open === "function") {
-              window.T2_COURSES.open(item.id);
-            } else {
-              showModule("COURSE ENGINE", "courses are handled in a separate engine.\n\nwire T2_COURSES.open(\"" + item.id + "\") here.");
-            }
-          }
-        });
-        listEl.appendChild(itemEl);
-      });
-
-      catEl.addEventListener("click", () => {
-        const open = listEl.classList.toggle("open");
-        if (open) pulseLights("green");
-      });
-
-      menuEl.appendChild(catEl);
-      menuEl.appendChild(listEl);
-    });
   }
 
-  function findModuleById(id) {
-    for (const cat of categories) {
-      for (const item of cat.items) {
-        if (item.id === id && item.title && item.body) return item;
-      }
-    }
-    return null;
-  }
-
+  // ---------------------------
+  // HELP
+  // ---------------------------
   async function showHelp() {
     await typeLine("[ADVANCED COMMANDS]");
     await typeLine("  helpp        / show this list");
     await typeLine("  menu         / show advanced categories");
     await typeLine("  games        / open games category");
-    await typeLine("  flash        / open flash learning category");
-    await typeLine("  courses      / open courses category");
-    await typeLine("  systems      / open systems category");
-    await typeLine("  unlockables  / open unlockables category");
+    await typeLine("  flash        / open flash learning");
+    await typeLine("  courses      / open courses");
+    await typeLine("  systems      / open systems");
+    await typeLine("  unlockables  / open unlockables");
     await typeLine("  color        / change terminal theme");
-    await typeLine("  open <id>    / open a specific module");
-    await typeLine("  clear        / clear the screen");
+    await typeLine("  open <id>    / open a module");
+    await typeLine("  clear        / clear screen");
+
+    await typeLine("");
+    await typeLine("[COURSE COMMANDS]");
+
+    Object.entries(externalCommands).forEach(([cmd, desc]) => {
+      printLine(`  ${cmd.padEnd(18)} ${desc}`);
+    });
   }
 
+  // ---------------------------
+  // COMMAND HANDLER
+  // ---------------------------
   async function handleCommand(raw) {
     const value = raw.trim();
     if (!value) return;
@@ -430,62 +253,20 @@ this mode is for builders who want to see the wiring behind the scenes.`
     const arg = rest.join(" ").trim().toLowerCase();
     const base = cmd.toLowerCase();
 
-    if (base === "clear") {
-      clearOutput();
-      return;
-    }
+    // built-in commands
+    if (base === "clear") return clearOutput();
+    if (base === "helpp" || base === "help" || base === "-help") return showHelp();
 
-    if (base === "helpp" || base === "help" || base === "-help") {
-      await showHelp();
-      return;
-    }
-
-    if (base === "menu") {
-      buildMenu();
-      showMenu();
-      return;
-    }
-
-    if (base === "games") {
-      buildMenu();
-      showMenu();
-      return;
-    }
-
-    if (base === "flash") {
-      buildMenu();
-      showMenu();
-      return;
-    }
-
-    if (base === "courses") {
-      buildMenu();
-      showMenu();
-      return;
-    }
-
-    if (base === "systems") {
-      buildMenu();
-      showMenu();
-      return;
-    }
-
-    if (base === "unlockables") {
+    if (["menu", "games", "flash", "courses", "systems", "unlockables"].includes(base)) {
       buildMenu();
       showMenu();
       return;
     }
 
     if (base === "open") {
-      if (!arg) {
-        await typeLine("usage: open <module-id>");
-        return;
-      }
+      if (!arg) return typeLine("usage: open <module-id>");
       const mod = findModuleById(arg);
-      if (!mod) {
-        await typeLine("module not found: " + arg);
-        return;
-      }
+      if (!mod) return typeLine("module not found: " + arg);
       hideMenu();
       showModule(mod.title, mod.body);
       return;
@@ -498,8 +279,7 @@ this mode is for builders who want to see the wiring behind the scenes.`
         await typeLine("  2 / cyber blue");
         await typeLine("  3 / clean white");
         await typeLine("  4 / danger red");
-        await typeLine("  5 / dual-layer (green + blue)");
-        await typeLine("usage: color <1-5>");
+        await typeLine("  5 / dual-layer");
         return;
       }
       const n = parseInt(arg, 10);
@@ -519,7 +299,7 @@ this mode is for builders who want to see the wiring behind the scenes.`
     }
 
     if (base === "root") {
-      await typeLine("root access is conceptual here. you already have the keys to this layer.");
+      await typeLine("root access is conceptual here. you already have the keys.");
       pulseLights("red");
       return;
     }
@@ -542,14 +322,27 @@ this mode is for builders who want to see the wiring behind the scenes.`
     }
 
     if (base === "devmode") {
-      await typeLine("developer mode: internal signals will now be more visible.");
-      await typeLine("watch the matrix, lights, and transitions closely.");
+      await typeLine("developer mode: internal signals now visible.");
+      return;
+    }
+
+    // ---------------------------
+    // EXTERNAL COMMAND EXECUTION
+    // ---------------------------
+    const fullKey = value.toLowerCase();
+    if (externalCommands[base] || externalCommands[fullKey]) {
+      const key = externalCommands[base] ? base : fullKey;
+      const desc = externalCommands[key];
+      await typeLine(desc);
       return;
     }
 
     await typeLine("unknown command. type helpp for advanced commands.");
   }
 
+  // ---------------------------
+  // BOOT
+  // ---------------------------
   async function boot() {
     setLights("yellow");
     await typeLine("terminal 2 online.");
@@ -564,6 +357,9 @@ this mode is for builders who want to see the wiring behind the scenes.`
     ready = true;
   }
 
+  // ---------------------------
+  // KEYBOARD
+  // ---------------------------
   document.addEventListener("keydown", e => {
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "c") {
       e.preventDefault();
@@ -611,6 +407,13 @@ this mode is for builders who want to see the wiring behind the scenes.`
     }
   });
 
+  // ---------------------------
+  // INIT
+  // ---------------------------
   applyTheme("matrix");
-  boot();
+
+  (async () => {
+    await loadExternalCommands();
+    boot();
+  })();
 })();
