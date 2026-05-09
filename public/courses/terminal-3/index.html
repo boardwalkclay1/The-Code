@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Terminal 3</title>
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --panel:#0f1720;
+      --accent:#7dd3fc;
+      --muted:#94a3b8;
+      --text:#e6eef6;
+      --glass: rgba(255,255,255,0.03);
+      --danger:#ff6b6b;
+      --success:#7efc8d;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
+    }
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#07101a 0%, #07121a 100%);color:var(--text);}
+    .terminal-root{display:grid;grid-template-columns:320px 1fr;grid-template-rows:1fr;gap:12px;height:100vh;padding:18px;box-sizing:border-box;}
+    .left-panel{background:var(--panel);border-radius:10px;padding:12px;box-shadow:0 6px 30px rgba(2,6,23,0.6);display:flex;flex-direction:column;gap:12px;min-width:260px;}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand .logo{width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:flex;align-items:center;justify-content:center;font-weight:700;color:#042;box-shadow:0 4px 18px rgba(0,0,0,0.6)}
+    .brand h1{font-size:14px;margin:0}
+    .controls{display:flex;gap:8px;flex-wrap:wrap}
+    .btn{background:var(--glass);border:1px solid rgba(255,255,255,0.03);padding:8px 10px;border-radius:8px;color:var(--muted);cursor:pointer;font-size:13px}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),#60a5fa);color:#042;border:none}
+    .file-list{flex:1;overflow:auto;padding:6px;border-radius:8px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);border:1px solid rgba(255,255,255,0.02)}
+    .file-item{padding:8px;border-radius:6px;color:var(--text);display:flex;justify-content:space-between;align-items:center;font-size:13px}
+    .file-item:hover{background:rgba(255,255,255,0.02);cursor:pointer}
+    .right-panel{display:flex;flex-direction:column;gap:12px}
+    .terminal-window{background:linear-gradient(180deg,#07101a,#06121a);border-radius:10px;padding:12px;box-shadow:0 6px 30px rgba(2,6,23,0.6);display:flex;flex-direction:column;flex:1;min-height:0}
+    .output{flex:1;overflow:auto;padding:12px;border-radius:8px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);border:1px solid rgba(255,255,255,0.02);white-space:pre-wrap;font-size:13px;line-height:1.45}
+    .prompt{display:flex;gap:8px;align-items:center;padding-top:8px}
+    .prompt .prompt-label{color:var(--muted);font-size:13px}
+    .prompt input{flex:1;background:transparent;border:none;outline:none;color:var(--text);font-size:14px;padding:8px 10px;border-radius:6px}
+    .mini-controls{display:flex;gap:8px;align-items:center}
+    .preview{height:320px;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);background:#02060a}
+    iframe.preview-frame{width:100%;height:100%;border:0;background:white}
+    .status{font-size:12px;color:var(--muted);padding:6px 0}
+    .help-badge{background:rgba(125,211,252,0.08);color:var(--accent);padding:4px 8px;border-radius:6px;font-size:12px}
+    .kbd{background:rgba(255,255,255,0.03);padding:2px 6px;border-radius:4px;border:1px solid rgba(255,255,255,0.02);font-size:12px}
+    @media (max-width:900px){.terminal-root{grid-template-columns:1fr;grid-template-rows:auto 1fr}.left-panel{order:2}}
+  </style>
+</head>
+<body>
+  <div class="terminal-root" id="terminalRoot">
+    <div class="left-panel" id="leftPanel">
+      <div class="brand">
+        <div class="logo">T3</div>
+        <div>
+          <h1>Terminal 3</h1>
+          <div class="status">Master terminal for all courses</div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button class="btn primary" id="btnPanel">Open Panel</button>
+        <button class="btn" id="btnPreview">Preview</button>
+        <button class="btn" id="btnSave">Save</button>
+        <button class="btn" id="btnLoad">Load</button>
+      </div>
+
+      <div class="file-list" id="fileList" aria-label="File panel">
+        <!-- file items injected here -->
+      </div>
+
+      <div style="display:flex;gap:8px;align-items:center">
+        <div class="help-badge">Type <span class="kbd">help1</span> to open commands</div>
+        <div style="flex:1"></div>
+        <div class="status" id="cwdDisplay">/</div>
+      </div>
+    </div>
+
+    <div class="right-panel">
+      <div class="terminal-window" role="application" aria-label="Terminal 3">
+        <div class="output" id="outputArea" tabindex="0"></div>
+
+        <div class="prompt">
+          <div class="prompt-label" id="promptLabel">guest@t3:</div>
+          <input id="cmdInput" autocomplete="off" spellcheck="false" placeholder="Type a command. Try help1" />
+          <div class="mini-controls">
+            <button class="btn" id="btnRun">Run</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="preview" id="preview">
+        <iframe class="preview-frame" id="previewFrame" srcdoc="<html><body style='background:#07101a;color:#9fb7c9;font-family:system-ui;padding:20px'>Preview</body></html>"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Basic UI wiring and Terminal3 integration
+    (function(){
+      const output = document.getElementById('outputArea');
+      const input = document.getElementById('cmdInput');
+      const btnRun = document.getElementById('btnRun');
+      const btnPanel = document.getElementById('btnPanel');
+      const btnPreview = document.getElementById('btnPreview');
+      const btnSave = document.getElementById('btnSave');
+      const btnLoad = document.getElementById('btnLoad');
+      const fileList = document.getElementById('fileList');
+      const cwdDisplay = document.getElementById('cwdDisplay');
+      const previewFrame = document.getElementById('previewFrame');
+
+      // Simple print helper
+      function printLine(text){
+        const node = document.createElement('div');
+        node.textContent = text;
+        output.appendChild(node);
+        output.scrollTop = output.scrollHeight;
+      }
+      function printRaw(text){
+        // preserve newlines and ASCII diagrams
+        const pre = document.createElement('pre');
+        pre.style.margin = '0';
+        pre.style.whiteSpace = 'pre-wrap';
+        pre.textContent = text;
+        output.appendChild(pre);
+        output.scrollTop = output.scrollHeight;
+      }
+      function clearScreen(){ output.innerHTML = ''; }
+
+      // Register UI hooks with engine
+      function registerUI(){
+        window.Terminal3.registerUI({
+          print: (t) => {
+            // engine prints may include newlines and diagrams
+            printRaw(t);
+            // update cwd display if placeholder present
+            try {
+              const s = window.Terminal3.getState();
+              cwdDisplay.textContent = s.cwd || '/';
+            } catch(e){}
+          },
+          clear: () => clearScreen(),
+          openPanel: () => {
+            // toggle left panel visibility
+            document.getElementById('leftPanel').style.display = document.getElementById('leftPanel').style.display === 'none' ? 'flex' : 'none';
+          },
+          updatePreview: () => {
+            // simple preview: render index.html if exists at /index.html in virtual fs
+            const st = window.Terminal3.getState();
+            const root = st.fs || {};
+            // find a file named index.html in cwd
+            const cwd = st.cwd || '/';
+            const children = (root[cwd] && root[cwd].children) || {};
+            if (children['index.html']) {
+              // fetch content from engine's fs snapshot by calling engine.getState
+              // engine stores file content in state.fs[path].content
+              const path = (cwd === '/' ? '/' : cwd) + (cwd.endsWith('/') ? '' : '/') + 'index.html';
+              // engine exposes getState; we can read file content from it
+              const state = window.Terminal3.getState();
+              const fileObj = state.fs[path];
+              const html = (fileObj && fileObj.content) ? fileObj.content : '<h1>Empty index.html</h1>';
+              previewFrame.srcdoc = html;
+            } else {
+              previewFrame.srcdoc = '<html><body style="background:#07101a;color:#9fb7c9;font-family:system-ui;padding:20px"><strong>No index.html found in current directory</strong></body></html>';
+            }
+          },
+          updateFilePanel: () => {
+            // rebuild file list from engine state
+            const st = window.Terminal3.getState();
+            fileList.innerHTML = '';
+            const cwd = st.cwd || '/';
+            const children = (st.fs && st.fs[cwd] && st.fs[cwd].children) || {};
+            const keys = Object.keys(children);
+            if (!keys.length) {
+              const empty = document.createElement('div');
+              empty.className = 'file-item';
+              empty.textContent = '(empty)';
+              fileList.appendChild(empty);
+              return;
+            }
+            keys.forEach(name => {
+              const item = document.createElement('div');
+              item.className = 'file-item';
+              item.textContent = name;
+              item.onclick = () => {
+                // open file content in terminal via cat
+                window.Terminal3.execute('cat ' + name);
+              };
+              fileList.appendChild(item);
+            });
+          },
+          showPagedText: (title, text) => {
+            // show help screen in output area
+            clearScreen();
+            printLine('=== ' + title + ' ===');
+            printRaw(text);
+            printLine('\nPress Ctrl+C to exit.');
+          }
+        });
+      }
+
+      // Initialize engine
+      async function initEngine(){
+        registerUI();
+        try {
+          await window.Terminal3.init({
+            commandTxt: '/public/courses/terminal-3/txt/command.txt',
+            outputTxt: '/public/courses/terminal-3/txt/command-output.txt'
+          });
+          // initial UI sync
+          window.Terminal3.execute('help');
+          window.Terminal3.execute('whereami');
+          window.Terminal3.execute('ls');
+          // update file panel
+          window.Terminal3.registerUI && window.Terminal3.getState && window.Terminal3.registerUI; // noop to avoid lint
+          // request file panel update
+          window.Terminal3.execute('project-list');
+          // ensure file panel shows current fs
+          setTimeout(()=> {
+            try { window.Terminal3.registerUI && window.Terminal3.getState && window.Terminal3.registerUI; } catch(e){}
+            // call updateFilePanel hook
+            const st = window.Terminal3.getState();
+            // call UI update
+            window.Terminal3.registerUI && window.Terminal3.getState && window.Terminal3.registerUI;
+            // trigger updateFilePanel by executing a no-op that causes engine to call UI update
+            // best-effort: call updateFilePanel directly
+            const hooks = window.Terminal3 && window.Terminal3.getState ? null : null;
+            // call the UI hook we registered earlier
+            // (we can call updateFilePanel directly)
+            try { window.Terminal3 && window.Terminal3.getState && window.Terminal3.registerUI; } catch(e){}
+            // finally, call updateFilePanel via engine's UI hook
+            // (we stored the UI functions inside engine; call updateFilePanel by executing a command that triggers it)
+            // fallback: call the UI update function we defined above
+            document.getElementById('cwdDisplay').textContent = window.Terminal3.getState().cwd || '/';
+            // initial file panel update
+            const updateFn = () => {
+              // call the UI hook by executing a command that triggers updateFilePanel in engine
+              // engine exposes updateFilePanel via registered UI; we can call it by executing a command that triggers fs action
+              // simpler: call the UI update function defined in this script
+              const st = window.Terminal3.getState();
+              fileList.innerHTML = '';
+              const cwd = st.cwd || '/';
+              const children = (st.fs && st.fs[cwd] && st.fs[cwd].children) || {};
+              const keys = Object.keys(children);
+              if (!keys.length) {
+                const empty = document.createElement('div');
+                empty.className = 'file-item';
+                empty.textContent = '(empty)';
+                fileList.appendChild(empty);
+                return;
+              }
+              keys.forEach(name => {
+                const item = document.createElement('div');
+                item.className = 'file-item';
+                item.textContent = name;
+                item.onclick = () => window.Terminal3.execute('cat ' + name);
+                fileList.appendChild(item);
+              });
+            };
+            updateFn();
+          }, 300);
+        } catch (err) {
+          printLine('Engine init failed: ' + err.message);
+        }
+      }
+
+      // Input handling
+      btnRun.addEventListener('click', () => {
+        const val = input.value.trim();
+        if (!val) return;
+        window.Terminal3.execute(val);
+        input.value = '';
+        input.focus();
+      });
+
+      input.addEventListener('keydown', (ev) => {
+        if (ev.key === 'Enter') {
+          ev.preventDefault();
+          btnRun.click();
+        }
+        if (ev.key === 'c' && ev.ctrlKey) {
+          ev.preventDefault();
+          window.Terminal3.handleCtrlC();
+        }
+      });
+
+      // quick buttons
+      btnPanel.addEventListener('click', () => {
+        window.Terminal3.execute('panel');
+      });
+      btnPreview.addEventListener('click', () => {
+        window.Terminal3.execute('preview');
+      });
+      btnSave.addEventListener('click', () => {
+        window.Terminal3.execute('project-save');
+      });
+      btnLoad.addEventListener('click', () => {
+        window.Terminal3.execute('project-load');
+      });
+
+      // keyboard focus
+      output.addEventListener('click', () => input.focus());
+      input.focus();
+
+      // initialize
+      window.addEventListener('load', initEngine);
+    })();
+  </script>
+
+  <!-- Engine script must be present at this path -->
+  <script src="/public/courses/terminal-3/js/engine.js"></script>
+</body>
+</html>
