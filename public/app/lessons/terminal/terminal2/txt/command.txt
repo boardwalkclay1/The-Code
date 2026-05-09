@@ -1,10 +1,10 @@
-apps :: shows price and link for the apps course
+apps :: shows price and activation command for the apps course
 apps explain :: explains the apps course in full detail
 
-automation :: shows price and link for the automation course
+automation :: shows price and activation command for the automation course
 automation explain :: explains the automation course in full detail
 
-bash :: shows price and link for the bash course
+bash :: shows price and activation command for the bash course
 bash explain :: explains the bash course in full detail
 
 courses :: lists all available courses
@@ -15,10 +15,10 @@ flash explain :: explains flash learning in full detail
 games :: lists all games and training modules
 games explain :: explains the purpose behind the games
 
-github :: shows price and link for the github course
+github :: shows price and activation command for the github course
 github explain :: explains the github course in full detail
 
-hacking :: shows price and link for the hacking course
+hacking :: shows price and activation command for the hacking course
 hacking explain :: explains the hacking course in full detail
 
 learn :: opens the learning map
@@ -34,14 +34,14 @@ math beginner :: opens beginner math modules
 math intermediate :: opens intermediate math modules
 math advanced :: opens advanced math modules
 
-mcu :: shows price and link for the mcu course
+mcu :: shows price and activation command for the mcu course
 mcu explain :: explains the mcu course in full detail
 
 pricing :: shows pricing info
 
 system :: shows system overview
 
-tools :: shows price and link for the tools course
+tools :: shows price and activation command for the tools course
 tools explain :: explains the tools course in full detail
 
 truth :: reveals the truth layer of terminal 2
@@ -50,8 +50,8 @@ truth deep :: shows the full philosophical text
 unlock :: shows unlockable commands
 unlock explain :: explains hidden layers
 
-web :: shows price and link for the web course
+web :: shows price and activation command for the web course
 web explain :: explains the web course in full detail
 
-widgets :: shows price and link for the widgets course
+widgets :: shows price and activation command for the widgets course
 widgets explain :: explains the widgets course in full detail
