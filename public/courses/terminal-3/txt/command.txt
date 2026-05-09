@@ -1,14 +1,16 @@
 # ============================================================
-# TERMINAL 3 – COMMAND LIST + DEFINITIONS + HELP PAGES (1–10)
+# TERMINAL 3 – FULL COMMAND LIST + DEFINITIONS + HELP PAGES
 # ============================================================
-# This file is the SINGLE SOURCE OF TRUTH.
+# This file is the SINGLE SOURCE OF TRUTH for Terminal 3.
 # The engine reads this file and builds:
 # - Command list
 # - Definitions
 # - Help pages 1–10
 # - Autocomplete
 # - Command reference
-# - Help index
+# - Course navigation
+# - Flash-learning navigation
+# - Game navigation
 # ============================================================
 
 
@@ -119,24 +121,60 @@ fs-map :: Show a map of the filesystem
 # ============================================================
 git-map :: Show a map of the Git state
 bash-map :: Show a map of Bash commands
-# (Remaining slots open for expansion)
-# Terminal 3 supports dynamic page sizes
+learn :: Open the learning map
+math :: Open the math philosophy
+math explain :: Explain why math matters in everything
+math beginner :: Open beginner math modules
+math intermediate :: Open intermediate math modules
+math advanced :: Open advanced math modules
+truth :: Reveal the truth layer
+truth deep :: Show the full philosophical text
+unlock :: Show unlockable commands
+unlock explain :: Explain hidden layers
 
 
 # ============================================================
 # HELP PAGE 8 (help8)
 # ============================================================
-# Reserved for future commands
-# Add new commands here as Terminal 3 grows
+apps :: Show price and activation command for the apps course
+apps explain :: Explain the apps course in full detail
+automation :: Show price and activation command for the automation course
+automation explain :: Explain the automation course in full detail
+bash :: Show price and activation command for the bash course
+bash explain :: Explain the bash course in full detail
+github :: Show price and activation command for the github course
+github explain :: Explain the github course in full detail
+hacking :: Show price and activation command for the hacking course
+hacking explain :: Explain the hacking course in full detail
 
 
 # ============================================================
 # HELP PAGE 9 (help9)
 # ============================================================
-# Reserved for future commands
+mcu :: Show price and activation command for the mcu course
+mcu explain :: Explain the mcu course in full detail
+tools :: Show price and activation command for the tools course
+tools explain :: Explain the tools course in full detail
+web :: Show price and activation command for the web course
+web explain :: Explain the web course in full detail
+widgets :: Show price and activation command for the widgets course
+widgets explain :: Explain the widgets course in full detail
+pricing :: Show pricing info
+system :: Show system overview
+courses :: List all available courses
 
 
 # ============================================================
 # HELP PAGE 10 (help10)
 # ============================================================
-# Reserved for future commands
+flash :: List all flash-learning sequences
+flash explain :: Explain flash-learning in full detail
+flash-run :: Show price and access info for flash learning
+games :: List all available games
+games explain :: Explain the game system in full detail
+list bundles :: List all bundle deals and rules
+list courses :: List all courses alphabetically
+list flash :: List all flash-learning sequences alphabetically
+list games :: List all games alphabetically
+code unlock :: Unlock full system access
+control c :: Exit the current screen
