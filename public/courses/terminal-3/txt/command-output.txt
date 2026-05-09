@@ -1,0 +1,108 @@
+# ============================
+# CORE TERMINAL COMMANDS
+# ============================
+
+pwd :: print :: CURRENT_DIRECTORY
+ls :: print :: LIST_DIRECTORY
+cd :: fs :: CHANGE_DIRECTORY:{path}
+mkdir :: fs :: MAKE_DIRECTORY:{name}
+rmdir :: fs :: REMOVE_DIRECTORY:{name}
+touch :: fs :: CREATE_FILE:{name}
+rm :: fs :: DELETE_FILE:{name}
+mv :: fs :: MOVE:{source}:{target}
+cp :: fs :: COPY:{source}:{target}
+cat :: print :: FILE_CONTENT:{name}
+echo :: print :: {text}
+clear :: ui :: CLEAR_SCREEN
+history :: print :: COMMAND_HISTORY
+
+# ============================
+# BASH / SHELL ESSENTIALS
+# ============================
+
+whoami :: print :: USERNAME
+uname :: print :: SYSTEM_INFO
+date :: print :: DATE_TIME
+time :: print :: EXECUTION_TIME
+env :: print :: ENV_VARS
+printenv :: print :: ENV_VARS
+which :: print :: COMMAND_PATH:{command}
+grep :: print :: GREP:{pattern}:{file}
+find :: print :: FIND:{pattern}:{path}
+head :: print :: HEAD:{file}:{lines}
+tail :: print :: TAIL:{file}:{lines}
+less :: ui :: PAGED_VIEW:{file}
+wc :: print :: WORD_COUNT:{file}
+
+# ============================
+# PROJECT / PANEL / PREVIEW
+# ============================
+
+panel :: ui :: OPEN_PANEL
+preview :: ui :: UPDATE_PREVIEW
+project-save :: fs :: SAVE_PROJECT
+project-load :: fs :: LOAD_PROJECT
+project-new :: fs :: NEW_PROJECT
+project-list :: fs :: LIST_PROJECTS
+
+# ============================
+# COURSE / NAVIGATION
+# ============================
+
+course :: nav :: SET_COURSE:{name}
+open :: nav :: OPEN_SECTION:{section}
+whereami :: print :: WHEREAMI
+info :: print :: COURSE_INFO
+guide :: print :: GUIDE
+
+# ============================
+# HELP SYSTEM
+# ============================
+
+help :: screen :: help-index
+help1 :: screen :: help1
+help2 :: screen :: help2
+help3 :: screen :: help3
+help4 :: screen :: help4
+help5 :: screen :: help5
+help6 :: screen :: help6
+help7 :: screen :: help7
+help8 :: screen :: help8
+help9 :: screen :: help9
+help10 :: screen :: help10
+
+# ============================
+# GIT CORE
+# ============================
+
+git init :: git :: INIT
+git status :: git :: STATUS
+git add :: git :: ADD:{file}
+git restore :: git :: RESTORE:{file}
+git reset :: git :: RESET:{target}
+git commit :: git :: COMMIT:{message}
+git log :: git :: LOG
+git diff :: git :: DIFF:{target}
+git branch :: git :: BRANCH:{name}
+git checkout :: git :: CHECKOUT:{target}
+git switch :: git :: SWITCH:{branch}
+git merge :: git :: MERGE:{branch}
+git remote :: git :: REMOTE:{action}:{name}:{url}
+git fetch :: git :: FETCH:{remote}
+git pull :: git :: PULL:{remote}:{branch}
+git push :: git :: PUSH:{remote}:{branch}
+git clone :: git :: CLONE:{url}
+git config :: git :: CONFIG:{key}:{value}
+
+# ============================
+# CUSTOM GO TIME SHORTCUTS
+# ============================
+
+start :: nav :: START_FLOW:{level}
+next :: nav :: NEXT_STEP
+back :: nav :: PREVIOUS_STEP
+checkpoint :: fs :: SAVE_CHECKPOINT
+cheatsheet :: screen :: cheatsheet
+fs-map :: print :: FILESYSTEM_MAP
+git-map :: print :: GIT_MAP
+bash-map :: print :: BASH_MAP
