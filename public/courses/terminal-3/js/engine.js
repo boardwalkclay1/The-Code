@@ -1,7 +1,7 @@
 // public/courses/terminal-3/js/engine.js
 // Terminal 3 Engine (TXT-driven, executes logic)
-// Loads: /public/courses/terminal-3/txt/command.txt
-//        /public/courses/terminal-3/txt/command-output.txt
+// Loads: /courses/terminal-3/txt/command.txt
+//        /courses/terminal-3/txt/command-output.txt
 // Exposes: init(), execute(input), handleCtrlC(), registerUI(hooks), getState()
 
 const Terminal3 = (() => {
@@ -462,8 +462,8 @@ const Terminal3 = (() => {
   // -------------------------
   async function init(opts = {}) {
     // opts.paths: { commandTxt, outputTxt }
-    const commandPath = (opts && opts.commandTxt) || "/public/courses/terminal-3/txt/command.txt";
-    const outputPath = (opts && opts.outputTxt) || "/public/courses/terminal-3/txt/command-output.txt";
+    const commandPath = (opts && opts.commandTxt) || "/courses/terminal-3/txt/command.txt";
+    const outputPath = (opts && opts.outputTxt) || "/courses/terminal-3/txt/command-output.txt";
     try {
       const [cmdRaw, outRaw] = await Promise.all([loadTXT(commandPath), loadTXT(outputPath)]);
       parseCommandTxt(cmdRaw);
