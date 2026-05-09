@@ -1,31 +1,263 @@
 === apps ===
+APPS COURSE
+
 price: $300
 link: /public/courses/apps/index.html
+
 description:
 apps are how people experience software in their hands.
-you learn to design and build app-like experiences using modern stacks.
+they are the bridge between raw systems and real humans.
+
+in this course you:
+- design app flows that feel inevitable, not confusing
+- learn how to think in screens, states, and transitions
+- build app-like experiences using modern stacks (web, hybrid, native-style)
+- connect frontends to real backends, auth, and data
+- ship experiences that feel cinematic, not clunky
+
+apps are:
+- the remote control for your ideas
+- the interface for your business
+- the way you turn workflows into buttons
+
+diagram:
+[ IDEA ]
+   ↓
+[ SYSTEM ]
+   ↓
+[ APP ]
+   ↓
+[ HUMAN ACTION ]
+
+apps turn:
+- “this is possible” into “this is one tap away”
+- “I have a system” into “I have a product”
+
+to see the full breakdown:
+type: apps explain
+
+to start the course:
+type: apps buy
+
 
 === apps explain ===
-full explanation text here...
+APPS — FULL EXPLANATION
+
+apps are not just “mobile things on a phone”.
+apps are decision engines wrapped in interfaces.
+
+you learn to:
+- map a user’s journey from “I don’t know” to “I did it”
+- design flows that reduce friction at every step
+- build screens that respond to real data and real time
+- architect state so your app never feels lost or stuck
+- integrate payments, auth, notifications, and storage
+
+core pillars:
+1) interaction design
+2) state and data
+3) performance and responsiveness
+4) emotional feedback (microcopy, animation, timing)
+5) deployment and iteration
+
+diagram:
++-------------------------+
+|        APP LAYER        |
++-------------------------+
+|  UI / UX / FLOWS        |
+|  STATE MANAGEMENT       |
+|  API / BACKEND BRIDGE   |
+|  AUTH / PAYMENTS        |
++-------------------------+
+|      SYSTEM LAYER       |
++-------------------------+
+
+you also learn:
+- how to prototype fast and validate ideas
+- how to design for touch, gesture, and small screens
+- how to think in “sessions” instead of “pages”
+- how to build apps that feel like tools, not chores
+
+apps are the front door to your entire ecosystem.
+once you understand apps, you can:
+- turn any workflow into a product
+- turn any system into a service
+- turn any idea into something people can tap
+
+to start the course:
+type: apps buy
+
+to see related systems:
+type: tools
+type: web
+type: widgets
+
 
 === automation ===
+AUTOMATION COURSE
+
 price: $300
 link: /public/courses/automation/index.html
+
 description:
 automation is how you scale yourself.
 you design workflows that trigger on events and complete tasks while you sleep.
 
+you learn to:
+- connect tools, APIs, and services into pipelines
+- trigger actions from webhooks, schedules, and events
+- move data between systems without manual effort
+- build “if this, then that, then this” chains that never forget
+
+diagram:
+[ INPUT ]
+   ↓
+[ TRIGGER ]
+   ↓
+[ WORKFLOW ]
+   ↓
+[ OUTPUT ]
+
+automation is:
+- your second brain for repetitive tasks
+- your invisible employee that never gets tired
+- your way of turning chaos into predictable flows
+
+to see the full breakdown:
+type: automation explain
+
+to start the course:
+type: automation buy
+
+
 === automation explain ===
-full explanation text here...
+AUTOMATION — FULL EXPLANATION
+
+automation is not about “being lazy”.
+it is about respecting your time and attention.
+
+you learn:
+- how to map your life and business into repeatable flows
+- how to identify triggers (events, times, actions)
+- how to design workflows that are robust, not fragile
+- how to log, monitor, and debug automations like real systems
+
+core concepts:
+- triggers (webhooks, cron, user actions)
+- actions (send, transform, store, notify)
+- conditions (if, else, branching)
+- state (what happened, when, and why)
+- observability (logs, alerts, dashboards)
+
+diagram:
++-----------------------------+
+|        AUTOMATION MAP       |
++-----------------------------+
+|  1. CAPTURE INPUT           |
+|  2. DECIDE PATH             |
+|  3. EXECUTE ACTIONS         |
+|  4. LOG + NOTIFY            |
++-----------------------------+
+
+you build:
+- email and notification pipelines
+- content and asset workflows
+- customer onboarding flows
+- internal tools that run themselves
+
+automation lets you:
+- scale without hiring immediately
+- reduce human error
+- free your mind for creative work
+- create systems that feel like magic to others
+
+to start the course:
+type: automation buy
+
+to see related systems:
+type: tools
+type: bash
+type: system
+
 
 === bash ===
+BASH COURSE
+
 price: $200
 link: /public/courses/bash/index.html
+
 description:
 bash is the language of automation, servers, and real systems.
+it is how you talk directly to the machine.
+
+you learn to:
+- navigate files and directories with speed
+- chain commands together like lego blocks
+- write scripts that automate entire workflows
+- manage servers, logs, and deployments from the terminal
+
+diagram:
+[ HUMAN ]
+   ↓
+[ BASH ]
+   ↓
+[ OS / SERVER ]
+   ↓
+[ SYSTEMS ]
+
+bash is:
+- the control panel behind every serious system
+- the fastest way to manipulate files and processes
+- the foundation for devops, automation, and tooling
+
+to see the full breakdown:
+type: bash explain
+
+to start the course:
+type: bash buy
+
 
 === bash explain ===
-full explanation text here...
+BASH — FULL EXPLANATION
+
+bash is not about memorizing obscure commands.
+it is about learning how to think in pipelines.
+
+you learn:
+- how to combine simple commands into powerful chains
+- how to use pipes, redirects, and filters
+- how to write scripts that accept arguments and flags
+- how to schedule scripts with cron and timers
+- how to interact with APIs and tools from the shell
+
+core patterns:
+- “do one thing well” commands
+- piping output into the next step
+- using grep, sed, awk for text and logs
+- using ssh and scp for remote work
+
+diagram:
++-----------------------------+
+|          BASH FLOW          |
++-----------------------------+
+|  INPUT  →  PROCESS  →  OUT  |
++-----------------------------+
+|  cat    |  grep    |  sort |
+|  curl   |  jq      |  tee  |
++-----------------------------+
+
+bash gives you:
+- superpowers on any unix-like system
+- the ability to automate without a GUI
+- the confidence to work on real servers
+
+to start the course:
+type: bash buy
+
+to connect with automation:
+type: automation
+type: tools
+
 
 === flash ===
 FLASH LEARNING
@@ -122,95 +354,952 @@ type: [flash sequence name]
 to return:
 press control + c
 
+
 === games ===
-games list text here...
+GAMES INDEX
+
+games inside terminal 2 are not distractions.
+they are training environments.
+
+you get:
+- pattern recognition drills
+- reaction and timing challenges
+- logic and systems puzzles
+- memory and recall loops
+
+diagram:
+[ GAME ]
+   ↓
+[ PATTERN ]
+   ↓
+[ SKILL ]
+   ↓
+[ REAL WORLD MOVE ]
+
+games are:
+- safe sandboxes to test thinking
+- ways to practice under pressure
+- tools to make learning feel like play
+
+to see the philosophy:
+type: games explain
+
+to list all games:
+type: list games
+
 
 === games explain ===
-games philosophy text here...
+GAMES — FULL PHILOSOPHY
+
+games are how you practice without punishment.
+
+you learn:
+- how to see patterns faster
+- how to make decisions under time pressure
+- how to debug your own thinking
+- how to turn mistakes into data, not shame
+
+core ideas:
+- repetition without boredom
+- feedback without judgment
+- difficulty that adapts to you
+- scoring that reflects real skill, not trivia
+
+diagram:
++----------------------+
+|      GAME LOOP       |
++----------------------+
+|  1. TRY              |
+|  2. FEEDBACK         |
+|  3. ADJUST           |
+|  4. REPEAT           |
++----------------------+
+
+games in terminal 2 connect to:
+- flash learning (fast hits)
+- courses (applied practice)
+- systems (mental models)
+
+to list all games:
+type: list games
+
+to return:
+press control + c
+
 
 === github ===
+GITHUB COURSE
+
 price: $200
 link: /public/courses/github/index.html
+
 description:
 github is how modern developers collaborate, version, and deploy.
+it is the shared memory of your codebase.
+
+you learn to:
+- use git confidently (commit, branch, merge, rebase)
+- use github for collaboration, issues, and pull requests
+- manage releases, tags, and environments
+- connect github to CI/CD and deployment pipelines
+
+diagram:
+[ LOCAL CODE ]
+   ↓
+[ GIT ]
+   ↓
+[ GITHUB ]
+   ↓
+[ WORLD ]
+
+to see the full breakdown:
+type: github explain
+
+to start the course:
+type: github buy
+
 
 === github explain ===
-full explanation text here...
+GITHUB — FULL EXPLANATION
+
+github is not just “where code lives”.
+it is where decisions, history, and collaboration live.
+
+you learn:
+- how to structure commits so history tells a story
+- how to branch and merge without fear
+- how to review code and give useful feedback
+- how to use issues, projects, and discussions
+- how to protect main branches and enforce quality
+
+core flows:
+- feature branches
+- pull request reviews
+- hotfixes and patches
+- release tagging and changelogs
+
+diagram:
++-----------------------------+
+|         GIT / GITHUB        |
++-----------------------------+
+|  COMMITS   |  BRANCHES      |
+|  PRs       |  REVIEWS       |
+|  ISSUES    |  RELEASES      |
++-----------------------------+
+
+github connects to:
+- automation (CI/CD)
+- deployment (actions, pipelines)
+- documentation (wikis, readmes)
+
+once you understand github, you can:
+- work with any serious team
+- ship confidently with history and rollback
+- treat your codebase like a living system
+
+to start the course:
+type: github buy
+
+to see related:
+type: tools
+type: web
+
 
 === hacking ===
+HACKING COURSE
+
 price: $300
 link: /public/courses/hacking/index.html
+
 description:
 hacking here means understanding how systems break so you can design them safer.
+it is about curiosity, not chaos.
+
+you learn to:
+- see systems from an attacker’s perspective
+- identify weak points in flows, auth, and data
+- understand common vulnerabilities and exploits
+- design defenses that are layered, not fragile
+
+diagram:
+[ SYSTEM ]
+   ↓
+[ ASSUMPTIONS ]
+   ↓
+[ ATTACK ]
+   ↓
+[ PATCH / REDESIGN ]
+
+to see the full breakdown:
+type: hacking explain
+
+to start the course:
+type: hacking buy
+
 
 === hacking explain ===
-full explanation text here...
+HACKING — FULL EXPLANATION
+
+hacking is not about destruction.
+it is about understanding.
+
+you learn:
+- how inputs can be twisted
+- how trust can be abused
+- how data can leak
+- how timing and side channels can reveal secrets
+
+core topics:
+- web vulnerabilities (xss, csrf, injection)
+- auth and session issues
+- misconfigurations and defaults
+- social engineering and human factors
+
+diagram:
++-----------------------------+
+|        HACKING VIEW         |
++-----------------------------+
+|  1. MAP THE SYSTEM          |
+|  2. FIND ASSUMPTIONS        |
+|  3. TEST BOUNDARIES         |
+|  4. DOCUMENT FINDINGS       |
+|  5. DESIGN FIXES            |
++-----------------------------+
+
+you also learn:
+- how to report issues responsibly
+- how to think like a red team and blue team
+- how to design systems that fail gracefully
+
+to start the course:
+type: hacking buy
+
+to see related:
+type: system
+type: tools
+
 
 === math ===
-math philosophy text here...
+MATH PHILOSOPHY
+
+math is not about worksheets.
+math is about patterns, structure, and prediction.
+
+you learn to see:
+- relationships between quantities
+- shapes of change (rates, curves, growth)
+- symmetry, balance, and invariants
+- how small rules create big behavior
+
+diagram:
+[ PATTERN ]
+   ↓
+[ RULE ]
+   ↓
+[ PREDICTION ]
+
+to see the full breakdown:
+type: math explain
+
+to jump into modules:
+type: math beginner
+type: math intermediate
+type: math advanced
+
 
 === math explain ===
-why math matters in everything...
+MATH — WHY IT MATTERS IN EVERYTHING
+
+math is the language of:
+- systems
+- signals
+- risk
+- growth
+- optimization
+
+you learn:
+- how to model real situations with simple equations
+- how to reason about limits, extremes, and tradeoffs
+- how to understand probability and uncertainty
+- how to see curves instead of just points
+
+diagram:
++-----------------------------+
+|         MATH LENS           |
++-----------------------------+
+|  DATA   →  PATTERN          |
+|  PATTERN →  MODEL           |
+|  MODEL  →  DECISION         |
++-----------------------------+
+
+math shows up in:
+- pricing and business models
+- automation thresholds and triggers
+- game design and difficulty curves
+- system capacity and scaling
+
+to start at your level:
+type: math beginner
+type: math intermediate
+type: math advanced
+
 
 === math beginner ===
-beginner math module text...
+MATH — BEGINNER MODULES
+
+focus:
+- arithmetic as patterns, not chores
+- fractions, ratios, and proportions
+- basic equations and unknowns
+- visualizing numbers on lines and grids
+
+you work with:
+- number lines
+- simple word problems
+- visual fraction models
+- proportional reasoning
+
+diagram:
+[ COUNTING ] → [ PATTERNS ] → [ RULES ]
+
+to move up:
+type: math intermediate
+
 
 === math intermediate ===
-intermediate math module text...
+MATH — INTERMEDIATE MODULES
+
+focus:
+- algebra as language
+- functions and graphs
+- growth, decay, and change
+- basic probability and statistics
+
+you work with:
+- linear and quadratic functions
+- simple inequalities
+- averages, variance, and distributions
+- real-world modeling problems
+
+diagram:
++-----------------------------+
+|      INTERMEDIATE MATH      |
++-----------------------------+
+|  x, y, f(x)                 |
+|  LINES & CURVES             |
+|  DATA → MODEL               |
++-----------------------------+
+
+to move up:
+type: math advanced
+
 
 === math advanced ===
-advanced math module text...
+MATH — ADVANCED MODULES
+
+focus:
+- calculus intuition (limits, derivatives, integrals)
+- optimization and constraints
+- advanced probability and risk
+- discrete structures and algorithms
+
+you work with:
+- rates of change and accumulation
+- maximizing and minimizing under constraints
+- random variables and distributions
+- graphs, networks, and combinatorics
+
+diagram:
+[ SYSTEM ]
+   ↓
+[ MODEL ]
+   ↓
+[ CALCULUS / DISCRETE ]
+   ↓
+[ DECISION ]
+
+to revisit foundations:
+type: math intermediate
+type: math beginner
+
 
 === mcu ===
+MCU COURSE
+
 price: $300
 link: /public/courses/mcu/index.html
+
 description:
 microcontrollers are how code touches the physical world.
+they turn logic into motion, light, and sound.
+
+you learn to:
+- program microcontrollers to read sensors
+- control motors, LEDs, and actuators
+- design simple circuits and power flows
+- build small systems that respond to the environment
+
+diagram:
+[ CODE ]
+   ↓
+[ MCU ]
+   ↓
+[ SENSORS / ACTUATORS ]
+   ↓
+[ REAL WORLD ]
+
+to see the full breakdown:
+type: mcu explain
+
+to start the course:
+type: mcu buy
+
 
 === mcu explain ===
-full explanation text here...
+MCU — FULL EXPLANATION
+
+microcontrollers are tiny computers embedded in everything:
+- cars
+- appliances
+- wearables
+- toys
+- tools
+
+you learn:
+- how to write firmware that runs on bare metal
+- how to read analog and digital signals
+- how to debounce inputs and handle noise
+- how to manage timing, interrupts, and power
+
+core topics:
+- pins, voltage, and current basics
+- digital vs analog I/O
+- communication protocols (i2c, spi, uart)
+- simple PCB and breadboard design
+
+diagram:
++-----------------------------+
+|           MCU STACK         |
++-----------------------------+
+|  FIRMWARE (YOUR CODE)       |
+|  PERIPHERALS (TIMERS, IO)   |
+|  SENSORS / ACTUATORS        |
+|  POWER + CIRCUIT            |
++-----------------------------+
+
+you build:
+- small interactive devices
+- sensor dashboards
+- physical triggers for automation
+- prototypes for hardware products
+
+to start the course:
+type: mcu buy
+
+to connect with:
+type: automation
+type: tools
+
 
 === pricing ===
-pricing table text...
+PRICING OVERVIEW
+
+courses:
+- web:        $300
+- apps:       $300
+- mcu:        $300
+- automation: $300
+- tools:      $300
+- widgets:    $300
+- github:     $200
+- bash:       $200
+- hacking:    $300
+
+diagram:
++-----------------------------+
+|          PRICING            |
++-----------------------------+
+|  CORE COURSES:  $300        |
+|  SUPPORT COURSES: $200      |
++-----------------------------+
+
+pricing is designed to:
+- reflect depth and build cost
+- stay accessible compared to traditional education
+- let you stack skills in a modular way
+
+to see a specific course:
+type: web
+type: apps
+type: mcu
+type: tools
+type: github
+type: bash
+
 
 === system ===
-system overview text...
+SYSTEM OVERVIEW
+
+THE CODE is not just a set of courses.
+it is a system.
+
+layers:
+- terminal 2 (interface + philosophy)
+- flash learning (pattern training)
+- games (skill loops)
+- courses (deep dives)
+- tools (operational systems)
+
+diagram:
++-----------------------------+
+|        THE CODE SYSTEM      |
++-----------------------------+
+|  TERMINAL 2                 |
+|  FLASH LEARNING             |
+|  GAMES                      |
+|  COURSES                    |
+|  TOOLS & AUTOMATION         |
++-----------------------------+
+
+the system is built to:
+- meet you where you are
+- give you fast hits and deep dives
+- connect skills into a real stack
+- turn learning into building
+
+to explore:
+type: courses
+type: games
+type: flash
+type: tools
+
 
 === tools ===
+TOOLS COURSE
+
 price: $300
 link: /public/courses/tools/index.html
+
 description:
 tools teaches you the systems behind building, debugging, and shipping.
+it is about the meta-layer: how you work, not just what you build.
+
+you learn to:
+- design your own internal tools and dashboards
+- create scripts and utilities that support your workflow
+- log, monitor, and debug systems in production
+- think in terms of leverage, not effort
+
+diagram:
+[ YOU ]
+   ↓
+[ TOOLS ]
+   ↓
+[ SYSTEMS ]
+   ↓
+[ OUTPUT ]
+
+to see the full breakdown:
+type: tools explain
+
+to start the course:
+type: tools buy
+
 
 === tools explain ===
-full explanation text here...
+TOOLS — FULL EXPLANATION
+
+tools are how you multiply yourself.
+
+you learn:
+- how to identify bottlenecks in your workflow
+- how to design small tools that remove friction
+- how to build dashboards that show the right signals
+- how to automate the boring parts of building and shipping
+
+core areas:
+- internal dashboards
+- logging and observability
+- deployment helpers
+- content and asset pipelines
+
+diagram:
++-----------------------------+
+|          TOOL LOOP          |
++-----------------------------+
+|  1. PAIN POINT              |
+|  2. TOOL IDEA               |
+|  3. BUILD + INTEGRATE       |
+|  4. MEASURE IMPACT          |
++-----------------------------+
+
+tools connect:
+- web, apps, automation, github, bash, mcu
+- everything you build into one operational layer
+
+to start the course:
+type: tools buy
+
+to see related:
+type: automation
+type: github
+type: bash
+
 
 === truth ===
-truth layer text...
+TRUTH LAYER
+
+truth is the layer where we stop pretending.
+
+this layer talks about:
+- why this system exists
+- what school never gave you
+- what you are actually capable of
+- what it costs to stay asleep
+
+diagram:
+[ COMFORT ]
+   ↓
+[ DISCOMFORT ]
+   ↓
+[ TRUTH ]
+   ↓
+[ ACTION ]
+
+truth is:
+- not motivational fluff
+- not doom
+- a clear look at where you are and where you could be
+
+to go deeper:
+type: truth deep
+
+to return:
+press control + c
+
 
 === truth deep ===
-full deep philosophical text...
+TRUTH — FULL TEXT
+
+the world is not short on information.
+it is short on:
+- clarity
+- courage
+- systems
+- follow-through
+
+you were not broken.
+you were under-trained.
+
+school taught you:
+- to wait for permission
+- to chase grades, not skills
+- to memorize, not build
+- to fear being wrong
+
+this system exists to:
+- give you tools, not tests
+- give you reps, not lectures
+- give you paths, not promises
+
+diagram:
++-----------------------------+
+|         TRUTH MAP           |
++-----------------------------+
+|  1. SEE WHERE YOU ARE       |
+|  2. SEE WHAT YOU WANT       |
+|  3. SEE THE GAP             |
+|  4. BUILD BRIDGES           |
++-----------------------------+
+
+you are not behind.
+you are at the starting line with better tools.
+
+to move from truth to action:
+type: learn
+type: courses
+type: system
+
 
 === web ===
+WEB COURSE
+
 price: $300
 link: /public/courses/web/index.html
+
 description:
 web fundamentals teach you how the modern world’s interfaces are built.
+the browser is the most widely deployed runtime on earth.
+
+you learn to:
+- structure content with semantic html
+- style with modern css (layouts, grids, responsive)
+- add behavior with javascript
+- connect frontends to real data and APIs
+
+diagram:
+[ HTML ] + [ CSS ] + [ JS ] → [ EXPERIENCE ]
+
+to see the full breakdown:
+type: web explain
+
+to start the course:
+type: web buy
+
 
 === web explain ===
-full explanation text here...
+WEB — FULL EXPLANATION
+
+the web is the canvas for:
+- apps
+- dashboards
+- tools
+- content
+- games
+
+you learn:
+- how to think in components and layouts
+- how to design responsive experiences for all screens
+- how to manage state and data on the client
+- how to integrate APIs, auth, and storage
+
+core topics:
+- semantic structure and accessibility
+- modern layout systems (flexbox, grid)
+- performance and loading strategies
+- deployment and hosting
+
+diagram:
++-----------------------------+
+|          WEB STACK          |
++-----------------------------+
+|  UI (HTML/CSS)              |
+|  LOGIC (JS)                 |
+|  DATA (APIs, DB)            |
++-----------------------------+
+
+once you understand the web, you can:
+- build landing pages and full sites
+- prototype products quickly
+- create internal tools and dashboards
+
+to start the course:
+type: web buy
+
+to connect:
+type: apps
+type: tools
+type: widgets
+
 
 === widgets ===
+WIDGETS COURSE
+
 price: $300
 link: /public/courses/widgets/index.html
+
 description:
 widgets teaches you how to build reusable UI components and systems.
+it is about building pieces that can live anywhere.
+
+you learn to:
+- design components that are self-contained and composable
+- manage state and props cleanly
+- theme and style components for different brands
+- build libraries of widgets you can reuse across projects
+
+diagram:
+[ WIDGET ]
+   ↓
+[ PAGE ]
+   ↓
+[ SYSTEM ]
+
+to see the full breakdown:
+type: widgets explain
+
+to start the course:
+type: widgets buy
+
 
 === widgets explain ===
-full explanation text here...
+WIDGETS — FULL EXPLANATION
+
+widgets are the atoms of your interfaces.
+
+you learn:
+- how to break down complex UIs into small, reusable parts
+- how to design APIs for your components (props, events)
+- how to handle loading, error, and empty states gracefully
+- how to document and showcase your widget library
+
+core ideas:
+- composition over duplication
+- clear boundaries and responsibilities
+- theming and design systems
+- portability across apps and sites
+
+diagram:
++-----------------------------+
+|        WIDGET SYSTEM        |
++-----------------------------+
+|  BUTTONS, CARDS, FORMS      |
+|  MODALS, MENUS, PANELS      |
+|  DASHBOARD BLOCKS           |
++-----------------------------+
+
+widgets let you:
+- build faster with higher quality
+- keep consistency across products
+- think in systems, not one-offs
+
+to start the course:
+type: widgets buy
+
+to connect:
+type: web
+type: apps
+type: tools
+
 
 === unlock ===
-unlockables list...
+UNLOCKABLES
+
+unlockables are hidden commands and layers inside terminal 2.
+
+they include:
+- secret flash sequences
+- advanced philosophy texts
+- experimental tools and games
+- early access modules
+
+diagram:
+[ BASE LAYER ]
+   ↓
+[ UNLOCK ]
+   ↓
+[ HIDDEN LAYER ]
+
+unlockables are:
+- rewards for curiosity
+- signals that you are exploring deeply
+- ways to keep the system alive and evolving
+
+to see what unlockables mean:
+type: unlock explain
+
 
 === unlock explain ===
-hidden layers explanation...
+UNLOCKABLES — FULL EXPLANATION
+
+unlockables exist because:
+- not everything should be visible at first glance
+- discovery is part of learning
+- some things only make sense after you’ve done the work
+
+you unlock by:
+- typing certain commands
+- finishing certain sequences
+- exploring non-obvious paths
+
+diagram:
++-----------------------------+
+|        UNLOCK MAP           |
++-----------------------------+
+|  1. BASE COMMANDS           |
+|  2. HINTS / CLUES           |
+|  3. SECRET COMMANDS         |
+|  4. NEW LAYERS              |
++-----------------------------+
+
+unlockables might give you:
+- new help pages
+- new games
+- new flash packs
+- new system views
+
+to keep exploring:
+type: truth
+type: games
+type: flash
+
+
+=== learn ===
+LEARNING MAP
+
+“learn” shows you how to move through THE CODE intentionally.
+
+paths:
+- foundations: web, bash, github
+- builders: apps, widgets, tools
+- systems: automation, mcu, hacking
+- philosophy: flash, truth, games
+
+diagram:
++-----------------------------+
+|         LEARNING MAP        |
++-----------------------------+
+|  FOUNDATIONS                |
+|  BUILDERS                   |
+|  SYSTEMS                    |
+|  PHILOSOPHY                 |
++-----------------------------+
+
+to see all courses:
+type: courses
+
+to see pricing:
+type: pricing
+
+
+=== list courses ===
+COURSE LIST (ALPHABETICAL)
+
+- apps
+- automation
+- bash
+- github
+- hacking
+- mcu
+- tools
+- web
+- widgets
+
+to see a course:
+type: [course name]
+
+example:
+type: apps
+type: web
+type: tools
+
+
+=== list flash ===
+FLASH SEQUENCES (EXAMPLES)
+
+- flash basics
+- flash systems
+- flash math
+- flash web
+- flash apps
+
+to run a sequence:
+type: [sequence name]
+
+example:
+type: flash basics
+
+
+=== list games ===
+GAMES LIST (EXAMPLES)
+
+- pattern runner
+- logic grid
+- memory stack
+- timing strike
+
+to start a game:
+type: [game name]
+
+example:
+type: pattern runner
