@@ -1,108 +1,428 @@
-# ============================
-# CORE TERMINAL COMMANDS
-# ============================
+# ============================================================
+# TERMINAL 3 – OUTPUT FILE (WORDS + DIAGRAMS + EXPLANATIONS)
+# ============================================================
+# JS handles actions.
+# THIS FILE handles ALL TEXT, ALL DIAGRAMS, ALL EXPLANATIONS.
+# ============================================================
 
-pwd :: print :: CURRENT_DIRECTORY
-ls :: print :: LIST_DIRECTORY
-cd :: fs :: CHANGE_DIRECTORY:{path}
-mkdir :: fs :: MAKE_DIRECTORY:{name}
-rmdir :: fs :: REMOVE_DIRECTORY:{name}
-touch :: fs :: CREATE_FILE:{name}
-rm :: fs :: DELETE_FILE:{name}
-mv :: fs :: MOVE:{source}:{target}
-cp :: fs :: COPY:{source}:{target}
-cat :: print :: FILE_CONTENT:{name}
+
+# ============================================================
+# CORE TERMINAL COMMAND OUTPUTS
+# ============================================================
+
+pwd :: print :: You are currently in: {cwd}
+
+ls :: print :: {directory_list}
+
+cd :: print :: Moving to: {path}
+
+mkdir :: print :: Folder created: {name}
+
+rmdir :: print :: Folder removed: {name}
+
+touch :: print :: File created: {name}
+
+rm :: print :: File deleted: {name}
+
+mv :: print :: Moved: {source} → {target}
+
+cp :: print :: Copied: {source} → {target}
+
+cat :: print :: {file_content}
+
 echo :: print :: {text}
-clear :: ui :: CLEAR_SCREEN
-history :: print :: COMMAND_HISTORY
 
-# ============================
-# BASH / SHELL ESSENTIALS
-# ============================
+clear :: print :: Screen cleared.
 
-whoami :: print :: USERNAME
-uname :: print :: SYSTEM_INFO
-date :: print :: DATE_TIME
-time :: print :: EXECUTION_TIME
-env :: print :: ENV_VARS
-printenv :: print :: ENV_VARS
-which :: print :: COMMAND_PATH:{command}
-grep :: print :: GREP:{pattern}:{file}
-find :: print :: FIND:{pattern}:{path}
-head :: print :: HEAD:{file}:{lines}
-tail :: print :: TAIL:{file}:{lines}
-less :: ui :: PAGED_VIEW:{file}
-wc :: print :: WORD_COUNT:{file}
+history :: print :: {history}
 
-# ============================
-# PROJECT / PANEL / PREVIEW
-# ============================
 
-panel :: ui :: OPEN_PANEL
-preview :: ui :: UPDATE_PREVIEW
-project-save :: fs :: SAVE_PROJECT
-project-load :: fs :: LOAD_PROJECT
-project-new :: fs :: NEW_PROJECT
-project-list :: fs :: LIST_PROJECTS
+# ============================================================
+# BASH / SHELL OUTPUTS
+# ============================================================
 
-# ============================
-# COURSE / NAVIGATION
-# ============================
+whoami :: print :: user
 
-course :: nav :: SET_COURSE:{name}
-open :: nav :: OPEN_SECTION:{section}
-whereami :: print :: WHEREAMI
-info :: print :: COURSE_INFO
-guide :: print :: GUIDE
+uname :: print :: Terminal‑3‑OS
 
-# ============================
-# HELP SYSTEM
-# ============================
+date :: print :: {current_date}
 
-help :: screen :: help-index
-help1 :: screen :: help1
-help2 :: screen :: help2
-help3 :: screen :: help3
-help4 :: screen :: help4
-help5 :: screen :: help5
-help6 :: screen :: help6
-help7 :: screen :: help7
-help8 :: screen :: help8
-help9 :: screen :: help9
-help10 :: screen :: help10
+time :: print :: Execution time: {ms}ms
 
-# ============================
-# GIT CORE
-# ============================
+env :: print :: {env_vars}
 
-git init :: git :: INIT
-git status :: git :: STATUS
-git add :: git :: ADD:{file}
-git restore :: git :: RESTORE:{file}
-git reset :: git :: RESET:{target}
-git commit :: git :: COMMIT:{message}
-git log :: git :: LOG
-git diff :: git :: DIFF:{target}
-git branch :: git :: BRANCH:{name}
-git checkout :: git :: CHECKOUT:{target}
-git switch :: git :: SWITCH:{branch}
-git merge :: git :: MERGE:{branch}
-git remote :: git :: REMOTE:{action}:{name}:{url}
-git fetch :: git :: FETCH:{remote}
-git pull :: git :: PULL:{remote}:{branch}
-git push :: git :: PUSH:{remote}:{branch}
-git clone :: git :: CLONE:{url}
-git config :: git :: CONFIG:{key}:{value}
+printenv :: print :: {env_vars}
 
-# ============================
-# CUSTOM GO TIME SHORTCUTS
-# ============================
+which :: print :: Command path: /usr/bin/{command}
 
-start :: nav :: START_FLOW:{level}
-next :: nav :: NEXT_STEP
-back :: nav :: PREVIOUS_STEP
-checkpoint :: fs :: SAVE_CHECKPOINT
-cheatsheet :: screen :: cheatsheet
-fs-map :: print :: FILESYSTEM_MAP
-git-map :: print :: GIT_MAP
-bash-map :: print :: BASH_MAP
+grep :: print :: Search results:\n{grep_results}
+
+find :: print :: Found:\n{find_results}
+
+head :: print :: {head_output}
+
+tail :: print :: {tail_output}
+
+less :: print :: [LESS MODE ENABLED — press q to exit]
+
+wc :: print :: {wc_output}
+
+
+# ============================================================
+# PROJECT / PANEL / PREVIEW OUTPUTS
+# ============================================================
+
+panel :: print :: Opening file panel…
+
+preview :: print :: Preview updated.
+
+project-save :: print :: Project saved successfully.
+
+project-load :: print :: Project loaded.
+
+project-new :: print :: New project created.
+
+project-list :: print :: Saved projects:\n{project_list}
+
+
+# ============================================================
+# COURSE NAVIGATION OUTPUTS
+# ============================================================
+
+course :: print :: Active course set to: {course}
+
+open :: print :: Opening: {section}
+
+whereami :: print :: Course: {course}\nDirectory: {cwd}
+
+info :: print :: {course_info}
+
+guide :: print :: {guide_text}
+
+
+# ============================================================
+# HELP SYSTEM OUTPUTS
+# ============================================================
+
+help :: print :: Type help1–help10 to view command pages.
+
+help1 :: print :: {help_page_1}
+help2 :: print :: {help_page_2}
+help3 :: print :: {help_page_3}
+help4 :: print :: {help_page_4}
+help5 :: print :: {help_page_5}
+help6 :: print :: {help_page_6}
+help7 :: print :: {help_page_7}
+help8 :: print :: {help_page_8}
+help9 :: print :: {help_page_9}
+help10 :: print :: {help_page_10}
+
+
+# ============================================================
+# COURSE OUTPUTS (APPS, AUTOMATION, BASH, GITHUB, HACKING, MCU, TOOLS, WEB, WIDGETS)
+# ============================================================
+
+apps :: print ::
+=== APPS COURSE ===
+Price: $49
+Access Link: https://gotime.software/apps
+Command to unlock: code unlock apps
+
+apps explain :: print ::
+=== APPS COURSE — FULL EXPLANATION ===
+This course teaches:
+- App architecture
+- UI/UX fundamentals
+- Data flow
+- State management
+- Deployment
+[DIAGRAM: APP SYSTEM FLOW]
+┌──────────────┐
+│   FRONTEND    │
+└──────┬───────┘
+       │
+┌──────▼───────┐
+│   BACKEND     │
+└──────┬───────┘
+       │
+┌──────▼───────┐
+│   DATABASE    │
+└──────────────┘
+
+automation :: print ::
+=== AUTOMATION COURSE ===
+Price: $39
+Access Link: https://gotime.software/automation
+Command to unlock: code unlock automation
+
+automation explain :: print ::
+=== AUTOMATION COURSE — FULL EXPLANATION ===
+Learn:
+- Workflow automation
+- Scripting
+- System triggers
+- Event pipelines
+[DIAGRAM: AUTOMATION FLOW]
+input → process → output
+
+bash :: print ::
+=== BASH BONUS COURSE ===
+Price: $29
+Access Link: https://gotime.software/bash
+Command to unlock: code unlock bash
+
+bash explain :: print ::
+=== BASH COURSE — FULL EXPLANATION ===
+Learn:
+- Shell navigation
+- File operations
+- Pipes & redirects
+- Scripting
+[DIAGRAM: BASH PIPELINE]
+cmd1 | cmd2 | cmd3
+
+github :: print ::
+=== GITHUB BONUS COURSE ===
+Price: $29
+Access Link: https://gotime.software/github
+Command to unlock: code unlock github
+
+github explain :: print ::
+=== GITHUB COURSE — FULL EXPLANATION ===
+Learn:
+- Repositories
+- Branching
+- Merging
+- Pull requests
+[DIAGRAM: GIT BRANCHING]
+main ──●────●────●
+         ╲
+          ●──● feature
+
+hacking :: print ::
+=== HACKING COURSE ===
+Price: $59
+Access Link: https://gotime.software/hacking
+Command to unlock: code unlock hacking
+
+hacking explain :: print ::
+=== HACKING COURSE — FULL EXPLANATION ===
+Learn:
+- Recon
+- Exploits
+- Payloads
+- Defense
+[DIAGRAM: ATTACK CHAIN]
+Recon → Access → Escalate → Persist → Exfiltrate
+
+mcu :: print ::
+=== MCU COURSE ===
+Price: $49
+Access Link: https://gotime.software/mcu
+Command to unlock: code unlock mcu
+
+mcu explain :: print ::
+=== MCU COURSE — FULL EXPLANATION ===
+Learn:
+- Microcontrollers
+- Sensors
+- GPIO
+- Embedded logic
+[DIAGRAM: MCU PINOUT]
+[ASCII PIN DIAGRAM HERE]
+
+tools :: print ::
+=== TOOLS COURSE ===
+Price: $39
+Access Link: https://gotime.software/tools
+Command to unlock: code unlock tools
+
+tools explain :: print ::
+=== TOOLS COURSE — FULL EXPLANATION ===
+Learn:
+- Developer tools
+- Build systems
+- Debugging
+[DIAGRAM: TOOLCHAIN]
+editor → compiler → bundler → deploy
+
+web :: print ::
+=== WEB COURSE ===
+Price: $49
+Access Link: https://gotime.software/web
+Command to unlock: code unlock web
+
+web explain :: print ::
+=== WEB COURSE — FULL EXPLANATION ===
+Learn:
+- HTML
+- CSS
+- JS
+- Hosting
+[DIAGRAM: WEB STACK]
+browser → server → database
+
+widgets :: print ::
+=== WIDGETS COURSE ===
+Price: $29
+Access Link: https://gotime.software/widgets
+Command to unlock: code unlock widgets
+
+widgets explain :: print ::
+=== WIDGETS COURSE — FULL EXPLANATION ===
+Learn:
+- UI components
+- State
+- Events
+[DIAGRAM: WIDGET TREE]
+root
+ ├─ header
+ ├─ body
+ └─ footer
+
+
+# ============================================================
+# FLASH LEARNING OUTPUTS
+# ============================================================
+
+flash :: print ::
+=== FLASH LEARNING ===
+Instant micro‑lessons.
+Fast. Focused. Brutal.
+
+flash explain :: print ::
+=== FLASH LEARNING — FULL EXPLANATION ===
+Flash learning is:
+- Rapid
+- Repetitive
+- Memory‑driven
+- High‑impact
+[DIAGRAM: FLASH LOOP]
+Learn → Test → Repeat
+
+flash-run :: print ::
+Flash Learning Access:
+Price: $19
+Link: https://gotime.software/flash
+
+
+# ============================================================
+# GAMES OUTPUTS
+# ============================================================
+
+games :: print ::
+=== GAME LIST ===
+- Terminal Runner
+- Code Breaker
+- Logic Arena
+- Memory Grid
+
+games explain :: print ::
+=== GAME SYSTEM — FULL EXPLANATION ===
+Games train:
+- Logic
+- Speed
+- Pattern recognition
+- Problem solving
+[DIAGRAM: GAME LOOP]
+input → challenge → adapt → win
+
+
+# ============================================================
+# LIST COMMAND OUTPUTS
+# ============================================================
+
+list bundles :: print ::
+=== BUNDLE DEALS ===
+- Developer Bundle
+- Automation Bundle
+- Full System Bundle
+
+list courses :: print ::
+=== ALL COURSES ===
+apps
+automation
+bash
+github
+hacking
+mcu
+tools
+web
+widgets
+
+list flash :: print ::
+=== FLASH SEQUENCES ===
+- HTML Flash
+- CSS Flash
+- Git Flash
+- Bash Flash
+
+list games :: print ::
+=== GAME LIST ===
+Terminal Runner
+Code Breaker
+Logic Arena
+Memory Grid
+
+
+# ============================================================
+# SYSTEM OUTPUTS
+# ============================================================
+
+pricing :: print ::
+=== PRICING OVERVIEW ===
+Apps: $49
+Automation: $39
+Bash: $29
+GitHub: $29
+Hacking: $59
+MCU: $49
+Tools: $39
+Web: $49
+Widgets: $29
+Flash Learning: $19
+
+system :: print ::
+=== SYSTEM OVERVIEW ===
+Terminal 3 is:
+- Modular
+- Expandable
+- Course‑driven
+- Diagram‑powered
+- Fully guided
+
+
+# ============================================================
+# TRUTH / UNLOCK OUTPUTS
+# ============================================================
+
+truth :: print ::
+=== TRUTH LAYER ===
+You are not learning software.
+You are learning **systems**.
+
+truth deep :: print ::
+=== FULL TRUTH TEXT ===
+Everything is a system.
+Everything is connected.
+Everything is learnable.
+
+unlock :: print ::
+=== UNLOCKABLE COMMANDS ===
+code unlock
+truth
+truth deep
+
+unlock explain :: print ::
+=== UNLOCK SYSTEM — FULL EXPLANATION ===
+Unlocking reveals:
+- Hidden commands
+- Hidden layers
+- Hidden flows
+
+code unlock :: print ::
+=== SYSTEM UNLOCKED ===
+Full access granted.
+
+control c :: print ::
+Exited current screen.
