@@ -12,8 +12,6 @@
       --muted:#94a3b8;
       --text:#e6eef6;
       --glass: rgba(255,255,255,0.03);
-      --danger:#ff6b6b;
-      --success:#7efc8d;
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
     }
     html,body{height:100%;margin:0;background:linear-gradient(180deg,#07101a 0%, #07121a 100%);color:var(--text);}
@@ -91,9 +89,11 @@
     </div>
   </div>
 
+  <!-- Engine script (TXT-driven engine) -->
+  <script src="/courses/terminal-3/js/engine.js"></script>
+
   <script>
-    // Basic UI wiring and Terminal3 integration
-    (function(){
+    (function () {
       const output = document.getElementById('outputArea');
       const input = document.getElementById('cmdInput');
       const btnRun = document.getElementById('btnRun');
@@ -105,15 +105,8 @@
       const cwdDisplay = document.getElementById('cwdDisplay');
       const previewFrame = document.getElementById('previewFrame');
 
-      // Simple print helper
-      function printLine(text){
-        const node = document.createElement('div');
-        node.textContent = text;
-        output.appendChild(node);
-        output.scrollTop = output.scrollHeight;
-      }
-      function printRaw(text){
-        // preserve newlines and ASCII diagrams
+      // printing helpers
+      function appendPre(text) {
         const pre = document.createElement('pre');
         pre.style.margin = '0';
         pre.style.whiteSpace = 'pre-wrap';
@@ -121,150 +114,135 @@
         output.appendChild(pre);
         output.scrollTop = output.scrollHeight;
       }
-      function clearScreen(){ output.innerHTML = ''; }
+      function appendLine(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        output.appendChild(div);
+        output.scrollTop = output.scrollHeight;
+      }
+      function clearScreen() {
+        output.innerHTML = '';
+      }
 
-      // Register UI hooks with engine
-      function registerUI(){
+      // UI hooks to register with engine
+      function registerUIHooks() {
         window.Terminal3.registerUI({
-          print: (t) => {
-            // engine prints may include newlines and diagrams
-            printRaw(t);
-            // update cwd display if placeholder present
-            try {
-              const s = window.Terminal3.getState();
-              cwdDisplay.textContent = s.cwd || '/';
-            } catch(e){}
+          print: (text) => {
+            appendPre(text);
+            // update cwd display
+            try { cwdDisplay.textContent = window.Terminal3.getState().cwd || '/'; } catch (e) {}
           },
           clear: () => clearScreen(),
           openPanel: () => {
-            // toggle left panel visibility
-            document.getElementById('leftPanel').style.display = document.getElementById('leftPanel').style.display === 'none' ? 'flex' : 'none';
+            const lp = document.getElementById('leftPanel');
+            lp.style.display = lp.style.display === 'none' ? 'flex' : 'none';
           },
           updatePreview: () => {
-            // simple preview: render index.html if exists at /index.html in virtual fs
-            const st = window.Terminal3.getState();
-            const root = st.fs || {};
-            // find a file named index.html in cwd
-            const cwd = st.cwd || '/';
-            const children = (root[cwd] && root[cwd].children) || {};
-            if (children['index.html']) {
-              // fetch content from engine's fs snapshot by calling engine.getState
-              // engine stores file content in state.fs[path].content
-              const path = (cwd === '/' ? '/' : cwd) + (cwd.endsWith('/') ? '' : '/') + 'index.html';
-              // engine exposes getState; we can read file content from it
-              const state = window.Terminal3.getState();
-              const fileObj = state.fs[path];
-              const html = (fileObj && fileObj.content) ? fileObj.content : '<h1>Empty index.html</h1>';
-              previewFrame.srcdoc = html;
-            } else {
-              previewFrame.srcdoc = '<html><body style="background:#07101a;color:#9fb7c9;font-family:system-ui;padding:20px"><strong>No index.html found in current directory</strong></body></html>';
+            // render index.html from current cwd if present
+            try {
+              const st = window.Terminal3.getState();
+              const cwd = st.cwd || '/';
+              // engine stores files keyed by full path; try both '/index.html' and `${cwd}/index.html`
+              const candidates = [];
+              if (cwd === '/') candidates.push('/index.html');
+              else candidates.push(`${cwd}/index.html`, `${cwd.replace(/\/$/, '')}/index.html`);
+              let html = null;
+              for (const p of candidates) {
+                if (st.fs && st.fs[p] && st.fs[p].content) {
+                  html = st.fs[p].content;
+                  break;
+                }
+              }
+              if (!html) {
+                // try to find any .html file in cwd children
+                const children = (st.fs && st.fs[cwd] && st.fs[cwd].children) || {};
+                for (const name of Object.keys(children)) {
+                  if (name.endsWith('.html')) {
+                    const path = (cwd === '/' ? '/' : cwd + '/') + name;
+                    if (st.fs && st.fs[path] && st.fs[path].content) {
+                      html = st.fs[path].content;
+                      break;
+                    }
+                  }
+                }
+              }
+              previewFrame.srcdoc = html || '<html><body style="background:#07101a;color:#9fb7c9;font-family:system-ui;padding:20px"><strong>No HTML file found in current directory</strong></body></html>';
+            } catch (e) {
+              previewFrame.srcdoc = '<html><body style="background:#07101a;color:#9fb7c9;font-family:system-ui;padding:20px"><strong>Preview error</strong></body></html>';
             }
           },
           updateFilePanel: () => {
-            // rebuild file list from engine state
-            const st = window.Terminal3.getState();
-            fileList.innerHTML = '';
-            const cwd = st.cwd || '/';
-            const children = (st.fs && st.fs[cwd] && st.fs[cwd].children) || {};
-            const keys = Object.keys(children);
-            if (!keys.length) {
-              const empty = document.createElement('div');
-              empty.className = 'file-item';
-              empty.textContent = '(empty)';
-              fileList.appendChild(empty);
-              return;
-            }
-            keys.forEach(name => {
-              const item = document.createElement('div');
-              item.className = 'file-item';
-              item.textContent = name;
-              item.onclick = () => {
-                // open file content in terminal via cat
-                window.Terminal3.execute('cat ' + name);
-              };
-              fileList.appendChild(item);
-            });
-          },
-          showPagedText: (title, text) => {
-            // show help screen in output area
-            clearScreen();
-            printLine('=== ' + title + ' ===');
-            printRaw(text);
-            printLine('\nPress Ctrl+C to exit.');
-          }
-        });
-      }
-
-      // Initialize engine
-      async function initEngine(){
-        registerUI();
-        try {
-          await window.Terminal3.init({
-            commandTxt: '/public/courses/terminal-3/txt/command.txt',
-            outputTxt: '/public/courses/terminal-3/txt/command-output.txt'
-          });
-          // initial UI sync
-          window.Terminal3.execute('help');
-          window.Terminal3.execute('whereami');
-          window.Terminal3.execute('ls');
-          // update file panel
-          window.Terminal3.registerUI && window.Terminal3.getState && window.Terminal3.registerUI; // noop to avoid lint
-          // request file panel update
-          window.Terminal3.execute('project-list');
-          // ensure file panel shows current fs
-          setTimeout(()=> {
-            try { window.Terminal3.registerUI && window.Terminal3.getState && window.Terminal3.registerUI; } catch(e){}
-            // call updateFilePanel hook
-            const st = window.Terminal3.getState();
-            // call UI update
-            window.Terminal3.registerUI && window.Terminal3.getState && window.Terminal3.registerUI;
-            // trigger updateFilePanel by executing a no-op that causes engine to call UI update
-            // best-effort: call updateFilePanel directly
-            const hooks = window.Terminal3 && window.Terminal3.getState ? null : null;
-            // call the UI hook we registered earlier
-            // (we can call updateFilePanel directly)
-            try { window.Terminal3 && window.Terminal3.getState && window.Terminal3.registerUI; } catch(e){}
-            // finally, call updateFilePanel via engine's UI hook
-            // (we stored the UI functions inside engine; call updateFilePanel by executing a command that triggers it)
-            // fallback: call the UI update function we defined above
-            document.getElementById('cwdDisplay').textContent = window.Terminal3.getState().cwd || '/';
-            // initial file panel update
-            const updateFn = () => {
-              // call the UI hook by executing a command that triggers updateFilePanel in engine
-              // engine exposes updateFilePanel via registered UI; we can call it by executing a command that triggers fs action
-              // simpler: call the UI update function defined in this script
+            try {
               const st = window.Terminal3.getState();
-              fileList.innerHTML = '';
               const cwd = st.cwd || '/';
+              fileList.innerHTML = '';
               const children = (st.fs && st.fs[cwd] && st.fs[cwd].children) || {};
-              const keys = Object.keys(children);
-              if (!keys.length) {
+              const names = Object.keys(children);
+              if (!names.length) {
                 const empty = document.createElement('div');
                 empty.className = 'file-item';
                 empty.textContent = '(empty)';
                 fileList.appendChild(empty);
                 return;
               }
-              keys.forEach(name => {
+              names.forEach(name => {
                 const item = document.createElement('div');
                 item.className = 'file-item';
                 item.textContent = name;
-                item.onclick = () => window.Terminal3.execute('cat ' + name);
+                item.onclick = () => {
+                  // run cat <name>
+                  window.Terminal3.execute('cat ' + name);
+                };
                 fileList.appendChild(item);
               });
-            };
-            updateFn();
-          }, 300);
+            } catch (e) {
+              fileList.innerHTML = '<div class="file-item">(error)</div>';
+            }
+          },
+          showPagedText: (title, text) => {
+            clearScreen();
+            appendLine('=== ' + title + ' ===');
+            appendPre(text);
+            appendLine('\nPress Ctrl+C to exit.');
+          }
+        });
+      }
+
+      // initialize engine and UI
+      async function init() {
+        registerUIHooks();
+        try {
+          await window.Terminal3.init({
+            commandTxt: '/courses/terminal-3/txt/command.txt',
+            outputTxt: '/courses/terminal-3/txt/command-output.txt'
+          });
+          // initial UI sync
+          window.Terminal3.execute('help');
+          window.Terminal3.execute('whereami');
+          // update file panel and preview
+          window.Terminal3.registerUI && window.Terminal3.registerUI(); // noop safe-call
+          // call updateFilePanel hook directly via engine by executing a command that triggers it
+          window.Terminal3.execute('project-list');
+          // small delay then update file panel and preview
+          setTimeout(() => {
+            try { window.Terminal3.registerUI && window.Terminal3.getState && window.Terminal3.registerUI; } catch (e) {}
+            // call the UI update hook we registered above
+            // (we can't call engine internals directly; instead execute a no-op that causes UI update or call the registered hook via engine's getState)
+            // We'll call updateFilePanel by executing a harmless command that the engine maps to UI update (ls)
+            window.Terminal3.execute('ls');
+            // also update preview
+            window.Terminal3.execute('preview');
+          }, 200);
         } catch (err) {
-          printLine('Engine init failed: ' + err.message);
+          appendLine('Engine init failed: ' + (err && err.message ? err.message : String(err)));
         }
       }
 
-      // Input handling
+      // input handling
       btnRun.addEventListener('click', () => {
-        const val = input.value.trim();
-        if (!val) return;
-        window.Terminal3.execute(val);
+        const cmd = input.value.trim();
+        if (!cmd) return;
+        window.Terminal3.execute(cmd);
         input.value = '';
         input.focus();
       });
@@ -281,29 +259,17 @@
       });
 
       // quick buttons
-      btnPanel.addEventListener('click', () => {
-        window.Terminal3.execute('panel');
-      });
-      btnPreview.addEventListener('click', () => {
-        window.Terminal3.execute('preview');
-      });
-      btnSave.addEventListener('click', () => {
-        window.Terminal3.execute('project-save');
-      });
-      btnLoad.addEventListener('click', () => {
-        window.Terminal3.execute('project-load');
-      });
+      btnPanel.addEventListener('click', () => window.Terminal3.execute('panel'));
+      btnPreview.addEventListener('click', () => window.Terminal3.execute('preview'));
+      btnSave.addEventListener('click', () => window.Terminal3.execute('project-save'));
+      btnLoad.addEventListener('click', () => window.Terminal3.execute('project-load'));
 
-      // keyboard focus
+      // click output to focus input
       output.addEventListener('click', () => input.focus());
-      input.focus();
 
-      // initialize
-      window.addEventListener('load', initEngine);
+      // start
+      window.addEventListener('load', init);
     })();
   </script>
-
-  <!-- Engine script must be present at this path -->
-  <script src="/courses/terminal-3/js/engine.js"></script>
 </body>
 </html>
