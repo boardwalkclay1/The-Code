@@ -1,18 +1,6 @@
 # ============================================================
 # TERMINAL 3 – FULL COMMAND LIST + DEFINITIONS + HELP PAGES
 # ============================================================
-# This file is the SINGLE SOURCE OF TRUTH for Terminal 3.
-# The engine reads this file and builds:
-# - Command list
-# - Definitions
-# - Help pages 1–10
-# - Autocomplete
-# - Command reference
-# - Course navigation
-# - Flash-learning navigation
-# - Game navigation
-# ============================================================
-
 
 # ============================================================
 # HELP PAGE 1 (help1)
@@ -30,7 +18,6 @@ cat :: Display the contents of a file
 echo :: Print text to the terminal
 clear :: Clear the terminal screen
 
-
 # ============================================================
 # HELP PAGE 2 (help2)
 # ============================================================
@@ -46,7 +33,6 @@ grep :: Search text inside files
 find :: Search for files or directories
 head :: Show the first lines of a file
 tail :: Show the last lines of a file
-
 
 # ============================================================
 # HELP PAGE 3 (help3)
@@ -64,7 +50,6 @@ open :: Open a course section or lesson
 whereami :: Show current course and directory
 info :: Show information about the current course
 
-
 # ============================================================
 # HELP PAGE 4 (help4)
 # ============================================================
@@ -80,7 +65,6 @@ help7 :: Saving & Loading Projects
 help8 :: Preview & File Panel
 help9 :: Course Navigation
 help10 :: Troubleshooting
-
 
 # ============================================================
 # HELP PAGE 5 (help5)
@@ -98,7 +82,6 @@ git checkout :: Switch branches or restore files
 git switch :: Switch branches
 git merge :: Merge branches
 
-
 # ============================================================
 # HELP PAGE 6 (help6)
 # ============================================================
@@ -114,7 +97,6 @@ back :: Move to the previous step
 checkpoint :: Save a learning checkpoint
 cheatsheet :: Open a quick reference sheet
 fs-map :: Show a map of the filesystem
-
 
 # ============================================================
 # HELP PAGE 7 (help7)
@@ -132,7 +114,6 @@ truth deep :: Show the full philosophical text
 unlock :: Show unlockable commands
 unlock explain :: Explain hidden layers
 
-
 # ============================================================
 # HELP PAGE 8 (help8)
 # ============================================================
@@ -146,7 +127,6 @@ github :: Show price and activation command for the github course
 github explain :: Explain the github course in full detail
 hacking :: Show price and activation command for the hacking course
 hacking explain :: Explain the hacking course in full detail
-
 
 # ============================================================
 # HELP PAGE 9 (help9)
@@ -162,7 +142,6 @@ widgets explain :: Explain the widgets course in full detail
 pricing :: Show pricing info
 system :: Show system overview
 courses :: List all available courses
-
 
 # ============================================================
 # HELP PAGE 10 (help10)
