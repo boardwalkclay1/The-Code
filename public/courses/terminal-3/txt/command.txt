@@ -1,4 +1,20 @@
-# CORE TERMINAL COMMANDS
+# ============================================================
+# TERMINAL 3 – COMMAND LIST + DEFINITIONS + HELP PAGES (1–10)
+# ============================================================
+# This file is the SINGLE SOURCE OF TRUTH.
+# The engine reads this file and builds:
+# - Command list
+# - Definitions
+# - Help pages 1–10
+# - Autocomplete
+# - Command reference
+# - Help index
+# ============================================================
+
+
+# ============================================================
+# HELP PAGE 1 (help1)
+# ============================================================
 pwd :: Print the current working directory
 ls :: List files and folders in the current directory
 cd :: Change the current directory
@@ -11,9 +27,12 @@ cp :: Copy a file or folder
 cat :: Display the contents of a file
 echo :: Print text to the terminal
 clear :: Clear the terminal screen
-history :: Show previously executed commands
 
-# BASH / SHELL ESSENTIALS
+
+# ============================================================
+# HELP PAGE 2 (help2)
+# ============================================================
+history :: Show previously executed commands
 whoami :: Show the current user
 uname :: Show system information
 date :: Show the current date and time
@@ -25,25 +44,29 @@ grep :: Search text inside files
 find :: Search for files or directories
 head :: Show the first lines of a file
 tail :: Show the last lines of a file
+
+
+# ============================================================
+# HELP PAGE 3 (help3)
+# ============================================================
 less :: View a file in a scrollable screen
 wc :: Count lines, words, and bytes in a file
-
-# PROJECT / PANEL / PREVIEW
 panel :: Open the full-screen file panel
 preview :: Update the preview window
 project-save :: Save the current project
 project-load :: Load a saved project
 project-new :: Create a new blank project
 project-list :: List all saved projects
-
-# COURSE / NAVIGATION
 course :: Set the active course
 open :: Open a course section or lesson
 whereami :: Show current course and directory
 info :: Show information about the current course
-guide :: Show recommended next steps
 
-# HELP SYSTEM
+
+# ============================================================
+# HELP PAGE 4 (help4)
+# ============================================================
+guide :: Show recommended next steps
 help :: Show the help index
 help1 :: Terminal 3 Overview
 help2 :: Navigation & Filesystem
@@ -56,7 +79,10 @@ help8 :: Preview & File Panel
 help9 :: Course Navigation
 help10 :: Troubleshooting
 
-# GIT CORE
+
+# ============================================================
+# HELP PAGE 5 (help5)
+# ============================================================
 git init :: Initialize a new Git repository
 git status :: Show repository status
 git add :: Stage files for commit
@@ -69,19 +95,48 @@ git branch :: Manage branches
 git checkout :: Switch branches or restore files
 git switch :: Switch branches
 git merge :: Merge branches
+
+
+# ============================================================
+# HELP PAGE 6 (help6)
+# ============================================================
 git remote :: Manage remotes
 git fetch :: Fetch changes
 git pull :: Fetch and merge changes
 git push :: Push commits to remote
 git clone :: Clone a repository
 git config :: Configure Git settings
-
-# CUSTOM GO TIME SHORTCUTS
 start :: Start the recommended flow
 next :: Move to the next step
 back :: Move to the previous step
 checkpoint :: Save a learning checkpoint
 cheatsheet :: Open a quick reference sheet
 fs-map :: Show a map of the filesystem
+
+
+# ============================================================
+# HELP PAGE 7 (help7)
+# ============================================================
 git-map :: Show a map of the Git state
 bash-map :: Show a map of Bash commands
+# (Remaining slots open for expansion)
+# Terminal 3 supports dynamic page sizes
+
+
+# ============================================================
+# HELP PAGE 8 (help8)
+# ============================================================
+# Reserved for future commands
+# Add new commands here as Terminal 3 grows
+
+
+# ============================================================
+# HELP PAGE 9 (help9)
+# ============================================================
+# Reserved for future commands
+
+
+# ============================================================
+# HELP PAGE 10 (help10)
+# ============================================================
+# Reserved for future commands
