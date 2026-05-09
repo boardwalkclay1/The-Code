@@ -1,109 +1,90 @@
-// public/courses/terminal-3/engine.js
+// ======================================================
+// TERMINAL 3 – COURSES ENGINE
+// Reads command.txt + command-output.txt
+// Executes real actions based on ACTION::DATA
+// ======================================================
 
 const Terminal3 = (() => {
-    // =========================
-    // 1. State
-    // =========================
+
+    // ======================================================
+    // STATE
+    // ======================================================
     const state = {
-        currentCourse: null,
-        cwd: '/',
+        cwd: "/",
         fs: {},                 // virtual filesystem
         history: [],
-        isInScreen: false,      // true when a help screen or flow is active
-        activeScreen: null,     // 'help1', 'help2', etc.
-        commands: {},           // core commands
-        courseCommands: {},     // per-course commands
-        helpScreens: {},        // help1..help10...
+        helpMode: false,
+        activeHelp: null,
+        commands: {},           // command -> definition
+        actions: {},            // command -> { action, data }
+        currentCourse: null,
     };
 
-    // =========================
-    // 2. UI hooks (wire to your DOM)
-    // =========================
+    // ======================================================
+    // UI HOOKS (YOU CONNECT THESE TO YOUR HTML)
+    // ======================================================
     const ui = {
-        print(line = '') {
-            // Replace with your terminal output logic
-            console.log(line);
-        },
-        clear() {
-            console.clear();
-        },
-        setPromptActive(active) {
-            // Enable/disable input field if needed
-        },
-        showFilePanel() {
-            // Show the full-screen file area for Terminal 3
-        },
-        updateFilePanel(fsState) {
-            // Render filesystem in clickable UI
-        },
-        updatePreview(fsState, cwd) {
-            // Render preview iframe based on current project
-        }
+        print: (msg) => console.log(msg),
+        clear: () => console.clear(),
+        updatePreview: () => console.log("[PREVIEW UPDATED]"),
+        openPanel: () => console.log("[PANEL OPENED]"),
+        updateFilePanel: () => console.log("[FILE PANEL UPDATED]"),
     };
 
-    // =========================
-    // 3. Command registry
-    // =========================
-    function registerCommand(name, handler, meta = {}) {
-        state.commands[name] = { handler, meta };
+    // ======================================================
+    // TXT LOADER
+    // ======================================================
+    async function loadTXT(path) {
+        const res = await fetch(path);
+        return await res.text();
     }
 
-    function registerCourseCommands(courseName, commands) {
-        if (!state.courseCommands[courseName]) {
-            state.courseCommands[courseName] = {};
-        }
-        Object.assign(state.courseCommands[courseName], commands);
+    // ======================================================
+    // PARSE command.txt (command :: definition)
+    // ======================================================
+    function parseCommandDefinitions(raw) {
+        const lines = raw.split("\n");
+        lines.forEach(line => {
+            if (!line.trim() || line.startsWith("#")) return;
+            const [cmd, def] = line.split("::").map(s => s.trim());
+            if (cmd && def) state.commands[cmd] = def;
+        });
     }
 
-    function getCommand(name) {
-        // Course-specific first
-        if (state.currentCourse &&
-            state.courseCommands[state.currentCourse] &&
-            state.courseCommands[state.currentCourse][name]) {
-            return state.courseCommands[state.currentCourse][name];
-        }
-        // Core
-        return state.commands[name] || null;
+    // ======================================================
+    // PARSE command-output.txt (command :: ACTION :: DATA)
+    // ======================================================
+    function parseCommandActions(raw) {
+        const lines = raw.split("\n");
+        lines.forEach(line => {
+            if (!line.trim() || line.startsWith("#")) return;
+            const parts = line.split("::").map(s => s.trim());
+            if (parts.length < 3) return;
+
+            const cmd = parts[0];
+            const action = parts[1];
+            const data = parts.slice(2).join("::");
+
+            state.actions[cmd] = { action, data };
+        });
     }
 
-    // =========================
-    // 4. Help screens (help1..help10+)
-    // =========================
-    function registerHelpScreen(id, contentFn) {
-        state.helpScreens[id] = contentFn;
-    }
-
-    function showHelpScreen(id) {
-        const screen = state.helpScreens[id];
-        if (!screen) {
-            ui.print(`No help screen found for ${id}.`);
-            return;
-        }
-        state.isInScreen = true;
-        state.activeScreen = id;
-        ui.clear();
-        ui.print(`=== ${id.toUpperCase()} ===`);
-        screen(ui.print);
-        ui.print('');
-        ui.print('Press Ctrl+C to exit this screen and return to the prompt.');
-    }
-
-    // =========================
-    // 5. Filesystem helpers
-    // =========================
-    function normalizePath(path) {
-        if (!path || path === '.') return state.cwd;
-        if (path.startsWith('/')) return path;
-        if (state.cwd === '/') return `/${path}`;
-        return `${state.cwd}/${path}`;
-    }
-
+    // ======================================================
+    // FILESYSTEM ENGINE
+    // ======================================================
     function ensureDir(path) {
-        if (!state.fs[path]) state.fs[path] = { type: 'dir', children: {} };
+        if (!state.fs[path]) state.fs[path] = { type: "dir", children: {} };
     }
 
     function ensureFile(path) {
-        if (!state.fs[path]) state.fs[path] = { type: 'file', content: '' };
+        if (!state.fs[path]) state.fs[path] = { type: "file", content: "" };
+    }
+
+    function normalize(path) {
+        if (!path || path === ".") return state.cwd;
+        if (path.startsWith("/")) return path;
+        if (state.cwd === "/") return `/${path}`;
+        return `${state.cwd}/${path}`;
     }
 
     function listDir(path) {
@@ -111,288 +92,223 @@ const Terminal3 = (() => {
         return Object.keys(state.fs[path].children || {});
     }
 
-    function saveFS() {
-        // You can switch to IndexedDB later; start with localStorage
-        localStorage.setItem('terminal3_fs', JSON.stringify(state.fs));
+    // ======================================================
+    // ACTION EXECUTION ENGINE
+    // ======================================================
+    async function executeAction(cmd, action, data) {
+
+        switch (action) {
+
+            // -------------------------
+            // PRINT
+            // -------------------------
+            case "print":
+                if (data === "CURRENT_DIRECTORY") return ui.print(state.cwd);
+                if (data === "LIST_DIRECTORY") return ui.print(listDir(state.cwd).join("  "));
+                if (data.startsWith("FILE_CONTENT:")) {
+                    const file = data.split(":")[1];
+                    const path = normalize(file);
+                    ensureFile(path);
+                    return ui.print(state.fs[path].content);
+                }
+                if (data === "COMMAND_HISTORY") return ui.print(state.history.join("\n"));
+                if (data === "WHEREAMI") return ui.print(`Course: ${state.currentCourse || "none"} | Directory: ${state.cwd}`);
+                if (data === "COURSE_INFO") return ui.print(`Current course: ${state.currentCourse}`);
+                if (data === "GUIDE") return ui.print("Guidance coming from course logic...");
+                if (data === "FILESYSTEM_MAP") return ui.print(JSON.stringify(state.fs, null, 2));
+                if (data === "GIT_MAP") return ui.print(JSON.stringify(gitState, null, 2));
+                if (data === "BASH_MAP") return ui.print("Bash map coming soon...");
+                return ui.print(data);
+            
+            // -------------------------
+            // FILESYSTEM
+            // -------------------------
+            case "fs":
+                if (data.startsWith("CHANGE_DIRECTORY:")) {
+                    const path = normalize(data.split(":")[1]);
+                    ensureDir(path);
+                    state.cwd = path;
+                    return ui.print(`Moved to ${path}`);
+                }
+                if (data.startsWith("MAKE_DIRECTORY:")) {
+                    const name = data.split(":")[1];
+                    const path = normalize(name);
+                    ensureDir(path);
+                    state.fs[state.cwd].children[name] = { type: "dir", path };
+                    return ui.print(`Created folder ${name}`);
+                }
+                if (data.startsWith("REMOVE_DIRECTORY:")) {
+                    const name = data.split(":")[1];
+                    delete state.fs[state.cwd].children[name];
+                    return ui.print(`Removed folder ${name}`);
+                }
+                if (data.startsWith("CREATE_FILE:")) {
+                    const name = data.split(":")[1];
+                    const path = normalize(name);
+                    ensureFile(path);
+                    state.fs[state.cwd].children[name] = { type: "file", path };
+                    return ui.print(`Created file ${name}`);
+                }
+                if (data.startsWith("DELETE_FILE:")) {
+                    const name = data.split(":")[1];
+                    delete state.fs[state.cwd].children[name];
+                    return ui.print(`Deleted file ${name}`);
+                }
+                if (data.startsWith("SAVE_PROJECT")) return ui.print("Project saved.");
+                if (data.startsWith("LOAD_PROJECT")) return ui.print("Project loaded.");
+                if (data.startsWith("NEW_PROJECT")) return ui.print("New project created.");
+                if (data.startsWith("LIST_PROJECTS")) return ui.print("Project list coming soon...");
+                if (data.startsWith("SAVE_CHECKPOINT")) return ui.print("Checkpoint saved.");
+                break;
+
+            // -------------------------
+            // UI
+            // -------------------------
+            case "ui":
+                if (data === "CLEAR_SCREEN") return ui.clear();
+                if (data === "OPEN_PANEL") return ui.openPanel();
+                if (data === "UPDATE_PREVIEW") return ui.updatePreview();
+                if (data.startsWith("PAGED_VIEW:")) return ui.print("Paged view coming...");
+                break;
+
+            // -------------------------
+            // HELP SCREENS
+            // -------------------------
+            case "screen":
+                state.helpMode = true;
+                state.activeHelp = data;
+                ui.clear();
+                return ui.print(`[HELP SCREEN: ${data}] (Load helpX.txt here)`);
+
+            // -------------------------
+            // COURSE NAVIGATION
+            // -------------------------
+            case "nav":
+                if (data.startsWith("SET_COURSE:")) {
+                    state.currentCourse = data.split(":")[1];
+                    return ui.print(`Course set to ${state.currentCourse}`);
+                }
+                if (data.startsWith("OPEN_SECTION:")) {
+                    const section = data.split(":")[1];
+                    return ui.print(`Opening section: ${section}`);
+                }
+                if (data.startsWith("START_FLOW:")) {
+                    const level = data.split(":")[1];
+                    return ui.print(`Starting flow at level: ${level}`);
+                }
+                if (data === "NEXT_STEP") return ui.print("Next step...");
+                if (data === "PREVIOUS_STEP") return ui.print("Going back...");
+                break;
+
+            // -------------------------
+            // GIT ENGINE
+            // -------------------------
+            case "git":
+                return executeGit(data);
+
+            default:
+                return ui.print(`Unknown action: ${action}`);
+        }
     }
 
-    function loadFS() {
-        const raw = localStorage.getItem('terminal3_fs');
-        if (raw) {
-            try {
-                state.fs = JSON.parse(raw);
-            } catch (e) {
-                state.fs = {};
-            }
-        }
-        ui.updateFilePanel(state.fs);
-    }
-
-    // =========================
-    // 6. Core Bash/system commands
-    // =========================
-    registerCommand('pwd', (args) => {
-        ui.print(state.cwd);
-    }, { group: 'bash', description: 'Show current directory' });
-
-    registerCommand('ls', (args) => {
-        const target = normalizePath(args[0] || state.cwd);
-        ui.print(listDir(target).join('  '));
-    }, { group: 'bash', description: 'List files and folders' });
-
-    registerCommand('cd', (args) => {
-        const target = args[0];
-        if (!target) return ui.print('Usage: cd <path>. See help2 navigation.');
-        const path = normalizePath(target);
-        ensureDir(path);
-        state.cwd = path;
-        ui.print(`Moved to ${state.cwd}`);
-        ui.updateFilePanel(state.fs);
-    }, { group: 'bash', description: 'Change directory' });
-
-    registerCommand('mkdir', (args) => {
-        const name = args[0];
-        if (!name) return ui.print('Usage: mkdir <folder>. See help2 filesystem.');
-        const path = normalizePath(name);
-        ensureDir(path);
-        const parent = state.fs[state.cwd];
-        if (parent && parent.children) {
-            parent.children[name] = { type: 'dir', path };
-        }
-        ui.print(`Created folder ${name}`);
-        ui.updateFilePanel(state.fs);
-        saveFS();
-    }, { group: 'bash', description: 'Create a folder' });
-
-    registerCommand('touch', (args) => {
-        const name = args[0];
-        if (!name) return ui.print('Usage: touch <file>. See help2 filesystem.');
-        const path = normalizePath(name);
-        ensureFile(path);
-        const parent = state.fs[state.cwd];
-        if (parent && parent.children) {
-            parent.children[name] = { type: 'file', path };
-        }
-        ui.print(`Created file ${name}`);
-        ui.updateFilePanel(state.fs);
-        saveFS();
-    }, { group: 'bash', description: 'Create an empty file' });
-
-    registerCommand('clear', (args) => {
-        ui.clear();
-    }, { group: 'bash', description: 'Clear the terminal screen' });
-
-    // =========================
-    // 7. Git commands (simulated core)
-    // =========================
+    // ======================================================
+    // GIT SIMULATION ENGINE
+    // ======================================================
     const gitState = {
         initialized: false,
-        branch: 'main',
+        branch: "main",
         staged: [],
         commits: []
     };
 
-    registerCommand('git', (args) => {
-        const sub = args[0];
-        const rest = args.slice(1);
-
-        if (!sub) {
-            ui.print('Usage: git <command>. See help2 git for full list.');
-            return;
+    function executeGit(data) {
+        if (data === "INIT") {
+            gitState.initialized = true;
+            gitState.staged = [];
+            gitState.commits = [];
+            return ui.print("Initialized empty Git repository.");
         }
-
-        switch (sub) {
-            case 'init':
-                gitState.initialized = true;
-                gitState.branch = 'main';
-                gitState.staged = [];
-                gitState.commits = [];
-                ui.print('Initialized empty Git repository.');
-                break;
-
-            case 'status':
-                if (!gitState.initialized) return ui.print('Git not initialized. Run: git init (see help2 git).');
-                ui.print(`On branch ${gitState.branch}`);
-                if (gitState.staged.length) {
-                    ui.print('Changes to be committed:');
-                    gitState.staged.forEach(f => ui.print(`  ${f}`));
-                } else {
-                    ui.print('No changes staged.');
-                }
-                break;
-
-            case 'add':
-                if (!gitState.initialized) return ui.print('Git not initialized. Run: git init.');
-                if (!rest.length) return ui.print('Usage: git add <file>. See help2 git.');
-                rest.forEach(f => gitState.staged.push(f));
-                ui.print('Files staged.');
-                break;
-
-            case 'commit':
-                if (!gitState.initialized) return ui.print('Git not initialized. Run: git init.');
-                if (!gitState.staged.length) return ui.print('No changes staged.');
-                const msgIndex = rest.indexOf('-m');
-                if (msgIndex === -1 || !rest[msgIndex + 1]) {
-                    return ui.print('Usage: git commit -m "message". See help2 git.');
-                }
-                const message = rest.slice(msgIndex + 1).join(' ').replace(/^"|"$/g, '');
-                gitState.commits.push({
-                    message,
-                    files: [...gitState.staged],
-                    branch: gitState.branch,
-                    time: new Date().toISOString()
-                });
-                gitState.staged = [];
-                ui.print(`[${gitState.branch}] ${message}`);
-                break;
-
-            case 'log':
-                if (!gitState.initialized) return ui.print('Git not initialized. Run: git init.');
-                if (!gitState.commits.length) return ui.print('No commits yet.');
-                gitState.commits.forEach((c, i) => {
-                    ui.print(`commit ${i + 1} (${c.branch})`);
-                    ui.print(`Date: ${c.time}`);
-                    ui.print(`    ${c.message}`);
-                    ui.print('');
-                });
-                break;
-
-            default:
-                ui.print(`Unknown git command: ${sub}. See help2 git.`);
+        if (data === "STATUS") {
+            return ui.print(JSON.stringify(gitState, null, 2));
         }
-    }, { group: 'git', description: 'Git version control (init, add, commit, status, log, ...)' });
-
-    // =========================
-    // 8. Help commands (help1..help10)
-    // =========================
-    registerCommand('help', (args) => {
-        ui.print('Terminal 3 – Courses: Core help');
-        ui.print('- help1  : Overview & mindset');
-        ui.print('- help2  : Navigation & filesystem');
-        ui.print('- help3  : Git basics');
-        ui.print('- help4  : Branching & workflows');
-        ui.print('- help5  : Bash essentials');
-        ui.print('- help6  : Custom Go Time commands');
-        ui.print('- help7  : Saving, loading, and projects');
-        ui.print('- help8  : Preview & file panel');
-        ui.print('- help9  : Course navigation from Terminal 3');
-        ui.print('- help10 : Troubleshooting & common mistakes');
-        ui.print('');
-        ui.print('Type any of these (e.g., "help3") to open a full screen. Press Ctrl+C to exit.');
-    }, { group: 'help', description: 'List help screens' });
-
-    // Map help1..help10 to screens
-    for (let i = 1; i <= 10; i++) {
-        const id = `help${i}`;
-        registerCommand(id, () => showHelpScreen(id), { group: 'help', description: `Open ${id} screen` });
+        if (data.startsWith("ADD:")) {
+            const file = data.split(":")[1];
+            gitState.staged.push(file);
+            return ui.print(`Staged ${file}`);
+        }
+        if (data.startsWith("COMMIT:")) {
+            const msg = data.split(":")[1];
+            gitState.commits.push({ msg, files: [...gitState.staged] });
+            gitState.staged = [];
+            return ui.print(`Committed: ${msg}`);
+        }
+        if (data === "LOG") {
+            return ui.print(JSON.stringify(gitState.commits, null, 2));
+        }
+        return ui.print(`Git action: ${data}`);
     }
 
-    // Example help screens (you’ll expand these)
-    registerHelpScreen('help1', (print) => {
-        print('Terminal 3 – Courses: Overview');
-        print('- This is your master training terminal.');
-        print('- All Bash, Git, and custom commands work here.');
-        print('- From here, you can reach any course section.');
-        print('- Use help2..help10 to dive into specific topics.');
-    });
-
-    registerHelpScreen('help2', (print) => {
-        print('Navigation & Filesystem');
-        print('- pwd      : show where you are');
-        print('- ls       : list files and folders');
-        print('- cd PATH  : move into a folder');
-        print('- mkdir    : create a folder');
-        print('- touch    : create a file');
-        print('');
-        print('These commands match real terminals so you can practice for any system.');
-    });
-
-    // ...you’ll define help3..help10 similarly, explaining Git, Bash, custom commands, etc.
-
-    // =========================
-    // 9. Custom Go Time commands (examples)
-    // =========================
-    registerCommand('project-save', (args) => {
-        saveFS();
-        ui.print('Project saved. (Terminal 3 filesystem snapshot updated.)');
-    }, { group: 'project', description: 'Save current project state' });
-
-    registerCommand('project-load', (args) => {
-        loadFS();
-        ui.print('Project loaded into Terminal 3.');
-    }, { group: 'project', description: 'Load saved project state' });
-
-    registerCommand('panel', (args) => {
-        ui.showFilePanel();
-        ui.print('File panel opened. Click to open/edit files. Use terminal commands alongside.');
-    }, { group: 'ui', description: 'Open the full-screen file panel' });
-
-    registerCommand('preview', (args) => {
-        ui.updatePreview(state.fs, state.cwd);
-        ui.print('Preview updated.');
-    }, { group: 'ui', description: 'Update the preview screen' });
-
-    registerCommand('course', (args) => {
-        const name = args[0];
-        if (!name) return ui.print('Usage: course <courseName>. See help9 for navigation.');
-        state.currentCourse = name;
-        ui.print(`Terminal 3 now focused on course: ${name}`);
-    }, { group: 'courses', description: 'Set active course context for extra commands' });
-
-    // =========================
-    // 10. Ctrl+C handling
-    // =========================
-    function handleCtrlC() {
-        if (state.isInScreen) {
-            state.isInScreen = false;
-            state.activeScreen = null;
-            ui.clear();
-            ui.print('Exited screen. Back to prompt.');
-        } else {
-            ui.print('^C');
-        }
-    }
-
-    // =========================
-    // 11. Execution
-    // =========================
-    function execute(input) {
+    // ======================================================
+    // EXECUTE COMMAND
+    // ======================================================
+    async function execute(input) {
         if (!input.trim()) return;
+
         state.history.push(input);
 
-        if (state.isInScreen) {
-            // While in a screen, only Ctrl+C matters (handled externally)
-            ui.print('You are in a help screen. Press Ctrl+C to exit.');
+        if (state.helpMode) {
+            ui.print("Press Ctrl+C to exit help.");
             return;
         }
 
-        const parts = input.trim().split(/\s+/);
-        const cmdName = parts[0];
-        const args = parts.slice(1);
+        const cmd = input.split(" ")[0];
 
-        const cmd = getCommand(cmdName);
-        if (!cmd) {
-            ui.print(`Unknown command: ${cmdName}. Type "help" for options.`);
-            return;
+        if (!state.actions[cmd]) {
+            return ui.print(`Unknown command: ${cmd}`);
         }
 
-        cmd.handler(args);
+        const { action, data } = state.actions[cmd];
+
+        await executeAction(cmd, action, data);
     }
 
-    // =========================
-    // 12. Public API
-    // =========================
+    // ======================================================
+    // CTRL+C
+    // ======================================================
+    function handleCtrlC() {
+        if (state.helpMode) {
+            state.helpMode = false;
+            state.activeHelp = null;
+            ui.clear();
+            ui.print("Exited help.");
+            return;
+        }
+        ui.print("^C");
+    }
+
+    // ======================================================
+    // INITIALIZER
+    // ======================================================
+    async function init() {
+        const cmdRaw = await loadTXT("/public/courses/terminal-3/txt/command.txt");
+        const outRaw = await loadTXT("/public/courses/terminal-3/txt/command-output.txt");
+
+        parseCommandDefinitions(cmdRaw);
+        parseCommandActions(outRaw);
+
+        ui.print("Terminal 3 Ready.");
+    }
+
+    // ======================================================
+    // PUBLIC API
+    // ======================================================
     return {
+        init,
         execute,
         handleCtrlC,
-        registerCourseCommands,
-        setCourse(name) {
-            state.currentCourse = name;
-        },
-        getState() {
-            return state;
-        }
+        getState: () => state
     };
+
 })();
 
 window.Terminal3 = Terminal3;
