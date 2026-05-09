@@ -1,5 +1,5 @@
 // public/courses/terminal-3/js/engine.js
-// Terminal 3 — Master Terminal Engine (Final Build)
+// Terminal 3 — Master Terminal Engine (Corrected + Final Build)
 
 const Terminal3 = (() => {
 
@@ -27,14 +27,14 @@ const Terminal3 = (() => {
   };
 
   // ------------------------------------------------------------
-  // UI HOOKS (overridden by registerUI)
+  // UI HOOKS (NO PRINTING — FIXED)
   // ------------------------------------------------------------
   const ui = {
     print: (text) => console.log(text),
     clear: () => console.clear(),
-    openPanel: () => ui.print("[PANEL OPENED]"),
-    updatePreview: () => ui.print("[PREVIEW UPDATED]"),
-    updateFilePanel: () => ui.print("[FILE PANEL UPDATED]"),
+    openPanel: () => {},          // FIXED: no duplicate output
+    updatePreview: () => {},      // FIXED
+    updateFilePanel: () => {},    // FIXED
     showPagedText: (title, text) => {
       ui.clear();
       ui.print(`=== ${title} ===`);
@@ -77,12 +77,15 @@ const Terminal3 = (() => {
   }
 
   // ------------------------------------------------------------
-  // PLACEHOLDER REPLACER
+  // PLACEHOLDER REPLACER (FIXED: supports {course}, real newlines)
   // ------------------------------------------------------------
   function replacePlaceholders(text, extras = {}) {
     if (!text) return "";
+
     return text
+      .replace(/\\n/g, "\n")                       // FIXED: real newlines
       .replace(/\{cwd\}/g, state.cwd)
+      .replace(/\{course\}/g, state.currentCourse || "(none)")   // FIXED
       .replace(/\{directory_list\}/g, listDir(state.cwd).join("\n"))
       .replace(/\{history\}/g, state.history.join("\n"))
       .replace(/\{current_date\}/g, new Date().toString())
@@ -120,18 +123,16 @@ const Terminal3 = (() => {
     for (let rawLine of lines) {
       const line = rawLine.replace(/\r/g, "");
 
-      // HELP PAGE HEADER
       const helpMatch = line.match(/^#\s*HELP\s*PAGE\s*(\d+)/i);
       if (helpMatch) {
-        if (currentSection && buffer.length) {
+        if (currentSection && buffer.length)
           state.helpPages[currentSection] = buffer.join("\n").trim();
-        }
+
         currentSection = `help${helpMatch[1]}`;
         buffer = [];
         continue;
       }
 
-      // COMMAND DEFINITION
       const defMatch = line.match(/^([^:]+)::\s*(.+)$/);
       if (defMatch) {
         const cmd = defMatch[1].trim();
@@ -141,19 +142,17 @@ const Terminal3 = (() => {
         continue;
       }
 
-      // BLANK OR COMMENT
       if (line.trim() === "" || line.trim().startsWith("#")) {
-        if (currentSection && buffer.length && line.trim() === "") buffer.push("");
+        if (currentSection && buffer.length && line.trim() === "")
+          buffer.push("");
         continue;
       }
 
-      // RAW HELP CONTENT
       if (currentSection) buffer.push(line);
     }
 
-    if (currentSection && buffer.length) {
+    if (currentSection && buffer.length)
       state.helpPages[currentSection] = buffer.join("\n").trim();
-    }
   }
 
   // ------------------------------------------------------------
@@ -228,10 +227,12 @@ const Terminal3 = (() => {
         break;
 
       case "ui":
-        if (data === "CLEAR_SCREEN") ui.clear();
+        if (data === "CLEAR_SCREEN") {
+          ui.clear();
+          ui.print("Screen cleared.");
+        }
         else if (data === "OPEN_PANEL") ui.openPanel();
         else if (data === "UPDATE_PREVIEW") ui.updatePreview();
-        else ui.print(`[ui] Unknown UI action: ${data}`);
         break;
 
       case "fs":
@@ -261,7 +262,6 @@ const Terminal3 = (() => {
       ensureDir(p);
       state.cwd = p;
       ui.print(`Moved to ${p}`);
-      ui.updateFilePanel();
       return;
     }
 
@@ -272,7 +272,6 @@ const Terminal3 = (() => {
       ensureFile(path);
       state.fs[state.cwd].children[name] = { type: "file", path };
       ui.print(`File created: ${name}`);
-      ui.updateFilePanel();
       return;
     }
 
@@ -283,7 +282,6 @@ const Terminal3 = (() => {
       ensureDir(path);
       state.fs[state.cwd].children[name] = { type: "dir", path };
       ui.print(`Folder created: ${name}`);
-      ui.updateFilePanel();
       return;
     }
 
@@ -293,7 +291,6 @@ const Terminal3 = (() => {
       delete state.fs[normalizePath(name)];
       delete state.fs[state.cwd].children[name];
       ui.print(`File deleted: ${name}`);
-      ui.updateFilePanel();
       return;
     }
 
@@ -303,7 +300,6 @@ const Terminal3 = (() => {
       delete state.fs[normalizePath(name)];
       delete state.fs[state.cwd].children[name];
       ui.print(`Folder removed: ${name}`);
-      ui.updateFilePanel();
       return;
     }
 
@@ -386,9 +382,7 @@ const Terminal3 = (() => {
   async function execute(input) {
     if (!input || !input.trim()) return;
 
-    // echo command
     ui.print("$ " + input);
-
     state.history.push(input);
 
     if (state.helpMode) {
@@ -400,13 +394,11 @@ const Terminal3 = (() => {
     const base = parts[0];
     const rest = parts.slice(1).join(" ");
 
-    // exact match
     if (state.actions[base]) {
       await executeActionFor(base, state.actions[base], rest);
       return;
     }
 
-    // multi-word match
     const candidates = Object.keys(state.actions).filter(
       k => input === k || input.startsWith(k + " ")
     );
@@ -419,7 +411,6 @@ const Terminal3 = (() => {
       return;
     }
 
-    // fallback: definition only
     if (state.definitions[base]) {
       ui.print(`${base} :: ${state.definitions[base]}`);
       return;
