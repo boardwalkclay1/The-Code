@@ -47,11 +47,11 @@ tools explain :: explains the tools course in full detail
 truth :: reveals the truth layer of terminal 2
 truth deep :: shows the full philosophical text
 
+unlock :: shows unlockable commands
+unlock explain :: explains hidden layers
+
 web :: shows price and link for the web course
 web explain :: explains the web course in full detail
 
 widgets :: shows price and link for the widgets course
 widgets explain :: explains the widgets course in full detail
-
-unlock :: shows unlockable commands
-unlock explain :: explains hidden layers
