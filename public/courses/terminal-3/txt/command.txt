@@ -1,0 +1,87 @@
+# CORE TERMINAL COMMANDS
+pwd :: Print the current working directory
+ls :: List files and folders in the current directory
+cd :: Change the current directory
+mkdir :: Create a new folder
+rmdir :: Remove an empty folder
+touch :: Create a new file
+rm :: Delete a file
+mv :: Move or rename a file or folder
+cp :: Copy a file or folder
+cat :: Display the contents of a file
+echo :: Print text to the terminal
+clear :: Clear the terminal screen
+history :: Show previously executed commands
+
+# BASH / SHELL ESSENTIALS
+whoami :: Show the current user
+uname :: Show system information
+date :: Show the current date and time
+time :: Measure how long a command takes
+env :: Show environment variables
+printenv :: Print environment variables
+which :: Show the path of a command
+grep :: Search text inside files
+find :: Search for files or directories
+head :: Show the first lines of a file
+tail :: Show the last lines of a file
+less :: View a file in a scrollable screen
+wc :: Count lines, words, and bytes in a file
+
+# PROJECT / PANEL / PREVIEW
+panel :: Open the full-screen file panel
+preview :: Update the preview window
+project-save :: Save the current project
+project-load :: Load a saved project
+project-new :: Create a new blank project
+project-list :: List all saved projects
+
+# COURSE / NAVIGATION
+course :: Set the active course
+open :: Open a course section or lesson
+whereami :: Show current course and directory
+info :: Show information about the current course
+guide :: Show recommended next steps
+
+# HELP SYSTEM
+help :: Show the help index
+help1 :: Terminal 3 Overview
+help2 :: Navigation & Filesystem
+help3 :: Git Basics
+help4 :: Git Branching & Workflows
+help5 :: Bash Essentials
+help6 :: Custom Go Time Commands
+help7 :: Saving & Loading Projects
+help8 :: Preview & File Panel
+help9 :: Course Navigation
+help10 :: Troubleshooting
+
+# GIT CORE
+git init :: Initialize a new Git repository
+git status :: Show repository status
+git add :: Stage files for commit
+git restore :: Restore files
+git reset :: Reset HEAD or unstage files
+git commit :: Create a commit
+git log :: Show commit history
+git diff :: Show differences
+git branch :: Manage branches
+git checkout :: Switch branches or restore files
+git switch :: Switch branches
+git merge :: Merge branches
+git remote :: Manage remotes
+git fetch :: Fetch changes
+git pull :: Fetch and merge changes
+git push :: Push commits to remote
+git clone :: Clone a repository
+git config :: Configure Git settings
+
+# CUSTOM GO TIME SHORTCUTS
+start :: Start the recommended flow
+next :: Move to the next step
+back :: Move to the previous step
+checkpoint :: Save a learning checkpoint
+cheatsheet :: Open a quick reference sheet
+fs-map :: Show a map of the filesystem
+git-map :: Show a map of the Git state
+bash-map :: Show a map of Bash commands
