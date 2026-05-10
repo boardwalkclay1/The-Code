@@ -1,0 +1,112 @@
+# GITHUB LESSON 8 — WHAT A “CHANGE” LOOKS LIKE IN REAL LIFE
+# 20 PARTS — ZERO KNOWLEDGE
+
+=== PART 1 — WHAT IS A CHANGE? ===
+a change is when something becomes different.
+before → after.
+that difference is a change.
+
+=== PART 2 — CHANGES IN REAL LIFE ===
+you change your clothes.
+you change your room.
+you change your mind.
+changes happen everywhere.
+
+=== PART 3 — CHANGES IN WORK ===
+you add something.
+you remove something.
+you fix something.
+you adjust something.
+
+=== PART 4 — CHANGES ON A COMPUTER ===
+you type something new.
+you erase something old.
+you move something around.
+these are computer changes.
+
+=== PART 5 — WHY CHANGES MATTER ===
+changes shape your work.
+changes build your project.
+changes create progress.
+
+=== PART 6 — SMALL CHANGES ===
+a small change might be:
+one word
+one line
+one idea
+
+=== PART 7 — BIG CHANGES ===
+a big change might be:
+a whole page
+a whole design
+a whole feature
+
+=== PART 8 — WHAT GIT SEES ===
+git sees:
+what changed
+when it changed
+how it changed
+
+=== PART 9 — WHAT GIT DOES WITH CHANGES ===
+git prepares them.
+git organizes them.
+git waits for you to say:
+“remember this.”
+
+=== PART 10 — WHAT YOU CONTROL ===
+you control:
+when you change things
+how you change things
+why you change things
+
+=== PART 11 — WHAT GIT DOES NOT DO ===
+git does not change your work.
+git does not judge your work.
+git only watches.
+
+=== PART 12 — WHY WATCHING MATTERS ===
+watching lets git help you.
+watching lets git protect you.
+watching lets git guide you.
+
+=== PART 13 — WHAT GITHUB SEES ===
+github sees the results.
+github sees the memories.
+github sees the journey.
+
+=== PART 14 — WHY THIS MATTERS ===
+understanding changes helps you understand git.
+git is built around changes.
+
+=== PART 15 — WHAT A CHANGE FEELS LIKE ===
+a change feels like:
+“i made something better.”
+“i fixed something.”
+“i improved something.”
+
+=== PART 16 — WHAT A CHANGE DOES NOT FEEL LIKE ===
+a change does not feel like:
+starting over
+losing progress
+breaking everything
+
+=== PART 17 — WHY GIT MAKES CHANGES SAFE ===
+git remembers old versions.
+git protects your progress.
+git lets you undo mistakes.
+
+=== PART 18 — WHAT YOU KNOW NOW ===
+you understand:
+what a change is
+why changes matter
+how git sees changes
+
+=== PART 19 — YOU ARE READY FOR MORE ===
+next we learn how git groups changes.
+
+=== PART 20 — NEXT LESSON ===
+next lesson:
+“how git groups changes into a ‘moment’ before remembering it”
+
+to continue:
+type: github lesson 9
