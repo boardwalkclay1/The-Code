@@ -1,0 +1,99 @@
+# GITHUB LESSON 9 — HOW GIT GROUPS CHANGES INTO A “MOMENT”
+# 20 PARTS — ZERO KNOWLEDGE
+
+=== PART 1 — WHAT IS GROUPING? ===
+grouping means putting things together.
+like putting toys in a box.
+git groups your changes.
+
+=== PART 2 — WHY GROUPING MATTERS ===
+grouping keeps things organized.
+grouping keeps things clear.
+grouping keeps things clean.
+
+=== PART 3 — WHAT DOES GIT GROUP? ===
+git groups:
+your additions
+your removals
+your fixes
+
+=== PART 4 — WHAT IS A CHANGE GROUP? ===
+a change group is a collection of changes.
+all the changes you made since the last moment.
+
+=== PART 5 — WHY GIT GROUPS CHANGES ===
+so you can save them together.
+so you can remember them together.
+so you can understand them later.
+
+=== PART 6 — WHAT YOU DO ===
+you work.
+you create.
+you change things.
+
+=== PART 7 — WHAT GIT DOES ===
+git watches.
+git collects.
+git prepares.
+
+=== PART 8 — WHAT IS A “READY MOMENT”? ===
+a ready moment is when your changes are grouped.
+they are ready to be remembered.
+
+=== PART 9 — WHAT YOU SAY TO GIT ===
+you say:
+“this group of changes matters.”
+git listens.
+
+=== PART 10 — WHAT GIT DOES NEXT ===
+git takes the group.
+git turns it into a moment.
+git adds it to your timeline.
+
+=== PART 11 — WHY THIS IS POWERFUL ===
+you control the story.
+you control the steps.
+you control the meaning.
+
+=== PART 12 — WHAT GIT DOES NOT DO ===
+git does not guess.
+git does not assume.
+git waits for you.
+
+=== PART 13 — WHAT GITHUB DOES ===
+github stores the moments.
+github keeps them safe.
+github lets you share them.
+
+=== PART 14 — WHY GROUPING HELPS TEAMS ===
+teams can see:
+what changed
+why it changed
+how it changed
+
+=== PART 15 — WHAT YOU KNOW NOW ===
+you understand:
+grouping
+moments
+timelines
+
+=== PART 16 — YOU ARE BUILDING SKILL ===
+you are learning how git thinks.
+you are learning how git organizes.
+
+=== PART 17 — YOU ARE GETTING READY ===
+soon we introduce the idea of “saving” a moment.
+
+=== PART 18 — WHY WE WAIT ===
+we build the mental model first.
+then the commands make sense.
+
+=== PART 19 — YOU ARE ALMOST READY ===
+next lesson prepares you for your first real save.
+
+=== PART 20 — NEXT LESSON ===
+next lesson:
+“what it means to ‘save’ a moment in git (no commands yet)”
+
+to continue:
+type: github lesson 10
