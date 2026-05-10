@@ -1,0 +1,112 @@
+# GITHUB LESSON 3 — HOW GIT BEGINS WATCHING YOUR PROJECT
+# 20 PARTS — ZERO KNOWLEDGE
+
+=== PART 1 — WHAT DOES “WATCHING” MEAN? ===
+watching means paying attention.
+git pays attention to your project folder.
+git notices when things change.
+
+=== PART 2 — WHY WATCHING MATTERS ===
+if git does not watch,
+git cannot remember.
+git cannot help you.
+git cannot protect your work.
+
+=== PART 3 — HOW DOES GIT START WATCHING? ===
+you tell git:
+“start watching this folder.”
+after that, git pays attention.
+
+=== PART 4 — WHAT DOES GIT LOOK FOR? ===
+git looks for:
+new files
+changed files
+removed files
+renamed files
+
+=== PART 5 — WHAT GIT DOES WITH THIS INFORMATION ===
+git stores it.
+git remembers it.
+git prepares it for your timeline.
+
+=== PART 6 — WHAT IS A TIMELINE? ===
+a timeline is your project’s story.
+each moment is a step.
+each step is remembered.
+
+=== PART 7 — WHY TIMELINES MATTER ===
+timelines let you:
+go back
+compare
+learn
+fix
+
+=== PART 8 — WHAT IS A STARTING POINT? ===
+a starting point is the moment git begins watching.
+before that moment, git knows nothing.
+after that moment, git knows everything.
+
+=== PART 9 — WHAT IS A CLEAN START? ===
+a clean start means:
+your folder is ready
+your files are ready
+git is ready
+
+=== PART 10 — WHAT HAPPENS AT THE START? ===
+git creates a memory space.
+git prepares to store your steps.
+git prepares to track your journey.
+
+=== PART 11 — WHAT GIT DOES NOT DO AT THE START ===
+git does not save anything yet.
+git does not store your work yet.
+git only prepares.
+
+=== PART 12 — WHY PREPARATION MATTERS ===
+preparation makes tracking smooth.
+preparation makes memory clean.
+preparation makes your timeline clear.
+
+=== PART 13 — WHAT YOU DO NEXT ===
+you begin working.
+you create things.
+you change things.
+git watches.
+
+=== PART 14 — WHAT GIT WAITS FOR ===
+git waits for you to say:
+“remember this moment.”
+
+=== PART 15 — WHAT A MOMENT IS ===
+a moment is a point in time.
+a moment is a version of your work.
+a moment is a step in your journey.
+
+=== PART 16 — WHAT GIT DOES WITH MOMENTS ===
+git stores them.
+git organizes them.
+git protects them.
+
+=== PART 17 — WHAT GITHUB DOES WITH MOMENTS ===
+github stores them online.
+github keeps them safe.
+github lets you access them anywhere.
+
+=== PART 18 — WHAT YOU KNOW NOW ===
+you now understand:
+how git begins watching
+why watching matters
+what a timeline is
+what a moment is
+
+=== PART 19 — WHY THIS IS IMPORTANT ===
+this is the foundation.
+everything else builds on this.
+you are learning the core.
+
+=== PART 20 — NEXT LESSON ===
+next lesson:
+“what a ‘moment’ really is (your first real save)”
+
+to continue:
+type: github lesson 4
