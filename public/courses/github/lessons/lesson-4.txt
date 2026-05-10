@@ -1,0 +1,113 @@
+# GITHUB LESSON 4 — WHAT A “MOMENT” REALLY IS
+# 20 PARTS — ZERO KNOWLEDGE
+
+=== PART 1 — WHAT IS A MOMENT? ===
+a moment is a freeze-frame of your work.
+like pausing a movie.
+you capture how everything looks right now.
+
+=== PART 2 — WHY MOMENTS MATTER ===
+moments let you:
+go back
+compare
+recover
+learn
+
+=== PART 3 — WHAT IS A “SAVE MOMENT”? ===
+a save moment is when you tell git:
+“remember this version of my work.”
+
+=== PART 4 — WHAT DOES GIT DO WITH THIS? ===
+git takes a memory picture.
+git stores it.
+git adds it to your timeline.
+
+=== PART 5 — WHAT IS A TIMELINE AGAIN? ===
+a timeline is your project’s story.
+each moment is a chapter.
+each chapter is remembered.
+
+=== PART 6 — WHAT HAPPENS BEFORE A MOMENT? ===
+you work.
+you create.
+you change things.
+git watches.
+
+=== PART 7 — WHAT HAPPENS DURING A MOMENT? ===
+you pause.
+you say:
+“this is important.”
+git remembers it.
+
+=== PART 8 — WHAT HAPPENS AFTER A MOMENT? ===
+you keep working.
+you keep creating.
+you keep changing things.
+git keeps watching.
+
+=== PART 9 — WHY HUMANS NEED MOMENTS ===
+humans forget.
+computers do not.
+moments protect your progress.
+
+=== PART 10 — WHAT IF YOU BREAK SOMETHING? ===
+you can go back to a moment.
+you can restore your work.
+you can undo mistakes.
+
+=== PART 11 — WHAT IF YOU TRY SOMETHING NEW? ===
+you can create a moment first.
+then experiment safely.
+you can always return.
+
+=== PART 12 — WHAT IF YOU WANT TO SHARE? ===
+moments help others understand your journey.
+moments show your steps.
+moments show your growth.
+
+=== PART 13 — WHAT IS A GOOD MOMENT? ===
+a good moment is:
+clear
+important
+meaningful
+
+=== PART 14 — WHAT IS A BAD MOMENT? ===
+a bad moment is:
+confusing
+random
+unclear
+
+=== PART 15 — WHY MOMENTS SHOULD BE CLEAR ===
+clear moments help you later.
+clear moments help others.
+clear moments help your future self.
+
+=== PART 16 — WHAT YOU CONTROL ===
+you choose when to create moments.
+you choose what matters.
+you choose your timeline.
+
+=== PART 17 — WHAT GIT CONTROLS ===
+git controls:
+the memory
+the storage
+the organization
+
+=== PART 18 — WHAT GITHUB CONTROLS ===
+github controls:
+the online backup
+the sharing
+the safety
+
+=== PART 19 — WHAT YOU KNOW NOW ===
+you understand:
+what a moment is
+why moments matter
+how moments protect you
+
+=== PART 20 — NEXT LESSON ===
+next lesson:
+“how git organizes your moments into a clean timeline”
+
+to continue:
+type: github lesson 5
