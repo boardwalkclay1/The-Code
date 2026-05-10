@@ -1,0 +1,51 @@
+=== bash lesson13 ===
+LESSON 13 — PERMISSIONS (chmod)
+(20‑part ultra‑beginner lesson)
+
+1. Every file and folder on your system has a set of permissions that control who can read, write, or execute it. These permissions act like rules that protect your system from accidental or harmful actions. Bash does not let you ignore these rules because they are part of how the operating system stays safe. Understanding permissions is the first step toward real system control.
+
+2. The command **chmod** means “change mode,” and it allows you to modify these permissions. chmod does not guess what you want; it requires you to be specific about the new rules. This precision teaches discipline and awareness. It also prepares you for working on servers where permissions matter even more.
+
+3. Permissions are represented by three groups: owner, group, and others. Each group has its own set of rules that determine what actions are allowed. This structure ensures that different users have different levels of access. It is a simple system that becomes powerful once you understand it.
+
+4. Permissions are shown as a sequence of letters like `rwxr-xr--`. The letters stand for read, write, and execute. Each position in the sequence represents a specific permission for a specific group. This pattern becomes familiar with practice.
+
+5. chmod can add or remove permissions using symbols like `+`, `-`, and `=`. For example, `chmod +x script.sh` gives execute permission to the file. This allows the file to be run like a program. It is one of the most common uses of chmod.
+
+6. chmod teaches responsibility because it can make files executable. An executable file can run commands on your system. This is powerful but must be used carefully. Bash trusts you to know what you are doing.
+
+7. chmod helps you understand security. If a file has too many permissions, it becomes risky. If it has too few, it becomes unusable. chmod helps you find the right balance.
+
+8. chmod is used constantly in real workflows. Developers use it to prepare scripts, configure servers, and manage shared projects. It becomes a natural part of your toolkit. You will use it more than you expect.
+
+9. chmod helps you understand ownership. Every file has an owner, and that owner has special permissions. This concept becomes important when working with multiple users. It also matters when deploying applications.
+
+10. chmod helps you understand groups. A group is a collection of users who share permissions. This makes collaboration easier. It also helps maintain security.
+
+11. chmod teaches you to think in terms of access. You begin to understand who should be allowed to do what. This mindset is essential for system administration. It also helps you avoid mistakes.
+
+12. chmod is universal. It works the same on every system that uses bash. This makes it a portable skill across machines and servers. It is a foundational command.
+
+13. chmod is safe when used correctly. It cannot delete files or move them. It only changes access rules. This makes it a good command for beginners to practice.
+
+14. chmod helps you understand scripts. A script must be executable before it can run. chmod gives you the ability to activate scripts. This prepares you for **bash lesson17**.
+
+15. chmod builds confidence. When you can control permissions, you feel more in control of your environment. This is essential for beginners. It also prepares you for advanced workflows.
+
+16. chmod teaches you to slow down and think. You must consider the consequences of each permission change. This builds good habits. It also prevents accidents.
+
+17. chmod helps you understand system behavior. Some commands fail because of permissions. chmod gives you the ability to fix these issues. This is empowering.
+
+18. chmod prepares you for automation. Scripts often need specific permissions to run. chmod is the tool that makes this possible. It is part of every deployment pipeline.
+
+19. chmod helps you understand the relationship between users and files. This relationship is the foundation of system security. chmod gives you the ability to manage it. This is a critical skill.
+
+20. Now that you understand permissions, you are ready to learn about processes. Processes are the programs running behind the scenes, and they are controlled with **ps** and **kill**.
+
+diagram:
+[ FILE ] → chmod → [ NEW PERMISSIONS ]
+
+to continue:
+type: bash lesson14
+
+press control + c to exit
