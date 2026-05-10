@@ -1,0 +1,102 @@
+# GITHUB LESSON 18 — HOW YOUR WORK TRAVELS FROM YOUR COMPUTER TO THE INTERNET
+# 20 PARTS — ZERO KNOWLEDGE
+
+=== PART 1 — WHAT DOES “TRAVEL” MEAN? ===
+travel means moving from one place to another.
+your work can travel too.
+
+=== PART 2 — TRAVEL IN REAL LIFE ===
+a letter travels to a friend.
+a package travels to a house.
+a message travels to a phone.
+
+=== PART 3 — TRAVEL IN COMPUTERS ===
+your work can move from your computer to the internet.
+
+=== PART 4 — WHY WORK TRAVELS ===
+so you can:
+back it up
+share it
+protect it
+access it anywhere
+
+=== PART 5 — WHAT IS “THE INTERNET”? ===
+the internet is a giant network of computers.
+they talk to each other.
+they share information.
+
+=== PART 6 — WHAT IS ONLINE STORAGE? ===
+online storage is a place on the internet where your work lives.
+it is safe.
+it is backed up.
+it is always available.
+
+=== PART 7 — WHAT GITHUB DOES ===
+github stores your work online.
+github protects it.
+github organizes it.
+
+=== PART 8 — WHAT GIT DOES ===
+git prepares your work.
+git organizes your versions.
+git gets your work ready to travel.
+
+=== PART 9 — WHAT YOU DO ===
+you decide when your work should travel.
+you decide what should travel.
+
+=== PART 10 — WHAT TRAVEL LOOKS LIKE ===
+your work moves from:
+your computer → github
+
+=== PART 11 — WHY THIS IS POWERFUL ===
+your work is safe.
+your work is backed up.
+your work is shareable.
+
+=== PART 12 — WHAT HAPPENS BEFORE TRAVEL ===
+you create.
+you change.
+you save moments.
+
+=== PART 13 — WHAT HAPPENS DURING TRAVEL ===
+git sends your moments.
+github receives them.
+
+=== PART 14 — WHAT HAPPENS AFTER TRAVEL ===
+your work is online.
+your work is protected.
+your work is accessible.
+
+=== PART 15 — WHY TEAMS NEED THIS ===
+teams need one place to see everything.
+github is that place.
+
+=== PART 16 — WHAT YOU CONTROL ===
+you choose when to send your work.
+you choose what to send.
+
+=== PART 17 — WHAT GIT CONTROLS ===
+git controls:
+the packaging
+the structure
+the order
+
+=== PART 18 — WHAT GITHUB CONTROLS ===
+github controls:
+the storage
+the safety
+the sharing
+
+=== PART 19 — WHAT YOU KNOW NOW ===
+you understand:
+travel
+online storage
+github’s role
+
+=== PART 20 — NEXT LESSON ===
+next lesson:
+“how your computer and github stay in sync”
+
+to continue:
+type: github lesson 19
