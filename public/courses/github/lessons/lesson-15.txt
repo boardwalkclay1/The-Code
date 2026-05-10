@@ -1,0 +1,103 @@
+# GITHUB LESSON 15 — HOW PEOPLE WORK TOGETHER ON THE SAME PROJECT
+# 20 PARTS — ZERO KNOWLEDGE
+
+=== PART 1 — WHAT IS TEAMWORK? ===
+teamwork means people working together.
+sharing ideas.
+sharing progress.
+
+=== PART 2 — TEAMWORK IN REAL LIFE ===
+building a house.
+playing a sport.
+cooking a meal.
+
+=== PART 3 — TEAMWORK ON A COMPUTER PROJECT ===
+people add ideas.
+people fix things.
+people improve things.
+
+=== PART 4 — WHY TEAMWORK IS HARD WITHOUT HELP ===
+people overwrite each other.
+people lose track.
+people get confused.
+
+=== PART 5 — WHAT GIT DOES FOR TEAMS ===
+git keeps changes separate.
+git keeps changes organized.
+git keeps changes safe.
+
+=== PART 6 — WHAT GITHUB DOES FOR TEAMS ===
+github shows everyone’s work.
+github helps people review.
+github helps people approve.
+
+=== PART 7 — WHAT A TEAM MEMBER DOES ===
+they create ideas.
+they explore branches.
+they make improvements.
+
+=== PART 8 — WHAT GIT DOES FOR EACH MEMBER ===
+git remembers their steps.
+git protects their work.
+git keeps their ideas safe.
+
+=== PART 9 — WHAT GITHUB DOES FOR EACH MEMBER ===
+github stores their work online.
+github shows their progress.
+github helps others understand.
+
+=== PART 10 — WHY THIS MATTERS ===
+teamwork becomes smooth.
+teamwork becomes safe.
+teamwork becomes clear.
+
+=== PART 11 — WHAT HAPPENS WHEN TWO PEOPLE WORK AT ONCE ===
+each person uses their own branch.
+each person explores safely.
+each person stays separate.
+
+=== PART 12 — WHAT HAPPENS WHEN THEY ARE READY ===
+they merge their branches.
+they combine ideas.
+they grow the project.
+
+=== PART 13 — WHY THIS IS POWERFUL ===
+teams move faster.
+teams build bigger things.
+teams stay organized.
+
+=== PART 14 — WHAT YOU CONTROL ===
+you choose your branch.
+you choose your ideas.
+you choose your timing.
+
+=== PART 15 — WHAT GIT CONTROLS ===
+git controls:
+the separation
+the structure
+the safety
+
+=== PART 16 — WHAT GITHUB CONTROLS ===
+github controls:
+the sharing
+the reviewing
+the protection
+
+=== PART 17 — WHAT YOU KNOW NOW ===
+you understand:
+teamwork
+branches
+merging
+
+=== PART 18 — YOU ARE BUILDING SKILL ===
+you are learning how teams use git.
+
+=== PART 19 — YOU ARE READY FOR MORE ===
+next we learn how teams review changes.
+
+=== PART 20 — NEXT LESSON ===
+next lesson:
+“how teams review each other’s work (the idea of checking changes)”
+
+to continue:
+type: github lesson 16
