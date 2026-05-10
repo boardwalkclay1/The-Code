@@ -1,0 +1,101 @@
+# GITHUB LESSON 13 — THE REAL NAME FOR A WORK PATH (“BRANCH”)
+# 20 PARTS — ZERO KNOWLEDGE
+
+=== PART 1 — THE WORD YOU’VE BEEN WAITING FOR ===
+the real name for a work path is “branch”.
+a branch is a path for your ideas.
+
+=== PART 2 — WHY THE WORD “BRANCH”? ===
+think of a tree.
+a tree has a main trunk.
+the trunk has branches.
+each branch grows in its own direction.
+
+=== PART 3 — HOW THIS RELATES TO WORK ===
+your project has a main path.
+you can create new paths.
+each new path is a branch.
+
+=== PART 4 — WHAT A BRANCH LETS YOU DO ===
+a branch lets you try new ideas.
+a branch lets you experiment safely.
+a branch lets you explore without breaking anything.
+
+=== PART 5 — WHAT THE MAIN BRANCH IS ===
+the main branch is your main path.
+it is your core idea.
+it is your stable version.
+
+=== PART 6 — WHAT A NEW BRANCH IS ===
+a new branch is a new idea.
+a new direction.
+a new experiment.
+
+=== PART 7 — WHY BRANCHES ARE SAFE ===
+branches do not affect the main branch.
+branches do not break your main work.
+branches protect your progress.
+
+=== PART 8 — WHAT YOU DO ON A BRANCH ===
+you try things.
+you build things.
+you explore ideas.
+
+=== PART 9 — WHAT GIT DOES WITH BRANCHES ===
+git keeps branches separate.
+git keeps branches clean.
+git keeps branches organized.
+
+=== PART 10 — WHAT GITHUB DOES WITH BRANCHES ===
+github shows branches clearly.
+github helps teams use branches safely.
+
+=== PART 11 — WHAT HAPPENS WHEN YOU LIKE A BRANCH ===
+you can bring it back into the main branch.
+you can combine ideas.
+you can merge paths.
+
+=== PART 12 — WHAT HAPPENS WHEN YOU DO NOT LIKE A BRANCH ===
+you can delete it.
+you lose nothing.
+your main branch stays safe.
+
+=== PART 13 — WHY BRANCHES ARE POWERFUL ===
+branches give you freedom.
+branches give you safety.
+branches give you creativity.
+
+=== PART 14 — WHAT YOU CONTROL ===
+you choose when to create a branch.
+you choose what the branch is for.
+
+=== PART 15 — WHAT GIT CONTROLS ===
+git controls:
+the separation
+the structure
+the protection
+
+=== PART 16 — WHAT GITHUB CONTROLS ===
+github controls:
+the online view
+the sharing
+the safety
+
+=== PART 17 — WHAT YOU KNOW NOW ===
+you understand:
+branches
+paths
+experiments
+
+=== PART 18 — YOU ARE BUILDING SKILL ===
+you are learning how ideas grow safely.
+
+=== PART 19 — YOU ARE READY FOR MORE ===
+next we learn how branches come back together.
+
+=== PART 20 — NEXT LESSON ===
+next lesson:
+“how two paths come together (the idea of merging)”
+
+to continue:
+type: github lesson 14
