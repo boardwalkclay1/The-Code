@@ -1,0 +1,101 @@
+# GITHUB LESSON 26 — REPOSITORY SETTINGS
+
+=== PART 1 — [Repository Settings](ca://s?q=Repository_settings_explained) ===
+Repository settings control how your project behaves.  
+They let you configure visibility, rules, and options.  
+This is where deeper customization happens.
+
+=== PART 2 — [Access Control](ca://s?q=Access_control_GitHub) ===
+You can choose who can see your project.  
+Public means everyone can view it.  
+Private means only approved people can access it.
+
+=== PART 3 — [Branch Settings](ca://s?q=Branch_settings_GitHub) ===
+You can protect branches from unwanted changes.  
+This prevents accidental edits.  
+It keeps your main branch stable.
+
+=== PART 4 — [Description and Topics](ca://s?q=Repository_description_topics) ===
+You can add a description to explain your project.  
+You can add topics to categorize it.  
+This helps others find and understand your work.
+
+=== PART 5 — [Default Branch](ca://s?q=Change_default_branch) ===
+You can change which branch is the default.  
+This affects what people see first.  
+It also affects where new work begins.
+
+=== PART 6 — [Delete Repository](ca://s?q=Delete_repository) ===
+You can delete your repository from settings.  
+GitHub asks for confirmation to prevent mistakes.  
+This action cannot be undone.
+
+=== PART 7 — [Transfer Ownership](ca://s?q=Transfer_repository) ===
+You can transfer your project to another user or organization.  
+This moves full control to someone else.  
+It is useful for team transitions.
+
+=== PART 8 — [Collaborators](ca://s?q=Add_collaborators) ===
+You can add people who can edit your project.  
+Collaborators can contribute directly.  
+This is essential for teamwork.
+
+=== PART 9 — [Webhooks](ca://s?q=Webhooks_explained) ===
+Webhooks send updates to other tools when your project changes.  
+They automate tasks.  
+They are optional for beginners.
+
+=== PART 10 — [Secrets](ca://s?q=GitHub_secrets) ===
+Secrets store sensitive information securely.  
+They are used for automation.  
+They are hidden from public view.
+
+=== PART 11 — [Pages](ca://s?q=GitHub_Pages_explained) ===
+GitHub Pages lets you turn your project into a website.  
+You enable it in settings.  
+It publishes your content online.
+
+=== PART 12 — [Actions Settings](ca://s?q=Actions_settings) ===
+You can enable or disable GitHub Actions.  
+Actions automate workflows.  
+They run tasks for you.
+
+=== PART 13 — [Security Settings](ca://s?q=Security_settings_GitHub) ===
+Security settings help protect your project.  
+They scan for vulnerabilities.  
+They alert you to risks.
+
+=== PART 14 — [Insights Settings](ca://s?q=Insights_settings) ===
+Insights show project activity.  
+They help you understand usage and contributions.  
+They are useful for larger projects.
+
+=== PART 15 — [Repository Template](ca://s?q=Repository_template) ===
+You can turn your repository into a template.  
+Others can copy it easily.  
+This is useful for reusable setups.
+
+=== PART 16 — [Rename Repository](ca://s?q=Rename_repository) ===
+You can rename your project at any time.  
+GitHub updates all links automatically.  
+Your content stays intact.
+
+=== PART 17 — [Archive Repository](ca://s?q=Archive_repository) ===
+Archiving makes your project read‑only.  
+It prevents further changes.  
+It is useful for finished work.
+
+=== PART 18 — [Danger Zone](ca://s?q=Danger_zone_GitHub) ===
+The Danger Zone contains irreversible actions.  
+These include delete, transfer, and archive.  
+Use them carefully.
+
+=== PART 19 — [Why Settings Matter](ca://s?q=Why_settings_matter) ===
+Settings give you full control over your project.  
+They define how others interact with it.  
+They shape your project’s behavior.
+
+=== PART 20 — [Next Lesson](ca://s?q=Start_Lesson_27) ===
+Next lesson explains GitHub Issues.  
+Issues help you track tasks and problems.  
+They are essential for project management.
