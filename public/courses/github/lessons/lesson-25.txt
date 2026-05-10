@@ -1,0 +1,101 @@
+# GITHUB LESSON 25 — ADDING FILES TO YOUR PROJECT
+
+=== PART 1 — [Add File](ca://s?q=Add_file_explained) ===
+“Add file” lets you create a new file directly on GitHub.  
+You type the content in the browser.  
+GitHub saves it into your repository.
+
+=== PART 2 — [Upload Files](ca://s?q=Upload_files_explained) ===
+“Upload files” lets you send files from your computer to GitHub.  
+You select the files, and GitHub places them in your project.  
+This is useful when you already created work offline.
+
+=== PART 3 — [Create New File](ca://s?q=Create_new_file) ===
+Creating a new file online is simple.  
+You choose a name and type the content.  
+GitHub stores it instantly.
+
+=== PART 4 — [Upload Multiple Files](ca://s?q=Upload_multiple_files) ===
+GitHub allows uploading many files at once.  
+You can drag and drop them into the upload area.  
+GitHub handles the rest.
+
+=== PART 5 — [Folder Creation](ca://s?q=Create_folder) ===
+You can create folders by typing a folder name followed by a slash.  
+GitHub automatically builds the folder structure.  
+This helps you organize your project.
+
+=== PART 6 — [File Editing](ca://s?q=Edit_file_on_GitHub) ===
+You can edit any file directly on GitHub.  
+You click the file and choose “edit.”  
+GitHub saves your changes.
+
+=== PART 7 — [File Deletion](ca://s?q=Delete_file_on_GitHub) ===
+You can delete files you no longer need.  
+GitHub asks for confirmation before removing them.  
+This prevents accidental loss.
+
+=== PART 8 — [File Renaming](ca://s?q=Rename_file_on_GitHub) ===
+You can rename files from the file view.  
+Renaming helps keep your project organized.  
+GitHub updates the structure automatically.
+
+=== PART 9 — [File Movement](ca://s?q=Move_file_on_GitHub) ===
+You can move files into folders by editing their path.  
+GitHub handles the relocation.  
+This keeps your project clean.
+
+=== PART 10 — [Commit Requirement](ca://s?q=Commit_after_file_changes) ===
+Every file change creates a saved moment.  
+GitHub requires a short message describing the change.  
+This message becomes part of your history.
+
+=== PART 11 — [File Preview](ca://s?q=Preview_file_on_GitHub) ===
+GitHub shows a preview of each file you upload.  
+This helps you confirm the content.  
+It works for text, images, and more.
+
+=== PART 12 — [Supported File Types](ca://s?q=Supported_file_types) ===
+GitHub supports almost every file type.  
+Text, images, code, documents, and more all work.  
+Your project can contain anything you need.
+
+=== PART 13 — [Large Files](ca://s?q=Large_files_on_GitHub) ===
+GitHub has limits on very large files.  
+Most normal files work without issues.  
+Large media may require special handling.
+
+=== PART 14 — [File Permissions](ca://s?q=File_permissions_GitHub) ===
+Only people with access can add or change files.  
+Public viewers cannot modify your project.  
+This keeps your work safe.
+
+=== PART 15 — [File History](ca://s?q=File_history_explained) ===
+Every file has its own history.  
+You can see all past versions.  
+This helps you track changes.
+
+=== PART 16 — [Why Adding Files Matters](ca://s?q=Why_add_files) ===
+Adding files is how your project begins.  
+It turns an empty repository into something real.  
+It is the foundation of your work.
+
+=== PART 17 — [Organization](ca://s?q=Organize_files_GitHub) ===
+Organizing files early keeps your project clean.  
+Folders help separate different types of content.  
+Good structure saves time later.
+
+=== PART 18 — [Visibility](ca://s?q=File_visibility_GitHub) ===
+Files added to the main branch are immediately visible.  
+Anyone visiting your project can see them.  
+This makes your work accessible.
+
+=== PART 19 — [Safety](ca://s?q=File_safety_GitHub) ===
+GitHub stores your files securely.  
+You can always restore older versions.  
+Your work is protected.
+
+=== PART 20 — [Next Lesson](ca://s?q=Start_Lesson_26) ===
+Next lesson explains repository settings.  
+Settings control how your project behaves.  
+They give you deeper control.
