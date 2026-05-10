@@ -1,0 +1,53 @@
+=== bash lesson4 ===
+LESSON 4 — WHERE YOU ARE (pwd)
+(20‑part ultra‑beginner lesson)
+
+1. The command **pwd** stands for “print working directory.” It tells you exactly where you are inside the computer’s folder system. This is your current location.
+
+2. Computers organize files in a tree structure. At the top is the root, and beneath it are folders inside folders. pwd shows you the exact branch you are standing on.
+
+3. When you open a terminal, you are placed somewhere automatically. You are not told where. pwd is how you find out.
+
+4. pwd prints a path. A path is a map of folders separated by slashes. Each slash represents a step deeper into the system.
+
+5. A typical path looks like:  
+   `/Users/yourname/Documents`  
+   This means you are inside the Documents folder.
+
+6. pwd does not move you anywhere. It only reports your location. It is a pure information command.
+
+7. Knowing where you are is essential. Every command you run depends on your current location. This is why pwd is one of the first commands you learn.
+
+8. pwd helps you avoid mistakes. If you think you are in one folder but are actually in another, you might delete or modify the wrong files. pwd prevents this.
+
+9. pwd is used constantly by beginners. It builds confidence and orientation. It helps you understand the system’s structure.
+
+10. pwd is also used by professionals. Even experts check their location before running important commands. It is a habit that never goes away.
+
+11. pwd teaches you to think spatially. You begin to understand the computer as a physical space. This mental model makes navigation easier.
+
+12. pwd is instant. It responds immediately with your location. This speed makes it a reliable tool.
+
+13. pwd works the same on every system. Linux, macOS, servers, cloud machines — all use pwd. This makes it a universal skill.
+
+14. pwd is safe. It cannot break anything. It only prints information.
+
+15. pwd is the foundation of navigation. Before you move, you must know where you are. pwd gives you that starting point.
+
+16. pwd helps you understand relative paths. A relative path is a location based on where you currently stand. pwd makes these paths make sense.
+
+17. pwd helps you understand absolute paths. An absolute path starts from the root of the system. pwd shows you the full absolute path to your current location.
+
+18. pwd is a command you will use thousands of times. It becomes second nature. It is one of the simplest and most important tools in bash.
+
+19. pwd builds confidence. When you know where you are, you feel in control. This is the first step toward mastery.
+
+20. Now that you know how to find your location, you are ready to learn how to see what is around you. That is where the **ls** command comes in.
+
+diagram:
+[ YOU ] → pwd → [ FULL PATH ]
+
+to continue:
+type: bash lesson5
+
+press control + c to exit
