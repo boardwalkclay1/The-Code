@@ -1,0 +1,102 @@
+# GITHUB LESSON 10 — WHAT IT MEANS TO “SAVE” A MOMENT IN GIT
+# 20 PARTS — ZERO KNOWLEDGE
+
+=== PART 1 — WHAT IS SAVING? ===
+saving means keeping something safe.
+saving means not losing it.
+saving means protecting it.
+
+=== PART 2 — SAVING IN REAL LIFE ===
+you save money.
+you save photos.
+you save memories.
+
+=== PART 3 — SAVING ON A COMPUTER ===
+saving means keeping your work.
+saving means not losing progress.
+
+=== PART 4 — WHAT GIT SAVES ===
+git saves your grouped changes.
+git saves your moments.
+git saves your story.
+
+=== PART 5 — WHAT A SAVE MOMENT IS ===
+a save moment is when you tell git:
+“remember this group of changes.”
+
+=== PART 6 — WHY SAVE MOMENTS MATTER ===
+save moments protect your progress.
+save moments protect your ideas.
+save moments protect your journey.
+
+=== PART 7 — WHAT HAPPENS BEFORE A SAVE ===
+you work.
+you create.
+you change things.
+
+=== PART 8 — WHAT HAPPENS DURING A SAVE ===
+you pause.
+you say:
+“this matters.”
+git remembers it.
+
+=== PART 9 — WHAT HAPPENS AFTER A SAVE ===
+you keep working.
+you keep creating.
+you keep changing things.
+
+=== PART 10 — WHY SAVING IS POWERFUL ===
+saving gives you:
+freedom
+safety
+confidence
+
+=== PART 11 — WHAT GIT DOES WITH SAVES ===
+git stores them.
+git organizes them.
+git protects them.
+
+=== PART 12 — WHAT GITHUB DOES WITH SAVES ===
+github stores them online.
+github keeps them safe.
+github lets you share them.
+
+=== PART 13 — WHAT YOU CONTROL ===
+you choose when to save.
+you choose what matters.
+
+=== PART 14 — WHAT GIT CONTROLS ===
+git controls:
+the memory
+the timeline
+the structure
+
+=== PART 15 — WHAT GITHUB CONTROLS ===
+github controls:
+the online backup
+the sharing
+the safety
+
+=== PART 16 — WHY SAVING IS A SKILL ===
+saving at the right time helps you.
+saving too often creates noise.
+saving too rarely creates confusion.
+
+=== PART 17 — WHAT YOU KNOW NOW ===
+you understand:
+saving
+moments
+protection
+
+=== PART 18 — YOU ARE BUILDING A FOUNDATION ===
+this prepares you for real commands later.
+
+=== PART 19 — YOU ARE READY FOR MORE ===
+next we learn how git compares versions.
+
+=== PART 20 — NEXT LESSON ===
+next lesson:
+“how git compares one version to another”
+
+to continue:
+type: github lesson 11
