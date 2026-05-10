@@ -1,0 +1,51 @@
+=== bash lesson3 ===
+LESSON 3 — HOW BASH READS YOUR WORDS
+(20‑part ultra‑beginner lesson)
+
+1. Bash reads your words from left to right, one character at a time. It does not guess what you meant or try to interpret your intention. It only reacts to what you actually typed.
+
+2. When you press Enter, bash takes the entire line you wrote and treats it as a complete instruction. This is called a “command line.” It is the smallest unit of communication between you and the system.
+
+3. Bash splits your command into pieces. The first piece is always the command name. Everything after that is optional information called arguments.
+
+4. Arguments help the command understand what you want. They can be file names, folder names, or special flags. Arguments give commands direction and purpose.
+
+5. Bash does not care about grammar. It cares about structure. If the structure is correct, the command works.
+
+6. Bash treats spaces as separators. Every space tells bash, “This is a new piece of information.” This is why spacing matters so much.
+
+7. Bash does not ignore mistakes. If you misspell a command, bash will not fix it for you. It will simply say the command was not found.
+
+8. Bash is literal. If you type something wrong, it does exactly what you typed, not what you meant. This teaches precision and discipline.
+
+9. Bash is consistent. Once you learn how it reads commands, you can predict how it will behave every time. This predictability is what makes it powerful.
+
+10. Bash does not show emotion. It does not get frustrated or confused. It simply follows rules.
+
+11. Bash uses a concept called the “working directory.” This is the folder you are currently inside. Commands operate relative to this location unless you tell them otherwise.
+
+12. Bash does not show you where you are unless you ask. This is why commands like **[pwd](ca://s?q=bash_lesson4)** exist. They help you understand your position in the system.
+
+13. Bash does not show you what is around you unless you ask. This is why **[ls](ca://s?q=bash_lesson5)** exists. It reveals the contents of your current location.
+
+14. Bash expects you to be specific. If you want to move somewhere, you must tell it exactly where. This is why **[cd](ca://s?q=bash_lesson6)** is so important.
+
+15. Bash is not trying to be difficult. It is trying to be exact. Exactness is what makes automation possible.
+
+16. Bash reads symbols differently than letters. Characters like `/`, `.`, `..`, and `~` have special meanings. You will learn these slowly and clearly.
+
+17. Bash does not care about visuals. It cares about structure, logic, and clarity. This is why it is used in servers and cloud systems.
+
+18. Bash rewards repetition. The more you type commands, the more natural they feel. Eventually, they become muscle memory.
+
+19. Bash is the foundation of real engineering. Understanding how it reads your words is the first step toward mastery. This is where beginners become builders.
+
+20. By the end of this lesson, you now understand how bash interprets your input. You are ready to learn how to find out where you are in the system.
+
+diagram:
+[ COMMAND ] → [ PARSE ] → [ EXECUTE ] → [ OUTPUT ]
+
+to continue:
+type: bash lesson4
+
+press control + c to exit
