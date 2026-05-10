@@ -1,0 +1,81 @@
+=== bash lessons index ===
+BASH COURSE — FULL LESSON MAP
+
+this course assumes:
+- you have never typed a command before
+- you do not know what a terminal is
+- you do not know what a “shell” means
+- you do not know what “bash” is
+- you do not know what a “directory” is
+- you do not know what “navigate” means
+- you do not know what “clone” means
+- you do not know what “permissions” are
+
+this course teaches you from zero.
+
+----------------------------------------
+LESSON 1 — what a terminal actually is
+command: bash lesson1
+
+LESSON 2 — what a command actually is
+command: bash lesson2
+
+LESSON 3 — how bash reads your words
+command: bash lesson3
+
+LESSON 4 — where you are (pwd)
+command: bash lesson4
+
+LESSON 5 — looking around (ls)
+command: bash lesson5
+
+LESSON 6 — moving around (cd)
+command: bash lesson6
+
+LESSON 7 — making folders (mkdir)
+command: bash lesson7
+
+LESSON 8 — creating files (touch)
+command: bash lesson8
+
+LESSON 9 — deleting files (rm)
+command: bash lesson9
+
+LESSON 10 — copying + moving (cp, mv)
+command: bash lesson10
+
+LESSON 11 — reading files (cat)
+command: bash lesson11
+
+LESSON 12 — editing files (nano)
+command: bash lesson12
+
+LESSON 13 — permissions (chmod)
+command: bash lesson13
+
+LESSON 14 — processes (ps, kill)
+command: bash lesson14
+
+LESSON 15 — pipelines (|, >, >>)
+command: bash lesson15
+
+LESSON 16 — variables + environment
+command: bash lesson16
+
+LESSON 17 — scripts (your first .sh)
+command: bash lesson17
+
+LESSON 18 — automation (loops)
+command: bash lesson18
+
+LESSON 19 — git + bash (why they fit together)
+command: bash lesson19
+
+LESSON 20 — cloning + workflows (git clone)
+command: bash lesson20
+
+----------------------------------------
+to begin:
+type: bash lesson1
+
+press control + c to exit
