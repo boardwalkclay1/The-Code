@@ -1,0 +1,101 @@
+# GITHUB LESSON 29 — THE REPOSITORY TIMELINE
+
+=== PART 1 — [Timeline](ca://s?q=Explain_repository_timeline) ===
+The timeline shows every saved moment in your project.  
+It lists all commits in order.  
+It is the full history of your work.
+
+=== PART 2 — [Commit List](ca://s?q=Commit_list_explained) ===
+Each entry in the timeline is a commit.  
+A commit represents a saved change.  
+GitHub shows who made it and when.
+
+=== PART 3 — [Commit Messages](ca://s?q=Commit_messages_explained) ===
+Each commit includes a message.  
+The message explains what changed.  
+Clear messages make history easy to understand.
+
+=== PART 4 — [Author Information](ca://s?q=Commit_author_info) ===
+The timeline shows who made each commit.  
+This helps track contributions.  
+It is useful for teams.
+
+=== PART 5 — [Timestamps](ca://s?q=Commit_timestamps) ===
+Each commit includes a timestamp.  
+This shows when the change happened.  
+It helps you understand project progress.
+
+=== PART 6 — [Change Details](ca://s?q=Commit_diff_explained) ===
+You can click a commit to see what changed.  
+GitHub shows added and removed lines.  
+This makes reviewing history simple.
+
+=== PART 7 — [Branch History](ca://s?q=Branch_history) ===
+Each branch has its own timeline.  
+This shows the work done on that branch.  
+It keeps versions separate.
+
+=== PART 8 — [Merge History](ca://s?q=Merge_history) ===
+Merges appear in the timeline.  
+They show when branches were combined.  
+This helps track major updates.
+
+=== PART 9 — [Revert Options](ca://s?q=Revert_commit) ===
+You can revert a commit from the timeline.  
+Reverting creates a new commit that undoes the change.  
+This protects your project from mistakes.
+
+=== PART 10 — [Compare View](ca://s?q=Compare_commits) ===
+You can compare two commits.  
+GitHub shows the differences between them.  
+This helps you understand how the project evolved.
+
+=== PART 11 — [Search History](ca://s?q=Search_commit_history) ===
+You can search the timeline by keyword.  
+This helps you find specific changes.  
+It is useful for large projects.
+
+=== PART 12 — [Contributor Tracking](ca://s?q=Timeline_contributors) ===
+The timeline shows contributions from all team members.  
+This helps track who did what.  
+It improves accountability.
+
+=== PART 13 — [Activity Overview](ca://s?q=Repository_activity) ===
+The timeline gives a quick overview of project activity.  
+You can see busy periods and slow periods.  
+This helps with planning.
+
+=== PART 14 — [Project Growth](ca://s?q=Project_growth_timeline) ===
+The timeline shows how your project grows over time.  
+Each commit adds to the story.  
+This creates a clear development path.
+
+=== PART 15 — [Mistake Recovery](ca://s?q=Timeline_mistake_recovery) ===
+The timeline helps you recover from mistakes.  
+You can return to earlier versions.  
+This makes your work safer.
+
+=== PART 16 — [Team Coordination](ca://s?q=Timeline_team_coordination) ===
+Teams use the timeline to understand each other’s work.  
+It shows what changed and why.  
+This improves collaboration.
+
+=== PART 17 — [Transparency](ca://s?q=Timeline_transparency) ===
+The timeline makes all changes visible.  
+Nothing is hidden.  
+This builds trust.
+
+=== PART 18 — [Learning Tool](ca://s?q=Timeline_learning_tool) ===
+The timeline helps beginners learn how projects evolve.  
+You can study past changes.  
+It teaches good habits.
+
+=== PART 19 — [Why Timeline Matters](ca://s?q=Why_timeline_matters) ===
+The timeline is the backbone of your project history.  
+It shows every step taken.  
+It keeps your work organized.
+
+=== PART 20 — [Next Lesson](ca://s?q=Start_Lesson_30) ===
+Next lesson explains GitHub Releases.  
+Releases help you package important versions.  
+They are useful for sharing finished work.
