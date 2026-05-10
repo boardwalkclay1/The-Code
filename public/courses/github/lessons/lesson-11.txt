@@ -1,0 +1,103 @@
+# GITHUB LESSON 11 — HOW GIT COMPARES ONE VERSION TO ANOTHER
+# 20 PARTS — ZERO KNOWLEDGE
+
+=== PART 1 — WHAT IS COMPARING? ===
+comparing means looking at two things.
+seeing what is the same.
+seeing what is different.
+
+=== PART 2 — COMPARING IN REAL LIFE ===
+you compare shoes.
+you compare drawings.
+you compare ideas.
+
+=== PART 3 — COMPARING IN WORK ===
+you compare old work to new work.
+you compare drafts.
+you compare improvements.
+
+=== PART 4 — WHAT GIT COMPARES ===
+git compares versions.
+version before → version after.
+
+=== PART 5 — WHY COMPARING MATTERS ===
+comparing shows progress.
+comparing shows mistakes.
+comparing shows growth.
+
+=== PART 6 — WHAT GIT LOOKS FOR ===
+git looks for:
+added things
+removed things
+changed things
+
+=== PART 7 — WHAT GIT DOES WITH THIS ===
+git highlights differences.
+git shows you what changed.
+git helps you understand.
+
+=== PART 8 — WHAT YOU SEE ===
+you see:
+before
+after
+difference
+
+=== PART 9 — WHY THIS HELPS YOU ===
+you learn from your steps.
+you understand your choices.
+you improve your work.
+
+=== PART 10 — WHY THIS HELPS TEAMS ===
+teams can see:
+what changed
+why it changed
+how it changed
+
+=== PART 11 — WHAT GITHUB SHOWS ===
+github shows differences online.
+github makes them easy to read.
+
+=== PART 12 — WHAT YOU CONTROL ===
+you choose versions to compare.
+you choose what matters.
+
+=== PART 13 — WHAT GIT CONTROLS ===
+git controls:
+the comparison
+the clarity
+the structure
+
+=== PART 14 — WHAT GITHUB CONTROLS ===
+github controls:
+the display
+the sharing
+the safety
+
+=== PART 15 — WHY COMPARING IS POWERFUL ===
+comparing helps you grow.
+comparing helps you learn.
+comparing helps you improve.
+
+=== PART 16 — WHAT YOU KNOW NOW ===
+you understand:
+comparison
+difference
+growth
+
+=== PART 17 — YOU ARE BUILDING SKILL ===
+you are learning how git thinks.
+you are learning how github shows.
+
+=== PART 18 — YOU ARE GETTING READY ===
+soon we introduce the idea of “branches”.
+
+=== PART 19 — WHY WE WAIT ===
+we build the mental model first.
+then the commands make sense.
+
+=== PART 20 — NEXT LESSON ===
+next lesson:
+“what a ‘branch’ is (without using the word yet)”
+
+to continue:
+type: github lesson 12
