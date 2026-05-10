@@ -1,0 +1,120 @@
+# GITHUB LESSON 2 — HOW A COMPUTER HOLDS YOUR WORK
+# 20 PARTS — ZERO KNOWLEDGE
+
+=== PART 1 — WHAT IS A “THING” ON A COMPUTER? ===
+a “thing” on a computer is anything you create.
+a picture.
+a note.
+a sound.
+a piece of writing.
+anything you make is a “thing”.
+
+=== PART 2 — WHAT IS A FILE? ===
+a file is a container for one thing.
+one picture.
+one note.
+one drawing.
+one piece of work.
+
+=== PART 3 — WHY FILES EXIST ===
+files keep your work separate.
+so your picture does not mix with your writing.
+so your writing does not mix with your music.
+
+=== PART 4 — WHAT IS A FOLDER? ===
+a folder is a box that holds files.
+you can put many files inside one folder.
+folders help you stay organized.
+
+=== PART 5 — WHY FOLDERS EXIST ===
+folders keep related things together.
+all drawings in one place.
+all notes in one place.
+all ideas in one place.
+
+=== PART 6 — FILES AND FOLDERS TOGETHER ===
+files are the pieces.
+folders are the boxes.
+together they form your computer’s structure.
+
+=== PART 7 — WHAT IS A PROJECT FOLDER? ===
+a project folder is a special folder.
+it holds all the files for one project.
+everything for that project lives inside it.
+
+=== PART 8 — WHY PROJECT FOLDERS MATTER ===
+they keep your work clean.
+they keep your work separate.
+they keep your work easy to find.
+
+=== PART 9 — WHAT IS CHANGING A FILE? ===
+changing a file means:
+you added something
+you removed something
+you fixed something
+you updated something
+
+=== PART 10 — WHAT IS “KEEPING TRACK” OF FILES? ===
+keeping track means remembering:
+what changed
+when it changed
+how it changed
+
+=== PART 11 — WHY HUMANS NEED HELP ===
+humans forget.
+computers do not.
+computers can remember every change if we teach them how.
+
+=== PART 12 — WHAT GIT WATCHES ===
+git watches your project folder.
+git watches your files.
+git watches your changes.
+
+=== PART 13 — WHAT GIT DOES NOT DO ===
+git does not change your work.
+git does not judge your work.
+git only remembers your work.
+
+=== PART 14 — WHAT GITHUB WATCHES ===
+github watches your git memories.
+github stores them online.
+github keeps them safe.
+
+=== PART 15 — WHY THIS MATTERS ===
+to use git and github,
+you must understand files and folders.
+they are the building blocks.
+
+=== PART 16 — WHAT YOU CONTROL ===
+you control:
+what files exist
+what folders exist
+what changes happen
+what git remembers
+
+=== PART 17 — WHAT GIT CONTROLS ===
+git controls:
+the memory
+the timeline
+the history
+
+=== PART 18 — WHAT GITHUB CONTROLS ===
+github controls:
+the online storage
+the sharing
+the safety
+
+=== PART 19 — WHAT YOU KNOW NOW ===
+you now understand:
+files
+folders
+project folders
+changes
+memory systems
+
+=== PART 20 — NEXT LESSON ===
+next lesson:
+“how git begins watching your project”
+
+to continue:
+type: github lesson 3
