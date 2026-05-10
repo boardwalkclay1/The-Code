@@ -1,0 +1,52 @@
+=== bash lesson10 ===
+LESSON 10 — COPYING + MOVING FILES (cp, mv)
+(20‑part ultra‑beginner lesson)
+
+1. The command **cp** means “copy.” It creates a duplicate of a file in a new location. This is useful when you want to preserve the original.
+
+2. The command **mv** means “move.” It relocates a file from one place to another. It is also used to rename files.
+
+3. cp and mv are the terminal versions of drag‑and‑drop. But they are faster, cleaner, and more precise. This is why developers rely on them.
+
+4. cp requires two pieces of information: the source file and the destination. For example: `cp notes.txt backup.txt`. This creates a copy named backup.txt.
+
+5. mv also requires two pieces of information: the source file and the destination. For example: `mv notes.txt archive/`. This moves the file into the archive folder.
+
+6. mv can rename files. For example: `mv oldname.txt newname.txt`. This is faster than using a graphical interface.
+
+7. cp and mv teach you to think in terms of input and output. You specify where something is and where it should go. This builds logical thinking.
+
+8. cp and mv are instant. They respond immediately. This speed makes them ideal for real workflows.
+
+9. cp and mv help you understand file organization. You begin to see how projects are structured. This makes navigation easier.
+
+10. cp and mv are universal. They work the same on every system. This makes them portable skills.
+
+11. cp and mv help you avoid mistakes. Before copying or moving, you check your location with **[pwd](ca://s?q=bash_lesson4)** and **[ls](ca://s?q=bash_lesson5)**. This builds good habits.
+
+12. cp and mv help you understand relative paths. You can move files inside other folders by specifying the path. For example: `mv app.js src/`.
+
+13. cp and mv help you understand absolute paths. You can move files anywhere in the system. For example: `cp logo.png /Users/you/Desktop/`.
+
+14. cp and mv are used constantly in real workflows. Developers organize code, assets, and configuration files with these commands. They become second nature.
+
+15. cp and mv teach you precision. You must type the file names exactly. This builds discipline.
+
+16. cp and mv help you understand automation. Scripts often copy and move files automatically. These commands are the foundation of that process.
+
+17. cp and mv build confidence. When you can organize files quickly, you feel more in control. This is essential for beginners.
+
+18. cp and mv help you understand project structure. You begin to see how files relate to each other. This makes development easier.
+
+19. cp and mv prepare you for reading files. Once you can organize them, you can begin to inspect their contents. This leads to the **cat** command.
+
+20. Now that you can copy and move files, you are ready to learn how to read them. This is where the **cat** command comes in.
+
+diagram:
+[ FILE ] → cp → [ COPY ]
+[ FILE ] → mv → [ NEW LOCATION ]
+
+to continue:
+type: bash lesson11
+
+press control + c to exit
