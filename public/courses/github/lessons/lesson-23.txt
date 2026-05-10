@@ -1,0 +1,101 @@
+# GITHUB LESSON 23 — THE CODE TAB
+
+=== PART 1 — [Code View](ca://s?q=Explain_the_Code_View) ===
+The Code tab is the main screen where GitHub shows the files inside your project.  
+It displays everything your project currently contains.  
+This is the place you will look at most often.
+
+=== PART 2 — [File List](ca://s?q=What_is_the_file_list) ===
+The file list shows every file and folder stored in your repository.  
+It updates automatically whenever you add, remove, or change something.  
+This list is the core of your project’s structure.
+
+=== PART 3 — [Branch Indicator](ca://s?q=What_is_the_branch_indicator) ===
+The Code tab shows which branch you are currently viewing.  
+By default, this is the “main” branch.  
+This indicator helps you know which version of your project you are looking at.
+
+=== PART 4 — [File Details](ca://s?q=Explain_file_details) ===
+Each file shows when it was last changed.  
+It also shows who changed it.  
+This helps you understand the history of each file.
+
+=== PART 5 — [Add File Button](ca://s?q=What_is_Add_File) ===
+The “Add file” button lets you create a new file directly on GitHub.  
+You type the content inside the browser.  
+GitHub saves it into your project.
+
+=== PART 6 — [Upload Files Button](ca://s?q=What_is_Upload_Files) ===
+The “Upload files” button lets you send files from your computer into your project.  
+You select the files, and GitHub places them in the repository.  
+This is the fastest way to add existing work.
+
+=== PART 7 — [README Display](ca://s?q=What_is_a_README) ===
+If your project has a README file, GitHub shows it at the bottom of the Code tab.  
+A README explains what your project is about.  
+It is the first thing people read when they visit your repository.
+
+=== PART 8 — [History Link](ca://s?q=What_is_commit_history) ===
+The Code tab includes a link to your project’s history.  
+This history shows all saved moments of your work.  
+It helps you understand how your project has changed over time.
+
+=== PART 9 — [Download Option](ca://s?q=Download_repository) ===
+You can download your entire project as a ZIP file.  
+This gives you a local copy of everything.  
+It is useful when you want to work offline.
+
+=== PART 10 — [Copy Link](ca://s?q=Copy_repository_link) ===
+GitHub provides a link that represents your project’s address.  
+You can share this link with others.  
+It is how people access your repository.
+
+=== PART 11 — [File Navigation](ca://s?q=Navigate_files) ===
+You can click folders to open them.  
+You can click files to view their contents.  
+This lets you explore your project easily.
+
+=== PART 12 — [File Preview](ca://s?q=File_preview) ===
+GitHub shows a preview of each file you click.  
+This preview lets you read the file without downloading it.  
+It works for text, images, and many other formats.
+
+=== PART 13 — [Breadcrumb Navigation](ca://s?q=Breadcrumbs_in_GitHub) ===
+GitHub shows a path at the top when you open folders.  
+This path helps you know where you are.  
+You can click any part of it to go back.
+
+=== PART 14 — [Empty Repository View](ca://s?q=Empty_repository_view) ===
+If your project has no files, GitHub shows a simple empty state.  
+It gives you options to add or upload files.  
+This is normal for brand‑new repositories.
+
+=== PART 15 — [Default Branch Display](ca://s?q=Default_branch_explained) ===
+The Code tab always shows the default branch first.  
+This is usually the “main” branch.  
+It represents the primary version of your project.
+
+=== PART 16 — [Commit Count](ca://s?q=Commit_count_explained) ===
+GitHub shows how many saved moments your project has.  
+This number increases as you save changes.  
+It helps you understand your project’s activity level.
+
+=== PART 17 — [Contributor List](ca://s?q=Contributors_explained) ===
+GitHub shows who has contributed to the project.  
+This list updates automatically.  
+It is useful for team projects.
+
+=== PART 18 — [File Actions](ca://s?q=File_actions_explained) ===
+Each file has actions like delete, rename, or move.  
+These actions help you manage your project.  
+They are available directly from the Code tab.
+
+=== PART 19 — [Why Code Tab Matters](ca://s?q=Why_Code_Tab_matters) ===
+The Code tab is the center of your repository.  
+It is where you see your project’s real content.  
+Everything important begins here.
+
+=== PART 20 — [Next Lesson](ca://s?q=Start_Lesson_24) ===
+Next lesson explains the main branch in a direct, simple way.  
+Understanding the main branch helps you keep your project organized.  
+It is one of the most important concepts in GitHub.
