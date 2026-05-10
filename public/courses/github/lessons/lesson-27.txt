@@ -1,0 +1,101 @@
+# GITHUB LESSON 27 — ISSUES
+
+=== PART 1 — [Issues](ca://s?q=Explain_GitHub_Issues) ===
+Issues are notes used to track tasks, ideas, or problems.  
+They help you organize work.  
+They are useful for both solo and team projects.
+
+=== PART 2 — [Creating an Issue](ca://s?q=Create_an_issue) ===
+You can create an issue from the Issues tab.  
+You give it a title and description.  
+This defines what needs attention.
+
+=== PART 3 — [Labels](ca://s?q=Issue_labels) ===
+Labels categorize issues.  
+Examples include “bug,” “feature,” or “help wanted.”  
+Labels make issues easier to sort.
+
+=== PART 4 — [Assignees](ca://s?q=Issue_assignees) ===
+You can assign issues to specific people.  
+This shows who is responsible.  
+It keeps work organized.
+
+=== PART 5 — [Comments](ca://s?q=Issue_comments) ===
+Issues allow comments for discussion.  
+People can ask questions or give updates.  
+This keeps communication clear.
+
+=== PART 6 — [Closing Issues](ca://s?q=Close_issue) ===
+When an issue is solved, you close it.  
+Closing marks the task as complete.  
+It keeps your list clean.
+
+=== PART 7 — [Reopening Issues](ca://s?q=Reopen_issue) ===
+You can reopen issues if the problem returns.  
+This keeps the history intact.  
+It avoids creating duplicates.
+
+=== PART 8 — [Issue Templates](ca://s?q=Issue_templates) ===
+Templates help standardize issue creation.  
+They guide users to provide the right information.  
+They improve consistency.
+
+=== PART 9 — [Milestones](ca://s?q=Issue_milestones) ===
+Milestones group issues into goals.  
+They help track progress toward larger tasks.  
+They are useful for planning.
+
+=== PART 10 — [Search](ca://s?q=Search_issues) ===
+You can search issues by keyword.  
+This helps you find related tasks.  
+It keeps your workflow efficient.
+
+=== PART 11 — [Filters](ca://s?q=Filter_issues) ===
+Filters let you view issues by label, assignee, or status.  
+This helps you focus on specific work.  
+It keeps your list manageable.
+
+=== PART 12 — [Issue Linking](ca://s?q=Link_issues) ===
+You can link issues to each other.  
+This shows relationships between tasks.  
+It helps track dependencies.
+
+=== PART 13 — [Issue References](ca://s?q=Reference_issue) ===
+You can reference issues in commits or pull requests.  
+This connects work to tasks.  
+It improves traceability.
+
+=== PART 14 — [Issue Notifications](ca://s?q=Issue_notifications) ===
+GitHub notifies you when issues change.  
+This keeps you updated.  
+It helps you stay involved.
+
+=== PART 15 — [Public Issues](ca://s?q=Public_issues) ===
+Public repositories have public issues.  
+Anyone can read them.  
+This encourages collaboration.
+
+=== PART 16 — [Private Issues](ca://s?q=Private_issues) ===
+Private repositories restrict issue access.  
+Only authorized users can see them.  
+This protects sensitive work.
+
+=== PART 17 — [Issue History](ca://s?q=Issue_history) ===
+Issues keep a full history of comments and changes.  
+This preserves context.  
+It helps future contributors understand decisions.
+
+=== PART 18 — [Why Issues Matter](ca://s?q=Why_Issues_matter) ===
+Issues keep work organized.  
+They help track progress.  
+They improve communication.
+
+=== PART 19 — [Issues for Solo Work](ca://s?q=Issues_for_solo_projects) ===
+Even solo creators benefit from issues.  
+They act as reminders and planning tools.  
+They keep your project structured.
+
+=== PART 20 — [Next Lesson](ca://s?q=Start_Lesson_28) ===
+Next lesson explains Pull Requests.  
+Pull Requests help you review and merge work.  
+They are essential for collaboration.
