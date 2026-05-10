@@ -1,0 +1,101 @@
+# GITHUB LESSON 24 — THE MAIN BRANCH
+
+=== PART 1 — [Main Branch](ca://s?q=Explain_main_branch) ===
+The main branch is the primary version of your project.  
+It is the version that should always work correctly.  
+All other versions eventually return to this one.
+
+=== PART 2 — [Default Branch](ca://s?q=Default_branch_meaning) ===
+GitHub automatically creates the main branch when you make a new project.  
+This branch becomes the default view for anyone visiting your repository.  
+It represents the “official” version of your work.
+
+=== PART 3 — [Stable Version](ca://s?q=Stable_branch_explained) ===
+The main branch should stay clean and stable.  
+You avoid testing risky ideas directly on it.  
+This keeps your project reliable.
+
+=== PART 4 — [Branch Purpose](ca://s?q=Why_branches_exist) ===
+Branches exist so you can experiment without touching the main branch.  
+You create new branches for new ideas.  
+You merge them back only when they are ready.
+
+=== PART 5 — [Team Expectations](ca://s?q=Team_branch_expectations) ===
+Teams rely on the main branch to always work.  
+Everyone expects it to be the safe version.  
+This prevents confusion and broken projects.
+
+=== PART 6 — [Main Visibility](ca://s?q=Main_branch_visibility) ===
+GitHub shows the main branch first when someone opens your project.  
+This makes it the most visible version.  
+It is the branch people judge your project by.
+
+=== PART 7 — [Branch Switching](ca://s?q=Switching_branches) ===
+You can switch from the main branch to other branches at any time.  
+This lets you view different versions of your project.  
+GitHub makes switching simple.
+
+=== PART 8 — [Branch Protection](ca://s?q=Branch_protection_basics) ===
+Some projects protect the main branch from direct changes.  
+This prevents accidental mistakes.  
+It ensures only approved work reaches the main version.
+
+=== PART 9 — [Merging Into Main](ca://s?q=Merging_into_main) ===
+When a branch is ready, you merge it into the main branch.  
+This adds the new work to the official version.  
+Merging keeps the main branch updated.
+
+=== PART 10 — [Main Branch History](ca://s?q=Main_branch_history) ===
+The main branch contains the full history of your project.  
+Every saved moment appears here once merged.  
+This creates a complete timeline.
+
+=== PART 11 — [Main Branch Safety](ca://s?q=Main_branch_safety) ===
+Keeping the main branch stable protects your project.  
+It prevents broken features from reaching users.  
+It ensures your work stays dependable.
+
+=== PART 12 — [Main Branch Role](ca://s?q=Main_branch_role) ===
+The main branch acts as the anchor of your project.  
+Everything else connects back to it.  
+It is the foundation of your repository.
+
+=== PART 13 — [Main Branch Naming](ca://s?q=Main_branch_name) ===
+Most projects use the name “main.”  
+Older projects sometimes use “master.”  
+Both names mean the same thing.
+
+=== PART 14 — [Main Branch Updates](ca://s?q=Main_branch_updates) ===
+The main branch updates only when you merge or upload new work.  
+It never changes on its own.  
+You control every update.
+
+=== PART 15 — [Main Branch Importance](ca://s?q=Why_main_branch_is_important) ===
+The main branch is the most important branch in your project.  
+It represents your best work.  
+It is the version others trust.
+
+=== PART 16 — [Main Branch and GitHub](ca://s?q=Main_branch_on_GitHub) ===
+GitHub highlights the main branch across the interface.  
+It appears in the Code tab, history, and branch menus.  
+This helps you stay oriented.
+
+=== PART 17 — [Main Branch and Teams](ca://s?q=Main_branch_for_teams) ===
+Teams use the main branch as the shared truth.  
+Everyone builds from it.  
+Everyone returns their work to it.
+
+=== PART 18 — [Main Branch and Releases](ca://s?q=Main_branch_releases) ===
+Releases are usually created from the main branch.  
+This ensures the released version is stable.  
+It keeps your project consistent.
+
+=== PART 19 — [Main Branch Summary](ca://s?q=Main_branch_summary) ===
+The main branch is stable, visible, and central.  
+It holds your best work.  
+It is the core of your project.
+
+=== PART 20 — [Next Lesson](ca://s?q=Start_Lesson_25) ===
+Next lesson explains how to add files to your project.  
+This is the first step in building real content.  
+You will learn both upload and create options.
