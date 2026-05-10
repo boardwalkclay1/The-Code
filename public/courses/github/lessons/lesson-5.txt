@@ -1,0 +1,111 @@
+# GITHUB LESSON 5 — HOW GIT ORGANIZES YOUR MOMENTS INTO A TIMELINE
+# 20 PARTS — ZERO KNOWLEDGE
+
+=== PART 1 — WHAT IS ORGANIZATION? ===
+organization means putting things in order.
+git puts your moments in order.
+
+=== PART 2 — WHAT IS A TIMELINE? ===
+a timeline is a line of moments.
+moment 1
+moment 2
+moment 3
+each one follows the last.
+
+=== PART 3 — WHY ORDER MATTERS ===
+order shows your journey.
+order shows your progress.
+order shows your growth.
+
+=== PART 4 — WHAT GIT DOES WITH MOMENTS ===
+git lines them up.
+git numbers them.
+git remembers them.
+
+=== PART 5 — WHAT YOU SEE ===
+you see a clean list.
+you see your steps.
+you see your story.
+
+=== PART 6 — WHAT GIT SEES ===
+git sees:
+changes
+differences
+patterns
+
+=== PART 7 — WHAT GITHUB SEES ===
+github sees:
+your timeline
+your moments
+your progress
+
+=== PART 8 — WHY TIMELINES HELP YOU ===
+timelines help you:
+undo mistakes
+compare versions
+learn from your past
+
+=== PART 9 — WHY TIMELINES HELP TEAMS ===
+teams can see:
+what happened
+when it happened
+why it happened
+
+=== PART 10 — WHAT IS A “STEP” AGAIN? ===
+a step is a moment.
+a moment is a snapshot.
+a snapshot is a memory.
+
+=== PART 11 — WHAT IS A “CHANGE STORY”? ===
+a change story is your timeline.
+it shows how your project grew.
+
+=== PART 12 — WHAT IS A “CLEAN TIMELINE”? ===
+a clean timeline is:
+organized
+clear
+easy to follow
+
+=== PART 13 — WHAT MAKES A TIMELINE MESSY? ===
+messy timelines happen when:
+moments are random
+moments are unclear
+moments are too frequent
+
+=== PART 14 — HOW TO KEEP IT CLEAN ===
+create moments when:
+you finish something
+you fix something
+you add something important
+
+=== PART 15 — WHAT GIT DOES AUTOMATICALLY ===
+git organizes.
+git stores.
+git protects.
+
+=== PART 16 — WHAT YOU DO MANUALLY ===
+you choose moments.
+you choose clarity.
+you choose your story.
+
+=== PART 17 — WHY THIS MATTERS ===
+a clean timeline makes you powerful.
+you understand your work.
+you control your work.
+
+=== PART 18 — WHAT YOU KNOW NOW ===
+you understand:
+timelines
+organization
+clarity
+
+=== PART 19 — YOU ARE READY FOR MORE ===
+next we go deeper.
+next we learn structure.
+
+=== PART 20 — NEXT LESSON ===
+next lesson:
+“what a ‘version’ is and why versions matter”
+
+to continue:
+type: github lesson 6
