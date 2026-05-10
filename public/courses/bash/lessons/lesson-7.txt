@@ -1,0 +1,51 @@
+=== bash lesson7 ===
+LESSON 7 — MAKING FOLDERS (mkdir)
+(20‑part ultra‑beginner lesson)
+
+1. The command **mkdir** means “make directory.” A directory is just another word for a folder. mkdir creates new folders instantly.
+
+2. mkdir is the terminal version of right‑click → “New Folder.” But it is faster, cleaner, and more precise. This is why developers prefer it.
+
+3. mkdir requires a name. You must tell it what the new folder should be called. For example: `mkdir Projects`.
+
+4. mkdir creates the folder in your current location. This is why **[pwd](ca://s?q=bash_lesson4)** and **[ls](ca://s?q=bash_lesson5)** matter. They help you understand where the folder will appear.
+
+5. mkdir teaches you to think ahead. Before creating a folder, you consider where it should live. This builds organizational skill.
+
+6. mkdir is instant. The folder appears immediately. This speed makes it ideal for building project structures.
+
+7. mkdir is safe. It cannot break anything. It only creates new folders.
+
+8. mkdir helps you build project environments. Developers often create multiple folders at once. mkdir makes this easy.
+
+9. mkdir can create multiple folders in one command. For example: `mkdir src assets tests`. This is faster than creating them one by one.
+
+10. mkdir helps you understand naming conventions. Developers often use lowercase names with dashes. For example: `my-project`.
+
+11. mkdir helps you understand structure. You begin to see how projects are organized. This makes navigation easier.
+
+12. mkdir is universal. It works the same on every system. This makes it a portable skill.
+
+13. mkdir prepares you for file creation. Before you create files, you often create folders to hold them. mkdir gives you that foundation.
+
+14. mkdir builds confidence. When you can create structure, you feel in control. This is essential for beginners.
+
+15. mkdir is used constantly in real workflows. Every project begins with folders. mkdir makes this process fast.
+
+16. mkdir helps you understand automation. Scripts often create folders automatically. mkdir is the first step in that process.
+
+17. mkdir teaches you precision. You must type the folder name exactly. This builds discipline.
+
+18. mkdir helps you understand relative paths. You can create folders inside other folders by specifying the path. For example: `mkdir src/components`.
+
+19. mkdir helps you understand absolute paths. You can create folders anywhere in the system. For example: `mkdir /Users/yourname/Desktop/NewFolder`.
+
+20. Now that you can create folders, you are ready to learn how to create files. This is where the **touch** command comes in.
+
+diagram:
+[ CURRENT FOLDER ] → mkdir <name> → [ NEW FOLDER CREATED ]
+
+to continue:
+type: bash lesson8
+
+press control + c to exit
