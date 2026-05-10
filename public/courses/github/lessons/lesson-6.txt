@@ -1,0 +1,109 @@
+# GITHUB LESSON 6 — WHAT A “VERSION” IS AND WHY VERSIONS MATTER
+# 20 PARTS — ZERO KNOWLEDGE
+
+=== PART 1 — WHAT IS A VERSION? ===
+a version is a form of your work.
+version 1
+version 2
+version 3
+each version is different.
+
+=== PART 2 — WHY VERSIONS EXIST ===
+versions show progress.
+versions show improvement.
+versions show change.
+
+=== PART 3 — WHAT MAKES A VERSION DIFFERENT? ===
+a version changes when:
+you add something
+you remove something
+you fix something
+
+=== PART 4 — WHAT IS A VERSION STORY? ===
+a version story is your timeline.
+each version is a chapter.
+
+=== PART 5 — WHY VERSIONS HELP YOU ===
+versions help you:
+go back
+compare
+learn
+
+=== PART 6 — WHY VERSIONS HELP TEAMS ===
+teams can see:
+what changed
+why it changed
+how it changed
+
+=== PART 7 — WHAT IS A “GOOD VERSION”? ===
+a good version is:
+clear
+meaningful
+important
+
+=== PART 8 — WHAT IS A “BAD VERSION”? ===
+a bad version is:
+random
+unclear
+confusing
+
+=== PART 9 — WHAT GIT DOES WITH VERSIONS ===
+git stores them.
+git organizes them.
+git protects them.
+
+=== PART 10 — WHAT GITHUB DOES WITH VERSIONS ===
+github stores them online.
+github keeps them safe.
+github lets you share them.
+
+=== PART 11 — WHAT YOU CONTROL ===
+you choose when a version is created.
+you choose what matters.
+
+=== PART 12 — WHAT GIT CONTROLS ===
+git controls:
+the memory
+the timeline
+the structure
+
+=== PART 13 — WHAT GITHUB CONTROLS ===
+github controls:
+the online backup
+the sharing
+the safety
+
+=== PART 14 — WHY VERSIONS ARE POWERFUL ===
+versions give you freedom.
+freedom to try.
+freedom to fail.
+freedom to fix.
+
+=== PART 15 — WHY VERSIONS ARE SAFE ===
+you never lose old versions.
+you never lose progress.
+you never lose ideas.
+
+=== PART 16 — WHAT YOU KNOW NOW ===
+you understand:
+versions
+stories
+timelines
+
+=== PART 17 — YOU ARE BUILDING A FOUNDATION ===
+each lesson builds your mental model.
+you are learning the core.
+
+=== PART 18 — YOU ARE GETTING STRONGER ===
+you now think like a builder.
+you now think like a creator.
+
+=== PART 19 — YOU ARE READY FOR MORE ===
+next we learn how versions connect.
+
+=== PART 20 — NEXT LESSON ===
+next lesson:
+“how versions connect to each other (the idea of a chain)”
+
+to continue:
+type: github lesson 7
