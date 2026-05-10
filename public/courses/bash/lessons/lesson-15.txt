@@ -1,0 +1,53 @@
+=== bash lesson15 ===
+LESSON 15 — PIPELINES (|, >, >>)
+(20‑part ultra‑beginner lesson)
+
+1. Pipelines allow you to connect commands together so the output of one becomes the input of another. This creates a chain of actions that work together. It is one of the most powerful features of bash. It turns simple commands into complex workflows.
+
+2. The pipe symbol `|` is the core of pipelines. It takes the output of the command on the left and sends it into the command on the right. This allows commands to collaborate. It is like building a machine out of smaller parts.
+
+3. The `>` symbol redirects output into a file. Instead of printing to the screen, the command writes its output to a file. This is useful for saving results. It is the foundation of logging.
+
+4. The `>>` symbol appends output to a file. Instead of replacing the file, it adds new content to the end. This is useful for building logs over time. It is a safe way to accumulate information.
+
+5. Pipelines teach you to think in terms of flow. You begin to see how data moves from one command to another. This builds mental models of system behavior. It also prepares you for programming.
+
+6. Pipelines are instant. They process data quickly and efficiently. This speed makes them ideal for real workflows. They become a natural part of your toolkit.
+
+7. Pipelines help you understand modularity. Each command does one thing well. Pipelines combine them into something more powerful. This is the essence of engineering.
+
+8. Pipelines help you understand automation. Scripts often use pipelines to process data. This prepares you for advanced workflows.
+
+9. Pipelines are universal. They work the same on every system that uses bash. This makes them portable skills.
+
+10. Pipelines help you understand logs. You can redirect output into log files. This is essential for debugging and monitoring.
+
+11. Pipelines help you understand filters. Commands like `grep` can filter output. This becomes powerful when combined with pipelines.
+
+12. Pipelines help you understand sorting. Commands like `sort` can organize data. This becomes useful in real workflows.
+
+13. Pipelines help you understand counting. Commands like `wc` can count lines, words, and characters. This becomes useful for analyzing data.
+
+14. Pipelines help you understand searching. You can search through files and output using pipelines. This is essential for large projects.
+
+15. Pipelines build confidence. When you can connect commands together, you feel more in control. This is essential for beginners.
+
+16. Pipelines teach you to think like a builder. You create workflows instead of relying on graphical tools. This mindset is powerful.
+
+17. Pipelines prepare you for programming. Programming is about connecting small pieces into larger systems. Pipelines teach this concept.
+
+18. Pipelines help you understand efficiency. You can process large amounts of data quickly. This is essential for real‑world engineering.
+
+19. Pipelines help you understand structure. You begin to see how commands interact. This prepares you for scripting.
+
+20. Now that you understand pipelines, you are ready to learn about variables and the environment. This is where bash becomes truly powerful.
+
+diagram:
+[ COMMAND 1 ] → | → [ COMMAND 2 ]
+[ OUTPUT ] → > file
+[ OUTPUT ] → >> file (append)
+
+to continue:
+type: bash lesson16
+
+press control + c to exit
