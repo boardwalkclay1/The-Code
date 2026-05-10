@@ -1,0 +1,51 @@
+=== bash lesson6 ===
+LESSON 6 — MOVING AROUND (cd)
+(20‑part ultra‑beginner lesson)
+
+1. The command **cd** means “change directory.” It moves you from one folder to another. This is how you navigate the system.
+
+2. cd is the terminal version of double‑clicking a folder. But instead of clicking, you type the folder’s name. This gives you precise control.
+
+3. cd requires a destination. You must tell it where to go. If you do not specify a location, cd does nothing.
+
+4. cd uses paths. A path is a map that tells bash where a folder is located. You learned about paths in **[bash lesson4](ca://s?q=bash_lesson4)**.
+
+5. cd can move you deeper into the system. For example: `cd Documents`. This takes you into the Documents folder.
+
+6. cd can move you upward. The command `cd ..` moves you one level up. This is like stepping back.
+
+7. cd can take you home. The command `cd ~` takes you to your home folder. This is your personal starting point.
+
+8. cd can take you anywhere instantly. You can jump from one part of the system to another with a single command. This is faster than clicking through multiple folders.
+
+9. cd teaches you spatial awareness. You begin to understand the system as a map. This mental model makes navigation easier.
+
+10. cd helps you avoid mistakes. Before running commands, you make sure you are in the correct folder. cd gives you that control.
+
+11. cd is used constantly. Developers run it hundreds of times a day. It becomes second nature.
+
+12. cd works with absolute paths. An absolute path starts from the root of the system. For example: `/Users/yourname/Desktop`.
+
+13. cd works with relative paths. A relative path starts from your current location. For example: `cd ../Projects`.
+
+14. cd teaches you precision. You must type the folder name exactly. This builds discipline.
+
+15. cd is safe. It cannot break anything. It only moves you.
+
+16. cd is universal. It works the same on every system. This makes it a portable skill.
+
+17. cd prepares you for file operations. Before you create, delete, or move files, you must be in the correct location. cd gives you that foundation.
+
+18. cd builds confidence. When you can move freely, you feel in control. This is essential for beginners.
+
+19. cd is the gateway to automation. Scripts often rely on moving between folders. cd is the first step in that process.
+
+20. Now that you can move through the system, you are ready to learn how to create new folders. This is where **mkdir** comes in.
+
+diagram:
+[ CURRENT FOLDER ] → cd <destination> → [ NEW FOLDER LOCATION ]
+
+to continue:
+type: bash lesson7
+
+press control + c to exit
