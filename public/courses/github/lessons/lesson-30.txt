@@ -1,0 +1,101 @@
+# GITHUB LESSON 30 — RELEASES
+
+=== PART 1 — [Releases](ca://s?q=Explain_GitHub_releases) ===
+Releases are special versions of your project.  
+They mark important milestones.  
+They are used to share finished work.
+
+=== PART 2 — [Purpose](ca://s?q=Release_purpose) ===
+Releases help you package stable versions.  
+They make it easy for others to download your work.  
+They represent major updates.
+
+=== PART 3 — [Tags](ca://s?q=Release_tags) ===
+Releases use tags to mark specific commits.  
+A tag is a label for a moment in history.  
+It identifies the version clearly.
+
+=== PART 4 — [Release Notes](ca://s?q=Release_notes) ===
+Releases include notes describing what changed.  
+These notes help users understand the update.  
+They act as a summary.
+
+=== PART 5 — [Assets](ca://s?q=Release_assets) ===
+Releases can include downloadable files.  
+These files are called assets.  
+They can be anything your project needs.
+
+=== PART 6 — [Version Numbers](ca://s?q=Version_numbers) ===
+Releases often use version numbers like 1.0 or 2.0.  
+These numbers show progress.  
+They help users track updates.
+
+=== PART 7 — [Stability](ca://s?q=Stable_release) ===
+Releases should be stable.  
+They should not contain unfinished work.  
+They represent your best version.
+
+=== PART 8 — [Visibility](ca://s?q=Release_visibility) ===
+Releases appear in a dedicated tab.  
+This makes them easy to find.  
+Users can download them anytime.
+
+=== PART 9 — [Download Options](ca://s?q=Download_release) ===
+GitHub provides download buttons for each release.  
+Users can get the source code or assets.  
+This simplifies distribution.
+
+=== PART 10 — [Release History](ca://s?q=Release_history) ===
+Releases create a clear history of major versions.  
+This helps track long‑term progress.  
+It organizes your project’s evolution.
+
+=== PART 11 — [Team Use](ca://s?q=Team_releases) ===
+Teams use releases to coordinate work.  
+They mark completed phases.  
+They help align development.
+
+=== PART 12 — [Public Projects](ca://s?q=Public_project_releases) ===
+Public projects use releases to share updates with the world.  
+Anyone can download them.  
+This supports open collaboration.
+
+=== PART 13 — [Private Projects](ca://s?q=Private_project_releases) ===
+Private projects can also use releases.  
+Only authorized users can access them.  
+This protects sensitive work.
+
+=== PART 14 — [Automation](ca://s?q=Automated_releases) ===
+Releases can be automated with GitHub Actions.  
+This saves time for large projects.  
+It ensures consistency.
+
+=== PART 15 — [Release Editing](ca://s?q=Edit_release) ===
+You can edit release notes anytime.  
+This helps fix mistakes.  
+It keeps information accurate.
+
+=== PART 16 — [Deleting Releases](ca://s?q=Delete_release) ===
+You can delete releases if needed.  
+This removes the version from public view.  
+It does not delete the underlying commit.
+
+=== PART 17 — [Tag Deletion](ca://s?q=Delete_tag) ===
+Deleting a tag removes the label from history.  
+This affects how releases appear.  
+It should be done carefully.
+
+=== PART 18 — [Why Releases Matter](ca://s?q=Why_releases_matter) ===
+Releases help you share polished work.  
+They organize major updates.  
+They make your project easier to use.
+
+=== PART 19 — [Release Summary](ca://s?q=Release_summary) ===
+A release is a packaged, stable version of your project.  
+It includes notes, tags, and optional files.  
+It marks important milestones.
+
+=== PART 20 — [Next Step](ca://s?q=Start_GitHub_Quiz) ===
+You have completed the first 30 lessons.  
+Next step is the GitHub quiz.  
+It will reinforce everything you learned.
