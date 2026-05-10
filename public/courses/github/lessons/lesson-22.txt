@@ -1,0 +1,61 @@
+# GITHUB LESSON 22 — WHAT A GITHUB REPOSITORY IS
+
+=== PART 1 ===
+A repository is a project folder stored on GitHub.
+
+=== PART 2 ===
+It contains your files.
+
+=== PART 3 ===
+It contains your folders.
+
+=== PART 4 ===
+It contains your project history.
+
+=== PART 5 ===
+It contains your saved moments (commits).
+
+=== PART 6 ===
+It contains your branches (different versions of your project).
+
+=== PART 7 ===
+It contains your settings.
+
+=== PART 8 ===
+It contains your project description.
+
+=== PART 9 ===
+It contains your contributors list.
+
+=== PART 10 ===
+It contains your project’s timeline.
+
+=== PART 11 ===
+A repository can be public or private.
+
+=== PART 12 ===
+Public means anyone can see it.
+
+=== PART 13 ===
+Private means only you (and people you choose) can see it.
+
+=== PART 14 ===
+A repository always starts empty.
+
+=== PART 15 ===
+You add files to it manually or through Git.
+
+=== PART 16 ===
+You can delete files at any time.
+
+=== PART 17 ===
+You can rename files at any time.
+
+=== PART 18 ===
+You can organize files into folders.
+
+=== PART 19 ===
+A repository is the core of your GitHub experience.
+
+=== PART 20 ===
+Next lesson: “The Code tab and what it shows.”
