@@ -1,0 +1,51 @@
+=== bash lesson17 ===
+LESSON 17 — SCRIPTS (your first .sh)
+(20‑part ultra‑beginner lesson)
+
+1. A script is a file that contains a sequence of commands. When you run the script, bash executes the commands one after another. This allows you to automate tasks. It is the beginning of real power.
+
+2. Scripts are plain text files. You can create them with **touch** and edit them with **nano**. They are simple to write and easy to understand. This makes them accessible to beginners.
+
+3. Scripts teach you structure. You begin to think in terms of steps and sequences. This builds logical thinking. It also prepares you for programming.
+
+4. A script usually begins with a line called the shebang: `#!/bin/bash`. This tells the system to use bash to run the script. It is a standard convention.
+
+5. Scripts must be executable before they can run. You use **chmod +x** to give them execute permission. This connects back to **bash lesson13**. It is a critical step.
+
+6. You run a script by typing `./script.sh`. The `./` tells bash to run the file in the current folder. This is different from running built‑in commands.
+
+7. Scripts can contain any commands you want. You can create files, move files, read files, and run programs. This makes scripts extremely flexible.
+
+8. Scripts help you understand automation. Instead of typing commands manually, you write them once and run them whenever needed. This saves time and reduces mistakes.
+
+9. Scripts help you understand variables. You can store values and reuse them. This makes scripts more powerful.
+
+10. Scripts help you understand arguments. You can pass information into a script. This makes scripts dynamic.
+
+11. Scripts help you understand loops. Loops allow you to repeat actions. This becomes useful in real workflows.
+
+12. Scripts help you understand conditionals. Conditionals allow you to make decisions. This prepares you for programming.
+
+13. Scripts help you understand functions. Functions allow you to group commands. This makes scripts easier to manage.
+
+14. Scripts help you understand debugging. When something goes wrong, you inspect the script. This builds problem‑solving skills.
+
+15. Scripts help you understand deployment. Many systems use scripts to install software. This prepares you for real engineering.
+
+16. Scripts help you understand servers. Servers often run scripts automatically. This is part of automation.
+
+17. Scripts help you understand pipelines. You can connect commands inside scripts. This builds complex workflows.
+
+18. Scripts build confidence. When you can automate tasks, you feel more in control. This is essential for beginners.
+
+19. Scripts prepare you for advanced topics. Everything in bash builds toward scripting. This lesson gives you the foundation.
+
+20. Now that you can write scripts, you are ready to learn about loops. Loops allow you to repeat actions automatically. This is where automation becomes powerful.
+
+diagram:
+[ script.sh ] → chmod +x → ./script.sh → [ AUTOMATION ]
+
+to continue:
+type: bash lesson18
+
+press control + c to exit
