@@ -1,0 +1,107 @@
+# GITHUB LESSON 20 — WHAT A “CONFLICT” IS AND WHY IT HAPPENS
+# 20 PARTS — ZERO KNOWLEDGE
+
+=== PART 1 — WHAT IS A CONFLICT? ===
+a conflict is when two things disagree.
+two versions do not match.
+two changes collide.
+
+=== PART 2 — CONFLICTS IN REAL LIFE ===
+two people talk at the same time.
+two people want different things.
+two plans overlap.
+
+=== PART 3 — CONFLICTS IN WORK ===
+two changes affect the same place.
+two ideas touch the same spot.
+two updates overlap.
+
+=== PART 4 — WHY CONFLICTS HAPPEN ===
+you change something.
+someone else changes the same thing.
+the changes do not match.
+
+=== PART 5 — WHAT GIT SEES ===
+git sees two different ideas.
+git sees two different versions.
+git sees a disagreement.
+
+=== PART 6 — WHAT GIT DOES ===
+git stops.
+git warns you.
+git asks for help.
+
+=== PART 7 — WHY GIT STOPS ===
+git does not guess.
+git does not choose sides.
+git waits for you.
+
+=== PART 8 — WHAT YOU DO ===
+you look at both ideas.
+you decide what stays.
+you decide what changes.
+
+=== PART 9 — WHAT GITHUB DOES ===
+github shows the conflict.
+github highlights the differences.
+github helps you understand.
+
+=== PART 10 — WHY CONFLICTS ARE NORMAL ===
+conflicts happen when people work together.
+conflicts happen when ideas grow.
+conflicts happen when progress happens.
+
+=== PART 11 — WHY CONFLICTS ARE NOT BAD ===
+conflicts mean:
+people are working
+people are creating
+people are improving
+
+=== PART 12 — WHAT A RESOLUTION IS ===
+a resolution is a fix.
+a resolution is a decision.
+a resolution is a choice.
+
+=== PART 13 — WHAT YOU CONTROL ===
+you choose the final idea.
+you choose the final version.
+you choose the final direction.
+
+=== PART 14 — WHAT GIT CONTROLS ===
+git controls:
+the warning
+the structure
+the safety
+
+=== PART 15 — WHAT GITHUB CONTROLS ===
+github controls:
+the display
+the clarity
+the help
+
+=== PART 16 — WHY THIS MATTERS ===
+conflicts teach you.
+conflicts grow you.
+conflicts strengthen your project.
+
+=== PART 17 — WHAT YOU KNOW NOW ===
+you understand:
+conflicts
+disagreements
+resolutions
+
+=== PART 18 — YOU HAVE COMPLETED THE FOUNDATION ===
+you now understand the mental model of git.
+you now understand the mental model of github.
+
+=== PART 19 — YOU ARE READY FOR COMMANDS ===
+the next phase teaches real commands.
+but your foundation is solid.
+
+=== PART 20 — NEXT STEP ===
+you have finished all 20 lessons.
+next:
+“the GitHub quiz (50 questions)”
+
+to continue:
+type: github quiz
