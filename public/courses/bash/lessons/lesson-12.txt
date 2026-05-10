@@ -1,0 +1,51 @@
+=== bash lesson12 ===
+LESSON 12 — EDITING FILES (nano)
+(20‑part ultra‑beginner lesson)
+
+1. The command **nano** opens a simple text editor inside the terminal. It lets you edit files without leaving bash. This is essential for real development.
+
+2. nano is beginner‑friendly. It shows instructions at the bottom of the screen. This makes it easier to learn than other editors.
+
+3. nano teaches you control. You can create, modify, and save files directly from the terminal. This builds confidence.
+
+4. nano opens files with `nano filename.txt`. If the file does not exist, nano creates it. This makes it a flexible tool.
+
+5. nano uses keyboard shortcuts. For example, `Ctrl + O` saves the file, and `Ctrl + X` exits. These shortcuts become second nature.
+
+6. nano helps you understand text editing. You learn how to move the cursor, insert text, and delete text. This is the foundation of scripting.
+
+7. nano is universal. It works the same on every system. This makes it a portable skill.
+
+8. nano is safe. It warns you before closing unsaved changes. This prevents mistakes.
+
+9. nano helps you understand configuration files. Many systems use text files for settings. nano lets you edit them directly.
+
+10. nano helps you understand scripts. You can write bash scripts inside nano. This prepares you for **[bash lesson17](ca://s?q=bash_lesson17)**.
+
+11. nano teaches you precision. You must type exactly what you want. This builds discipline.
+
+12. nano helps you understand formatting. Proper indentation and spacing matter. nano makes this visible.
+
+13. nano is used constantly in real workflows. Developers edit configuration files, scripts, and notes with nano. It becomes a natural part of your toolkit.
+
+14. nano helps you understand file structure. You begin to see how code and data are organized. This prepares you for programming.
+
+15. nano builds confidence. When you can edit files directly, you feel more in control. This is essential for beginners.
+
+16. nano teaches you to think like a builder. You create and modify structure instead of relying on graphical tools. This mindset is powerful.
+
+17. nano helps you understand permissions. If you cannot save a file, you may need to adjust permissions. This connects to **[bash lesson13](ca://s?q=bash_lesson13)**.
+
+18. nano prepares you for automation. Scripts begin as text files. nano gives you the ability to write them.
+
+19. nano is the bridge between reading and writing. It gives you the ability to create real content. This is where your skills begin to compound.
+
+20. Now that you can edit files, you are ready to learn about permissions. This is where the **chmod** command comes in.
+
+diagram:
+[ FILE ] → nano → [ EDITOR ] → save → [ UPDATED FILE ]
+
+to continue:
+type: bash lesson13
+
+press control + c to exit
