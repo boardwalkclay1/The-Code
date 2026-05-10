@@ -1,0 +1,95 @@
+# GITHUB LESSON 12 — WHAT A “BRANCH” IS (WITHOUT USING THE WORD YET)
+# 20 PARTS — ZERO KNOWLEDGE
+
+=== PART 1 — WHAT IS A PATH? ===
+a path is a direction you take.
+forward.
+left.
+right.
+
+=== PART 2 — WHAT IS A NEW PATH? ===
+a new path is a different direction.
+a different idea.
+a different approach.
+
+=== PART 3 — WHY PATHS MATTER ===
+paths let you explore.
+paths let you try things.
+paths let you experiment.
+
+=== PART 4 — WHAT IS A WORK PATH? ===
+a work path is a direction your project takes.
+one idea → another idea.
+
+=== PART 5 — WHAT IF YOU WANT TO TRY SOMETHING NEW? ===
+you create a new path.
+you explore safely.
+you do not break the main path.
+
+=== PART 6 — WHAT IS A SAFE PATH? ===
+a safe path is separate.
+it does not affect the main work.
+it lets you test ideas.
+
+=== PART 7 — WHAT GIT DOES WITH PATHS ===
+git keeps paths separate.
+git keeps paths clean.
+git keeps paths safe.
+
+=== PART 8 — WHAT YOU DO WITH PATHS ===
+you try new ideas.
+you explore new directions.
+you experiment freely.
+
+=== PART 9 — WHY THIS IS POWERFUL ===
+you can test ideas without fear.
+you can build without breaking anything.
+
+=== PART 10 — WHAT GITHUB DOES WITH PATHS ===
+github shows paths clearly.
+github helps teams explore safely.
+
+=== PART 11 — WHAT A PATH LOOKS LIKE ===
+path A → your main idea
+path B → your experiment
+
+=== PART 12 — WHAT HAPPENS WHEN YOU LIKE THE NEW PATH? ===
+you can bring it back.
+you can combine it.
+you can merge ideas.
+
+=== PART 13 — WHAT HAPPENS WHEN YOU DO NOT LIKE IT? ===
+you can throw it away.
+you lose nothing.
+your main path is safe.
+
+=== PART 14 — WHY THIS MATTERS ===
+paths give you freedom.
+paths give you safety.
+paths give you creativity.
+
+=== PART 15 — WHAT YOU KNOW NOW ===
+you understand:
+paths
+experiments
+safety
+
+=== PART 16 — YOU ARE BUILDING SKILL ===
+you are learning how git protects ideas.
+
+=== PART 17 — YOU ARE GETTING READY ===
+soon we introduce the real word for “path”.
+
+=== PART 18 — WHY WE WAIT ===
+we build the mental model first.
+then the commands make sense.
+
+=== PART 19 — YOU ARE ALMOST READY ===
+next lesson reveals the real name.
+
+=== PART 20 — NEXT LESSON ===
+next lesson:
+“the real name for a work path (the word ‘branch’)”
+
+to continue:
+type: github lesson 13
