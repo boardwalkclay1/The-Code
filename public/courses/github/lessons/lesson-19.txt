@@ -1,0 +1,99 @@
+# GITHUB LESSON 19 — HOW YOUR COMPUTER AND GITHUB STAY IN SYNC
+# 20 PARTS — ZERO KNOWLEDGE
+
+=== PART 1 — WHAT IS SYNC? ===
+sync means “stay the same”.
+sync means “match”.
+sync means “stay updated”.
+
+=== PART 2 — SYNC IN REAL LIFE ===
+two clocks show the same time.
+two friends share the same plan.
+two lists match.
+
+=== PART 3 — SYNC IN COMPUTERS ===
+your computer and github match each other.
+they stay updated.
+
+=== PART 4 — WHY SYNC MATTERS ===
+sync prevents confusion.
+sync prevents mistakes.
+sync keeps everything clean.
+
+=== PART 5 — WHAT YOUR COMPUTER HAS ===
+your computer has your work.
+your computer has your moments.
+your computer has your changes.
+
+=== PART 6 — WHAT GITHUB HAS ===
+github has your online work.
+github has your online moments.
+github has your online history.
+
+=== PART 7 — WHAT HAPPENS WHEN THEY MATCH ===
+everything is clean.
+everything is clear.
+everything is safe.
+
+=== PART 8 — WHAT HAPPENS WHEN THEY DO NOT MATCH ===
+your computer might be ahead.
+github might be ahead.
+someone else might have changed something.
+
+=== PART 9 — WHY THIS HAPPENS ===
+you work.
+your team works.
+everyone creates new moments.
+
+=== PART 10 — HOW THEY GET BACK IN SYNC ===
+your computer receives updates.
+your computer sends updates.
+github receives updates.
+github sends updates.
+
+=== PART 11 — WHAT GIT DOES ===
+git compares.
+git organizes.
+git prepares.
+
+=== PART 12 — WHAT GITHUB DOES ===
+github stores.
+github shares.
+github updates.
+
+=== PART 13 — WHAT YOU DO ===
+you choose when to sync.
+you choose what to sync.
+
+=== PART 14 — WHY SYNC IS SAFE ===
+you never lose work.
+you never overwrite work.
+you never break work.
+
+=== PART 15 — WHY TEAMS NEED SYNC ===
+teams must stay aligned.
+teams must stay updated.
+teams must stay organized.
+
+=== PART 16 — WHAT YOU KNOW NOW ===
+you understand:
+sync
+matching
+updates
+
+=== PART 17 — YOU ARE BUILDING SKILL ===
+you are learning how git and github communicate.
+
+=== PART 18 — YOU ARE GETTING READY ===
+soon we introduce the idea of “conflicts”.
+
+=== PART 19 — WHY WE WAIT ===
+we build the mental model first.
+then the commands make sense.
+
+=== PART 20 — NEXT LESSON ===
+next lesson:
+“what a conflict is and why it happens”
+
+to continue:
+type: github lesson 20
