@@ -1,0 +1,20 @@
+1 :: What Git Actually Is
+2 :: Repositories, Commits, and Branches
+3 :: Cloning and Remote Repositories
+4 :: Staging, Committing, and History
+5 :: Branching and Merging
+6 :: Pull Requests and Collaboration
+7 :: GitHub Issues and Project Boards
+8 :: GitHub Actions (CI/CD)
+9 :: Forking and Open Source Workflow
+10 :: Git Ignore, Clean Repos, and Best Practices
+11 :: Rebasing and Advanced History Control
+12 :: Conflict Resolution and Merge Strategies
+13 :: Tags, Releases, and Versioning
+14 :: GitHub Pages Deployment
+15 :: Security, Secrets, and Protected Branches
+16 :: Git Workflows (Gitflow, Trunk, Feature Branching)
+17 :: Reviewing Code Like a Professional
+18 :: Automation with GitHub CLI
+19 :: Managing Teams and Permissions
+20 :: Full GitHub Mastery Recap
