@@ -1,0 +1,99 @@
+# GITHUB LESSON 14 — HOW TWO PATHS COME TOGETHER (“MERGING”)
+# 20 PARTS — ZERO KNOWLEDGE
+
+=== PART 1 — WHAT IS COMING TOGETHER? ===
+coming together means joining.
+two things become one.
+
+=== PART 2 — COMING TOGETHER IN REAL LIFE ===
+two ideas combine.
+two roads meet.
+two teams join.
+
+=== PART 3 — WHAT IS COMING TOGETHER IN WORK? ===
+your main path meets your experiment path.
+your ideas combine.
+
+=== PART 4 — THE REAL WORD FOR THIS ===
+the real word is “merging”.
+merging means joining two branches.
+
+=== PART 5 — WHY MERGING MATTERS ===
+merging lets you bring good ideas back.
+merging lets you combine progress.
+merging lets you grow your project.
+
+=== PART 6 — WHAT HAPPENS BEFORE MERGING ===
+you create a branch.
+you explore.
+you build something new.
+
+=== PART 7 — WHAT HAPPENS DURING MERGING ===
+git compares the paths.
+git joins them together.
+git creates one clean path.
+
+=== PART 8 — WHAT HAPPENS AFTER MERGING ===
+your main path now includes the new idea.
+your project grows.
+your work improves.
+
+=== PART 9 — WHY MERGING IS SAFE ===
+branches stay separate until you merge.
+you choose when merging happens.
+you stay in control.
+
+=== PART 10 — WHAT GIT DOES DURING MERGING ===
+git looks at differences.
+git connects the paths.
+git protects your history.
+
+=== PART 11 — WHAT GITHUB DOES DURING MERGING ===
+github shows the changes.
+github helps teams review.
+github helps teams approve.
+
+=== PART 12 — WHAT YOU CONTROL ===
+you choose when to merge.
+you choose what to merge.
+you choose how to merge.
+
+=== PART 13 — WHAT GIT CONTROLS ===
+git controls:
+the joining
+the structure
+the safety
+
+=== PART 14 — WHAT GITHUB CONTROLS ===
+github controls:
+the review
+the visibility
+the protection
+
+=== PART 15 — WHY MERGING IS POWERFUL ===
+merging lets you grow safely.
+merging lets you explore freely.
+merging lets you build confidently.
+
+=== PART 16 — WHAT YOU KNOW NOW ===
+you understand:
+branches
+merging
+growth
+
+=== PART 17 — YOU ARE BUILDING SKILL ===
+you are learning how ideas come together.
+
+=== PART 18 — YOU ARE GETTING READY ===
+soon we introduce the idea of teamwork.
+
+=== PART 19 — WHY WE WAIT ===
+we build the mental model first.
+then the commands make sense.
+
+=== PART 20 — NEXT LESSON ===
+next lesson:
+“how people work together on the same project”
+
+to continue:
+type: github lesson 15
