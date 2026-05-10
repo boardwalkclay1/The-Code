@@ -1,0 +1,51 @@
+=== bash lesson16 ===
+LESSON 16 — VARIABLES + ENVIRONMENT
+(20‑part ultra‑beginner lesson)
+
+1. A variable is a container that holds information. In bash, variables store text, numbers, paths, and other data. They allow you to reuse information without typing it repeatedly. This makes your workflow faster and cleaner.
+
+2. Variables are created by assigning a value to a name. For example: `NAME="Clayvonte"`. Bash stores this value in memory. You can use it later by typing `$NAME`.
+
+3. Variables teach you abstraction. Instead of repeating long paths or values, you store them once. This reduces mistakes and increases efficiency. It also prepares you for programming.
+
+4. Variables are instant. Bash creates them immediately. There is no loading or confirmation. This speed makes them ideal for automation.
+
+5. Variables help you understand the environment. The environment is a collection of variables that define how your system behaves. These variables control paths, settings, and configurations.
+
+6. The command `echo $VARIABLE` prints the value of a variable. This helps you understand what is stored. It also helps you debug.
+
+7. Environment variables are special variables used by the system. Examples include PATH, HOME, and USER. These variables define important system behavior.
+
+8. PATH is one of the most important environment variables. It tells bash where to look for commands. Without PATH, bash would not know how to find programs.
+
+9. Variables help you understand configuration. Many programs read environment variables to determine how they should run. This is essential for real workflows.
+
+10. Variables help you understand automation. Scripts often use variables to store data. This makes scripts flexible and reusable.
+
+11. Variables help you understand scope. Some variables exist only in the current session. Others persist across sessions. This becomes important in scripting.
+
+12. Variables help you understand exporting. The command `export` makes a variable available to child processes. This is essential for running programs with custom settings.
+
+13. Variables help you understand substitution. Bash replaces variables with their values before running commands. This is a powerful feature.
+
+14. Variables help you understand quoting. Single quotes prevent substitution, while double quotes allow it. This distinction becomes important in scripting.
+
+15. Variables help you understand defaults. You can set default values for variables. This makes scripts more robust.
+
+16. Variables help you understand environment files. Files like `.bashrc` and `.profile` store environment settings. This prepares you for customization.
+
+17. Variables help you understand system behavior. Many errors are caused by incorrect environment variables. Understanding them helps you fix issues.
+
+18. Variables build confidence. When you can store and reuse information, you feel more in control. This is essential for beginners.
+
+19. Variables prepare you for scripting. Scripts rely heavily on variables. This lesson gives you the foundation.
+
+20. Now that you understand variables, you are ready to write your first script. This is where bash becomes truly powerful.
+
+diagram:
+[ NAME="value" ] → $NAME → [ OUTPUT ]
+
+to continue:
+type: bash lesson17
+
+press control + c to exit
