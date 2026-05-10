@@ -1,0 +1,101 @@
+# GITHUB LESSON 28 — PULL REQUESTS
+
+=== PART 1 — [Pull Requests](ca://s?q=Explain_pull_requests) ===
+A pull request is a request to add work from one branch into another.  
+It shows exactly what changed.  
+It allows review before anything is merged.
+
+=== PART 2 — [Purpose](ca://s?q=Pull_request_purpose) ===
+Pull requests help teams check work before accepting it.  
+They prevent mistakes from reaching the main branch.  
+They create a safe review process.
+
+=== PART 3 — [Change Preview](ca://s?q=Pull_request_change_preview) ===
+GitHub shows every change inside the pull request.  
+You can see added, removed, and updated lines.  
+This makes reviewing simple.
+
+=== PART 4 — [Discussion](ca://s?q=Pull_request_discussion) ===
+Pull requests include a comment section.  
+Team members can ask questions or give feedback.  
+This keeps communication organized.
+
+=== PART 5 — [Approval](ca://s?q=Pull_request_approval) ===
+Pull requests can require approval before merging.  
+This ensures someone checks the work.  
+It keeps the project safe.
+
+=== PART 6 — [Checks](ca://s?q=Pull_request_checks) ===
+GitHub can run automated checks on pull requests.  
+These checks verify code quality or rules.  
+They help catch problems early.
+
+=== PART 7 — [Merging](ca://s?q=Merge_pull_request) ===
+When a pull request is approved, it can be merged.  
+Merging adds the changes to the target branch.  
+This completes the update.
+
+=== PART 8 — [Closing Without Merge](ca://s?q=Close_pull_request) ===
+You can close a pull request without merging.  
+This means the changes will not be added.  
+It is used when the work is no longer needed.
+
+=== PART 9 — [Linked Issues](ca://s?q=Link_issue_to_PR) ===
+Pull requests can link to issues.  
+This connects tasks to the work that solves them.  
+It improves project organization.
+
+=== PART 10 — [Reviewers](ca://s?q=Assign_reviewers) ===
+You can assign reviewers to a pull request.  
+These people are responsible for checking the work.  
+It clarifies ownership.
+
+=== PART 11 — [Draft Pull Requests](ca://s?q=Draft_pull_request) ===
+Draft pull requests show work that is not ready yet.  
+They allow early feedback.  
+They prevent accidental merging.
+
+=== PART 12 — [Activity Feed](ca://s?q=Pull_request_activity) ===
+Pull requests show a timeline of all actions.  
+This includes comments, commits, and updates.  
+It keeps everything transparent.
+
+=== PART 13 — [File View](ca://s?q=Pull_request_file_view) ===
+You can view each changed file individually.  
+This makes reviewing large updates easier.  
+It helps you focus on specific areas.
+
+=== PART 14 — [Conflict Warnings](ca://s?q=Pull_request_conflicts) ===
+GitHub warns you if the pull request has conflicts.  
+Conflicts must be fixed before merging.  
+This ensures branches stay consistent.
+
+=== PART 15 — [Merge Options](ca://s?q=Merge_options) ===
+GitHub offers different merge methods.  
+These include merge, squash, and rebase.  
+Each method affects history differently.
+
+=== PART 16 — [Notifications](ca://s?q=Pull_request_notifications) ===
+GitHub notifies you when pull requests change.  
+This keeps you updated on progress.  
+It helps you respond quickly.
+
+=== PART 17 — [Visibility](ca://s?q=Pull_request_visibility) ===
+Pull requests are visible to anyone with access to the repository.  
+This encourages collaboration.  
+It keeps work transparent.
+
+=== PART 18 — [Pull Requests for Solo Work](ca://s?q=Solo_pull_requests) ===
+Even solo developers use pull requests.  
+They help organize work and track changes.  
+They create a clean history.
+
+=== PART 19 — [Why Pull Requests Matter](ca://s?q=Why_pull_requests_matter) ===
+Pull requests protect your project.  
+They improve quality.  
+They support teamwork.
+
+=== PART 20 — [Next Lesson](ca://s?q=Start_Lesson_29) ===
+Next lesson explains the repository timeline.  
+The timeline shows the full history of your project.  
+It helps you understand how everything changed.
