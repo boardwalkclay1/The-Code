@@ -1,0 +1,102 @@
+# GITHUB LESSON 16 — HOW TEAMS REVIEW EACH OTHER’S WORK (“CHECKING CHANGES”)
+# 20 PARTS — ZERO KNOWLEDGE
+
+=== PART 1 — WHAT IS REVIEWING? ===
+reviewing means looking at someone’s work.
+seeing what they did.
+understanding their changes.
+
+=== PART 2 — REVIEWING IN REAL LIFE ===
+teachers review homework.
+coaches review plays.
+friends review ideas.
+
+=== PART 3 — REVIEWING IN A PROJECT ===
+you look at someone’s changes.
+you understand their idea.
+you give feedback.
+
+=== PART 4 — WHY REVIEWING MATTERS ===
+reviewing keeps quality high.
+reviewing catches mistakes.
+reviewing helps learning.
+
+=== PART 5 — WHAT GIT DOES FOR REVIEWING ===
+git shows differences.
+git shows versions.
+git shows changes.
+
+=== PART 6 — WHAT GITHUB DOES FOR REVIEWING ===
+github displays changes clearly.
+github lets people comment.
+github lets people approve.
+
+=== PART 7 — WHAT A REVIEWER DOES ===
+they read the changes.
+they understand the idea.
+they give suggestions.
+
+=== PART 8 — WHAT A REVIEWER DOES NOT DO ===
+they do not judge the person.
+they do not attack the idea.
+they help improve the work.
+
+=== PART 9 — WHAT A GOOD REVIEW LOOKS LIKE ===
+clear
+kind
+helpful
+
+=== PART 10 — WHAT A BAD REVIEW LOOKS LIKE ===
+confusing
+mean
+unclear
+
+=== PART 11 — WHY REVIEWS HELP TEAMS ===
+teams grow together.
+teams learn together.
+teams improve together.
+
+=== PART 12 — WHAT YOU CONTROL ===
+you choose how to review.
+you choose how to respond.
+you choose how to improve.
+
+=== PART 13 — WHAT GIT CONTROLS ===
+git controls:
+the differences
+the structure
+the clarity
+
+=== PART 14 — WHAT GITHUB CONTROLS ===
+github controls:
+the display
+the comments
+the approvals
+
+=== PART 15 — WHY THIS IS POWERFUL ===
+reviewing makes you better.
+reviewing makes your team better.
+reviewing makes your project better.
+
+=== PART 16 — WHAT YOU KNOW NOW ===
+you understand:
+reviewing
+feedback
+improvement
+
+=== PART 17 — YOU ARE BUILDING SKILL ===
+you are learning how teams grow.
+
+=== PART 18 — YOU ARE GETTING READY ===
+next we introduce the idea of “requests”.
+
+=== PART 19 — WHY WE WAIT ===
+we build the mental model first.
+then the commands make sense.
+
+=== PART 20 — NEXT LESSON ===
+next lesson:
+“what a ‘request to review’ is (the idea behind pull requests)”
+
+to continue:
+type: github lesson 17
