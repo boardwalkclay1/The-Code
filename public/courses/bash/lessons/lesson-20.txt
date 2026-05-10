@@ -1,0 +1,51 @@
+=== bash lesson20 ===
+LESSON 20 — CLONING + WORKFLOWS (git clone)
+(20‑part ultra‑beginner lesson)
+
+1. Cloning is the process of copying a project from a remote server to your local machine. The command **git clone** makes this possible. It downloads the entire project, including its history. This is how real development begins.
+
+2. git clone is used constantly in professional workflows. Developers clone repositories to work on code, fix bugs, or build new features. It is the first step in almost every project. This makes it one of the most important Git commands.
+
+3. git clone requires a URL. This URL points to the remote repository. When you run the command, Git connects to the server and downloads the project. It is simple, fast, and reliable.
+
+4. git clone creates a new folder with the project’s name. Inside that folder is the entire codebase. This includes files, folders, branches, and history. It is a complete copy.
+
+5. git clone teaches you how projects are structured. You begin to see how developers organize code. This builds intuition and understanding.
+
+6. git clone teaches you how to navigate projects. After cloning, you use **cd** to enter the project folder. This connects bash navigation to Git workflows. It becomes natural.
+
+7. git clone teaches you how to inspect projects. You use **ls**, **cat**, and **nano** to explore the code. This builds confidence and familiarity.
+
+8. git clone teaches you how to run projects. Many projects include scripts or instructions. Bash gives you the tools to run them. This is where real development begins.
+
+9. git clone teaches you how to update projects. After cloning, you can pull new changes from the server. This keeps your copy up to date. It is part of real workflows.
+
+10. git clone teaches you how to collaborate. Multiple developers clone the same repository. They work on different parts of the project. Git manages the changes.
+
+11. git clone teaches you how to branch. After cloning, you can create branches to work on new features. This is essential for modern development.
+
+12. git clone teaches you how to commit. You make changes, save them, and record them with Git. This builds a history of your work.
+
+13. git clone teaches you how to push. You send your changes back to the server. This is how collaboration happens.
+
+14. git clone teaches you how to merge. You combine changes from different branches. This is part of real workflows.
+
+15. git clone teaches you how to resolve conflicts. When two developers change the same file, Git asks you to resolve the differences. Bash gives you the tools to do this.
+
+16. git clone teaches you how to deploy. Many deployment workflows begin with cloning a repository. This connects Git to real engineering.
+
+17. git clone teaches you how to automate. Scripts often clone repositories automatically. This prepares you for DevOps.
+
+18. git clone teaches you how to think like a developer. You begin to understand how projects move from server to machine to production. This builds real skill.
+
+19. git clone completes the bash learning arc. You now understand navigation, files, permissions, processes, pipelines, variables, scripts, automation, and Git. This is the foundation of real development.
+
+20. You have completed the Bash course. You now have the skills to navigate systems, automate tasks, manage projects, and work like a real engineer. The next step is to build something.
+
+diagram:
+[ REMOTE REPO ] → git clone → [ LOCAL PROJECT ]
+
+to continue:
+type: bash
+
+press control + c to exit
