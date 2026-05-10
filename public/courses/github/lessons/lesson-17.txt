@@ -1,0 +1,98 @@
+# GITHUB LESSON 17 — WHAT A “REQUEST TO REVIEW” IS (THE IDEA BEHIND PULL REQUESTS)
+# 20 PARTS — ZERO KNOWLEDGE
+
+=== PART 1 — WHAT IS A REQUEST? ===
+a request is asking for something.
+asking for help.
+asking for attention.
+
+=== PART 2 — REQUESTS IN REAL LIFE ===
+“can you look at this?”
+“can you check this?”
+“can you help me?”
+
+=== PART 3 — WHAT IS A REVIEW REQUEST? ===
+a review request is asking someone to check your work.
+
+=== PART 4 — WHY REVIEW REQUESTS MATTER ===
+they bring attention.
+they bring feedback.
+they bring improvement.
+
+=== PART 5 — WHAT GIT DOES WITH REQUESTS ===
+git prepares your changes.
+git organizes your branch.
+git gets ready for review.
+
+=== PART 6 — WHAT GITHUB DOES WITH REQUESTS ===
+github shows your changes.
+github lets people comment.
+github lets people approve.
+
+=== PART 7 — WHAT YOU DO ===
+you finish your idea.
+you prepare your branch.
+you ask for a review.
+
+=== PART 8 — WHAT THE TEAM DOES ===
+they read your changes.
+they understand your idea.
+they give feedback.
+
+=== PART 9 — WHAT HAPPENS AFTER FEEDBACK ===
+you improve your work.
+you adjust your idea.
+you get ready again.
+
+=== PART 10 — WHAT HAPPENS WHEN EVERYONE AGREES ===
+your idea is ready.
+your branch can join the main branch.
+your work becomes part of the project.
+
+=== PART 11 — WHY THIS IS POWERFUL ===
+you grow.
+your team grows.
+your project grows.
+
+=== PART 12 — WHAT YOU CONTROL ===
+you choose when to request.
+you choose who to ask.
+you choose how to respond.
+
+=== PART 13 — WHAT GIT CONTROLS ===
+git controls:
+the structure
+the differences
+the clarity
+
+=== PART 14 — WHAT GITHUB CONTROLS ===
+github controls:
+the request
+the comments
+the approval
+
+=== PART 15 — WHAT YOU KNOW NOW ===
+you understand:
+requests
+reviews
+teamwork
+
+=== PART 16 — YOU ARE BUILDING SKILL ===
+you are learning how teams collaborate.
+
+=== PART 17 — YOU ARE GETTING READY ===
+soon we introduce the idea of “sending your work online”.
+
+=== PART 18 — WHY WE WAIT ===
+we build the mental model first.
+then the commands make sense.
+
+=== PART 19 — YOU ARE ALMOST READY ===
+next lesson prepares you for online storage.
+
+=== PART 20 — NEXT LESSON ===
+next lesson:
+“how your work travels from your computer to the internet”
+
+to continue:
+type: github lesson 18
