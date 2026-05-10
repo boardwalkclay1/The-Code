@@ -1,0 +1,129 @@
+# GITHUB LESSON 1 — WHAT A “COMPUTER PROJECT” EVEN IS
+# 20 PARTS — ZERO KNOWLEDGE REQUIRED
+
+=== PART 1 — WHAT IS A COMPUTER PROJECT? ===
+a computer project is something you build on a computer.
+it could be a story.
+it could be a picture.
+it could be a website.
+it could be anything you create.
+
+=== PART 2 — WHAT IS A PIECE OF WORK? ===
+a piece of work is something you make.
+a drawing.
+a paragraph.
+a button on a screen.
+anything you create is “work”.
+
+=== PART 3 — WHAT IS A CHANGE? ===
+a change is when you do something new.
+you add something.
+you remove something.
+you fix something.
+you adjust something.
+
+=== PART 4 — WHY CHANGES MATTER ===
+changes matter because they shape your project.
+every little change builds the final thing.
+small steps become big results.
+
+=== PART 5 — WHAT IS KEEPING TRACK? ===
+keeping track means remembering what you did.
+what you added.
+what you removed.
+what you changed.
+keeping track helps you understand your progress.
+
+=== PART 6 — WHY HUMANS FORGET ===
+humans forget what they did yesterday.
+computers do not forget.
+computers can remember every step if we teach them how.
+
+=== PART 7 — WHAT IS A COMPUTER MEMORY SYSTEM? ===
+a computer memory system is something that remembers your steps.
+it remembers what you did.
+it remembers when you did it.
+it remembers how things looked before and after.
+
+=== PART 8 — WHY WE NEED A MEMORY SYSTEM ===
+without a memory system:
+you lose track.
+you get confused.
+you can’t undo mistakes.
+you can’t see your progress.
+
+=== PART 9 — WHAT IS GIT? (NO JARGON) ===
+git is a memory system for your work.
+git remembers every step you take.
+git remembers every change you make.
+git remembers your entire journey.
+
+=== PART 10 — WHAT DOES GIT DO FOR YOU? ===
+git helps you:
+go back in time
+see what changed
+see who changed it
+try new ideas safely
+fix mistakes without fear
+
+=== PART 11 — WHAT IS A “STEP” IN GIT? ===
+a step is a moment where you say:
+“this is what my work looks like right now.”
+git remembers that moment forever.
+
+=== PART 12 — WHAT IS A “PROJECT AREA”? ===
+a project area is the place where your work lives.
+it is where your pieces of work sit.
+it is where your changes happen.
+
+=== PART 13 — WHAT IS A “SAVE MOMENT”? ===
+a save moment is when you tell git:
+“remember this version.”
+git takes a memory picture of your work.
+
+=== PART 14 — WHY SAVE MOMENTS MATTER ===
+save moments let you:
+undo mistakes
+compare versions
+learn from your steps
+build with confidence
+
+=== PART 15 — WHAT IS GITHUB? (NO JARGON) ===
+github is a website that stores your git memories online.
+it is like a giant notebook for your work.
+it keeps your steps safe.
+it lets you share your work with others.
+
+=== PART 16 — WHY GITHUB EXISTS ===
+github exists so:
+your work is safe
+your work is backed up
+your work can be shared
+your work can be seen anywhere
+
+=== PART 17 — GIT + GITHUB TOGETHER ===
+git remembers your steps.
+github stores those steps online.
+together they protect your work.
+
+=== PART 18 — WHY THIS MATTERS FOR YOU ===
+with git and github:
+you never lose progress
+you never lose ideas
+you never lose steps
+you never lose your work
+
+=== PART 19 — WHAT YOU KNOW NOW ===
+you now understand:
+what work is
+what changes are
+why memory matters
+what git is
+what github is
+
+=== PART 20 — NEXT LESSON ===
+next lesson:
+“how a computer holds your work (files, folders, and structure)”
+
+to continue:
+type: github lesson 2
