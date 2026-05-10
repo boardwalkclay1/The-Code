@@ -1,0 +1,52 @@
+=== bash lesson14 ===
+LESSON 14 — PROCESSES (ps, kill)
+(20‑part ultra‑beginner lesson)
+
+1. A process is a program that is currently running on your system. Every app, script, and background task becomes a process when it starts. Processes use memory, CPU, and system resources. Understanding them gives you insight into how your computer actually works.
+
+2. The command **ps** means “process status.” It shows you a list of processes that are currently running. This list includes their IDs, names, and other details. It is your window into the system’s activity.
+
+3. ps teaches visibility. You begin to see what is happening behind the scenes. This helps you understand performance, resource usage, and system behavior. It also helps you diagnose problems.
+
+4. ps is simple to use. You type `ps` and get a list of processes. You can also use `ps aux` for a more detailed view. This becomes useful when working on servers.
+
+5. Every process has a unique ID called a PID. The PID is how bash identifies each running program. This ID is essential for controlling processes. It is the key to managing system activity.
+
+6. The command **kill** allows you to stop a process using its PID. Despite the name, kill does not harm your system. It simply ends the process. This is useful when a program becomes unresponsive.
+
+7. kill teaches responsibility. Ending the wrong process can close important programs. This is why you must always check the PID carefully. Precision matters.
+
+8. kill is powerful. It gives you direct control over system activity. This is why developers use it frequently. It becomes a natural part of your workflow.
+
+9. kill helps you understand system stability. When a process misbehaves, it can slow down your computer. kill gives you the ability to fix this instantly. This is empowering.
+
+10. kill helps you understand automation. Scripts often start and stop processes automatically. kill is part of that process. It prepares you for advanced workflows.
+
+11. ps and kill are universal. They work the same on every system that uses bash. This makes them portable skills across machines and servers.
+
+12. ps helps you understand multitasking. Your computer runs many processes at once. ps shows you how they coexist. This builds mental models.
+
+13. ps helps you understand resource usage. You can see which processes use the most CPU or memory. This helps you optimize performance. It also helps you troubleshoot.
+
+14. kill helps you understand control. You can end processes instantly. This gives you power over your system. It also teaches caution.
+
+15. ps and kill build confidence. When you can see and control processes, you feel more in control of your environment. This is essential for beginners.
+
+16. ps and kill prepare you for servers. Servers often run many background processes. These commands help you manage them. They are essential for real‑world engineering.
+
+17. ps and kill help you understand system behavior. You begin to see patterns in how processes start and stop. This prepares you for automation.
+
+18. ps and kill teach you to think like a system administrator. You learn to monitor, manage, and control activity. This is a valuable skill.
+
+19. ps and kill prepare you for pipelines. Pipelines often involve multiple processes working together. Understanding processes helps you understand pipelines.
+
+20. Now that you understand processes, you are ready to learn how to connect commands together. This is where pipelines come in.
+
+diagram:
+[ PROCESS LIST ] → ps → [ PIDs ]
+[ PID ] → kill → [ PROCESS ENDED ]
+
+to continue:
+type: bash lesson15
+
+press control + c to exit
