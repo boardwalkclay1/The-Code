@@ -1,0 +1,19 @@
+=== flash-computers-lesson2-paid ===
+
+system [speed: slow] [intensity: soft]
+hardware [speed: slow] [intensity: deep]
+software [speed: medium] [intensity: soft]
+program [speed: medium] [intensity: strong]
+application [speed: medium] [intensity: soft]
+settings [speed: fast] [intensity: strong]
+update [speed: fast] [intensity: sharp]
+storage [speed: fast] [intensity: strong]
+memory [speed: medium] [intensity: deep]
+processor [speed: medium] [intensity: strong]
+network [speed: fast] [intensity: sharp]
+wifi [speed: fast] [intensity: sharp]
+download [speed: medium] [intensity: strong]
+upload [speed: medium] [intensity: soft]
+backup [speed: slow] [intensity: deep]
+
+=== end ===
