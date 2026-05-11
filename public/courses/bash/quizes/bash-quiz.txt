@@ -1,0 +1,353 @@
+=== BASH MASTER QUIZ (50 QUESTIONS WITH ANSWERS) ===
+
+1. What does the terminal allow you to do?
+A. Click faster
+B. Speak directly to the system
+C. Change your wallpaper
+D. Install apps automatically
+Answer: B
+
+2. What is a command?
+A. A paragraph of instructions
+B. A short instruction the computer executes
+C. A type of file
+D. A folder name
+Answer: B
+
+3. Why is precision important in bash?
+A. Bash auto-corrects mistakes
+B. Bash guesses what you meant
+C. Bash only executes exactly what you type
+D. Bash ignores errors
+Answer: C
+
+4. What does pwd show?
+A. Your password
+B. Your current directory
+C. Your IP address
+D. Your username
+Answer: B
+
+5. What does ls do?
+A. Deletes files
+B. Moves files
+C. Lists files and folders
+D. Installs software
+Answer: C
+
+6. What does cd do?
+A. Creates directories
+B. Changes your current directory
+C. Deletes directories
+D. Copies directories
+Answer: B
+
+7. What is an absolute path?
+A. A path based on your current location
+B. A path that starts from the root
+C. A path that changes automatically
+D. A path that only works on Windows
+Answer: B
+
+8. What does mkdir do?
+A. Deletes folders
+B. Creates new folders
+C. Moves folders
+D. Renames folders
+Answer: B
+
+9. What does touch do?
+A. Creates or updates files
+B. Deletes files
+C. Moves files
+D. Opens files
+Answer: A
+
+10. What does rm do?
+A. Removes files permanently
+B. Moves files to trash
+C. Compresses files
+D. Renames files
+Answer: A
+
+11. What does cp do?
+A. Copies files
+B. Deletes files
+C. Reads files
+D. Runs files
+Answer: A
+
+12. What does mv do?
+A. Moves or renames files
+B. Copies files
+C. Deletes files
+D. Opens files
+Answer: A
+
+13. What does cat do?
+A. Creates files
+B. Reads and prints file contents
+C. Deletes files
+D. Renames files
+Answer: B
+
+14. Why is nano beginner-friendly?
+A. It uses only mouse controls
+B. It shows shortcuts at the bottom
+C. It has animations
+D. It auto-writes code
+Answer: B
+
+15. What does chmod do?
+A. Changes file permissions
+B. Changes file names
+C. Changes file size
+D. Changes file location
+Answer: A
+
+16. What does the execute (x) permission allow?
+A. Reading a file
+B. Running a file as a program
+C. Copying a file
+D. Moving a file
+Answer: B
+
+17. What does ps show?
+A. Your internet speed
+B. Running processes
+C. Your battery level
+D. Your storage usage
+Answer: B
+
+18. What is a PID?
+A. A file name
+B. A process ID number
+C. A folder path
+D. A permission code
+Answer: B
+
+19. What does kill do?
+A. Deletes files
+B. Stops a running process
+C. Restarts your computer
+D. Installs updates
+Answer: B
+
+20. What does the pipe symbol (|) do?
+A. Deletes output
+B. Sends output of one command into another
+C. Creates a file
+D. Moves a file
+Answer: B
+
+21. What does > do?
+A. Appends output to a file
+B. Redirects output and overwrites the file
+C. Deletes a file
+D. Moves a file
+Answer: B
+
+22. What does >> do?
+A. Overwrites a file
+B. Appends output to a file
+C. Deletes a file
+D. Creates a folder
+Answer: B
+
+23. What is a variable?
+A. A type of folder
+B. A container that stores information
+C. A type of permission
+D. A type of process
+Answer: B
+
+24. What does PATH control?
+A. Where bash looks for commands
+B. Your WiFi settings
+C. Your wallpaper
+D. Your username
+Answer: A
+
+25. What does export do?
+A. Deletes variables
+B. Makes variables available to child processes
+C. Moves variables
+D. Encrypts variables
+Answer: B
+
+26. What is a bash script?
+A. A video file
+B. A file containing commands to run automatically
+C. A type of folder
+D. A permission setting
+Answer: B
+
+27. What does #!/bin/bash mean?
+A. Delete this file
+B. Run this file using bash
+C. Copy this file
+D. Rename this file
+Answer: B
+
+28. Why must you run chmod +x on a script?
+A. To delete it
+B. To give it execute permission
+C. To rename it
+D. To move it
+Answer: B
+
+29. How do you run a script in the current directory?
+A. run script.sh
+B. bash run
+C. ./script.sh
+D. open script.sh
+Answer: C
+
+30. What is a loop?
+A. A repeated action structure
+B. A type of file
+C. A permission setting
+D. A folder path
+Answer: A
+
+31. Which is a valid for loop?
+A. for x in list do done
+B. for x in list; do echo $x; done
+C. loop x list echo
+D. repeat x list
+Answer: B
+
+32. Why are loops useful?
+A. They slow down tasks
+B. They repeat actions automatically
+C. They delete files
+D. They rename folders
+Answer: B
+
+33. Why is automation important?
+A. It makes tasks slower
+B. It reduces repetition and errors
+C. It removes permissions
+D. It hides files
+Answer: B
+
+34. What is Git?
+A. A text editor
+B. A version control system
+C. A file manager
+D. A programming language
+Answer: B
+
+35. How does bash help Git?
+A. It hides files
+B. It provides the environment to run Git commands
+C. It deletes repositories
+D. It renames branches
+Answer: B
+
+36. What does git status show?
+A. Your internet speed
+B. Changes in your project
+C. Your battery level
+D. Your username
+Answer: B
+
+37. What does git add do?
+A. Deletes files
+B. Stages files for commit
+C. Runs scripts
+D. Moves files
+Answer: B
+
+38. What does git commit do?
+A. Saves staged changes
+B. Deletes branches
+C. Installs updates
+D. Moves files
+Answer: A
+
+39. What does git push do?
+A. Sends your commits to a remote repository
+B. Deletes your repository
+C. Renames your project
+D. Creates a new branch
+Answer: A
+
+40. What does git pull do?
+A. Downloads new changes from the remote
+B. Deletes your local files
+C. Renames your project
+D. Creates a new folder
+Answer: A
+
+41. What does git clone do?
+A. Deletes a repository
+B. Copies a remote repository to your machine
+C. Renames a repository
+D. Compresses a repository
+Answer: B
+
+42. What happens after cloning a project?
+A. You get an empty folder
+B. You get a full copy of the project and its history
+C. You get only the README file
+D. You get only the scripts
+Answer: B
+
+43. Why is cd important after cloning?
+A. It deletes the project
+B. It moves you into the project folder
+C. It renames the project
+D. It installs dependencies
+Answer: B
+
+44. How do ls and cat help after cloning?
+A. They let you explore the project’s structure and files
+B. They delete files
+C. They rename branches
+D. They install updates
+Answer: A
+
+45. Why is bash considered universal?
+A. It only works on Windows
+B. It works the same across Linux, macOS, and servers
+C. It changes commands randomly
+D. It requires no typing
+Answer: B
+
+46. Why do permissions matter in cloned projects?
+A. They determine whether scripts can run
+B. They change your username
+C. They delete files automatically
+D. They rename folders
+Answer: A
+
+47. Why is understanding processes important?
+A. Processes control system activity
+B. Processes rename files
+C. Processes hide folders
+D. Processes delete logs
+Answer: A
+
+48. How do pipelines help with logs?
+A. They delete logs
+B. They allow you to filter and analyze logs
+C. They rename logs
+D. They hide logs
+Answer: B
+
+49. Why is scripting powerful?
+A. It makes tasks slower
+B. It automates repeated actions
+C. It hides files
+D. It deletes permissions
+Answer: B
+
+50. What does completing all 20 lessons prepare you for?
+A. Playing games
+B. Real engineering workflows using bash, Git, and automation
+C. Changing your wallpaper
+D. Installing fonts
+Answer: B
+
+=== END OF QUIZ ===
