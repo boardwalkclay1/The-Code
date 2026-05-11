@@ -1,0 +1,23 @@
+=== flash-computers-lesson3-free ===
+
+account [speed: slow] [intensity: soft]
+login [speed: slow] [intensity: soft]
+password [speed: medium] [intensity: strong]
+security [speed: medium] [intensity: deep]
+browser [speed: medium] [intensity: soft]
+tab [speed: fast] [intensity: sharp]
+search [speed: fast] [intensity: strong]
+download [speed: fast] [intensity: strong]
+install [speed: medium] [intensity: soft]
+uninstall [speed: medium] [intensity: soft]
+shortcut [speed: fast] [intensity: sharp]
+taskbar [speed: slow] [intensity: soft]
+window [speed: slow] [intensity: soft]
+drag [speed: medium] [intensity: soft]
+drop [speed: medium] [intensity: soft]
+copy [speed: fast] [intensity: strong]
+paste [speed: fast] [intensity: strong]
+select [speed: medium] [intensity: soft]
+highlight [speed: slow] [intensity: soft]
+
+=== end ===
