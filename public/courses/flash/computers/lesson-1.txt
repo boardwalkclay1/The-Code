@@ -1,0 +1,17 @@
+=== flash-computers-lesson1-free ===
+
+computer [speed: slow] [intensity: soft]
+screen [speed: slow] [intensity: soft]
+keyboard [speed: slow] [intensity: soft]
+mouse [speed: medium] [intensity: soft]
+click [speed: medium] [intensity: soft]
+type [speed: medium] [intensity: strong]
+save [speed: fast] [intensity: strong]
+open [speed: fast] [intensity: sharp]
+close [speed: fast] [intensity: sharp]
+folder [speed: medium] [intensity: soft]
+file [speed: medium] [intensity: soft]
+desktop [speed: slow] [intensity: soft]
+restart [speed: slow] [intensity: deep]
+
+=== end ===
