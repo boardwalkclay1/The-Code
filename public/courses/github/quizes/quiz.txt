@@ -1,0 +1,552 @@
+[
+  {
+    "id": 1,
+    "question": "What is Git?",
+    "choices": [
+      "A system that remembers changes to files",
+      "A website for storing projects",
+      "A programming language",
+      "A type of computer"
+    ],
+    "answer": "A system that remembers changes to files"
+  },
+  {
+    "id": 2,
+    "question": "What is GitHub?",
+    "choices": [
+      "A website that stores Git projects online",
+      "A tool that runs Git commands",
+      "A type of database",
+      "A programming framework"
+    ],
+    "answer": "A website that stores Git projects online"
+  },
+  {
+    "id": 3,
+    "question": "What is the difference between Git and GitHub?",
+    "choices": [
+      "Git tracks changes; GitHub stores them online",
+      "GitHub tracks changes; Git stores them online",
+      "Git is for teams; GitHub is for solo work",
+      "Git is a website; GitHub is a computer program"
+    ],
+    "answer": "Git tracks changes; GitHub stores them online"
+  },
+  {
+    "id": 4,
+    "question": "What is a repository?",
+    "choices": [
+      "A project folder stored on GitHub",
+      "A type of database",
+      "A programming tool",
+      "A backup file"
+    ],
+    "answer": "A project folder stored on GitHub"
+  },
+  {
+    "id": 5,
+    "question": "What is a file?",
+    "choices": [
+      "A single piece of work like text or code",
+      "A folder that holds other items",
+      "A Git command",
+      "A type of server"
+    ],
+    "answer": "A single piece of work like text or code"
+  },
+  {
+    "id": 6,
+    "question": "What is a folder?",
+    "choices": [
+      "A container that holds files",
+      "A type of Git command",
+      "A programming language",
+      "A GitHub account"
+    ],
+    "answer": "A container that holds files"
+  },
+  {
+    "id": 7,
+    "question": "What is a change?",
+    "choices": [
+      "Any difference made to a file",
+      "A GitHub account update",
+      "A new repository",
+      "A deleted project"
+    ],
+    "answer": "Any difference made to a file"
+  },
+  {
+    "id": 8,
+    "question": "What is a commit?",
+    "choices": [
+      "A saved snapshot of your project",
+      "A new repository",
+      "A GitHub account",
+      "A type of file"
+    ],
+    "answer": "A saved snapshot of your project"
+  },
+  {
+    "id": 9,
+    "question": "What is a version?",
+    "choices": [
+      "A specific state of your project",
+      "A GitHub account type",
+      "A file extension",
+      "A programming library"
+    ],
+    "answer": "A specific state of your project"
+  },
+  {
+    "id": 10,
+    "question": "What is a timeline?",
+    "choices": [
+      "A list of commits in order",
+      "A list of files",
+      "A list of branches",
+      "A list of users"
+    ],
+    "answer": "A list of commits in order"
+  },
+  {
+    "id": 11,
+    "question": "What is a branch?",
+    "choices": [
+      "A separate line of work",
+      "A type of file",
+      "A GitHub account",
+      "A commit message"
+    ],
+    "answer": "A separate line of work"
+  },
+  {
+    "id": 12,
+    "question": "Why do branches exist?",
+    "choices": [
+      "To experiment without breaking the main version",
+      "To delete files safely",
+      "To rename repositories",
+      "To store passwords"
+    ],
+    "answer": "To experiment without breaking the main version"
+  },
+  {
+    "id": 13,
+    "question": "What is merging?",
+    "choices": [
+      "Combining changes from one branch into another",
+      "Deleting a branch",
+      "Creating a new repository",
+      "Uploading files"
+    ],
+    "answer": "Combining changes from one branch into another"
+  },
+  {
+    "id": 14,
+    "question": "What is the main branch?",
+    "choices": [
+      "The primary stable version of your project",
+      "A temporary branch",
+      "A deleted branch",
+      "A GitHub account"
+    ],
+    "answer": "The primary stable version of your project"
+  },
+  {
+    "id": 15,
+    "question": "Why should the main branch stay stable?",
+    "choices": [
+      "Because it is the trusted version everyone uses",
+      "Because GitHub requires it",
+      "Because it cannot be changed",
+      "Because it stores passwords"
+    ],
+    "answer": "Because it is the trusted version everyone uses"
+  },
+  {
+    "id": 16,
+    "question": "What does the Code tab show?",
+    "choices": [
+      "Files and folders in your repository",
+      "Your GitHub billing",
+      "Your notifications",
+      "Your GitHub profile"
+    ],
+    "answer": "Files and folders in your repository"
+  },
+  {
+    "id": 17,
+    "question": "What does “Add file” do?",
+    "choices": [
+      "Creates a new file directly on GitHub",
+      "Deletes a file",
+      "Downloads a file",
+      "Creates a new repository"
+    ],
+    "answer": "Creates a new file directly on GitHub"
+  },
+  {
+    "id": 18,
+    "question": "What does “Upload files” do?",
+    "choices": [
+      "Sends files from your computer to GitHub",
+      "Creates a new branch",
+      "Deletes a folder",
+      "Runs a Git command"
+    ],
+    "answer": "Sends files from your computer to GitHub"
+  },
+  {
+    "id": 19,
+    "question": "What is a README?",
+    "choices": [
+      "A file that explains your project",
+      "A Git command",
+      "A type of branch",
+      "A GitHub account type"
+    ],
+    "answer": "A file that explains your project"
+  },
+  {
+    "id": 20,
+    "question": "What are repository settings?",
+    "choices": [
+      "Controls for visibility, access, and rules",
+      "A list of commits",
+      "A list of files",
+      "A list of branches"
+    ],
+    "answer": "Controls for visibility, access, and rules"
+  },
+  {
+    "id": 21,
+    "question": "What is a public repository?",
+    "choices": [
+      "A repository anyone can see",
+      "A repository only you can see",
+      "A deleted repository",
+      "A paid repository"
+    ],
+    "answer": "A repository anyone can see"
+  },
+  {
+    "id": 22,
+    "question": "What is a private repository?",
+    "choices": [
+      "A repository only approved users can see",
+      "A repository anyone can see",
+      "A temporary repository",
+      "A broken repository"
+    ],
+    "answer": "A repository only approved users can see"
+  },
+  {
+    "id": 23,
+    "question": "What are GitHub Issues used for?",
+    "choices": [
+      "Tracking tasks, bugs, and ideas",
+      "Uploading files",
+      "Deleting branches",
+      "Changing passwords"
+    ],
+    "answer": "Tracking tasks, bugs, and ideas"
+  },
+  {
+    "id": 24,
+    "question": "What do labels do in Issues?",
+    "choices": [
+      "Categorize issues",
+      "Delete issues",
+      "Rename issues",
+      "Hide issues"
+    ],
+    "answer": "Categorize issues"
+  },
+  {
+    "id": 25,
+    "question": "What is a pull request?",
+    "choices": [
+      "A request to merge changes into another branch",
+      "A request to delete a repository",
+      "A request to rename a file",
+      "A request to upload files"
+    ],
+    "answer": "A request to merge changes into another branch"
+  },
+  {
+    "id": 26,
+    "question": "Why do teams use pull requests?",
+    "choices": [
+      "To review work before merging",
+      "To delete branches",
+      "To upload files",
+      "To rename repositories"
+    ],
+    "answer": "To review work before merging"
+  },
+  {
+    "id": 27,
+    "question": "What happens during a pull request review?",
+    "choices": [
+      "People check the changes and give feedback",
+      "The repository is deleted",
+      "Files are automatically uploaded",
+      "Branches are locked"
+    ],
+    "answer": "People check the changes and give feedback"
+  },
+  {
+    "id": 28,
+    "question": "What does merging a pull request do?",
+    "choices": [
+      "Adds the changes into the target branch",
+      "Deletes the branch",
+      "Creates a new repository",
+      "Uploads files"
+    ],
+    "answer": "Adds the changes into the target branch"
+  },
+  {
+    "id": 29,
+    "question": "What does the repository timeline show?",
+    "choices": [
+      "All commits in order",
+      "All files in the project",
+      "All branches",
+      "All GitHub accounts"
+    ],
+    "answer": "All commits in order"
+  },
+  {
+    "id": 30,
+    "question": "Why are commit messages important?",
+    "choices": [
+      "They explain what changed and why",
+      "They delete files",
+      "They rename branches",
+      "They upload assets"
+    ],
+    "answer": "They explain what changed and why"
+  },
+  {
+    "id": 31,
+    "question": "What are tags used for?",
+    "choices": [
+      "Marking important commits like versions",
+      "Deleting branches",
+      "Uploading files",
+      "Changing repository names"
+    ],
+    "answer": "Marking important commits like versions"
+  },
+  {
+    "id": 32,
+    "question": "What is a GitHub Release?",
+    "choices": [
+      "A packaged, stable version of your project",
+      "A deleted repository",
+      "A Git command",
+      "A type of branch"
+    ],
+    "answer": "A packaged, stable version of your project"
+  },
+  {
+    "id": 33,
+    "question": "What do release notes describe?",
+    "choices": [
+      "What changed in the release",
+      "Who owns the repository",
+      "How many branches exist",
+      "How many issues are open"
+    ],
+    "answer": "What changed in the release"
+  },
+  {
+    "id": 34,
+    "question": "What are release assets?",
+    "choices": [
+      "Files attached to a release",
+      "Deleted files",
+      "Git commands",
+      "Repository settings"
+    ],
+    "answer": "Files attached to a release"
+  },
+  {
+    "id": 35,
+    "question": "Why do releases use version numbers?",
+    "choices": [
+      "To show progress between versions",
+      "To delete old versions",
+      "To rename repositories",
+      "To hide commits"
+    ],
+    "answer": "To show progress between versions"
+  },
+  {
+    "id": 36,
+    "question": "Why are releases important?",
+    "choices": [
+      "They share stable versions of your project",
+      "They delete branches",
+      "They rename files",
+      "They hide issues"
+    ],
+    "answer": "They share stable versions of your project"
+  },
+  {
+    "id": 37,
+    "question": "Why might a solo developer use pull requests?",
+    "choices": [
+      "To organize work and keep a clean history",
+      "To delete repositories",
+      "To hide commits",
+      "To rename branches"
+    ],
+    "answer": "To organize work and keep a clean history"
+  },
+  {
+    "id": 38,
+    "question": "What is staging?",
+    "choices": [
+      "Preparing changes to be saved in a commit",
+      "Deleting files",
+      "Uploading assets",
+      "Renaming branches"
+    ],
+    "answer": "Preparing changes to be saved in a commit"
+  },
+  {
+    "id": 39,
+    "question": "What does Git status show?",
+    "choices": [
+      "Which files are new, changed, or ready to commit",
+      "Your GitHub password",
+      "Your billing information",
+      "Your repository name"
+    ],
+    "answer": "Which files are new, changed, or ready to commit"
+  },
+  {
+    "id": 40,
+    "question": "What is initialization?",
+    "choices": [
+      "Starting Git tracking inside a folder",
+      "Deleting a repository",
+      "Uploading files",
+      "Creating a release"
+    ],
+    "answer": "Starting Git tracking inside a folder"
+  },
+  {
+    "id": 41,
+    "question": "What is a conflict?",
+    "choices": [
+      "When two changes affect the same part of a file differently",
+      "When a repository is deleted",
+      "When a file is renamed",
+      "When a branch is created"
+    ],
+    "answer": "When two changes affect the same part of a file differently"
+  },
+  {
+    "id": 42,
+    "question": "What is an Issue?",
+    "choices": [
+      "A task, bug, or idea to track",
+      "A deleted file",
+      "A Git command",
+      "A release asset"
+    ],
+    "answer": "A task, bug, or idea to track"
+  },
+  {
+    "id": 43,
+    "question": "What is a branch used for?",
+    "choices": [
+      "Trying new ideas safely",
+      "Deleting files",
+      "Renaming repositories",
+      "Uploading assets"
+    ],
+    "answer": "Trying new ideas safely"
+  },
+  {
+    "id": 44,
+    "question": "What does merging do?",
+    "choices": [
+      "Combines work from one branch into another",
+      "Deletes a branch",
+      "Uploads files",
+      "Creates a release"
+    ],
+    "answer": "Combines work from one branch into another"
+  },
+  {
+    "id": 45,
+    "question": "What is the purpose of the Code tab?",
+    "choices": [
+      "To show your project’s files and structure",
+      "To show your GitHub billing",
+      "To show your notifications",
+      "To show your followers"
+    ],
+    "answer": "To show your project’s files and structure"
+  },
+  {
+    "id": 46,
+    "question": "What does the timeline help you do?",
+    "choices": [
+      "See how your project changed over time",
+      "Delete your repository",
+      "Rename your files",
+      "Upload assets"
+    ],
+    "answer": "See how your project changed over time"
+  },
+  {
+    "id": 47,
+    "question": "What is a tag?",
+    "choices": [
+      "A label marking an important commit",
+      "A deleted branch",
+      "A GitHub account",
+      "A type of file"
+    ],
+    "answer": "A label marking an important commit"
+  },
+  {
+    "id": 48,
+    "question": "What is a release asset?",
+    "choices": [
+      "A file attached to a release",
+      "A deleted file",
+      "A GitHub Issue",
+      "A branch"
+    ],
+    "answer": "A file attached to a release"
+  },
+  {
+    "id": 49,
+    "question": "What does a pull request allow?",
+    "choices": [
+      "Reviewing changes before merging",
+      "Deleting repositories",
+      "Renaming files",
+      "Uploading assets"
+    ],
+    "answer": "Reviewing changes before merging"
+  },
+  {
+    "id": 50,
+    "question": "What is the basic flow of a GitHub project?",
+    "choices": [
+      "Create repo → Add files → Commit → Branch → Pull request → Merge → Release",
+      "Create repo → Delete repo → Recreate repo",
+      "Upload files → Delete files → Upload again",
+      "Create branch → Never merge it"
+    ],
+    "answer": "Create repo → Add files → Commit → Branch → Pull request → Merge → Release"
+  }
+]
