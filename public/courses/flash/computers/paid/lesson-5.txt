@@ -1,0 +1,22 @@
+=== flash-computers-lesson5-paid ===
+
+processor [speed: medium] [intensity: strong]
+multitask [speed: fast] [intensity: sharp]
+optimize [speed: fast] [intensity: strong]
+performance [speed: medium] [intensity: deep]
+bandwidth [speed: fast] [intensity: sharp]
+latency [speed: fast] [intensity: strong]
+resolution [speed: medium] [intensity: soft]
+display [speed: slow] [intensity: soft]
+interface [speed: medium] [intensity: deep]
+operating-system [speed: slow] [intensity: deep]
+permissions [speed: medium] [intensity: strong]
+administrator [speed: slow] [intensity: deep]
+encryption [speed: fast] [intensity: sharp]
+firewall [speed: medium] [intensity: strong]
+protocol [speed: fast] [intensity: sharp]
+driver [speed: slow] [intensity: soft]
+firmware [speed: slow] [intensity: deep]
+diagnostics [speed: medium] [intensity: strong]
+
+=== end ===
