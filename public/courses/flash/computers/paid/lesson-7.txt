@@ -1,0 +1,19 @@
+=== flash-computers-lesson7-paid ===
+
+hypervisor [speed: slow] [intensity: deep]
+orchestration [speed: medium] [intensity: strong]
+scalability [speed: fast] [intensity: sharp]
+redundancy [speed: medium] [intensity: deep]
+load-balancing [speed: fast] [intensity: strong]
+distributed-system [speed: medium] [intensity: deep]
+container-registry [speed: fast] [intensity: sharp]
+microservices [speed: medium] [intensity: strong]
+latency-optimization [speed: fast] [intensity: sharp]
+network-topology [speed: slow] [intensity: deep]
+zero-trust [speed: medium] [intensity: strong]
+identity-provider [speed: slow] [intensity: deep]
+infrastructure [speed: medium] [intensity: strong]
+automation-pipeline [speed: fast] [intensity: sharp]
+monitoring-agent [speed: medium] [intensity: soft]
+
+=== end ===
