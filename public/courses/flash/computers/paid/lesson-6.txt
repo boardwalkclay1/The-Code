@@ -1,0 +1,19 @@
+=== flash-computers-lesson6-paid ===
+
+architecture [speed: slow] [intensity: deep]
+instruction-set [speed: medium] [intensity: strong]
+cache-memory [speed: fast] [intensity: sharp]
+threading [speed: fast] [intensity: strong]
+virtualization [speed: medium] [intensity: deep]
+containerization [speed: fast] [intensity: sharp]
+filesystem [speed: slow] [intensity: soft]
+partition [speed: medium] [intensity: strong]
+bootloader [speed: slow] [intensity: deep]
+kernel [speed: medium] [intensity: strong]
+scheduler [speed: fast] [intensity: sharp]
+permissions [speed: medium] [intensity: strong]
+encryption-key [speed: fast] [intensity: sharp]
+certificate [speed: medium] [intensity: soft]
+endpoint [speed: slow] [intensity: deep]
+
+=== end ===
