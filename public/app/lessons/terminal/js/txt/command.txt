@@ -1,0 +1,73 @@
+# Terminal 1 — command list (no duplicates)
+# Place at: /courses/terminal-1/txt/command.txt
+
+intro :: Show the cinematic welcome and orientation for Terminal 1
+help :: Show the help index for Terminal 1
+clear :: Clear the terminal screen
+version :: Show Terminal 1 version and build info
+exit :: Exit the landing terminal
+quit :: Alias for exit
+control c :: Cancel current screen or exit paged view
+
+why :: Explain why coding matters and how it shapes the world
+power :: Explain coding as a superpower and leverage
+hidden :: Explain coding as hidden knowledge and why few people build
+impact :: Show industries and everyday systems that run on code
+create :: Show what you can invent with code
+future :: Explain how coding shapes the future and careers
+systems :: Explain systems thinking and software as systems
+mindset :: Explain the builder mindset and learning habits
+
+fields :: List all fields and industries coding touches
+jobs :: Show common job paths and roles that use code
+money :: Explain earning potential and monetization paths
+examples :: Show concrete examples of things built with code
+stories :: Short success stories and case studies
+map :: Show the learning map from beginner to mastery
+automation :: Explain automation with everyday examples and quick wins
+
+math :: Open the Math class overview and syllabus
+math explain :: Explain why math matters for coding and systems
+math beginner :: Beginner math module: arithmetic, logic, and patterns
+math intermediate :: Intermediate math module: algebra, functions, and discrete thinking
+math practice :: Launch short math drills and examples in-terminal
+
+typing :: Open the Typing class overview and syllabus
+typing explain :: Explain why typing speed and accuracy matter for coding
+typing course :: Start the Typing course with lessons and drills
+typing practice :: Launch typing practice exercises and timed drills
+typing progress :: Show typing speed and accuracy progress
+
+scan :: Run a cinematic system scan animation
+matrix :: Run a matrix rain visual effect
+pulse :: Run a pulse animation and short cinematic text
+trace :: Trace a system path animation and explanation
+vision :: Show a future vision sequence and narrative
+fortune :: Show a short motivational fortune
+quote :: Show a curated motivational quote
+tip :: Show a random learning tip
+
+enter :: Explain how to enter Terminal 2 and what to expect
+terminal2 :: Alias for enter
+unlock :: Explain what unlocking Terminal 2 does
+next :: Suggest the next step toward learning and practice
+code unlock :: Unlock and load Terminal 2 (the single gateway command)
+
+truth :: Show the truth layer teaser about systems and power
+deep :: Show deeper truth and philosophical text about learning
+structure :: Explain the structure of software and systems
+layers :: Explain layers of technology from hardware to UX
+flow :: Explain data flow and event-driven thinking
+
+preview :: Show a simulated preview window and explanation
+panel :: Show a simulated file panel and explanation
+tools :: Show available tools and mark them locked until Terminal 2
+git :: Show a simulated git screen marked locked
+fs :: Show a simulated filesystem screen marked locked
+
+support :: Show how to get help and contact info
+privacy :: Show privacy and data handling summary
+terms :: Show terms and acceptable use summary
+about :: Short description of Terminal 1 and the learning philosophy
+credits :: Show credits and acknowledgements
+changelog :: Show recent changes to Terminal 1 content
