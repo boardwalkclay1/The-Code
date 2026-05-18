@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Typing Course – Code & Hacking</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 1rem;
+      background: #050810;
+      color: #e5f5ff;
+    }
+    .app {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    textarea, input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      border-radius: 4px;
+      border: 1px solid #1f2933;
+      background: #02040a;
+      color: #e5f5ff;
+      font-family: monospace;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      margin: 0.25rem 0.25rem 0.25rem 0;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      background: #16a34a;
+      color: #f9fafb;
+      font-weight: 600;
+    }
+    button.secondary {
+      background: #1f2933;
+    }
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+    }
+    .stat {
+      padding: 0.4rem 0.6rem;
+      border-radius: 4px;
+      background: #020617;
+      border: 1px solid #1f2933;
+    }
+    select {
+      padding: 0.4rem;
+      border-radius: 4px;
+      border: 1px solid #1f2933;
+      background: #02040a;
+      color: #e5f5ff;
+    }
+    @media (max-width: 600px) {
+      body { padding: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <h1>Typing Course: Hack the Code</h1>
+    <p>Select a level, start the timer, and type the code-themed text as fast and accurately as you can.</p>
+
+    <label for="levelSelect">Level</label>
+    <select id="levelSelect"></select>
+
+    <h2 id="levelTitle"></h2>
+    <p id="targetText"></p>
+
+    <button id="startBtn">Start</button>
+    <button id="resetBtn" class="secondary">Reset</button>
+
+    <textarea id="typingArea" rows="8" placeholder="Start typing here..." disabled></textarea>
+
+    <div class="stats">
+      <div class="stat">Time: <span id="timeStat">0.0</span> s</div>
+      <div class="stat">WPM: <span id="wpmStat">0</span></div>
+      <div class="stat">Accuracy: <span id="accuracyStat">100%</span></div>
+      <div class="stat">Best WPM (level): <span id="bestWpmStat">–</span></div>
+    </div>
+
+    <h3>Progress</h3>
+    <p id="progressSummary"></p>
+  </div>
+
+  <script src="../js/levels.js"></script>
+  <script src="../js/master.js"></script>
+</body>
+</html>
