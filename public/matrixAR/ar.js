@@ -1,4 +1,6 @@
-// MATRIX AR ENGINE
+// =========================================================
+// MATRIX AR ENGINE + TERMINAL SWITCHING (ALL-IN-ONE)
+// =========================================================
 
 let video, overlay, rainCanvas, ctx, rainCtx
 let width, height
@@ -9,7 +11,32 @@ const chars = "アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXY
 let rainColumns = []
 let rainSpeed = 60
 
-export function startMatrixAR() {
+// =========================================================
+// PUBLIC ENTRY POINT — CALL THIS FROM ANY TERMINAL
+// =========================================================
+export function runMatrixAR() {
+    const terminal = document.getElementById("terminal")
+    const ar = document.getElementById("matrix-ar")
+
+    // hide terminal, show AR
+    terminal.classList.add("hidden")
+    ar.classList.remove("hidden")
+
+    // start AR engine
+    startMatrixAR()
+
+    // back button logic
+    document.getElementById("backToTerminal").onclick = () => {
+        stopMatrixAR()
+        ar.classList.add("hidden")
+        terminal.classList.remove("hidden")
+    }
+}
+
+// =========================================================
+// START AR MODE
+// =========================================================
+function startMatrixAR() {
     video = document.getElementById("camera")
     overlay = document.getElementById("overlay")
     rainCanvas = document.getElementById("rain")
@@ -27,6 +54,21 @@ export function startMatrixAR() {
     setupControls()
 }
 
+// =========================================================
+// STOP AR MODE (cleanup)
+// =========================================================
+function stopMatrixAR() {
+    running = false
+
+    if (video && video.srcObject) {
+        let tracks = video.srcObject.getTracks()
+        tracks.forEach(t => t.stop())
+    }
+}
+
+// =========================================================
+// DIGITAL RAIN SETUP
+// =========================================================
 function setupRain() {
     width = rainCanvas.width = window.innerWidth
     height = rainCanvas.height = window.innerHeight
@@ -35,6 +77,9 @@ function setupRain() {
     rainColumns = new Array(columns).fill(0)
 }
 
+// =========================================================
+// DIGITAL RAIN LOOP
+// =========================================================
 function rainLoop() {
     if (!running) return
 
@@ -58,6 +103,9 @@ function rainLoop() {
     requestAnimationFrame(rainLoop)
 }
 
+// =========================================================
+// MAIN AR LOOP
+// =========================================================
 function loop() {
     if (!running) return
 
@@ -79,6 +127,9 @@ function loop() {
     requestAnimationFrame(loop)
 }
 
+// =========================================================
+// NEON EDGE DETECTION
+// =========================================================
 function applyNeonEdges() {
     const frame = ctx.getImageData(0, 0, overlay.width, overlay.height)
     const data = frame.data
@@ -93,6 +144,9 @@ function applyNeonEdges() {
     ctx.putImageData(frame, 0, 0)
 }
 
+// =========================================================
+// GLITCH EFFECT
+// =========================================================
 function applyGlitch() {
     const sliceHeight = 5
     for (let y = 0; y < overlay.height; y += sliceHeight) {
@@ -105,13 +159,26 @@ function applyGlitch() {
     }
 }
 
+// =========================================================
+// HUD UPDATES
+// =========================================================
 function updateHUD() {
-    document.getElementById("matrix-ar-fps").textContent = "FPS: " + Math.floor(60 + Math.random() * 5)
-    document.getElementById("matrix-ar-target").textContent = "OBJECT-" + Math.floor(Math.random() * 999)
-    document.getElementById("matrix-ar-depth").textContent = (Math.random() * 5).toFixed(2) + " m"
-    document.getElementById("matrix-ar-vector").textContent = "[" + (Math.random()*2-1).toFixed(2) + ", " + (Math.random()*2-1).toFixed(2) + "]"
+    document.getElementById("matrix-ar-fps").textContent =
+        "FPS: " + Math.floor(60 + Math.random() * 5)
+
+    document.getElementById("matrix-ar-target").textContent =
+        "OBJECT-" + Math.floor(Math.random() * 999)
+
+    document.getElementById("matrix-ar-depth").textContent =
+        (Math.random() * 5).toFixed(2) + " m"
+
+    document.getElementById("matrix-ar-vector").textContent =
+        "[" + (Math.random()*2-1).toFixed(2) + ", " + (Math.random()*2-1).toFixed(2) + "]"
 }
 
+// =========================================================
+// UI CONTROLS
+// =========================================================
 function setupControls() {
     document.getElementById("rainSpeedSlider").oninput = e => {
         rainSpeed = Number(e.target.value)
