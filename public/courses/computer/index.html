@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Computer Course – Matrix Academy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #000;
+            color: #00ff41;
+            font-family: "Share Tech Mono", monospace;
+        }
+        .hidden { display: none !important; }
+
+        .course-root {
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .course-header {
+            border-bottom: 1px solid #003b1f;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .course-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .course-subtitle {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        .course-tagline {
+            font-size: 13px;
+            opacity: 0.8;
+            margin-top: 6px;
+        }
+
+        .course-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
+            gap: 20px;
+        }
+
+        .course-section {
+            border: 1px solid #003b1f;
+            padding: 14px;
+            background: rgba(0, 20, 0, 0.4);
+        }
+
+        .course-section h2 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #003b1f;
+            padding-bottom: 4px;
+        }
+
+        .course-section h3 {
+            font-size: 14px;
+            margin-top: 10px;
+            margin-bottom: 4px;
+        }
+
+        .course-section p {
+            font-size: 13px;
+            line-height: 1.4;
+            margin-bottom: 6px;
+        }
+
+        .course-list {
+            list-style: none;
+            margin-left: 0;
+            margin-bottom: 6px;
+        }
+
+        .course-list li::before {
+            content: ">";
+            margin-right: 6px;
+            color: #00ff41;
+        }
+
+        .course-highlight {
+            color: #00ff41;
+        }
+
+        .course-note {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .course-shortcut-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 6px;
+        }
+
+        .shortcut-card {
+            border: 1px solid #003b1f;
+            padding: 6px;
+            font-size: 12px;
+        }
+
+        .shortcut-title {
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+
+        .shortcut-keys {
+            color: #00ff41;
+        }
+
+        .course-typing {
+            margin-top: 8px;
+            border-top: 1px solid #003b1f;
+            padding-top: 8px;
+        }
+
+        .typing-display {
+            border: 1px dashed #003b1f;
+            padding: 6px;
+            min-height: 40px;
+            font-size: 13px;
+        }
+
+        .typing-input {
+            width: 100%;
+            margin-top: 6px;
+            padding: 6px;
+            background: #000;
+            border: 1px solid #003b1f;
+            color: #00ff41;
+            font-family: inherit;
+            font-size: 13px;
+        }
+
+        .course-footer {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .course-btn-row {
+            display: flex;
+            gap: 8px;
+        }
+
+        .course-btn {
+            padding: 6px 12px;
+            border: 1px solid #00ff41;
+            background: transparent;
+            color: #00ff41;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .course-btn--primary {
+            background: #00ff41;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <!-- Assume #terminal exists in main app; this page is loaded into the app shell -->
+    <div id="computer-course" class="course-root">
+        <header class="course-header">
+            <div>
+                <div class="course-title">COMPUTER COURSE</div>
+                <div class="course-subtitle">FREE MODULE · MATRIX ACADEMY</div>
+                <div class="course-tagline">
+                    Learn what a computer is, why it matters, and how to actually drive it.
+                </div>
+            </div>
+            <div class="course-subtitle">
+                FOCUS: UNDERSTANDING · SHORTCUTS · TYPING · CONFIDENCE
+            </div>
+        </header>
+
+        <main class="course-layout">
+            <!-- LEFT: THEORY + SHORTCUTS -->
+            <section class="course-section">
+                <h2>1. What a computer is and what it does</h2>
+                <p>
+                    A <span class="course-highlight">computer</span> is a machine that takes
+                    <span class="course-highlight">input</span>, processes it using
+                    <span class="course-highlight">instructions</span>, and produces
+                    <span class="course-highlight">output</span>. It stores data, runs programs,
+                    connects to networks, and automates tasks that would be slow or impossible by hand.
+                </p>
+                <p>
+                    With a computer, you can create, learn, communicate, design, code, and manage information.
+                    Without one, you rely on slower, manual, or limited tools.
+                </p>
+
+                <h3>Advantages of having a computer</h3>
+                <ul class="course-list">
+                    <li>Faster access to information and learning</li>
+                    <li>Ability to create documents, art, code, and media</li>
+                    <li>Automation of repetitive tasks</li>
+                    <li>Communication with people and systems worldwide</li>
+                    <li>Better organization of files, notes, and projects</li>
+                </ul>
+
+                <h3>Without a computer</h3>
+                <ul class="course-list">
+                    <li>More manual work and slower workflows</li>
+                    <li>Limited access to digital tools and opportunities</li>
+                    <li>Harder to practice modern skills (coding, design, remote work)</li>
+                </ul>
+
+                <h2>2. Why math and spelling matter for computers</h2>
+                <p>
+                    Computers are logical. Commands, file names, and code must be typed
+                    <span class="course-highlight">accurately</span>. Practicing
+                    <span class="course-highlight">math</span> sharpens your logic and problem‑solving.
+                    Practicing <span class="course-highlight">spelling</span> improves your accuracy when
+                    typing commands, paths, and code.
+                </p>
+                <p>
+                    It’s not just about typing fast. It’s about typing
+                    <span class="course-highlight">correctly</span> and thinking clearly.
+                </p>
+
+                <h2>3. It’s not all about typing speed</h2>
+                <p>
+                    Typing speed helps, but real power comes from
+                    <span class="course-highlight">shortcuts</span>. Shortcuts reduce clicks,
+                    save time, and make you feel in control instead of lost.
+                </p>
+                <p>
+                    You’ll learn shortcuts for:
+                </p>
+                <ul class="course-list">
+                    <li>PowerShell</li>
+                    <li>Bash</li>
+                    <li>Git/GitHub</li>
+                    <li>Saving, copying, and managing files</li>
+                </ul>
+            </section>
+
+            <!-- RIGHT: SHORTCUT CARDS + TYPING PRACTICE -->
+            <section class="course-section">
+                <h2>4. Core shortcuts by category</h2>
+
+                <div class="course-shortcut-grid">
+                    <div class="shortcut-card">
+                        <div class="shortcut-title">General (Windows / Desktop)</div>
+                        <div class="shortcut-keys">Ctrl + C / Ctrl + V</div>
+                        <div>Copy / Paste</div>
+                        <div class="shortcut-keys">Ctrl + S</div>
+                        <div>Save</div>
+                        <div class="shortcut-keys">Alt + Tab</div>
+                        <div>Switch apps</div>
+                    </div>
+
+                    <div class="shortcut-card">
+                        <div class="shortcut-title">PowerShell</div>
+                        <div class="shortcut-keys">Up / Down Arrow</div>
+                        <div>Cycle command history</div>
+                        <div class="shortcut-keys">Tab</div>
+                        <div>Auto‑complete paths/commands</div>
+                        <div class="shortcut-keys">Ctrl + C</div>
+                        <div>Cancel running command</div>
+                    </div>
+
+                    <div class="shortcut-card">
+                        <div class="shortcut-title">Bash / Terminal</div>
+                        <div class="shortcut-keys">Ctrl + A / Ctrl + E</div>
+                        <div>Jump to start / end of line</div>
+                        <div class="shortcut-keys">Ctrl + R</div>
+                        <div>Search command history</div>
+                        <div class="shortcut-keys">Tab</div>
+                        <div>Auto‑complete</div>
+                    </div>
+
+                    <div class="shortcut-card">
+                        <div class="shortcut-title">Git / GitHub (CLI)</div>
+                        <div class="shortcut-keys">git status</div>
+                        <div>See what changed</div>
+                        <div class="shortcut-keys">git add .</div>
+                        <div>Stage all changes</div>
+                        <div class="shortcut-keys">git commit -m "msg"</div>
+                        <div>Save a snapshot</div>
+                    </div>
+                </div>
+
+                <div class="course-typing">
+                    <h3>5. Typing practice (accuracy first)</h3>
+                    <p class="course-note">
+                        Focus on hitting the right keys, not rushing. Accuracy builds confidence.
+                    </p>
+                    <div id="typingPrompt" class="typing-display">
+                        Press "Start Typing Lesson" to get a prompt.
+                    </div>
+                    <input
+                        id="typingInput"
+                        class="typing-input"
+                        type="text"
+                        placeholder="Type the prompt here..."
+                        autocomplete="off"
+                    />
+                    <div id="typingFeedback" class="course-note"></div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="course-footer">
+            <div class="course-btn-row">
+                <button id="courseBackToTerminal" class="course-btn">
+                    &lt; BACK TO TERMINAL
+                </button>
+            </div>
+            <div class="course-btn-row">
+                <button id="startTypingLesson" class="course-btn course-btn--primary">
+                    START TYPING LESSON
+                </button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Hook to your JS logic for this course -->
+    <script type="module" src="./computer-course.js"></script>
+</body>
+</html>
