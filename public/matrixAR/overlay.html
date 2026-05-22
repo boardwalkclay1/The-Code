@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Matrix AR Overlay</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Matrix AR Styles -->
+    <link rel="stylesheet" href="./overlay.css" />
+</head>
+<body>
+    <!-- Terminal container (your existing app) -->
+    <!-- This is assumed to exist in your main app layout.
+         The AR overlay will hide/show this via JS. -->
+    <div id="terminal" class="terminal-root">
+        <!-- your terminal UI lives here -->
+    </div>
+
+    <!-- MATRIX AR OVERLAY ROOT -->
+    <div id="matrix-ar" class="matrix-ar hidden">
+        <!-- BACKGROUND LAYERS -->
+        <div class="matrix-ar__bg">
+            <!-- Camera feed -->
+            <video id="camera" class="matrix-ar__camera" autoplay playsinline muted></video>
+
+            <!-- Main AR canvas (edges, wireframes, etc.) -->
+            <canvas id="overlay" class="matrix-ar__canvas"></canvas>
+
+            <!-- Digital rain canvas (separate layer for effects) -->
+            <canvas id="rain" class="matrix-ar__canvas matrix-ar__canvas--rain"></canvas>
+        </div>
+
+        <!-- HUD / UI LAYER -->
+        <div class="matrix-ar__hud">
+            <!-- Top bar -->
+            <div class="matrix-ar__topbar">
+                <div class="matrix-ar__brand">
+                    <span class="matrix-ar__brand-label">MATRIX AR</span>
+                    <span class="matrix-ar__brand-sub">SIMULATION VIEW</span>
+                </div>
+
+                <div class="matrix-ar__status">
+                    <span class="matrix-ar__status-light matrix-ar__status-light--active"></span>
+                    <span class="matrix-ar__status-text">LINK: ONLINE</span>
+                    <span class="matrix-ar__status-text" id="matrix-ar-fps">FPS: --</span>
+                </div>
+            </div>
+
+            <!-- Center crosshair / reticle -->
+            <div class="matrix-ar__reticle">
+                <div class="matrix-ar__reticle-ring"></div>
+                <div class="matrix-ar__reticle-cross"></div>
+            </div>
+
+            <!-- Left HUD panel: layers & toggles -->
+            <div class="matrix-ar__panel matrix-ar__panel--left">
+                <div class="matrix-ar__panel-title">LAYERS</div>
+
+                <div class="matrix-ar__toggle">
+                    <label>
+                        <input type="checkbox" id="toggleEdges" checked />
+                        <span>NEON EDGES</span>
+                    </label>
+                </div>
+
+                <div class="matrix-ar__toggle">
+                    <label>
+                        <input type="checkbox" id="toggleRain" checked />
+                        <span>DIGITAL RAIN</span>
+                    </label>
+                </div>
+
+                <div class="matrix-ar__toggle">
+                    <label>
+                        <input type="checkbox" id="toggleGlitch" />
+                        <span>GLITCH</span>
+                    </label>
+                </div>
+
+                <div class="matrix-ar__toggle">
+                    <label>
+                        <input type="checkbox" id="toggleHudGrid" checked />
+                        <span>HUD GRID</span>
+                    </label>
+                </div>
+
+                <div class="matrix-ar__divider"></div>
+
+                <div class="matrix-ar__slider-group">
+                    <label for="intensitySlider">INTENSITY</label>
+                    <input type="range" id="intensitySlider" min="0" max="100" value="70" />
+                </div>
+
+                <div class="matrix-ar__slider-group">
+                    <label for="rainSpeedSlider">RAIN SPEED</label>
+                    <input type="range" id="rainSpeedSlider" min="10" max="120" value="60" />
+                </div>
+            </div>
+
+            <!-- Right HUD panel: fake scan data -->
+            <div class="matrix-ar__panel matrix-ar__panel--right">
+                <div class="matrix-ar__panel-title">SCAN DATA</div>
+
+                <div class="matrix-ar__data-row">
+                    <span class="matrix-ar__data-label">TARGET</span>
+                    <span class="matrix-ar__data-value" id="matrix-ar-target">ACQUIRING...</span>
+                </div>
+
+                <div class="matrix-ar__data-row">
+                    <span class="matrix-ar__data-label">DEPTH</span>
+                    <span class="matrix-ar__data-value" id="matrix-ar-depth">--.-- m</span>
+                </div>
+
+                <div class="matrix-ar__data-row">
+                    <span class="matrix-ar__data-label">VECTOR</span>
+                    <span class="matrix-ar__data-value" id="matrix-ar-vector">[0.00, 0.00]</span>
+                </div>
+
+                <div class="matrix-ar__data-row">
+                    <span class="matrix-ar__data-label">SIGNAL</span>
+                    <span class="matrix-ar__data-value" id="matrix-ar-signal">STABLE</span>
+                </div>
+
+                <div class="matrix-ar__divider"></div>
+
+                <div class="matrix-ar__log">
+                    <div class="matrix-ar__log-line">[BOOT] MATRIX AR ONLINE</div>
+                    <div class="matrix-ar__log-line">[CAM] INITIALIZING FEED...</div>
+                    <div class="matrix-ar__log-line">[SCAN] EDGE DETECTION ENABLED</div>
+                    <div class="matrix-ar__log-line">[RAIN] DIGITAL STREAM ACTIVE</div>
+                </div>
+            </div>
+
+            <!-- Bottom bar: controls -->
+            <div class="matrix-ar__bottombar">
+                <button id="backToTerminal" class="matrix-ar__btn matrix-ar__btn--primary">
+                    &lt; BACK TO TERMINAL
+                </button>
+
+                <div class="matrix-ar__bottombar-center">
+                    <button id="matrix-ar-pause" class="matrix-ar__btn matrix-ar__btn--ghost">
+                        PAUSE
+                    </button>
+                    <button id="matrix-ar-snapshot" class="matrix-ar__btn matrix-ar__btn--ghost">
+                        SNAPSHOT
+                    </button>
+                </div>
+
+                <div class="matrix-ar__bottombar-right">
+                    <span class="matrix-ar__hint">CMD: <span class="matrix-ar__hint-key">matrix-ar</span></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Optional: subtle grid overlay (toggled via JS) -->
+        <div id="matrix-ar-grid" class="matrix-ar__grid"></div>
+    </div>
+
+    <!-- Matrix AR logic -->
+    <script type="module" src="./ar.js"></script>
+</body>
+</html>
